@@ -1,0 +1,23 @@
+---
+title: "Welcome to the TOPIC Tutorial!"
+---
+
+THIS IS YOUR HOME PAGE FILE. DO NOT RENAME OR DELETE THIS FILE.
+
+
+# Tutorial Overview
+
+This **self-paced tutorial** is intended to take X hours to complete.
+
+The tutorial is split into the following sections:
+
+1.  [**TOPIC1**]() talks about TOPIC1
+2.  [**TOPIC2**]() discusses TOPIC2
+
+
+::: {.callout-tip title="Recommended Software"}
+This tutorial assumes you have the following software installed:
+
+-   SOME SOFTWARE + LINK HERE
+
+:::
