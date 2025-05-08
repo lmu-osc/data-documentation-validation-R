@@ -2,6 +2,10 @@
 title: "Data Dictionary using R Tutorial"
 ---
 
+::: {.callout-warning}
+This tutorial is currently a work in progress.
+:::
+
 This tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.
 
 # Tutorial Overview

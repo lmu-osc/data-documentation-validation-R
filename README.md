@@ -1,6 +1,7 @@
-# Tutorial Template
+# Data Dictionary using R
 
-This repo serves as the template/basis for our Quarto tutorials.
+> [!NOTE]
+> This is a work in progress.
 
 ## Check `CITATION.cff` Format
 
