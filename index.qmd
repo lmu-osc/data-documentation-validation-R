@@ -1,9 +1,8 @@
 ---
-title: "Welcome to the TOPIC Tutorial!"
+title: "Data Dictionary using R Tutorial"
 ---
 
-THIS IS YOUR HOME PAGE FILE. DO NOT RENAME OR DELETE THIS FILE.
-
+This tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.
 
 # Tutorial Overview
 
@@ -11,8 +10,9 @@ This **self-paced tutorial** is intended to take X hours to complete.
 
 The tutorial is split into the following sections:
 
-1.  [**TOPIC1**]() talks about TOPIC1
-2.  [**TOPIC2**]() discusses TOPIC2
+1.  [**Data Description**]() talks about the importance of data description and how to create a data dictionary.
+2.  [**Summary Statistics**]() discusses how to generate summary statistics for your data which is crucial for understanding the distribution and characteristics of your variables.
+3.  [**Data Validation**]() covers how to add validation rules to your data dictionary, ensuring that the data collected meets certain criteria.
 
 
 ::: {.callout-tip title="Recommended Software"}

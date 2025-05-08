@@ -8,7 +8,7 @@ project:
 
 # Begin Website
 website:
-  title: "TUTORIAL TITLE HERE"
+  title: "Data Dictionary using R"
   page-footer: 
     center: "Copyright, 2024 Open Science Center at LMU Munich"
     border: false
@@ -45,20 +45,34 @@ website:
     contents:
       - text: "Overview"
         href: index.qmd
-      - section: "TOPIC 1"
+        # Intro to the whole thing, why data dictionaries + open science, packages we'll use
+      - section: "Data Description"
         contents:
-          - href: TOPIC1/page1.qmd
-            text: "TOPIC1 Page1 Title"
-          - href: TOPIC1/page2.qmd
-            text: "TOPIC1 Page2 Title"
-      - section: "TOPIC 2"
+          - href: 01-data-description/page1.qmd
+            text: "Introduction to Data Description"
+            # What it is, why it matters (especially for sharing!), key info in a data dictionary. Hello {pointblank}
+          - href: 01-data-description/page2.qmd
+            text: "Creating Data Dictionaries with {pointblank}"
+      - section: "Summary Statistics"
         contents:
-          - href: TOPIC2/page1.qmd
-            text: "TOPIC2 Page1 Title"
-          - href: TOPIC2/page2.qmd
-            text: "TOPIC2 Page2 Title"
-          - href: TOPIC2/page3.qmd
-            text: "TOPIC2 Page3 Title"
+          - href: 02-summary-statistics/page1.qmd
+            text: "Exploring Data with Summary Statistics"
+          - href: 02-summary-statistics/page2.qmd
+            text: "Generating Summary Tables with {pointblank}"
+          - href: 02-summary-statistics/page3.qmd
+            text: "Exploring Other Summary Statistics Packages"
+      - section: "Data Validation"
+        contents:
+          - href: 03-data-validation/page1.qmd
+            text: "Introduction to Data Validation in R"
+            # What's validation? Why for open science? Quick intro to different R tools
+          - href: 03-data-validation/page2.qmd
+            text: "Implementing Validation with {pointblank}"
+            # Getting our hands dirty with {pointblank} rules, running checks, reading results
+          - href: 03-data-validation/page3.qmd
+            text: "Exploring Other Data Validation Packages"
+
+
 # End Website
 
 

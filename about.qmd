@@ -3,7 +3,7 @@ title: "About"
 date: YYYY-MM-DD
 citation:
   type: "webpage"
-  title: "TITLE HERE"
+  title: "Data Dictionary using R Tutorial"
   container-title: "LMU Open Science Center"
   url: https://lmu-osc.github.io/
   doi: "DOI HERE"
