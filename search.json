@@ -1,5 +1,222 @@
 [
   {
+    "objectID": "02-summary-statistics/page1.html",
+    "href": "02-summary-statistics/page1.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Exploring Data with Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page1.html#level-two",
+    "href": "02-summary-statistics/page1.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Exploring Data with Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page1.html#another-level-two",
+    "href": "02-summary-statistics/page1.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Exploring Data with Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page1.html#level-two-1",
+    "href": "02-summary-statistics/page1.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Exploring Data with Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page2.html",
+    "href": "02-summary-statistics/page2.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Generating Summary Tables with {pointblank}"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page2.html#level-two",
+    "href": "02-summary-statistics/page2.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Generating Summary Tables with {pointblank}"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page2.html#another-level-two",
+    "href": "02-summary-statistics/page2.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Generating Summary Tables with {pointblank}"
+    ]
+  },
+  {
+    "objectID": "02-summary-statistics/page2.html#level-two-1",
+    "href": "02-summary-statistics/page2.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "Summary Statistics",
+      "Generating Summary Tables with {pointblank}"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html",
+    "href": "03-data-validation/page3.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Exploring Other Data Validation Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#level-two",
+    "href": "03-data-validation/page3.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Exploring Other Data Validation Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#another-level-two",
+    "href": "03-data-validation/page3.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Exploring Other Data Validation Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#level-two-1",
+    "href": "03-data-validation/page3.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Exploring Other Data Validation Packages"
+    ]
+  },
+  {
+    "objectID": "01-data-description/page1.html",
+    "href": "01-data-description/page1.html",
+    "title": "Page Title Here",
+    "section": "",
+    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "crumbs": [
+      "Home",
+      "Data Description",
+      "Introduction to Data Description"
+    ]
+  },
+  {
+    "objectID": "01-data-description/page1.html#level-two",
+    "href": "01-data-description/page1.html#level-two",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "crumbs": [
+      "Home",
+      "Data Description",
+      "Introduction to Data Description"
+    ]
+  },
+  {
+    "objectID": "01-data-description/page1.html#another-level-two",
+    "href": "01-data-description/page1.html#another-level-two",
+    "title": "Page Title Here",
+    "section": "Another Level Two",
+    "text": "Another Level Two",
+    "crumbs": [
+      "Home",
+      "Data Description",
+      "Introduction to Data Description"
+    ]
+  },
+  {
+    "objectID": "01-data-description/page1.html#level-two-1",
+    "href": "01-data-description/page1.html#level-two-1",
+    "title": "Page Title Here",
+    "section": "Level Two",
+    "text": "Level Two",
+    "crumbs": [
+      "Home",
+      "Data Description",
+      "Introduction to Data Description"
+    ]
+  },
+  {
+    "objectID": "LICENSE-CODE.html",
+    "href": "LICENSE-CODE.html",
+    "title": "Creative Commons Zero v1.0 Universal",
+    "section": "",
+    "text": "Creative Commons Zero v1.0 Universal\nCREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN “AS-IS” BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER.\n\nStatement of Purpose\nThe laws of most jurisdictions throughout the world automatically confer exclusive Copyright and Related Rights (defined below) upon the creator and subsequent owner(s) (each and all, an “owner”) of an original work of authorship and/or a database (each, a “Work”).\nCertain owners wish to permanently relinquish those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific works (“Commons”) that the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes. These owners may contribute to the Commons to promote the ideal of a free culture and the further production of creative, cultural and scientific works, or to gain reputation or greater distribution for their Work in part through the use and efforts of others.\nFor these and/or other purposes and motivations, and without any expectation of additional consideration or compensation, the person associating CC0 with a Work (the “Affirmer”), to the extent that he or she is an owner of Copyright and Related Rights in the Work, voluntarily elects to apply CC0 to the Work and publicly distribute the Work under its terms, with knowledge of his or her Copyright and Related Rights in the Work and the meaning and intended legal effect of CC0 on those rights.\n\nCopyright and Related Rights. A Work made available under CC0 may be protected by copyright and related or neighboring rights (“Copyright and Related Rights”). Copyright and Related Rights include, but are not limited to, the following:\n\nthe right to reproduce, adapt, distribute, perform, display, communicate, and translate a Work;\nmoral rights retained by the original author(s) and/or performer(s);\npublicity and privacy rights pertaining to a person’s image or likeness depicted in a Work;\nrights protecting against unfair competition in regards to a Work, subject to the limitations in paragraph 4(a), below;\nrights protecting the extraction, dissemination, use and reuse of data in a Work;\ndatabase rights (such as those arising under Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, and under any national implementation thereof, including any amended or successor version of such directive); and\nother similar, equivalent or corresponding rights throughout the world based on applicable law or treaty, and any national implementations thereof.\n\nWaiver. To the greatest extent permitted by, but not in contravention of, applicable law, Affirmer hereby overtly, fully, permanently, irrevocably and unconditionally waives, abandons, and surrenders all of Affirmer’s Copyright and Related Rights and associated claims and causes of action, whether now known or unknown (including existing as well as future claims and causes of action), in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “Waiver”). Affirmer makes the Waiver for the benefit of each member of the public at large and to the detriment of Affirmer’s heirs and successors, fully intending that such Waiver shall not be subject to revocation, rescission, cancellation, termination, or any other legal or equitable action to disrupt the quiet enjoyment of the Work by the public as contemplated by Affirmer’s express Statement of Purpose.\nPublic License Fallback. Should any part of the Waiver for any reason be judged legally invalid or ineffective under applicable law, then the Waiver shall be preserved to the maximum extent permitted taking into account Affirmer’s express Statement of Purpose. In addition, to the extent the Waiver is so judged Affirmer hereby grants to each affected person a royalty-free, non transferable, non sublicensable, non exclusive, irrevocable and unconditional license to exercise Affirmer’s Copyright and Related Rights in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “License”). The License shall be deemed effective as of the date CC0 was applied by Affirmer to the Work. Should any part of the License for any reason be judged legally invalid or ineffective under applicable law, such partial invalidity or ineffectiveness shall not invalidate the remainder of the License, and in such case Affirmer hereby affirms that he or she will not (i) exercise any of his or her remaining Copyright and Related Rights in the Work or (ii) assert any associated claims and causes of action with respect to the Work, in either case contrary to Affirmer’s express Statement of Purpose.\nLimitations and Disclaimers.\n\nNo trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\nAffirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.\nAffirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person’s Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.\nAffirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Dictionary using R Tutorial",
+    "section": "",
+    "text": "Warning\n\n\n\nThis tutorial is currently a work in progress.\n\n\nThis tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nData Description talks about the importance of data description and how to create a data dictionary.\nSummary Statistics discusses how to generate summary statistics for your data which is crucial for understanding the distribution and characteristics of your variables.\nData Validation covers how to add validation rules to your data dictionary, ensuring that the data collected meets certain criteria.\n\n\n\n\n\n\n\nRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Contributors\nThis site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{1,\n  author = {1, AUTHOR},\n  title = {Data {Dictionary} Using {R} {Tutorial}},\n  date = {},\n  url = {https://lmu-osc.github.io/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n1, AUTHOR. n.d. “Data Dictionary Using R Tutorial.” LMU\nOpen Science Center. https://doi.org/DOI HERE."
+  },
+  {
     "objectID": "LICENSE.html",
     "href": "LICENSE.html",
     "title": "Creative Commons Attribution-ShareAlike 4.0 International",
@@ -62,113 +279,6 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Dictionary using R Tutorial",
-    "section": "",
-    "text": "Warning\n\n\n\nThis tutorial is currently a work in progress.\n\n\nThis tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nData Description talks about the importance of data description and how to create a data dictionary.\nSummary Statistics discusses how to generate summary statistics for your data which is crucial for understanding the distribution and characteristics of your variables.\nData Validation covers how to add validation rules to your data dictionary, ensuring that the data collected meets certain criteria.\n\n\n\n\n\n\n\nRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html",
-    "href": "02-summary-statistics/page1.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html#level-two",
-    "href": "02-summary-statistics/page1.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html#another-level-two",
-    "href": "02-summary-statistics/page1.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html#level-two-1",
-    "href": "02-summary-statistics/page1.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page3.html",
-    "href": "03-data-validation/page3.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Exploring Other Data Validation Packages"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page3.html#level-two",
-    "href": "03-data-validation/page3.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Exploring Other Data Validation Packages"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page3.html#another-level-two",
-    "href": "03-data-validation/page3.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Exploring Other Data Validation Packages"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page3.html#level-two-1",
-    "href": "03-data-validation/page3.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Exploring Other Data Validation Packages"
-    ]
-  },
-  {
     "objectID": "03-data-validation/page2.html",
     "href": "03-data-validation/page2.html",
     "title": "Page Title Here",
@@ -215,13 +325,6 @@
       "Data Validation",
       "Implementing Validation with {pointblank}"
     ]
-  },
-  {
-    "objectID": "LICENSE-CODE.html",
-    "href": "LICENSE-CODE.html",
-    "title": "Creative Commons Zero v1.0 Universal",
-    "section": "",
-    "text": "Creative Commons Zero v1.0 Universal\nCREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN “AS-IS” BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER.\n\nStatement of Purpose\nThe laws of most jurisdictions throughout the world automatically confer exclusive Copyright and Related Rights (defined below) upon the creator and subsequent owner(s) (each and all, an “owner”) of an original work of authorship and/or a database (each, a “Work”).\nCertain owners wish to permanently relinquish those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific works (“Commons”) that the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes. These owners may contribute to the Commons to promote the ideal of a free culture and the further production of creative, cultural and scientific works, or to gain reputation or greater distribution for their Work in part through the use and efforts of others.\nFor these and/or other purposes and motivations, and without any expectation of additional consideration or compensation, the person associating CC0 with a Work (the “Affirmer”), to the extent that he or she is an owner of Copyright and Related Rights in the Work, voluntarily elects to apply CC0 to the Work and publicly distribute the Work under its terms, with knowledge of his or her Copyright and Related Rights in the Work and the meaning and intended legal effect of CC0 on those rights.\n\nCopyright and Related Rights. A Work made available under CC0 may be protected by copyright and related or neighboring rights (“Copyright and Related Rights”). Copyright and Related Rights include, but are not limited to, the following:\n\nthe right to reproduce, adapt, distribute, perform, display, communicate, and translate a Work;\nmoral rights retained by the original author(s) and/or performer(s);\npublicity and privacy rights pertaining to a person’s image or likeness depicted in a Work;\nrights protecting against unfair competition in regards to a Work, subject to the limitations in paragraph 4(a), below;\nrights protecting the extraction, dissemination, use and reuse of data in a Work;\ndatabase rights (such as those arising under Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, and under any national implementation thereof, including any amended or successor version of such directive); and\nother similar, equivalent or corresponding rights throughout the world based on applicable law or treaty, and any national implementations thereof.\n\nWaiver. To the greatest extent permitted by, but not in contravention of, applicable law, Affirmer hereby overtly, fully, permanently, irrevocably and unconditionally waives, abandons, and surrenders all of Affirmer’s Copyright and Related Rights and associated claims and causes of action, whether now known or unknown (including existing as well as future claims and causes of action), in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “Waiver”). Affirmer makes the Waiver for the benefit of each member of the public at large and to the detriment of Affirmer’s heirs and successors, fully intending that such Waiver shall not be subject to revocation, rescission, cancellation, termination, or any other legal or equitable action to disrupt the quiet enjoyment of the Work by the public as contemplated by Affirmer’s express Statement of Purpose.\nPublic License Fallback. Should any part of the Waiver for any reason be judged legally invalid or ineffective under applicable law, then the Waiver shall be preserved to the maximum extent permitted taking into account Affirmer’s express Statement of Purpose. In addition, to the extent the Waiver is so judged Affirmer hereby grants to each affected person a royalty-free, non transferable, non sublicensable, non exclusive, irrevocable and unconditional license to exercise Affirmer’s Copyright and Related Rights in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “License”). The License shall be deemed effective as of the date CC0 was applied by Affirmer to the Work. Should any part of the License for any reason be judged legally invalid or ineffective under applicable law, such partial invalidity or ineffectiveness shall not invalidate the remainder of the License, and in such case Affirmer hereby affirms that he or she will not (i) exercise any of his or her remaining Copyright and Related Rights in the Work or (ii) assert any associated claims and causes of action with respect to the Work, in either case contrary to Affirmer’s express Statement of Purpose.\nLimitations and Disclaimers.\n\nNo trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\nAffirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.\nAffirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person’s Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.\nAffirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "03-data-validation/page1.html",
@@ -272,54 +375,6 @@
     ]
   },
   {
-    "objectID": "02-summary-statistics/page2.html",
-    "href": "02-summary-statistics/page2.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html#level-two",
-    "href": "02-summary-statistics/page2.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html#another-level-two",
-    "href": "02-summary-statistics/page2.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html#level-two-1",
-    "href": "02-summary-statistics/page2.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
     "objectID": "02-summary-statistics/page3.html",
     "href": "02-summary-statistics/page3.html",
     "title": "Page Title Here",
@@ -365,61 +420,6 @@
       "Home",
       "Summary Statistics",
       "Exploring Other Summary Statistics Packages"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Contributors\nThis site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{1,\n  author = {1, AUTHOR},\n  title = {Data {Dictionary} Using {R} {Tutorial}},\n  date = {},\n  url = {https://lmu-osc.github.io/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n1, AUTHOR. n.d. “Data Dictionary Using R Tutorial.” LMU\nOpen Science Center. https://doi.org/DOI HERE."
-  },
-  {
-    "objectID": "01-data-description/page1.html",
-    "href": "01-data-description/page1.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page1.html#level-two",
-    "href": "01-data-description/page1.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page1.html#another-level-two",
-    "href": "01-data-description/page1.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page1.html#level-two-1",
-    "href": "01-data-description/page1.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
     ]
   }
 ]
