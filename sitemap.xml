@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/02-summary-statistics/page1.html</loc>
-    <lastmod>2025-08-03T23:16:29.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/02-summary-statistics/page2.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
-  </url>
-  <url>
     <loc>https://lmu-osc.github.io/data-dictionary-R/03-data-validation/page3.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/01-data-description/page1.html</loc>
-    <lastmod>2025-08-03T23:16:29.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/LICENSE-CODE.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/index.html</loc>
-    <lastmod>2025-08-03T23:16:29.344Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/about.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/LICENSE.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/01-data-description/page2.html</loc>
-    <lastmod>2025-08-03T23:16:29.342Z</lastmod>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-dictionary-R/03-data-validation/page2.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-dictionary-R/03-data-validation/page1.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/01-data-description/page1.html</loc>
+    <lastmod>2025-08-10T23:15:09.882Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/index.html</loc>
+    <lastmod>2025-08-10T23:15:09.884Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/02-summary-statistics/page1.html</loc>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/about.html</loc>
+    <lastmod>2025-08-10T23:15:09.884Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/LICENSE.html</loc>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/02-summary-statistics/page2.html</loc>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-dictionary-R/02-summary-statistics/page3.html</loc>
-    <lastmod>2025-08-03T23:16:29.343Z</lastmod>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/01-data-description/page2.html</loc>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/LICENSE-CODE.html</loc>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-dictionary-R/03-data-validation/page1.html</loc>
+    <lastmod>2025-08-10T23:15:09.883Z</lastmod>
   </url>
 </urlset>
