@@ -1,27 +1,95 @@
 ---
-title: "Data Dictionary using R Tutorial"
+title: "Data Documentation and Validation using R"
 ---
 
-::: {.callout-warning}
-This tutorial is currently a work in progress.
+Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.
+
+## Why Document Your Data?
+
+Good documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Well-documented data is simply better science.
+
+## What You'll Learn
+
+By the end of this tutorial, you will be able to:
+
+- **Create data dictionaries** that clearly describe your variables and datasets (both manually and automatically)
+- **Use summary statistics** to identify data quality issues and understand your data's characteristics
+- **Implement automated validation** workflows to catch errors systematically
+- **Generate professional reports** that combine documentation, validation results, and code
+
+We'll use real research data (Palmer Penguins) and modern R packages to build a complete data documentation workflow.
+
+## Prerequisites
+
+This tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:
+
+- [Introduction to version control with Git and GitHub within RStudio](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
+- [Introduction to renv](https://lmu-osc.github.io/introduction-to-renv/)
+
+You should also have:
+
+- Basic R and RStudio familiarity
+- Experience working with data frames
+- Understanding of variables, observations, and data types
+
+## Key R Packages
+
+Throughout this tutorial, you'll work with:
+
+- **`{datawizard}`** - Automated data dictionary creation
+- **`{pointblank}`** - Comprehensive data validation
+- **`{skimr}`** - Quick data summaries and quality checks
+- **`{dplyr}`** - Data manipulation
+- **`{readr}`** - Reading CSV data files
+
+## Tutorial Structure
+
+### 1. Tutorial Setup
+Set up your R project environment with Quarto, Git, and renv. Install required packages and get familiar with the Palmer Penguins dataset.
+
+### 2. Data Dictionaries
+Learn to create comprehensive variable documentation:
+
+- **Concepts & Manual Creation**: Understand what makes a good data dictionary and create one by hand
+- **Automated Creation with R**: Use the `{datawizard}` package to generate dictionaries automatically
+
+### 3. Data Validation
+Implement systematic quality checks to catch errors early:
+
+- **Data Quality Concepts**: Understand types of data issues and validation approaches
+- **Summary Statistics**: Use `{skimr}` to identify problems through descriptive statistics
+- **Validation with R Packages**: Automate quality checks with `{pointblank}`
+
+## Example Dataset
+
+We'll use the **Palmer Penguins** dataset throughout this tutorial. This dataset contains observations of three penguin species collected from islands in the Palmer Archipelago, Antarctica, including measurements of bill dimensions, flipper length, body mass, and other characteristics.
+
+You'll work with both a clean version (high-quality data) and a messy version (with realistic data quality issues) to practice identifying and fixing common problems.
+
+## Tutorial Navigation
+
+The topics are accompanied by distinct boxes that are color-coded for their content:
+
+::: {.callout-caution}
+## Orange boxes contain information crucial for that topic
+These highlight key concepts, important warnings, or critical information you need to understand.
 :::
 
-This tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.
-
-# Tutorial Overview
-
-This **self-paced tutorial** is intended to take X hours to complete.
-
-The tutorial is split into the following sections:
-
-1.  [**Data Description**]() talks about the importance of data description and how to create a data dictionary.
-2.  [**Summary Statistics**]() discusses how to generate summary statistics for your data which is crucial for understanding the distribution and characteristics of your variables.
-3.  [**Data Validation**]() covers how to add validation rules to your data dictionary, ensuring that the data collected meets certain criteria.
-
-
-::: {.callout-tip title="Recommended Software"}
-This tutorial assumes you have the following software installed:
-
--   SOME SOFTWARE + LINK HERE
-
+::: {.callout-note}
+## Blue boxes contain excursions to related topics
+These provide additional context, connections to other concepts, or deeper explanations for the curious learner.
 :::
+
+::: {.callout-tip}
+## Green boxes contain practical tips and guidance
+These offer helpful advice, best practices, and shortcuts to make your work easier.
+:::
+
+::: {.callout-important}
+## Red boxes contain solutions and are collapsed
+Only open these if you want to see the solution! Try exercises on your own first.
+:::
+
+## Getting Started
+
+Ready to begin? Start with [Tutorial Setup](01-tutorial-setup/page1.qmd) to configure your R environment.

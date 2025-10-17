@@ -1,0 +1,146 @@
+---
+title: "Example Data & Tools"
+---
+
+In this tutorial, we'll work with real research data to learn data documentation principles. You'll also get familiar with the key R packages that make data validation and documentation efficient.
+
+## Our Example Dataset: Palmer Penguins
+
+::: {.column-margin}
+![Palmer Penguins](../material/images/palmerpenguins.png){fig-align="center" width="400"}
+:::
+
+We'll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica.
+
+The dataset includes measurements like:
+- Bill length and depth (millimeters)
+- Flipper length (millimeters) 
+- Body mass (grams)
+- Species, island, and sex information
+
+This dataset is perfect for learning because it:
+- Contains different data types (numeric, categorical)
+- Has some missing values (realistic!)
+- Is scientifically meaningful and well-documented
+- Is small enough to understand completely
+
+## Key R Packages We'll Use
+
+Throughout this tutorial, you'll work with three main packages:
+
+- **`{datawizard}`**: Automates creation of data dictionaries
+- **`{pointblank}`**: Performs systematic data validation
+- **`{skimr}`**: Generates comprehensive data summaries
+
+## Installing Required Packages
+
+Install the packages you'll need:
+
+```{r}
+#| eval: false
+
+# Install core packages
+install.packages(c(
+  "datawizard",      # Data dictionaries
+  "pointblank",      # Data validation
+  "skimr",           # Summary statistics
+  "dplyr",           # Data manipulation
+  "readr"            # Reading CSV files
+))
+
+# Update renv lockfile
+renv::snapshot()
+```
+
+## Download the Example Datasets
+
+For this tutorial, you'll work with **two versions** of the Palmer Penguins data:
+
+1. **Clean data**: High-quality dataset for learning documentation
+2. **Messy data**: Version with realistic data quality issues for practicing validation
+
+The messy dataset contains 51 intentional data quality problems (~15% error rate) including:
+- Typos in species and island names
+- Inconsistent formatting (e.g., "M" vs "male", extra spaces)
+- Impossible values (negative measurements, placeholder values like 999)
+- Out-of-range values (body mass of 15,000g when max should be ~6,300g)
+- Data entry errors (wrong years, missing digits)
+
+### Download Both Files
+
+Click the buttons below to download both datasets:
+
+<div style="margin: 20px 0;">
+<a href="../data/penguins_clean.csv" download="penguins_clean.csv" class="btn btn-primary" style="margin-right: 10px;">
+Download Clean Data
+</a>
+
+<a href="../data/penguins_messy.csv" download="penguins_messy.csv" class="btn btn-warning">
+Download Messy Data
+</a>
+</div>
+
+**Important**: Save both files in a folder called `data/` inside your project directory. If the `data/` folder doesn't exist yet, create it first.
+
+## Load and Verify the Data
+
+Now load the clean data and verify it worked:
+
+```{r}
+#| eval: false
+
+library(readr)
+library(dplyr)
+
+# Load the clean penguins data
+penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
+
+# Take a first look
+glimpse(penguins_clean)
+```
+
+You should see 344 observations of 8 variables.
+
+::: {.callout-tip icon="false"}
+## Checkpoint: Verify Your Data
+
+Before continuing, verify the data loaded correctly:
+
+```{r}
+#| eval: false
+
+# Should show 344 rows and 8 columns
+dim(penguins_clean)
+
+# Should display: species, island, bill_length_mm, bill_depth_mm,
+#                 flipper_length_mm, body_mass_g, sex, year
+names(penguins_clean)
+
+# Check first few rows
+head(penguins_clean)
+```
+
+If you see errors:
+- Make sure both CSV files are in the `data/` folder
+- Check that your working directory is your project folder (use `getwd()` to verify)
+- Try restarting R
+:::
+
+::: {.callout-note collapse="true"}
+## How We Created the Messy Data
+
+We introduced 51 realistic data quality issues across 344 observations (~15% error rate, typical for real-world field data):
+
+- **Species**: 7 issues (typos, case errors, extra text)
+- **Island**: 6 issues (whitespace, typos)
+- **Bill measurements**: 12 issues (negatives, impossible values, placeholders)
+- **Flipper/body measurements**: 11 issues (zeros, outliers, missing data)
+- **Sex**: 11 issues (inconsistent coding: M/F/male/Male/MALE)
+- **Year**: 4 issues (outside study period, digit errors)
+
+These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in [`_scripts/create_messy_data.R`](../_scripts/create_messy_data.R).
+:::
+
+## Next Steps
+
+You now have your environment set up with the necessary packages and both datasets. In the next section, you'll learn how to create data dictionaries that document what each variable means and how it should be interpreted.

@@ -1,0 +1,184 @@
+---
+title: "Concepts & Manual Creation"
+---
+
+A dataset without proper documentation can be a significant barrier to reproducible science. In this hands-on section, you'll learn to create data dictionaries manually and practice with research data.
+
+## What is a Data Dictionary?
+
+A data dictionary is a structured document that provides comprehensive information about each variable in your dataset. Think of it as the "instruction manual" for your data, it tells anyone (including future you) exactly what each column means, how it was measured, and how to interpret the values.
+
+::: {.callout-tip}
+## Consider This
+Before we continue, reflect on your most recent research project. How would a colleague understand your data if you shared it with them today? What questions would they need to ask you?
+:::
+
+### Essential Components
+
+Every data dictionary should include:
+
+- **Variable Name**: The exact column name in your data file (e.g., `bill_length_mm`)
+- **Variable Label**: A human-readable name (e.g., "Bill Length")  
+- **Description**: Clear definition of what was measured (e.g., "Length of the penguin's bill measured in millimeters")
+- **Data Type**: The type of data stored (numeric, character, factor, logical)
+- **Units**: For numeric variables, the unit of measurement (mm, grams, years)
+- **Valid Values**: Expected range or categories (e.g., "0-100" or "male, female")
+- **Missing Values**: How missing data is coded (NA, -999, blank)
+
+## Why Data Dictionaries Matter for Open Science
+
+### Preventing Critical Errors
+Without documentation, researchers make dangerous assumptions. Is `score` a percentage (0-100) or raw points (0-50)? Is `treatment` coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.
+
+::: {.callout-note}
+## Real-World Example
+A research team spent months analyzing survey data where `satisfaction` was coded 1-5. They treated 5 as "very satisfied." Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards!
+:::
+
+### Enabling Collaboration
+When a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.
+
+### Meeting FAIR Principles
+FAIR data must be **Findable, Accessible, Interoperable, and Reusable**. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.
+
+## Hands-On Practice: Creating Your First Data Dictionary
+
+Let's work through an example with a sample dataset. Imagine you've collected data on study habits and academic performance:
+
+### Step 1: Examine the Data
+Here's what your data file looks like:
+
+| student_id | study_hrs | test_score | major | satisfaction | attend |
+|------------|-----------|------------|-------|--------------|--------|
+| 001 | 15 | 85 | PSYC | 4 | Y |
+| 002 | 8 | 72 | BIOL | 3 | N |
+| 003 | 22 | 94 | PSYC | 5 | Y |
+| 004 | NA | 68 | MATH | 2 | Y |
+
+## Analysis Exercise
+
+Examine the sample data above. Without any documentation, what questions arise? Consider at least 3 potential ambiguities or areas needing clarification.
+
+**Focus areas**: Think about units, scales, missing values, and what the codes represent.
+
+::: {.callout-important collapse="true"}
+## Click for common questions researchers identify
+
+- What time period do `study_hrs` cover? Per week? Per month?
+- Is `test_score` out of 100? What test was this?
+- What does the satisfaction scale mean? Is 1 low or high?
+- What do Y/N in `attend` represent?
+- Why is there an NA in `study_hrs` for student 004?
+
+:::
+
+### Step 2: Build Your Dictionary Structure
+
+Create a table with the essential columns:
+
+| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
+|---------------|-------|-------------|------|-------|--------------|---------|
+| | | | | | | |
+
+## Documentation Exercise
+Using the study habits data above, create a complete data dictionary. For each variable, consider:
+
+1. **What would another researcher need to know to use this variable correctly?**
+2. **What assumptions might someone make that could be wrong?**
+3. **What context is essential for proper interpretation?**
+
+Work through 2-3 variables before reviewing the example below.
+
+::: {.callout-important collapse="true"}
+## Click for example documentation approach
+
+| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
+|---------------|-------|-------------|------|-------|--------------|---------|
+| student_id | Student ID | Unique identifier for each participant | character | none | 001-999 | none |
+| study_hrs | Weekly Study Hours | Self-reported hours spent studying per week | numeric | hours | 0-168 | NA |
+| test_score | Midterm Score | Score on standardized midterm exam | numeric | points | 0-100 | none |
+| major | Academic Major | Student's declared major field | categorical | none | PSYC, BIOL, MATH, CHEM | none |
+| satisfaction | Course Satisfaction | Rating of course satisfaction (5-point scale) | numeric | 1-5 scale | 1=very unsatisfied, 5=very satisfied | none |
+| attend | Lecture Attendance | Regular attendance at lectures (>80%) | categorical | none | Y=yes, N=no | none |
+
+:::
+
+### Step 3: Validate Your Documentation
+
+::: {.callout-tip}
+## Documentation Quality Check
+Consider whether a colleague using only your data dictionary could:
+
+- Correctly interpret a satisfaction score of "2"?
+- Understand what "15" in study_hrs represents?
+- Handle missing values appropriately?
+- Make meaningful comparisons between majors?
+
+If uncertainties remain, refine your documentation accordingly.
+:::
+
+## Tools for Manual Creation
+
+### Spreadsheet Software (Excel, Google Sheets, LibreOffice)
+**Best for**: Most research teams, easy sharing and collaboration
+
+**Approach**: Create your dictionary table directly in the spreadsheet. Save as CSV for better compatibility with analysis software.
+
+**Pros**: Familiar interface, collaborative editing, export flexibility
+**Cons**: Formatting limitations, version control challenges
+
+### Markdown Tables
+**Best for**: Projects using version control (Git), reproducible workflows
+
+**Template**:
+```
+| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
+|---------------|-------|-------------|------|-------|--------------|---------|
+| variable1     |       |             |      |       |              |         |
+| variable2     |       |             |      |       |              |         |
+```
+
+**Pros**: Version control friendly, readable as plain text
+**Cons**: Less intuitive for less technical collaborators
+
+### Word Processors (Word, Google Docs)
+**Best for**: Teams preferring familiar document formats
+
+**Approach**: Create a simple table with the essential columns.
+
+**Pros**: Rich formatting options, familiar to most researchers
+**Cons**: Difficult for automated processing, no structured format
+
+## Implementation Strategy
+
+::: {.callout-tip}
+## Practical Application
+For your next research project:
+
+1. **Select a dataset** from your current work (or use a publicly available dataset)
+2. **Document 5-10 variables** using the principles covered here
+3. **Validate your dictionary** by having a colleague interpret values using only your documentation
+4. **Iterate and improve** based on their feedback and questions
+
+**Advanced challenge**: Share your dictionary with a researcher from a different field. What additional context do they require?
+:::
+
+## When Manual Creation is Most Effective
+
+Manual creation works optimally when:
+
+- You have fewer than 20 variables
+- Your data structure remains stable over time
+- You need detailed, contextual descriptions
+- You're collaborating with non-technical team members
+- You require precise control over documentation details
+
+**Looking ahead**: The next section covers automated approaches using R packages, which become essential for larger datasets or when documentation needs frequent updates.
+
+::: {.callout-tip}
+## Reflection Points
+As you implement these practices:
+- What aspects of manual dictionary creation align best with your research workflow?
+- Where do you anticipate the greatest challenges in maintaining documentation?
+- How might improved data documentation have enhanced your previous research projects?
+:::

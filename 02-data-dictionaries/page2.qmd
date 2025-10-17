@@ -1,0 +1,194 @@
+---
+title: "Automated Creation with R"
+---
+
+In the previous section, you created a data dictionary manually—carefully considering each variable's meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.
+
+## From Manual to Automated
+
+You can create data dictionaries in two ways:
+
+1. **Manually** (previous section): Full control, good for small datasets
+2. **Automated with R** (this section): Efficient for larger datasets, easy to update
+3. **Hybrid approach**: Start with automated generation, then refine with your domain knowledge
+
+Most research projects benefit from automation—especially when data evolves during collection or analysis.
+
+## The `{datawizard}` Package
+
+The `{datawizard}` package provides a simple, reliable way to create data dictionaries automatically. It generates structured tables that include:
+
+- Variable names and types
+- Missing value counts
+- Value ranges for numeric variables
+- Frequency counts for categorical variables
+- Summary statistics
+
+## Creating Your First Automated Dictionary
+
+Let's create a codebook for the Palmer Penguins data.
+
+### Step 1: Load and Prepare Data
+
+```{r}
+#| eval: false
+
+library(readr)
+library(dplyr)
+library(datawizard)
+
+# Load the clean penguins data from CSV
+penguins <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
+```
+
+### Step 2: Generate the Codebook
+
+```{r}
+#| eval: false
+
+# Create the data codebook
+codebook_penguins <- data_codebook(penguins)
+
+# View the codebook
+print(codebook_penguins)
+```
+
+This single command generates a structured table with:
+
+- **Variable ID and Name**
+- **Data Type** (character, numeric, etc.)
+- **Missing Values** (count and percentage)
+- **Values/Ranges** (categories or numeric ranges)
+- **Frequencies** (N and percentages for each category)
+
+::: {.callout-note collapse="true"}
+## What Does the Output Look Like?
+
+The `data_codebook()` function creates a formatted table. For each variable, you'll see:
+
+- **Categorical variables**: List of unique values with counts and percentages
+- **Numeric variables**: Range (min, max) and count of non-missing values
+- **Missing data**: Explicit count and percentage for transparency
+- **Clean formatting**: Easy to read in console, save to file, or include in reports
+
+The output is a data frame that can be exported to CSV, Excel, or included in R Markdown/Quarto documents.
+:::
+
+### Step 3: Add Variable Labels (Optional)
+
+You can add descriptive labels to make the codebook more informative:
+
+```{r}
+#| eval: false
+
+# Add variable labels using attributes
+penguins_labeled <- penguins %>%
+  mutate(
+    species = structure(species, label = "Penguin species observed in Palmer Archipelago"),
+    island = structure(island, label = "Island where penguin was observed"),
+    bill_length_mm = structure(bill_length_mm, label = "Bill length from tip to base (mm)"),
+    bill_depth_mm = structure(bill_depth_mm, label = "Bill depth at base (mm)"),
+    flipper_length_mm = structure(flipper_length_mm, label = "Flipper length from body to tip (mm)"),
+    body_mass_g = structure(body_mass_g, label = "Body mass measured in field (grams)"),
+    sex = structure(sex, label = "Biological sex (male, female, or NA)"),
+    year = structure(year, label = "Year of observation (2007-2009)")
+  )
+
+# Generate codebook with labels
+codebook_labeled <- data_codebook(penguins_labeled)
+print(codebook_labeled)
+```
+
+::: {.callout-note}
+## Thinking Point
+
+Compare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the "automated" approach still requires your careful thought—you're providing the content, R is just handling the presentation.
+:::
+
+## Exporting Your Codebook
+
+Save the codebook for sharing:
+
+```{r}
+#| eval: false
+
+# Save as CSV file
+write.csv(codebook_labeled, "data/penguins_codebook.csv", row.names = FALSE)
+
+# Or save as a formatted text file
+writeLines(capture.output(print(codebook_labeled)), "data/penguins_codebook.txt")
+```
+
+You can also include the codebook directly in your Quarto/R Markdown reports:
+
+```{r}
+#| eval: false
+
+# In a Quarto document, the codebook will display as a formatted table
+data_codebook(penguins)
+```
+
+::: {.callout-tip}
+## Best Practice
+
+Include codebook generation in your analysis scripts. This ensures documentation updates automatically when your data changes:
+
+```r
+# At the end of your data cleaning script
+codebook <- data_codebook(my_clean_data)
+write.csv(codebook, "outputs/data_codebook.csv", row.names = FALSE)
+```
+:::
+
+## When to Use Automated Dictionaries
+
+**Use automated approach when:**
+
+- You have more than ~20 variables
+- Data structure changes during collection/analysis
+- You need quick summaries of value distributions
+- Multiple team members need consistent documentation
+- You're sharing data in repositories
+
+**Consider manual approach when:**
+
+- You have fewer than 10 variables with unique contexts
+- You need custom formatting for publication
+- Collaborators prefer traditional document formats
+- Complex measurement protocols require extensive explanation
+
+**Hybrid approach (recommended):**
+
+1. Generate automated codebook first
+2. Review output for completeness
+3. Add manual annotations for complex variables
+4. Share both automated report and any custom notes
+
+## Advantages for Open Science
+
+Automated codebooks support reproducible research:
+
+- **Version control**: Include in Git repositories alongside data
+- **Reproducibility**: Others can regenerate with same inputs
+- **Transparency**: Shows exactly what's documented and how
+- **Efficiency**: Update documentation as data evolves
+- **Standards**: Consistent format across projects
+- **Export flexibility**: Save as CSV, text, or include in reports
+
+::: {.callout-important}
+## Your Expertise Still Required
+
+Automation doesn't replace thinking! You still need to:
+
+- Add informative variable labels that explain what was measured
+- Provide context about measurement methods and instruments
+- Explain unusual coding or missing value patterns
+- Document units, valid ranges, and any data transformations
+- Consider what collaborators need to know to use your data correctly
+
+R handles the repetitive formatting and summary statistics; you provide the scientific knowledge and context.
+:::
+
+## Next Steps
+
+You now know how to create data dictionaries both manually and automatically. In the next section, you'll use these documentation skills as the foundation for data validation—checking whether your actual data matches what your dictionary says it should be.
