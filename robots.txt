@@ -1,1 +1,1 @@
-Sitemap: https://lmu-osc.github.io/data-dictionary-R/sitemap.xml
+Sitemap: https://lmu-osc.github.io/data-documentation-validation-R/sitemap.xml
