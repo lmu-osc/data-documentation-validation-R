@@ -2,7 +2,7 @@
 title: "Data Quality Concepts"
 ---
 
-Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in—systematically checking whether your data meets the expectations you've documented.
+Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you've documented.
 
 ## Why Data Validation Matters
 
@@ -16,6 +16,7 @@ Remember the Palmer Penguins data dictionary you created? You documented that bi
 
 ### The Research Impact
 Poor data quality can:
+
 - **Invalidate analyses**: Outliers or errors lead to wrong conclusions
 - **Waste time**: Hours spent troubleshooting mysterious results caused by data issues
 - **Undermine credibility**: Reviewers and collaborators lose confidence in findings
@@ -27,6 +28,7 @@ Good validation practices catch these issues early, when they're easy to fix.
 
 ### Structural Problems
 These violate the basic framework you documented:
+
 - **Wrong data types**: Text in numeric columns, numbers stored as text
 - **Missing required values**: Empty cells where data should exist
 - **Invalid categories**: Misspelled factor levels or unexpected values
@@ -34,6 +36,7 @@ These violate the basic framework you documented:
 
 ### Content Problems
 These are more subtle but equally important:
+
 - **Logical inconsistencies**: A penguin recorded as weighing 50,000 grams
 - **Pattern violations**: ID numbers that don't follow expected formats
 - **Duplicate records**: The same observation recorded multiple times
@@ -42,24 +45,32 @@ These are more subtle but equally important:
 ## Validation as Quality Assurance
 
 ### Proactive vs. Reactive
+
 **Reactive approach**: Discover data problems during analysis when they cause errors or strange results
+
 **Proactive approach**: Systematically check data quality before analysis begins
 
 The proactive approach saves time and increases confidence in your results.
 
 ### Levels of Validation
 
-**Basic validation**: Does the data match its documented structure?
+**Basic validation**: 
+
+- Does the data match its documented structure?
 - Correct data types
 - Expected number of variables and observations
 - No completely empty columns or rows
 
-**Content validation**: Are the values reasonable and consistent?
+**Content validation**: 
+
+- Are the values reasonable and consistent?
 - Values fall within expected ranges
 - Categorical variables contain only valid categories
 - Relationships between variables make sense
 
-**Domain validation**: Does the data make sense scientifically?
+**Domain validation**: 
+
+- Does the data make sense scientifically?
 - Measurements are biologically/physically plausible
 - Patterns align with known relationships
 - Outliers have logical explanations
@@ -67,6 +78,7 @@ The proactive approach saves time and increases confidence in your results.
 ::: {.callout-tip}
 ## Building on Documentation
 Notice how each level builds on your data dictionary work:
+
 - Basic validation checks the structure you documented
 - Content validation uses the ranges and categories you specified
 - Domain validation relies on the scientific context you provided
@@ -80,6 +92,7 @@ Let's think through what validation might look like for our familiar dataset:
 
 ### Structural Checks
 Based on your data dictionary, you'd verify:
+
 - `species` contains only "Adelie", "Chinstrap", "Gentoo"
 - `bill_length_mm` is numeric, not text
 - Required measurements aren't missing for complete observations
@@ -87,6 +100,7 @@ Based on your data dictionary, you'd verify:
 
 ### Content Checks
 Using the ranges you documented:
+
 - Bill lengths between reasonable values (e.g., 30-60mm)
 - Body mass within realistic ranges for penguins
 - No negative measurements
@@ -94,6 +108,7 @@ Using the ranges you documented:
 
 ### Domain Checks
 Applying biological knowledge:
+
 - Are bill dimensions reasonable for each species?
 - Do body mass values align with known penguin biology?
 - Are measurement combinations plausible?
@@ -101,6 +116,7 @@ Applying biological knowledge:
 ::: {.callout-tip}
 ## Validation Planning Exercise
 Think about a dataset from your own research:
+
 1. What structural problems might occur during data collection or entry?
 2. What content issues would be most problematic for your analyses?
 3. What domain-specific knowledge should guide your quality checks?
@@ -111,13 +127,15 @@ Write down 3-4 specific validation rules you'd want to implement.
 ## Validation Workflow Integration
 
 ### When to Validate
-**During data collection**: Catch errors as they happen
-**After data entry**: Before any analysis begins  
-**Before major analyses**: Ensure data quality for important results
-**Before sharing**: Verify data quality for others
+
+- **During data collection**: Catch errors as they happen
+- **After data entry**: Before any analysis begins
+- **Before major analyses**: Ensure data quality for important results
+- **Before sharing**: Verify data quality for others
 
 ### Documentation Connection
 Your validation rules should directly connect to your data dictionary:
+
 - Each documented range becomes a validation rule
 - Each categorical variable's valid values become a check
 - Each data type specification becomes a structural test

@@ -2,13 +2,14 @@
 title: "Validation with R Packages"
 ---
 
-You've learned to identify data quality issues through summary statistics. Now let's automate this process using `{pointblank}`—a package that systematically checks your data against rules you define and generates comprehensive validation reports.
+You've learned to identify data quality issues through summary statistics. Now let's automate this process using `{pointblank}`, a package that systematically checks your data against rules you define and generates comprehensive validation reports.
 
 ## From Manual Checks to Automated Validation
 
 ### Building on Summary Statistics
 
 In the previous section, you manually examined the messy Palmer Penguins data and spotted issues. But what if:
+
 - You need to check data every time it's updated?
 - You have dozens of datasets with similar structures?
 - You want to document your quality control process?
@@ -19,6 +20,7 @@ The `{pointblank}` package automates validation while creating professional repo
 ## The `{pointblank}` Package
 
 `{pointblank}` provides two workflows:
+
 1. **Data Quality Reporting** (agent-based): Creates detailed HTML validation reports
 2. **Information Management** (informant-based): Creates data dictionaries with metadata
 
@@ -33,7 +35,7 @@ We'll focus on validation (you already learned dictionary creation in Section 2)
 install.packages("pointblank")
 
 library(pointblank)
-library(palmerpenguins)
+library(readr)
 library(dplyr)
 ```
 
@@ -45,7 +47,7 @@ Think of an agent as a quality inspector that checks your data against rules:
 #| eval: false
 
 # Load the messy data we created
-penguins_messy <- read.csv("data/penguins_messy.csv")
+penguins_messy <- read_csv("data/penguins_messy.csv", show_col_types = FALSE)
 
 # Create an agent to validate the messy data
 agent <-
@@ -158,12 +160,12 @@ agent <- agent %>%
     set = c("Torgersen", "Biscoe", "Dream"),
     label = "Island is valid (Torgersen, Biscoe, or Dream)"
   ) %>%
-  # Sex should be male or female (or NA)
+  # Sex should be male or female
+  # Note: NA values will be flagged but may be acceptable for this variable
   col_vals_in_set(
     columns = sex,
     set = c("male", "female"),
-    na_pass = TRUE,
-    label = "Sex is valid (male or female)"
+    label = "Sex is male or female"
   )
 ```
 
@@ -214,16 +216,16 @@ The agent creates an interactive HTML report showing:
 ## Interpreting Results
 
 When you run validation on `penguins_messy`, you should see failures for:
-- **Species**: ~7 issues (typos like "Adelei", case errors, trailing spaces)
-- **Island**: ~6 issues (whitespace, typos like "Torgerson")
-- **Bill length**: ~8 issues (negative values, impossibly large like 250mm, placeholder 999)
-- **Bill depth**: ~4 issues (negative, placeholder 99.9)
-- **Flipper length**: ~5 issues (zeros, placeholder 999)
-- **Body mass**: ~6 issues (extreme outliers 15000g, impossibly low 500g)
-- **Sex**: ~11 issues (inconsistent coding: M/F/male/Male/MALE)
-- **Year**: ~4 issues (outside 2007-2009 range, digit errors)
+- **Species**: 4 issues (typos like "Adelei", case errors like "adelie", extra text like "Gentoo penguin")
+- **Island**: 2 issues (typo "Torgerson", case error "biscoe")
+- **Bill length**: 3 issues (negative -5.2, impossibly large 250.5, placeholder 999)
+- **Bill depth**: 2 issues (negative -2.1, placeholder 99.9)
+- **Flipper length**: 1 issue (zero value)
+- **Body mass**: 3 issues (extreme outliers: 15000g, 500g, 10000g)
+- **Sex**: 22 failures total (11 NAs that are acceptable + 11 actual issues with inconsistent coding: M/F/male/Male/MALE/m/Female)
+- **Year**: 4 issues (2020, 2006, 207, 20009 - outside 2007-2009 range or digit errors)
 
-**Total: 51 data quality issues** we intentionally added for practice! This represents a realistic ~15% error rate typical of real-world field data.
+**Total: 30 data quality issues** we intentionally added for practice! Note that the sex validation will also flag 11 NA values (which are acceptable in this dataset), bringing the total reported failures to 41.
 :::
 
 ## Comparing Clean vs. Messy Data
@@ -233,12 +235,12 @@ Let's validate both versions to see the difference:
 ```{r}
 #| eval: false
 
-# Validate clean data
-data("penguins")
+# Load and validate clean data
+penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
 
 agent_clean <-
   create_agent(
-    tbl = penguins,
+    tbl = penguins_clean,
     tbl_name = "penguins_clean",
     label = "Palmer Penguins (Clean) Validation"
   ) %>%
@@ -328,7 +330,7 @@ validate_penguin_data <- function(data, data_name = "Penguin Data") {
                    set = c("Torgersen", "Biscoe", "Dream"),
                    label = "Valid island") %>%
     col_vals_in_set(columns = sex, set = c("male", "female"),
-                   na_pass = TRUE, label = "Valid sex") %>%
+                   label = "Valid sex") %>%
     col_vals_in_set(columns = year, set = c(2007, 2008, 2009),
                    label = "Valid year") %>%
     # Impossible value checks
@@ -344,7 +346,7 @@ validate_penguin_data <- function(data, data_name = "Penguin Data") {
 
 # Use the function
 messy_validation <- validate_penguin_data(penguins_messy, "Messy Penguins")
-clean_validation <- validate_penguin_data(penguins, "Clean Penguins")
+clean_validation <- validate_penguin_data(penguins_clean, "Clean Penguins")
 
 # View reports
 messy_validation
@@ -400,7 +402,7 @@ safe_analysis_workflow <- function(data) {
 
 # Use in your workflow
 safe_analysis_workflow(penguins_messy)  # Should stop
-safe_analysis_workflow(penguins)        # Should proceed
+safe_analysis_workflow(penguins_clean)  # Should proceed
 ```
 
 ::: {.callout-tip}

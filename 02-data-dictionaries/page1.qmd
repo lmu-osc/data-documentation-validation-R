@@ -125,6 +125,7 @@ If uncertainties remain, refine your documentation accordingly.
 **Approach**: Create your dictionary table directly in the spreadsheet. Save as CSV for better compatibility with analysis software.
 
 **Pros**: Familiar interface, collaborative editing, export flexibility
+
 **Cons**: Formatting limitations, version control challenges
 
 ### Markdown Tables
@@ -139,6 +140,7 @@ If uncertainties remain, refine your documentation accordingly.
 ```
 
 **Pros**: Version control friendly, readable as plain text
+
 **Cons**: Less intuitive for less technical collaborators
 
 ### Word Processors (Word, Google Docs)
@@ -147,20 +149,20 @@ If uncertainties remain, refine your documentation accordingly.
 **Approach**: Create a simple table with the essential columns.
 
 **Pros**: Rich formatting options, familiar to most researchers
+
 **Cons**: Difficult for automated processing, no structured format
 
 ## Implementation Strategy
 
 ::: {.callout-tip}
 ## Practical Application
-For your next research project:
 
 1. **Select a dataset** from your current work (or use a publicly available dataset)
 2. **Document 5-10 variables** using the principles covered here
 3. **Validate your dictionary** by having a colleague interpret values using only your documentation
 4. **Iterate and improve** based on their feedback and questions
 
-**Advanced challenge**: Share your dictionary with a researcher from a different field. What additional context do they require?
+If possible, share your dictionary with a researcher from a different field. What additional context do they require?
 :::
 
 ## When Manual Creation is Most Effective
@@ -173,11 +175,12 @@ Manual creation works optimally when:
 - You're collaborating with non-technical team members
 - You require precise control over documentation details
 
-**Looking ahead**: The next section covers automated approaches using R packages, which become essential for larger datasets or when documentation needs frequent updates.
+The next section covers automated approaches using R packages, which become essential for larger datasets or when documentation needs frequent updates.
 
 ::: {.callout-tip}
 ## Reflection Points
 As you implement these practices:
+
 - What aspects of manual dictionary creation align best with your research workflow?
 - Where do you anticipate the greatest challenges in maintaining documentation?
 - How might improved data documentation have enhanced your previous research projects?

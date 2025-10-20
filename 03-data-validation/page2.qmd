@@ -8,6 +8,7 @@ Summary statistics are your first line of defense in data validation. They provi
 
 ### Beyond Basic Means and Medians
 While means and medians are useful, data validation requires a broader perspective. You need statistics that reveal:
+
 - **Range issues**: Are values where they should be?
 - **Missing patterns**: How much data is absent?
 - **Distribution problems**: Are there unexpected spikes or gaps?
@@ -15,165 +16,136 @@ While means and medians are useful, data validation requires a broader perspecti
 
 ### Building on Your Documentation
 Remember the data dictionary you created? Summary statistics help verify whether your actual data matches what you documented:
+
 - Are the ranges you specified actually present in the data?
 - Do the data types match what you expected?
 - Are missing values patterns consistent with what you documented?
 
 ## Detection Exercise
 Consider the Palmer Penguins data. If you calculated summary statistics and found:
+
 - Bill length minimum: -5.2mm
 - Body mass maximum: 95,000g
 - Species count: 5 different values
 
 What would each finding suggest about data quality?
 
-::: {.callout-important}
+::: {.callout-important collapse="true"}
 ## Click for some suggested interpretations
 - Negative bill length indicates data entry errors or unit confusion.
 - An extremely high body mass suggests impossible values or typos.
 - More species than expected points to typos or inconsistent naming.
 :::
 
-## Essential Summary Statistics for Validation
+## Getting Started with Base R
 
-### For Numeric Variables
+R comes with built-in functions for calculating summary statistics. Let's start by loading some data and exploring it with these base R tools. This will help you understand both what summary statistics reveal and why specialized packages can make the process easier.
 
-**Range Statistics**
-- `min()` and `max()`: Detect impossible values
-- `range()`: Quick overview of data span
-- `quantile()`: Identify outliers and distribution shape
-
-**Central Tendency**
-- `mean()`: Affected by outliers, useful for spotting them
-- `median()`: Robust to outliers, better for skewed data
-
-**Variability**
-- `sd()`: Standard deviation reveals consistency
-- `IQR()`: Interquartile range, robust measure of spread
-
-**Missing Data**
-- `sum(is.na())`: Count of missing values
-- `complete.cases()`: Observations with no missing data
-
-### For Categorical Variables
-
-**Frequency Counts**
-- `table()`: See all categories and their frequencies
-- `prop.table()`: Proportions rather than counts
-
-**Unique Values**
-- `unique()`: All distinct values present
-- `n_distinct()`: Count of unique categories
-
-**Missing Patterns**
-- `is.na()`: Missing value patterns
-- `summary()`: Overview including NA counts
-
-## The `{skimr}` Package
-
-While base R functions like `summary()` are useful, the `{skimr}` package provides richer, more informative summaries specifically designed for data quality checking.
+### Loading the Data
 
 ```{r}
 #| eval: false
 
 library(readr)
-library(dplyr)
-library(skimr)
 
-# Load clean data from CSV
-penguins <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
-```
-
-### Quick Overview with skimr
-
-`skim()` provides a comprehensive data summary in one command:
-
-```{r}
-#| eval: false
-
-# Get comprehensive summary
-skim(penguins)
-```
-
-The output shows:
-- Data type and count for each variable
-- Missing value counts
-- Complete rate (% of non-missing values)
-- For numeric variables: mean, sd, min, max, quartiles, histograms
-- For categorical variables: unique values, top categories with counts
-
-::: {.callout-note}
-## Why skimr is Useful
-
-Unlike `summary()`, `skim()` provides:
-- Visual histograms for numeric distributions
-- Complete rate (easy to spot missing data patterns)
-- Organized by variable type
-- Compact, readable format
-:::
-
-### Comparing Clean and Messy Data
-
-Let's see how summary statistics reveal data quality issues. Load both versions:
-
-```{r}
-#| eval: false
-
-# Load both clean and messy data from CSV
+# Load clean penguins data from CSV
 penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
+
+# Load messy penguins data (we'll compare them later)
 penguins_messy <- read_csv("data/penguins_messy.csv", show_col_types = FALSE)
-
-# Compare with skim
-cat("=== CLEAN DATA ===\n")
-skim(penguins_clean)
-
-cat("\n=== MESSY DATA ===\n")
-skim(penguins_messy)
 ```
 
-::: {.callout-tip}
-## Spotting Differences
+### Using summary() to Spot Issues
 
-When comparing the outputs, look for:
-- Different minimum/maximum values (impossible values?)
-- Changes in missing value counts
-- Different numbers of unique values (typos in categorical variables?)
-- Shifted distributions in the histograms
-:::
-
-### Basic Data Overview with Base R
-
-You can also use base R functions for targeted checks:
+The `summary()` function provides a quick overview of your entire dataset. Let's use it to compare clean and messy data and see what issues we can spot:
 
 ```{r}
 #| eval: false
 
-# Overall dataset summary
+# Compare clean and messy data
+cat("=== CLEAN DATA ===\n")
+summary(penguins_clean)
+
+cat("\n\n=== MESSY DATA ===\n")
 summary(penguins_messy)
-
-# Dataset dimensions
-cat("Dimensions:", nrow(penguins_messy), "rows,", ncol(penguins_messy), "columns\n")
-
-# Missing data overview
-cat("Total missing values:", sum(is.na(penguins_messy)), "\n")
-cat("Complete cases:", sum(complete.cases(penguins_messy)), "\n")
 ```
 
+## What `summary()` Shows
+
+For **numeric variables**, `summary()` displays:
+
+- Minimum and maximum values
+- Quartiles (25th, 50th/median, 75th percentiles)
+- Mean
+- Count of missing values (NA's)
+
+For **character/categorical variables**, it shows:
+
+- Length and class information
+
 ::: {.callout-tip}
-## What to Look For
+## Exercise: Spot the Differences
 
-In the `summary()` or `skim()` output, check:
-- Do the minimum and maximum values make sense?
-- Are there unexpected NA counts?
-- Do categorical variables show the expected categories?
-- Are there any values that seem impossible or implausible?
+Compare the clean and messy outputs. Look for:
 
-**Exercise**: Can you spot the differences between clean and messy versions? What specific issues do the summary statistics reveal?
+- Negative values where they shouldn't exist (e.g., negative bill lengths)
+- Extremely large or small numbers (outliers or data entry errors)
+- Unexpected NA counts
+- Check if the minimum and maximum values make biological sense
+
+**What issues can you spot in the messy data?**
 :::
+
+### Digging Deeper: Individual Variable Functions
+
+While `summary()` is great for a quick overview, sometimes you need more detailed information about specific variables. Let us inspect individual variables using base R functions:
+
+```{r}
+#| eval: false
+
+# Detailed examination of a numeric variable
+cat("=== Bill Length (detailed) ===\n")
+cat("Range:", min(penguins_messy$bill_length_mm, na.rm = TRUE), "to",
+    max(penguins_messy$bill_length_mm, na.rm = TRUE), "\n")
+cat("Mean:", round(mean(penguins_messy$bill_length_mm, na.rm = TRUE), 2), "\n")
+cat("Median:", round(median(penguins_messy$bill_length_mm, na.rm = TRUE), 2), "\n")
+cat("Standard deviation:", round(sd(penguins_messy$bill_length_mm, na.rm = TRUE), 2), "\n")
+cat("Missing values:", sum(is.na(penguins_messy$bill_length_mm)), "\n")
+
+# Detailed examination of a categorical variable
+cat("\n=== Species (detailed) ===\n")
+table(penguins_messy$species, useNA = "always")
+cat("\nUnique values:", unique(penguins_messy$species), "\n")
+cat("Number of unique values:", length(unique(penguins_messy$species)), "\n")
+```
+
+::: {.callout-tip collapse="true"}
+## Key Functions Explained
+
+**For numeric variables:**
+
+- `min()` / `max()`: Find range boundaries
+- `mean()`: Average (affected by outliers)
+- `median()`: Middle value (robust to outliers)
+- `sd()`: Standard deviation (variability)
+- `sum(is.na())`: Count missing values
+
+**For categorical variables:**
+
+- `table()`: Frequency counts for each category
+- `unique()`: List all distinct values
+- `length(unique())`: Count how many distinct values
+
+**Important:** Always use `na.rm = TRUE` with numeric functions to handle missing values!
+:::
+
+## Building Custom Validation Functions
+
+Now that you understand the individual functions, let's combine them into reusable validation functions that you can adapt for your own datasets.
 
 ### Detailed Numeric Variable Checks
 
-Examine each numeric variable systematically:
+Create a function to examine numeric variables systematically:
 
 ```{r}
 #| eval: false
@@ -228,6 +200,7 @@ table(penguins_messy$year, useNA = "always")
 ::: {.callout-tip}
 ## Validation Questions
 For each categorical variable, ask:
+
 - Are all the values ones you expected?
 - Are there any misspellings or variant spellings?
 - Do the frequencies seem reasonable?
@@ -236,92 +209,63 @@ For each categorical variable, ask:
 For the Palmer Penguins data, you should see exactly 3 species, 3 islands, 2 sexes (plus missing values), and 3 years.
 :::
 
-### Missing Value Patterns
+### Checking Missing Values
 
-Understanding missing data patterns is crucial:
+Missing values are normal in real data, but you need to verify they match your expectations from the data dictionary:
 
 ```{r}
 #| eval: false
 
-# Missing value patterns by variable
-missing_summary <- penguins_messy %>%
-  summarise(across(everything(), ~sum(is.na(.)))) %>%
-  pivot_longer(everything(), names_to = "Variable", values_to = "Missing_Count") %>%
-  arrange(desc(Missing_Count))
+# Quick check: How many missing values in each variable?
+colSums(is.na(penguins_messy))
 
-print(missing_summary)
-
-# You can also use skimr to focus on missing patterns
-skim(penguins_messy) %>%
-  filter(n_missing > 0)
+# Total missing values in the entire dataset
+sum(is.na(penguins_messy))
 ```
+
+::: {.callout-tip}
+## Validation Questions for Missing Data
+
+When checking missing values, ask:
+
+- **Are there MORE NAs than expected?** Compare to your data dictionary
+- **Are there NAs in variables that should be complete?** (e.g., ID columns, required measurements)
+- **Are the NAs in expected variables?** (e.g., sex might have NAs if not recorded, but species should always be known)
+
+For the penguins data, `sex` can have missing values (animal couldn't be sexed in the field), but measurements like `bill_length_mm` should rarely be missing if the penguin was measured.
+:::
 
 ## Identifying Quality Issues
 
 ### Red Flags in Summary Statistics
 
 **For Numeric Variables:**
+
 - Negative values where impossible (e.g., negative body mass)
 - Extremely large or small values (e.g., 50,000g penguins)
 - All values the same (suggests data entry error)
 - Unexpected missing value patterns
 
 **For Categorical Variables:**
+
 - Unexpected categories (e.g., "Adelei" instead of "Adelie")
 - Too many or too few unique values
 - Categories that should be mutually exclusive appearing together
 
-### Using Your Data Dictionary
+::: {.callout-tip}
+## Using Your Data Dictionary
 
-Compare summary statistics directly to your documentation:
+Always compare your summary statistics to what you documented in your data dictionary:
 
-```{r}
-#| eval: false
+- Do the min/max values match the ranges you specified?
+- Are there more unique categories than you documented?
+- Are there more missing values than expected?
+- Do the data types match?
 
-# Create validation function based on your data dictionary
-validate_penguins <- function(data) {
-  issues <- c()
-  
-  # Check bill length range (should be roughly 30-60mm)
-  if(min(data$bill_length_mm, na.rm = TRUE) < 25 | 
-     max(data$bill_length_mm, na.rm = TRUE) > 70) {
-    issues <- c(issues, "Bill length outside expected range")
-  }
-  
-  # Check species (should be exactly 3)
-  if(n_distinct(data$species, na.rm = TRUE) != 3) {
-    issues <- c(issues, "Unexpected number of species")
-  }
-  
-  # Check for negative body mass
-  if(any(data$body_mass_g < 0, na.rm = TRUE)) {
-    issues <- c(issues, "Negative body mass values detected")
-  }
-  
-  # Return findings
-  if(length(issues) == 0) {
-    cat("No obvious data quality issues detected!\n")
-  } else {
-    cat("Potential issues found:\n")
-    for(issue in issues) {
-      cat("- ", issue, "\n")
-    }
-  }
-}
-
-# Test on clean data (should pass)
-cat("Clean data validation:\n")
-validate_penguins(penguins_clean)
-
-# Test on messy data (should find issues)
-cat("\nMessy data validation:\n")
-validate_penguins(penguins_messy)
-```
+If you find discrepancies, investigate! Either the data has quality issues, or your documentation needs updating.
+:::
 
 ## Building Your Summary Statistics Workflow
-
-::: {.callout-tip}
-## Systematic Approach
 
 1. **Start broad**: Use `summary()` to get an overall picture
 2. **Go specific**: Examine each variable type systematically  
@@ -329,90 +273,112 @@ validate_penguins(penguins_messy)
 4. **Investigate anomalies**: Follow up on anything unexpected
 5. **Document findings**: Keep track of quality issues discovered
 
-**Pro tip**: Create a standard summary statistics script that you can adapt for different datasets in your research area.
-:::
-
-### Creating Reusable Functions
-
-Build tools you can use across projects:
-
-```{r}
-#| eval: false
-
-# General data quality overview function
-data_quality_check <- function(data, dataset_name = "Dataset") {
-  cat("=== DATA QUALITY REPORT:", dataset_name, "===\n\n")
-  
-  # Basic info
-  cat("Dimensions:", nrow(data), "rows,", ncol(data), "columns\n")
-  cat("Total missing values:", sum(is.na(data)), "\n")
-  cat("Complete cases:", sum(complete.cases(data)), "\n\n")
-  
-  # Numeric variables
-  numeric_vars <- data[sapply(data, is.numeric)]
-  if(ncol(numeric_vars) > 0) {
-    cat("NUMERIC VARIABLES:\n")
-    for(var in names(numeric_vars)) {
-      examine_numeric(data[[var]], var)
-    }
-  }
-  
-  # Categorical variables  
-  cat("\nCATEGORICAL VARIABLES:\n")
-  categorical_vars <- data[sapply(data, function(x) is.factor(x) | is.character(x))]
-  for(var in names(categorical_vars)) {
-    cat("\n", var, ":\n")
-    print(table(data[[var]], useNA = "always"))
-  }
-}
-
-# Use with any dataset
-data_quality_check(penguins, "Palmer Penguins")
-```
-
-## Integration with Validation Workflow
-
-Summary statistics form the foundation of systematic data validation:
-- **Identify issues**: Spot problems that need investigation
-- **Set validation rules**: Use findings to define specific checks
-- **Monitor changes**: Track how data quality evolves over time
-- **Communicate quality**: Provide evidence of data reliability
-
 ::: {.callout-tip}
-## Looking Forward
-Now that you can systematically examine your data through summary statistics, how might this change your approach to data analysis? What would it mean for your confidence in results to know you've thoroughly examined data quality before beginning analysis?
+Create a standard summary statistics script that you can adapt for different datasets in your research area. Save the functions you've learned (`examine_numeric`, `table()`, etc.) in a script you can reuse.
 :::
 
-## Comparing Groups with skimr
+## Limitations of Manual Checking
 
-You can also use `skim()` with `group_by()` to compare summary statistics across groups:
+While base R summary statistics are powerful, manual checking has limitations:
 
-```{r}
-#| eval: false
-#| code-fold: true
-#| code-summary: "Show code for grouped summaries"
+**Time-Consuming:**
 
-# Compare statistics by species
-penguins_clean %>%
-  group_by(species) %>%
-  skim()
+- Checking every variable manually takes significant time
+- Repetitive work for each new dataset or data update
 
-# This helps identify species-specific patterns and outliers
-```
+**Error-Prone:**
+
+- Easy to forget to check a variable
+- Inconsistent standards across different checking sessions
+- No systematic record of what was checked
+
+**Hard to Share:**
+
+- Difficult to communicate your validation process to collaborators
+- No formal documentation of quality checks performed
+- Can't easily reproduce the same checks on updated data
+
+**The Solution:** Automated validation with `{pointblank}` (next section) addresses all these issues while building on the concepts you've learned here.
+
+::: {.callout-note collapse="true"}
+## Quick Reference: Base R Functions for Summary Statistics
+
+Here's a handy reference of the base R functions we used in this tutorial:
+
+### For Numeric Variables
+
+**Range Statistics**
+
+- `min(x, na.rm = TRUE)`: Minimum value
+- `max(x, na.rm = TRUE)`: Maximum value
+- `range(x, na.rm = TRUE)`: Both min and max
+- `quantile(x, na.rm = TRUE)`: Quartiles and percentiles
+
+**Central Tendency**
+
+- `mean(x, na.rm = TRUE)`: Average value
+- `median(x, na.rm = TRUE)`: Middle value
+
+**Variability**
+
+- `sd(x, na.rm = TRUE)`: Standard deviation
+- `IQR(x, na.rm = TRUE)`: Interquartile range
+
+**Missing Data**
+
+- `sum(is.na(x))`: Count of missing values
+- `complete.cases(data)`: Rows with no missing values
+
+### For Categorical Variables
+
+**Frequency Counts**
+
+- `table(x, useNA = "always")`: Frequency table including NAs
+- `prop.table(table(x))`: Proportions instead of counts
+
+**Unique Values**
+
+- `unique(x)`: All distinct values
+- `length(unique(x))`: Count of unique values
+
+### For Entire Datasets
+
+- `summary(data)`: Quick overview of all variables
+- `nrow(data)`, `ncol(data)`: Dataset dimensions
+- `sapply(data, function)`: Apply a function to each column
+:::
+
+
+::: {.callout-note}
+## Remember: `na.rm = TRUE`
+
+Most numeric functions require `na.rm = TRUE` to handle missing values. Without it, any NA in your data will cause the function to return NA.
+:::
 
 ## Key Takeaways
 
-Summary statistics are essential for data validation:
+Summary statistics with base R are essential for data validation:
 
-- **`{skimr}`** provides comprehensive, readable summaries perfect for quality checks
+- **Base R functions** (`summary()`, `table()`, `min()`, `max()`, etc.) provide powerful tools for examining data quality
 - **Compare clean vs. messy** data to understand what issues look like
 - **Build on your data dictionary** by verifying actual data matches documented expectations
 - **Create reusable functions** for consistent quality checks across projects
+
 
 ::: {.callout-note icon="💭"}
 ## Reflection
 
 You've now seen how summary statistics reveal data quality issues. In the messy dataset, you should have spotted impossible values, typos, and inconsistencies. How confident would you be analyzing data without these checks?
+
+**The Challenge**: While base R summary statistics help you *identify* issues, manually checking every variable in every dataset is time-consuming and error-prone. What if you need to validate data every time it's updated? What if you have dozens of datasets with similar structures?
 :::
 
-**Next**: You'll learn to use `{pointblank}` to create automated, systematic validation rules that catch these issues reliably every time.
+## What's Next?
+
+In the next section, you'll learn to use `{pointblank}` to **automate** this entire validation process:
+- Define validation rules once, apply them automatically
+- Generate professional HTML validation reports
+- Set thresholds for acceptable data quality
+- Integrate validation into your analysis workflow
+
+The manual checking skills you learned here will help you understand *what* pointblank is checking and *why* certain validations matter.

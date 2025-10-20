@@ -13,12 +13,14 @@ In this tutorial, we'll work with real research data to learn data documentation
 We'll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica.
 
 The dataset includes measurements like:
+
 - Bill length and depth (millimeters)
 - Flipper length (millimeters) 
 - Body mass (grams)
 - Species, island, and sex information
 
 This dataset is perfect for learning because it:
+
 - Contains different data types (numeric, categorical)
 - Has some missing values (realistic!)
 - Is scientifically meaningful and well-documented
@@ -59,7 +61,8 @@ For this tutorial, you'll work with **two versions** of the Palmer Penguins data
 1. **Clean data**: High-quality dataset for learning documentation
 2. **Messy data**: Version with realistic data quality issues for practicing validation
 
-The messy dataset contains 51 intentional data quality problems (~15% error rate) including:
+The messy dataset contains 30 intentional data quality problems (~9% error rate) including:
+
 - Typos in species and island names
 - Inconsistent formatting (e.g., "M" vs "male", extra spaces)
 - Impossible values (negative measurements, placeholder values like 999)
@@ -121,6 +124,7 @@ head(penguins_clean)
 ```
 
 If you see errors:
+
 - Make sure both CSV files are in the `data/` folder
 - Check that your working directory is your project folder (use `getwd()` to verify)
 - Try restarting R
@@ -129,14 +133,16 @@ If you see errors:
 ::: {.callout-note collapse="true"}
 ## How We Created the Messy Data
 
-We introduced 51 realistic data quality issues across 344 observations (~15% error rate, typical for real-world field data):
+We introduced 30 realistic data quality issues across 344 observations (~9% error rate, typical for real-world field data):
 
-- **Species**: 7 issues (typos, case errors, extra text)
-- **Island**: 6 issues (whitespace, typos)
-- **Bill measurements**: 12 issues (negatives, impossible values, placeholders)
-- **Flipper/body measurements**: 11 issues (zeros, outliers, missing data)
-- **Sex**: 11 issues (inconsistent coding: M/F/male/Male/MALE)
-- **Year**: 4 issues (outside study period, digit errors)
+- **Species**: 4 issues (typos like "Adelei", case errors, extra text like "Gentoo penguin")
+- **Island**: 2 issues (typos like "Torgerson", case errors like "biscoe")
+- **Bill length**: 3 issues (negative -5.2, impossible 250.5, placeholder 999)
+- **Bill depth**: 2 issues (negative -2.1, placeholder 99.9)
+- **Flipper length**: 1 issue (zero value)
+- **Body mass**: 3 issues (extreme outliers: 15000g, 500g, 10000g)
+- **Sex**: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)
+- **Year**: 4 issues (2020, 2006, 207, 20009)
 
 These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in [`_scripts/create_messy_data.R`](../_scripts/create_messy_data.R).
 :::

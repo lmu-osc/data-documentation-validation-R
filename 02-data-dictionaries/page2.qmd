@@ -2,7 +2,7 @@
 title: "Automated Creation with R"
 ---
 
-In the previous section, you created a data dictionary manually—carefully considering each variable's meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.
+In the previous section, you created a data dictionary manually, carefully considering each variable's meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.
 
 ## From Manual to Automated
 
@@ -12,11 +12,11 @@ You can create data dictionaries in two ways:
 2. **Automated with R** (this section): Efficient for larger datasets, easy to update
 3. **Hybrid approach**: Start with automated generation, then refine with your domain knowledge
 
-Most research projects benefit from automation—especially when data evolves during collection or analysis.
+Most research projects benefit from automation, especially when data evolves during collection or analysis.
 
 ## The `{datawizard}` Package
 
-The `{datawizard}` package provides a simple, reliable way to create data dictionaries automatically. It generates structured tables that include:
+The `{datawizard}` package provides a simple, reliable way to create data dictionaries automatically. The main function you'll use is `data_codebook()`, which generates structured tables that include:
 
 - Variable names and types
 - Missing value counts
@@ -46,7 +46,7 @@ penguins <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
 ```{r}
 #| eval: false
 
-# Create the data codebook
+# Create the data codebook using datawizard's data_codebook() function
 codebook_penguins <- data_codebook(penguins)
 
 # View the codebook
@@ -61,7 +61,6 @@ This single command generates a structured table with:
 - **Values/Ranges** (categories or numeric ranges)
 - **Frequencies** (N and percentages for each category)
 
-::: {.callout-note collapse="true"}
 ## What Does the Output Look Like?
 
 The `data_codebook()` function creates a formatted table. For each variable, you'll see:
@@ -72,11 +71,18 @@ The `data_codebook()` function creates a formatted table. For each variable, you
 - **Clean formatting**: Easy to read in console, save to file, or include in reports
 
 The output is a data frame that can be exported to CSV, Excel, or included in R Markdown/Quarto documents.
-:::
 
 ### Step 3: Add Variable Labels (Optional)
 
-You can add descriptive labels to make the codebook more informative:
+You can add descriptive labels to make the codebook more informative. These labels are stored as **metadata** (attributes) attached to each column, similar to how pandas allows you to add `.attrs` to Series or DataFrames.
+
+**What this code does:**
+
+- `structure(column, label = "description")` attaches a label attribute to a column without changing its data
+- `mutate()` replaces each column with a labeled version of itself (same data, but with metadata attached)
+- The `%>%` pipe operator passes the data from one step to the next (like method chaining in Python)
+
+**Important:** The number of columns stays the same, and the data values don't change. You're just adding descriptive metadata that `data_codebook()` can extract and display.
 
 ```{r}
 #| eval: false
@@ -99,10 +105,22 @@ codebook_labeled <- data_codebook(penguins_labeled)
 print(codebook_labeled)
 ```
 
+::: {.callout-tip}
+## How Labels Are Preserved
+
+The labels you added with `structure()` are stored as **attributes** (metadata) attached to each column in memory. The `data_codebook()` function extracts these labels and includes them as regular data in the codebook table itself. This means:
+
+- **While working in R**: Labels are stored as metadata on `penguins_labeled`
+- **In the codebook**: Labels become regular text in a "Label" column of `codebook_labeled`
+- **When you export the codebook** (next section): The labels are saved as normal data, so they'll be preserved in CSV files
+
+The original `penguins_labeled` data would lose its label attributes if saved as CSV, but the codebook preserves them because they're converted from metadata into regular table content.
+:::
+
 ::: {.callout-note}
 ## Thinking Point
 
-Compare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the "automated" approach still requires your careful thought—you're providing the content, R is just handling the presentation.
+Compare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the "automated" approach still requires your careful thought, you're providing the content, R is just handling the presentation.
 :::
 
 ## Exporting Your Codebook
@@ -191,4 +209,4 @@ R handles the repetitive formatting and summary statistics; you provide the scie
 
 ## Next Steps
 
-You now know how to create data dictionaries both manually and automatically. In the next section, you'll use these documentation skills as the foundation for data validation—checking whether your actual data matches what your dictionary says it should be.
+You now know how to create data dictionaries both manually and automatically. In the next section, you'll use these documentation skills as the foundation for data validation, checking whether your actual data matches what your dictionary says it should be.

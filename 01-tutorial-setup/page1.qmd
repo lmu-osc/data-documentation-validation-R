@@ -39,7 +39,7 @@ And choose the project type _Quarto Project_.
 ![](images/setup_03.png){width=600px fig-align="center"}
 
 Finally, enter the name of the directory where our report will be created in,
-for example `data-documentation-exercise`.
+for example `data-documentation-validation-exercise`.
 
 As we will use Git to track the version history of files,
 be sure to check _Create a git repository_.
@@ -71,9 +71,7 @@ you can uncheck the box _Use visual markdown editor_.
 Click on _Create Project_.
 Your RStudio window should now look similar to this:
 
-![](images/setup_05.png){.lightbox fig-align="center" alt="The project `code-publishing-exercise` opened in RStudio. The source pane to the top left has a Quarto file open called \"code-publishing-exercise.qmd\". The console pane to the bottom left indicates by its output that renv is active in the current project. The environment pane to the top right indicates that the environment is currently empty. The output pane to the bottom right shows the files in the current project."}
-
-> TODO: Replace the image above with one that shows the project name `data-documentation-exercise`.
+![](images/setup_05.png){.lightbox fig-align="center" alt="The project `data-documentation-validation-exercise` opened in RStudio. The source pane to the top left has a Quarto file open called \"data-documentation-validation-exercise.qmd\". The console pane to the bottom left indicates by its output that renv is active in the current project. The environment pane to the top right indicates that the environment is currently empty. The output pane to the bottom right shows the files in the current project."}
 
 If, like in the image, a Quarto file with some demo content was opened automatically,
 you can close and delete it, for example, using RStudio's file manager.
@@ -101,16 +99,16 @@ Without RStudio, one can create a Quarto project
 with version control and `renv` enabled by typing the following into a terminal:
 
 ```{.bash filename="Terminal"}
-quarto create project default code-publishing-exercise
-cd code-publishing-exercise/
-rm code-publishing-exercise.qmd
+quarto create project default data-documentation-validation-exercise
+cd data-documentation-validation-exercise/
+rm data-documentation-validation-exercise.qmd
 git init
 git checkout -b main
 ```
 
 Then, one can open an R session by simply typing `R` into the terminal.
 Next, make sure that `getwd()` indicates that
-the working directory is `code-publishing-exercise`.
+the working directory is `data-documentation-validation-exercise`.
 Now, initialize `renv`:
 
 ```{.r filename="Console"}
@@ -135,7 +133,7 @@ Before moving to the next section, verify your setup is working:
    #| eval: false
    getwd()
    ```
-   Expected output: Path ending in your project folder name (e.g., `data-documentation-exercise`)
+   Expected output: Path ending in your project folder name (e.g., `data-documentation-validation-exercise`)
 
 If any of these fail, review the steps above or ask for help before continuing. The `renv` setup will be verified in the next section when you install packages.
 :::
