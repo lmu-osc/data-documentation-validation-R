@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Dictionary using R Tutorial – Data Dictionary using R</title>
+<title>Data Documentation and Validation using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-data-description/page1.html" rel="next">
+<link href="./01-tutorial-setup/page1.html" rel="next">
 <link href="./assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Data Dictionary using R</span>
+    <span class="navbar-title">Data Documentation and Validation using R</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -111,12 +111,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R/issues">
             Report a Bug
             </a>
           </li>
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Description</span></a>
+ <span class="menu-text">Tutorial Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -172,14 +172,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-data-description/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Description</span></a>
+  <a href="./01-tutorial-setup/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-data-description/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating Data Dictionaries with {pointblank}</span></a>
+  <a href="./01-tutorial-setup/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Data &amp; Tools</span></a>
   </div>
 </li>
       </ul>
@@ -187,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Summary Statistics</span></a>
+ <span class="menu-text">Data Dictionaries</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -195,20 +195,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-summary-statistics/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Data with Summary Statistics</span></a>
+  <a href="./02-data-dictionaries/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts &amp; Manual Creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-summary-statistics/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Summary Tables with {pointblank}</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-summary-statistics/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Summary Statistics Packages</span></a>
+  <a href="./02-data-dictionaries/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automated Creation with R</span></a>
   </div>
 </li>
       </ul>
@@ -225,19 +219,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-data-validation/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Validation in R</span></a>
+ <span class="menu-text">Data Quality Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-data-validation/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Implementing Validation with {pointblank}</span></a>
+ <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Data Validation Packages</span></a>
+ <span class="menu-text">Validation with R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -254,16 +248,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tutorial-overview" id="toc-tutorial-overview" class="nav-link active" data-scroll-target="#tutorial-overview">Tutorial Overview</a></li>
+  <li><a href="#why-document-your-data" id="toc-why-document-your-data" class="nav-link active" data-scroll-target="#why-document-your-data">Why Document Your Data?</a></li>
+  <li><a href="#what-youll-learn" id="toc-what-youll-learn" class="nav-link" data-scroll-target="#what-youll-learn">What You’ll Learn</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#key-r-packages" id="toc-key-r-packages" class="nav-link" data-scroll-target="#key-r-packages">Key R Packages</a></li>
+  <li><a href="#tutorial-structure" id="toc-tutorial-structure" class="nav-link" data-scroll-target="#tutorial-structure">Tutorial Structure</a>
+  <ul class="collapse">
+  <li><a href="#tutorial-setup" id="toc-tutorial-setup" class="nav-link" data-scroll-target="#tutorial-setup">1. Tutorial Setup</a></li>
+  <li><a href="#data-dictionaries" id="toc-data-dictionaries" class="nav-link" data-scroll-target="#data-dictionaries">2. Data Dictionaries</a></li>
+  <li><a href="#data-validation" id="toc-data-validation" class="nav-link" data-scroll-target="#data-validation">3. Data Validation</a></li>
+  </ul></li>
+  <li><a href="#example-dataset" id="toc-example-dataset" class="nav-link" data-scroll-target="#example-dataset">Example Dataset</a></li>
+  <li><a href="#tutorial-navigation" id="toc-tutorial-navigation" class="nav-link" data-scroll-target="#tutorial-navigation">Tutorial Navigation</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Dictionary using R Tutorial</h1>
+<h1 class="title">Data Documentation and Validation using R</h1>
 </div>
 
 
@@ -280,45 +286,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This tutorial is currently a work in progress.</p>
-</div>
-</div>
-<p>This tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.</p>
-<section id="tutorial-overview" class="level1">
-<h1>Tutorial Overview</h1>
-<p>This <strong>self-paced tutorial</strong> is intended to take X hours to complete.</p>
-<p>The tutorial is split into the following sections:</p>
-<ol type="1">
-<li><a href=""><strong>Data Description</strong></a> talks about the importance of data description and how to create a data dictionary.</li>
-<li><a href=""><strong>Summary Statistics</strong></a> discusses how to generate summary statistics for your data which is crucial for understanding the distribution and characteristics of your variables.</li>
-<li><a href=""><strong>Data Validation</strong></a> covers how to add validation rules to your data dictionary, ensuring that the data collected meets certain criteria.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled" title="Recommended Software">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Recommended Software
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This tutorial assumes you have the following software installed:</p>
+<p>Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.</p>
+<section id="why-document-your-data" class="level2">
+<h2 class="anchored" data-anchor-id="why-document-your-data">Why Document Your Data?</h2>
+<p>Good documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Well-documented data is simply better science.</p>
+</section>
+<section id="what-youll-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-youll-learn">What You’ll Learn</h2>
+<p>By the end of this tutorial, you will be able to:</p>
 <ul>
-<li>SOME SOFTWARE + LINK HERE</li>
+<li><strong>Create data dictionaries</strong> that clearly describe your variables and datasets (both manually and automatically)</li>
+<li><strong>Use summary statistics</strong> to identify data quality issues and understand your data’s characteristics</li>
+<li><strong>Implement automated validation</strong> workflows to catch errors systematically</li>
+<li><strong>Generate professional reports</strong> that combine documentation, validation results, and code</li>
 </ul>
+<p>We’ll use real research data (Palmer Penguins) and modern R packages to build a complete data documentation workflow.</p>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>This tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:</p>
+<ul>
+<li><a href="https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/">Introduction to version control with Git and GitHub within RStudio</a></li>
+<li><a href="https://lmu-osc.github.io/introduction-to-renv/">Introduction to renv</a></li>
+</ul>
+<p>You should also have:</p>
+<ul>
+<li>Basic R and RStudio familiarity</li>
+<li>Experience working with data frames</li>
+<li>Understanding of variables, observations, and data types</li>
+</ul>
+</section>
+<section id="key-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="key-r-packages">Key R Packages</h2>
+<p>Throughout this tutorial, you’ll work with:</p>
+<ul>
+<li><strong><code>{datawizard}</code></strong> - Automated data dictionary creation</li>
+<li><strong><code>{pointblank}</code></strong> - Comprehensive data validation</li>
+<li><strong><code>{dplyr}</code></strong> - Data manipulation</li>
+<li><strong><code>{readr}</code></strong> - Reading CSV data files</li>
+</ul>
+</section>
+<section id="tutorial-structure" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-structure">Tutorial Structure</h2>
+<section id="tutorial-setup" class="level3">
+<h3 class="anchored" data-anchor-id="tutorial-setup">1. Tutorial Setup</h3>
+<p>Set up your R project environment with Quarto, Git, and renv. Install required packages and get familiar with the Palmer Penguins dataset.</p>
+</section>
+<section id="data-dictionaries" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionaries">2. Data Dictionaries</h3>
+<p>Learn to create comprehensive variable documentation:</p>
+<ul>
+<li><strong>Concepts &amp; Manual Creation</strong>: Understand what makes a good data dictionary and create one by hand</li>
+<li><strong>Automated Creation with R</strong>: Use the <code>{datawizard}</code> package to generate dictionaries automatically</li>
+</ul>
+</section>
+<section id="data-validation" class="level3">
+<h3 class="anchored" data-anchor-id="data-validation">3. Data Validation</h3>
+<p>Implement systematic quality checks to catch errors early:</p>
+<ul>
+<li><strong>Data Quality Concepts</strong>: Understand types of data issues and validation approaches</li>
+<li><strong>Summary Statistics</strong>: Use base R functions to identify problems through descriptive statistics</li>
+<li><strong>Validation with R Packages</strong>: Automate quality checks with <code>{pointblank}</code></li>
+</ul>
+</section>
+</section>
+<section id="example-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="example-dataset">Example Dataset</h2>
+<p>We’ll use the <strong>Palmer Penguins</strong> dataset throughout this tutorial. This dataset contains observations of three penguin species collected from islands in the Palmer Archipelago, Antarctica, including measurements of bill dimensions, flipper length, body mass, and other characteristics.</p>
+<p>You’ll work with both a clean version (high-quality data) and a messy version (with realistic data quality issues) to practice identifying and fixing common problems.</p>
+</section>
+<section id="tutorial-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-navigation">Tutorial Navigation</h2>
+<p>The topics are accompanied by distinct boxes that are color-coded for their content:</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Orange boxes contain information crucial for that topic
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>These highlight key concepts, important warnings, or critical information you need to understand.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Blue boxes contain excursions to related topics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These provide additional context, connections to other concepts, or deeper explanations for the curious learner.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Green boxes contain practical tips and guidance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These offer helpful advice, best practices, and shortcuts to make your work easier.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Red boxes contain solutions and are collapsed
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Only open these if you want to see the solution! Try exercises on your own first.</p>
+</div>
+</div>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>Ready to begin? Start with <a href="./01-tutorial-setup/page1.html">Tutorial Setup</a> to configure your R environment.</p>
 
 
 </section>
@@ -728,8 +823,8 @@ Warning
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-data-description/page1.html" class="pagination-link" aria-label="Introduction to Data Description">
-        <span class="nav-page-text">Introduction to Data Description</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-tutorial-setup/page1.html" class="pagination-link" aria-label="Project Setup">
+        <span class="nav-page-text">Project Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -741,7 +836,7 @@ Warning
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

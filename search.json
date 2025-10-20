@@ -2,9 +2,97 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data Dictionary using R Tutorial",
+    "title": "Data Documentation and Validation using R",
     "section": "",
-    "text": "Warning\n\n\n\nThis tutorial is currently a work in progress.\n\n\nThis tutorial will walk you through the process of creating a data dictionary using R. A data dictionary is a comprehensive description of the data for your research data set. It includes information about the variables, their types, and any other relevant metadata. This is particularly useful for ensuring that your data is well-documented and easily understandable by others.\n\nTutorial Overview\nThis self-paced tutorial is intended to take X hours to complete.\nThe tutorial is split into the following sections:\n\nData Description talks about the importance of data description and how to create a data dictionary.\nSummary Statistics discusses how to generate summary statistics for your data which is crucial for understanding the distribution and characteristics of your variables.\nData Validation covers how to add validation rules to your data dictionary, ensuring that the data collected meets certain criteria.\n\n\n\n\n\n\n\nTipRecommended Software\n\n\n\nThis tutorial assumes you have the following software installed:\n\nSOME SOFTWARE + LINK HERE\n\n\n\n\n\n\n\n Back to top",
+    "text": "Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-document-your-data",
+    "href": "index.html#why-document-your-data",
+    "title": "Data Documentation and Validation using R",
+    "section": "Why Document Your Data?",
+    "text": "Why Document Your Data?\nGood documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Well-documented data is simply better science.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "Data Documentation and Validation using R",
+    "section": "What You’ll Learn",
+    "text": "What You’ll Learn\nBy the end of this tutorial, you will be able to:\n\nCreate data dictionaries that clearly describe your variables and datasets (both manually and automatically)\nUse summary statistics to identify data quality issues and understand your data’s characteristics\nImplement automated validation workflows to catch errors systematically\nGenerate professional reports that combine documentation, validation results, and code\n\nWe’ll use real research data (Palmer Penguins) and modern R packages to build a complete data documentation workflow.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Data Documentation and Validation using R",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThis tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:\n\nIntroduction to version control with Git and GitHub within RStudio\nIntroduction to renv\n\nYou should also have:\n\nBasic R and RStudio familiarity\nExperience working with data frames\nUnderstanding of variables, observations, and data types",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#key-r-packages",
+    "href": "index.html#key-r-packages",
+    "title": "Data Documentation and Validation using R",
+    "section": "Key R Packages",
+    "text": "Key R Packages\nThroughout this tutorial, you’ll work with:\n\n{datawizard} - Automated data dictionary creation\n{pointblank} - Comprehensive data validation\n{dplyr} - Data manipulation\n{readr} - Reading CSV data files",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#tutorial-structure",
+    "href": "index.html#tutorial-structure",
+    "title": "Data Documentation and Validation using R",
+    "section": "Tutorial Structure",
+    "text": "Tutorial Structure\n\n1. Tutorial Setup\nSet up your R project environment with Quarto, Git, and renv. Install required packages and get familiar with the Palmer Penguins dataset.\n\n\n2. Data Dictionaries\nLearn to create comprehensive variable documentation:\n\nConcepts & Manual Creation: Understand what makes a good data dictionary and create one by hand\nAutomated Creation with R: Use the {datawizard} package to generate dictionaries automatically\n\n\n\n3. Data Validation\nImplement systematic quality checks to catch errors early:\n\nData Quality Concepts: Understand types of data issues and validation approaches\nSummary Statistics: Use base R functions to identify problems through descriptive statistics\nValidation with R Packages: Automate quality checks with {pointblank}",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#example-dataset",
+    "href": "index.html#example-dataset",
+    "title": "Data Documentation and Validation using R",
+    "section": "Example Dataset",
+    "text": "Example Dataset\nWe’ll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from islands in the Palmer Archipelago, Antarctica, including measurements of bill dimensions, flipper length, body mass, and other characteristics.\nYou’ll work with both a clean version (high-quality data) and a messy version (with realistic data quality issues) to practice identifying and fixing common problems.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#tutorial-navigation",
+    "href": "index.html#tutorial-navigation",
+    "title": "Data Documentation and Validation using R",
+    "section": "Tutorial Navigation",
+    "text": "Tutorial Navigation\nThe topics are accompanied by distinct boxes that are color-coded for their content:\n\n\n\n\n\n\nCautionOrange boxes contain information crucial for that topic\n\n\n\nThese highlight key concepts, important warnings, or critical information you need to understand.\n\n\n\n\n\n\n\n\nNoteBlue boxes contain excursions to related topics\n\n\n\nThese provide additional context, connections to other concepts, or deeper explanations for the curious learner.\n\n\n\n\n\n\n\n\nTipGreen boxes contain practical tips and guidance\n\n\n\nThese offer helpful advice, best practices, and shortcuts to make your work easier.\n\n\n\n\n\n\n\n\nImportantRed boxes contain solutions and are collapsed\n\n\n\nOnly open these if you want to see the solution! Try exercises on your own first.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Data Documentation and Validation using R",
+    "section": "Getting Started",
+    "text": "Getting Started\nReady to begin? Start with Tutorial Setup to configure your R environment.",
     "crumbs": [
       "Home",
       "Overview"
@@ -13,49 +101,229 @@
   {
     "objectID": "03-data-validation/page1.html",
     "href": "03-data-validation/page1.html",
-    "title": "Page Title Here",
+    "title": "Data Quality Concepts",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "text": "Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you’ve documented.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Introduction to Data Validation in R"
+      "Data Quality Concepts"
     ]
   },
   {
-    "objectID": "03-data-validation/page1.html#level-two",
-    "href": "03-data-validation/page1.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "objectID": "03-data-validation/page1.html#why-data-validation-matters",
+    "href": "03-data-validation/page1.html#why-data-validation-matters",
+    "title": "Data Quality Concepts",
+    "section": "Why Data Validation Matters",
+    "text": "Why Data Validation Matters\n\nBuilding on Your Documentation\nYour data dictionary describes the ideal structure and content of your data. Data validation checks whether reality matches those expectations. Think of it as quality control for your research.\n\n\n\n\n\n\nNoteConsider This\n\n\n\nRemember the Palmer Penguins data dictionary you created? You documented that bill length should be measured in millimeters with values typically between 30-60mm. But what if some values in your dataset are 3000mm or negative numbers? Your analysis would be compromised even though your documentation is perfect.\n\n\n\n\nThe Research Impact\nPoor data quality can:\n\nInvalidate analyses: Outliers or errors lead to wrong conclusions\nWaste time: Hours spent troubleshooting mysterious results caused by data issues\nUndermine credibility: Reviewers and collaborators lose confidence in findings\nPrevent replication: Others can’t reproduce results with unreliable data\n\nGood validation practices catch these issues early, when they’re easy to fix.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Introduction to Data Validation in R"
+      "Data Quality Concepts"
     ]
   },
   {
-    "objectID": "03-data-validation/page1.html#another-level-two",
-    "href": "03-data-validation/page1.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
+    "objectID": "03-data-validation/page1.html#types-of-data-quality-issues",
+    "href": "03-data-validation/page1.html#types-of-data-quality-issues",
+    "title": "Data Quality Concepts",
+    "section": "Types of Data Quality Issues",
+    "text": "Types of Data Quality Issues\n\nStructural Problems\nThese violate the basic framework you documented:\n\nWrong data types: Text in numeric columns, numbers stored as text\nMissing required values: Empty cells where data should exist\nInvalid categories: Misspelled factor levels or unexpected values\nOut-of-range values: Numbers that fall outside reasonable bounds\n\n\n\nContent Problems\nThese are more subtle but equally important:\n\nLogical inconsistencies: A penguin recorded as weighing 50,000 grams\nPattern violations: ID numbers that don’t follow expected formats\nDuplicate records: The same observation recorded multiple times\nMeasurement errors: Values that are technically valid but scientifically implausible",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Introduction to Data Validation in R"
+      "Data Quality Concepts"
     ]
   },
   {
-    "objectID": "03-data-validation/page1.html#level-two-1",
-    "href": "03-data-validation/page1.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
+    "objectID": "03-data-validation/page1.html#validation-as-quality-assurance",
+    "href": "03-data-validation/page1.html#validation-as-quality-assurance",
+    "title": "Data Quality Concepts",
+    "section": "Validation as Quality Assurance",
+    "text": "Validation as Quality Assurance\n\nProactive vs. Reactive\nReactive approach: Discover data problems during analysis when they cause errors or strange results\nProactive approach: Systematically check data quality before analysis begins\nThe proactive approach saves time and increases confidence in your results.\n\n\nLevels of Validation\nBasic validation:\n\nDoes the data match its documented structure?\nCorrect data types\nExpected number of variables and observations\nNo completely empty columns or rows\n\nContent validation:\n\nAre the values reasonable and consistent?\nValues fall within expected ranges\nCategorical variables contain only valid categories\nRelationships between variables make sense\n\nDomain validation:\n\nDoes the data make sense scientifically?\nMeasurements are biologically/physically plausible\nPatterns align with known relationships\nOutliers have logical explanations\n\n\n\n\n\n\n\nTipBuilding on Documentation\n\n\n\nNotice how each level builds on your data dictionary work:\n\nBasic validation checks the structure you documented\nContent validation uses the ranges and categories you specified\nDomain validation relies on the scientific context you provided\n\nYour documentation becomes the foundation for systematic quality checking.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Introduction to Data Validation in R"
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#practical-example-palmer-penguins-validation",
+    "href": "03-data-validation/page1.html#practical-example-palmer-penguins-validation",
+    "title": "Data Quality Concepts",
+    "section": "Practical Example: Palmer Penguins Validation",
+    "text": "Practical Example: Palmer Penguins Validation\nLet’s think through what validation might look like for our familiar dataset:\n\nStructural Checks\nBased on your data dictionary, you’d verify:\n\nspecies contains only “Adelie”, “Chinstrap”, “Gentoo”\nbill_length_mm is numeric, not text\nRequired measurements aren’t missing for complete observations\nyear contains only 2007, 2008, 2009\n\n\n\nContent Checks\nUsing the ranges you documented:\n\nBill lengths between reasonable values (e.g., 30-60mm)\nBody mass within realistic ranges for penguins\nNo negative measurements\nSex coded consistently\n\n\n\nDomain Checks\nApplying biological knowledge:\n\nAre bill dimensions reasonable for each species?\nDo body mass values align with known penguin biology?\nAre measurement combinations plausible?\n\n\n\n\n\n\n\nTipValidation Planning Exercise\n\n\n\nThink about a dataset from your own research:\n\nWhat structural problems might occur during data collection or entry?\nWhat content issues would be most problematic for your analyses?\nWhat domain-specific knowledge should guide your quality checks?\n\nWrite down 3-4 specific validation rules you’d want to implement.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#validation-workflow-integration",
+    "href": "03-data-validation/page1.html#validation-workflow-integration",
+    "title": "Data Quality Concepts",
+    "section": "Validation Workflow Integration",
+    "text": "Validation Workflow Integration\n\nWhen to Validate\n\nDuring data collection: Catch errors as they happen\nAfter data entry: Before any analysis begins\nBefore major analyses: Ensure data quality for important results\nBefore sharing: Verify data quality for others\n\n\n\nDocumentation Connection\nYour validation rules should directly connect to your data dictionary:\n\nEach documented range becomes a validation rule\nEach categorical variable’s valid values become a check\nEach data type specification becomes a structural test\n\nThis creates a complete quality assurance system where documentation and validation work together.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#benefits-of-systematic-validation",
+    "href": "03-data-validation/page1.html#benefits-of-systematic-validation",
+    "title": "Data Quality Concepts",
+    "section": "Benefits of Systematic Validation",
+    "text": "Benefits of Systematic Validation\n\nFor Your Research\n\nIncreased confidence: Know your data is reliable\nTime savings: Catch errors early rather than during analysis\nBetter results: Analyses based on clean, verified data\nEasier troubleshooting: When something looks odd, it’s probably real\n\n\n\nFor Open Science\n\nTransparency: Others can see your quality control process\nReproducibility: Quality checks can be replicated and verified\nTrust: Colleagues have confidence in shared data\nStandards: Contribute to better practices in your field\n\n\n\n\n\n\n\nTipReflection Question\n\n\n\nHow might implementing systematic data validation change your relationship with your research data? What would it mean for your confidence in results to know that data quality has been thoroughly verified?\n\n\nNext: We’ll explore specific techniques for generating summary statistics that reveal data quality issues and support your validation efforts.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html",
+    "href": "02-data-dictionaries/page1.html",
+    "title": "Concepts & Manual Creation",
+    "section": "",
+    "text": "A dataset without proper documentation can be a significant barrier to reproducible science. In this hands-on section, you’ll learn to create data dictionaries manually and practice with research data.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#what-is-a-data-dictionary",
+    "href": "02-data-dictionaries/page1.html#what-is-a-data-dictionary",
+    "title": "Concepts & Manual Creation",
+    "section": "What is a Data Dictionary?",
+    "text": "What is a Data Dictionary?\nA data dictionary is a structured document that provides comprehensive information about each variable in your dataset. Think of it as the “instruction manual” for your data, it tells anyone (including future you) exactly what each column means, how it was measured, and how to interpret the values.\n\n\n\n\n\n\nTipConsider This\n\n\n\nBefore we continue, reflect on your most recent research project. How would a colleague understand your data if you shared it with them today? What questions would they need to ask you?\n\n\n\nEssential Components\nEvery data dictionary should include:\n\nVariable Name: The exact column name in your data file (e.g., bill_length_mm)\nVariable Label: A human-readable name (e.g., “Bill Length”)\n\nDescription: Clear definition of what was measured (e.g., “Length of the penguin’s bill measured in millimeters”)\nData Type: The type of data stored (numeric, character, factor, logical)\nUnits: For numeric variables, the unit of measurement (mm, grams, years)\nValid Values: Expected range or categories (e.g., “0-100” or “male, female”)\nMissing Values: How missing data is coded (NA, -999, blank)",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#why-data-dictionaries-matter-for-open-science",
+    "href": "02-data-dictionaries/page1.html#why-data-dictionaries-matter-for-open-science",
+    "title": "Concepts & Manual Creation",
+    "section": "Why Data Dictionaries Matter for Open Science",
+    "text": "Why Data Dictionaries Matter for Open Science\n\nPreventing Critical Errors\nWithout documentation, researchers make dangerous assumptions. Is score a percentage (0-100) or raw points (0-50)? Is treatment coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.\n\n\n\n\n\n\nNoteReal-World Example\n\n\n\nA research team spent months analyzing survey data where satisfaction was coded 1-5. They treated 5 as “very satisfied.” Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards!\n\n\n\n\nEnabling Collaboration\nWhen a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.\n\n\nMeeting FAIR Principles\nFAIR data must be Findable, Accessible, Interoperable, and Reusable. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#hands-on-practice-creating-your-first-data-dictionary",
+    "href": "02-data-dictionaries/page1.html#hands-on-practice-creating-your-first-data-dictionary",
+    "title": "Concepts & Manual Creation",
+    "section": "Hands-On Practice: Creating Your First Data Dictionary",
+    "text": "Hands-On Practice: Creating Your First Data Dictionary\nLet’s work through an example with a sample dataset. Imagine you’ve collected data on study habits and academic performance:\n\nStep 1: Examine the Data\nHere’s what your data file looks like:\n\n\n\nstudent_id\nstudy_hrs\ntest_score\nmajor\nsatisfaction\nattend\n\n\n\n\n001\n15\n85\nPSYC\n4\nY\n\n\n002\n8\n72\nBIOL\n3\nN\n\n\n003\n22\n94\nPSYC\n5\nY\n\n\n004\nNA\n68\nMATH\n2\nY",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#analysis-exercise",
+    "href": "02-data-dictionaries/page1.html#analysis-exercise",
+    "title": "Concepts & Manual Creation",
+    "section": "Analysis Exercise",
+    "text": "Analysis Exercise\nExamine the sample data above. Without any documentation, what questions arise? Consider at least 3 potential ambiguities or areas needing clarification.\nFocus areas: Think about units, scales, missing values, and what the codes represent.\n\n\n\n\n\n\nImportantClick for common questions researchers identify\n\n\n\n\n\n\nWhat time period do study_hrs cover? Per week? Per month?\nIs test_score out of 100? What test was this?\nWhat does the satisfaction scale mean? Is 1 low or high?\nWhat do Y/N in attend represent?\nWhy is there an NA in study_hrs for student 004?\n\n\n\n\n\nStep 2: Build Your Dictionary Structure\nCreate a table with the essential columns:\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nLabel\nDescription\nType\nUnits\nValid Values\nMissing",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#documentation-exercise",
+    "href": "02-data-dictionaries/page1.html#documentation-exercise",
+    "title": "Concepts & Manual Creation",
+    "section": "Documentation Exercise",
+    "text": "Documentation Exercise\nUsing the study habits data above, create a complete data dictionary. For each variable, consider:\n\nWhat would another researcher need to know to use this variable correctly?\nWhat assumptions might someone make that could be wrong?\nWhat context is essential for proper interpretation?\n\nWork through 2-3 variables before reviewing the example below.\n\n\n\n\n\n\nImportantClick for example documentation approach\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nLabel\nDescription\nType\nUnits\nValid Values\nMissing\n\n\n\n\nstudent_id\nStudent ID\nUnique identifier for each participant\ncharacter\nnone\n001-999\nnone\n\n\nstudy_hrs\nWeekly Study Hours\nSelf-reported hours spent studying per week\nnumeric\nhours\n0-168\nNA\n\n\ntest_score\nMidterm Score\nScore on standardized midterm exam\nnumeric\npoints\n0-100\nnone\n\n\nmajor\nAcademic Major\nStudent’s declared major field\ncategorical\nnone\nPSYC, BIOL, MATH, CHEM\nnone\n\n\nsatisfaction\nCourse Satisfaction\nRating of course satisfaction (5-point scale)\nnumeric\n1-5 scale\n1=very unsatisfied, 5=very satisfied\nnone\n\n\nattend\nLecture Attendance\nRegular attendance at lectures (&gt;80%)\ncategorical\nnone\nY=yes, N=no\nnone\n\n\n\n\n\n\n\nStep 3: Validate Your Documentation\n\n\n\n\n\n\nTipDocumentation Quality Check\n\n\n\nConsider whether a colleague using only your data dictionary could:\n\nCorrectly interpret a satisfaction score of “2”?\nUnderstand what “15” in study_hrs represents?\nHandle missing values appropriately?\nMake meaningful comparisons between majors?\n\nIf uncertainties remain, refine your documentation accordingly.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#tools-for-manual-creation",
+    "href": "02-data-dictionaries/page1.html#tools-for-manual-creation",
+    "title": "Concepts & Manual Creation",
+    "section": "Tools for Manual Creation",
+    "text": "Tools for Manual Creation\n\nSpreadsheet Software (Excel, Google Sheets, LibreOffice)\nBest for: Most research teams, easy sharing and collaboration\nApproach: Create your dictionary table directly in the spreadsheet. Save as CSV for better compatibility with analysis software.\nPros: Familiar interface, collaborative editing, export flexibility\nCons: Formatting limitations, version control challenges\n\n\nMarkdown Tables\nBest for: Projects using version control (Git), reproducible workflows\nTemplate:\n| Variable Name | Label | Description | Type | Units | Valid Values | Missing |\n|---------------|-------|-------------|------|-------|--------------|---------|\n| variable1     |       |             |      |       |              |         |\n| variable2     |       |             |      |       |              |         |\nPros: Version control friendly, readable as plain text\nCons: Less intuitive for less technical collaborators\n\n\nWord Processors (Word, Google Docs)\nBest for: Teams preferring familiar document formats\nApproach: Create a simple table with the essential columns.\nPros: Rich formatting options, familiar to most researchers\nCons: Difficult for automated processing, no structured format",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#implementation-strategy",
+    "href": "02-data-dictionaries/page1.html#implementation-strategy",
+    "title": "Concepts & Manual Creation",
+    "section": "Implementation Strategy",
+    "text": "Implementation Strategy\n\n\n\n\n\n\nTipPractical Application\n\n\n\n\nSelect a dataset from your current work (or use a publicly available dataset)\nDocument 5-10 variables using the principles covered here\nValidate your dictionary by having a colleague interpret values using only your documentation\nIterate and improve based on their feedback and questions\n\nIf possible, share your dictionary with a researcher from a different field. What additional context do they require?",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#when-manual-creation-is-most-effective",
+    "href": "02-data-dictionaries/page1.html#when-manual-creation-is-most-effective",
+    "title": "Concepts & Manual Creation",
+    "section": "When Manual Creation is Most Effective",
+    "text": "When Manual Creation is Most Effective\nManual creation works optimally when:\n\nYou have fewer than 20 variables\nYour data structure remains stable over time\nYou need detailed, contextual descriptions\nYou’re collaborating with non-technical team members\nYou require precise control over documentation details\n\nThe next section covers automated approaches using R packages, which become essential for larger datasets or when documentation needs frequent updates.\n\n\n\n\n\n\nTipReflection Points\n\n\n\nAs you implement these practices:\n\nWhat aspects of manual dictionary creation align best with your research workflow?\nWhere do you anticipate the greatest challenges in maintaining documentation?\nHow might improved data documentation have enhanced your previous research projects?",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page1.html",
+    "href": "01-tutorial-setup/page1.html",
+    "title": "Project Setup",
+    "section": "",
+    "text": "This section guides you through setting up your R environment for data documentation and validation. You’ll create a reproducible project structure using Quarto (a tool for creating documents that combine code and text) and renv (a tool for managing R packages) that supports open science practices.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Project Setup"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page1.html#create-quarto-project",
+    "href": "01-tutorial-setup/page1.html#create-quarto-project",
+    "title": "Project Setup",
+    "section": "Create Quarto Project",
+    "text": "Create Quarto Project\nFirst, we will need to create a new Quarto project.\nIf you haven’t already, open RStudio – see Note 1 for how to use the terminal instead. Then, click on File &gt; New Project… to open the New Project Wizard.\n\n\n\n\n\nHere, select New Directory\n\n\n\n\n\nAnd choose the project type Quarto Project.\n\n\n\n\n\nFinally, enter the name of the directory where our report will be created in, for example data-documentation-validation-exercise.\nAs we will use Git to track the version history of files, be sure to check Create a git repository. If you don’t know what Git is, have a look at the tutorial “Introduction to version control with git and GitHub within RStudio”.\n\n\n\n\n\nrenv: A dependency management toolkit for R\n\n\nAlso, we will utilize the package renv to track the R packages our project depends on. Using it makes it easier for others to view and obtain them at the exact same version at a later point in time. Therefore make sure that the box Use renv with this project is checked. Again, if this is the first time you are hearing about renv, have a look at the tutorial “Introduction to {renv}”.\nIf you are already familiar with Markdown and Quarto, you can uncheck the box Use visual markdown editor.\n\n\n\n\n\nClick on Create Project. Your RStudio window should now look similar to this:\n\n\n\n\n\nIf, like in the image, a Quarto file with some demo content was opened automatically, you can close and delete it, for example, using RStudio’s file manager.\nThroughout this tutorial, you will need to run both R code and system commands (primarily git and quarto). Within RStudio, R code can be run by going to the tab Console, while system commands are executed in the tab Terminal. We also indicate where to run your code directly above each code snippet. If no indication is given, the code is only for demonstration purposes and does not need to be run.\n\n\n\n\n\n\nTipAbout renv in This Tutorial\n\n\n\n\n\nThe renv package tracks which R packages your project uses. As you install packages throughout this tutorial (in the next section), renv will automatically record them. You don’t need to do anything special right now.\nLater in your work, before committing code to Git, you can run renv::status() to check if everything is synchronized. For this tutorial, we’ll remind you when it’s time to use renv commands.\n\n\n\n\n\n\n\n\n\nTip 1: Without RStudio\n\n\n\n\n\nWithout RStudio, one can create a Quarto project with version control and renv enabled by typing the following into a terminal:\n\n\nTerminal\n\nquarto create project default data-documentation-validation-exercise\ncd data-documentation-validation-exercise/\nrm data-documentation-validation-exercise.qmd\ngit init\ngit checkout -b main\n\nThen, one can open an R session by simply typing R into the terminal. Next, make sure that getwd() indicates that the working directory is data-documentation-validation-exercise. Now, initialize renv:\n\n\nConsole\n\nrenv::init()\n\n\n\n\n\n\n\n\n\n\nTipCheckpoint: Verify Your Project Setup\n\n\n\nBefore moving to the next section, verify your setup is working:\n\nCheck Git - Should show this is a git repository\n\ngit status\n\nExpected output: Shows branch name (usually “main”) and current status\nCheck working directory - Should end with your project name\n\ngetwd()\n\nExpected output: Path ending in your project folder name (e.g., data-documentation-validation-exercise)\n\nIf any of these fail, review the steps above or ask for help before continuing. The renv setup will be verified in the next section when you install packages.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Project Setup"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page1.html#next-steps",
+    "href": "01-tutorial-setup/page1.html#next-steps",
+    "title": "Project Setup",
+    "section": "Next Steps",
+    "text": "Next Steps\nYour project is now set up with Quarto, Git, and renv! In the next section, you’ll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Project Setup"
     ]
   },
   {
@@ -73,251 +341,11 @@
     "text": "By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
   },
   {
-    "objectID": "01-data-description/page1.html",
-    "href": "01-data-description/page1.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page1.html#level-two",
-    "href": "01-data-description/page1.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page1.html#another-level-two",
-    "href": "01-data-description/page1.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page1.html#level-two-1",
-    "href": "01-data-description/page1.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Introduction to Data Description"
-    ]
-  },
-  {
     "objectID": "LICENSE-CODE.html",
     "href": "LICENSE-CODE.html",
     "title": "Creative Commons Zero v1.0 Universal",
     "section": "",
     "text": "Creative Commons Zero v1.0 Universal\nCREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN “AS-IS” BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER.\n\nStatement of Purpose\nThe laws of most jurisdictions throughout the world automatically confer exclusive Copyright and Related Rights (defined below) upon the creator and subsequent owner(s) (each and all, an “owner”) of an original work of authorship and/or a database (each, a “Work”).\nCertain owners wish to permanently relinquish those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific works (“Commons”) that the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes. These owners may contribute to the Commons to promote the ideal of a free culture and the further production of creative, cultural and scientific works, or to gain reputation or greater distribution for their Work in part through the use and efforts of others.\nFor these and/or other purposes and motivations, and without any expectation of additional consideration or compensation, the person associating CC0 with a Work (the “Affirmer”), to the extent that he or she is an owner of Copyright and Related Rights in the Work, voluntarily elects to apply CC0 to the Work and publicly distribute the Work under its terms, with knowledge of his or her Copyright and Related Rights in the Work and the meaning and intended legal effect of CC0 on those rights.\n\nCopyright and Related Rights. A Work made available under CC0 may be protected by copyright and related or neighboring rights (“Copyright and Related Rights”). Copyright and Related Rights include, but are not limited to, the following:\n\nthe right to reproduce, adapt, distribute, perform, display, communicate, and translate a Work;\nmoral rights retained by the original author(s) and/or performer(s);\npublicity and privacy rights pertaining to a person’s image or likeness depicted in a Work;\nrights protecting against unfair competition in regards to a Work, subject to the limitations in paragraph 4(a), below;\nrights protecting the extraction, dissemination, use and reuse of data in a Work;\ndatabase rights (such as those arising under Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, and under any national implementation thereof, including any amended or successor version of such directive); and\nother similar, equivalent or corresponding rights throughout the world based on applicable law or treaty, and any national implementations thereof.\n\nWaiver. To the greatest extent permitted by, but not in contravention of, applicable law, Affirmer hereby overtly, fully, permanently, irrevocably and unconditionally waives, abandons, and surrenders all of Affirmer’s Copyright and Related Rights and associated claims and causes of action, whether now known or unknown (including existing as well as future claims and causes of action), in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “Waiver”). Affirmer makes the Waiver for the benefit of each member of the public at large and to the detriment of Affirmer’s heirs and successors, fully intending that such Waiver shall not be subject to revocation, rescission, cancellation, termination, or any other legal or equitable action to disrupt the quiet enjoyment of the Work by the public as contemplated by Affirmer’s express Statement of Purpose.\nPublic License Fallback. Should any part of the Waiver for any reason be judged legally invalid or ineffective under applicable law, then the Waiver shall be preserved to the maximum extent permitted taking into account Affirmer’s express Statement of Purpose. In addition, to the extent the Waiver is so judged Affirmer hereby grants to each affected person a royalty-free, non transferable, non sublicensable, non exclusive, irrevocable and unconditional license to exercise Affirmer’s Copyright and Related Rights in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “License”). The License shall be deemed effective as of the date CC0 was applied by Affirmer to the Work. Should any part of the License for any reason be judged legally invalid or ineffective under applicable law, such partial invalidity or ineffectiveness shall not invalidate the remainder of the License, and in such case Affirmer hereby affirms that he or she will not (i) exercise any of his or her remaining Copyright and Related Rights in the Work or (ii) assert any associated claims and causes of action with respect to the Work, in either case contrary to Affirmer’s express Statement of Purpose.\nLimitations and Disclaimers.\n\nNo trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\nAffirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.\nAffirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person’s Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.\nAffirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.\n\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html",
-    "href": "02-summary-statistics/page1.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html#level-two",
-    "href": "02-summary-statistics/page1.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html#another-level-two",
-    "href": "02-summary-statistics/page1.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page1.html#level-two-1",
-    "href": "02-summary-statistics/page1.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Data with Summary Statistics"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html",
-    "href": "02-summary-statistics/page2.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html#level-two",
-    "href": "02-summary-statistics/page2.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html#another-level-two",
-    "href": "02-summary-statistics/page2.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page2.html#level-two-1",
-    "href": "02-summary-statistics/page2.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Generating Summary Tables with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page3.html",
-    "href": "02-summary-statistics/page3.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Other Summary Statistics Packages"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page3.html#level-two",
-    "href": "02-summary-statistics/page3.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Other Summary Statistics Packages"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page3.html#another-level-two",
-    "href": "02-summary-statistics/page3.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Other Summary Statistics Packages"
-    ]
-  },
-  {
-    "objectID": "02-summary-statistics/page3.html#level-two-1",
-    "href": "02-summary-statistics/page3.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Summary Statistics",
-      "Exploring Other Summary Statistics Packages"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page2.html",
-    "href": "01-data-description/page2.html",
-    "title": "Page Title Here",
-    "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Creating Data Dictionaries with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page2.html#level-two",
-    "href": "01-data-description/page2.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Creating Data Dictionaries with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page2.html#another-level-two",
-    "href": "01-data-description/page2.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Creating Data Dictionaries with {pointblank}"
-    ]
-  },
-  {
-    "objectID": "01-data-description/page2.html#level-two-1",
-    "href": "01-data-description/page2.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
-    "crumbs": [
-      "Home",
-      "Data Description",
-      "Creating Data Dictionaries with {pointblank}"
-    ]
   },
   {
     "objectID": "about.html",
@@ -327,99 +355,483 @@
     "text": "Contributors\nThis site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{1,\n  author = {1, AUTHOR},\n  title = {Data {Dictionary} Using {R} {Tutorial}},\n  date = {},\n  url = {https://lmu-osc.github.io/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\n1, AUTHOR. n.d. “Data Dictionary Using R Tutorial.” LMU\nOpen Science Center. https://doi.org/DOI HERE."
   },
   {
+    "objectID": "01-tutorial-setup/page2.html",
+    "href": "01-tutorial-setup/page2.html",
+    "title": "Example Data & Tools",
+    "section": "",
+    "text": "In this tutorial, we’ll work with real research data to learn data documentation principles. You’ll also get familiar with the key R packages that make data validation and documentation efficient.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#our-example-dataset-palmer-penguins",
+    "href": "01-tutorial-setup/page2.html#our-example-dataset-palmer-penguins",
+    "title": "Example Data & Tools",
+    "section": "Our Example Dataset: Palmer Penguins",
+    "text": "Our Example Dataset: Palmer Penguins\n\n\n\n\n\nPalmer Penguins\n\n\nWe’ll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica.\nThe dataset includes measurements like:\n\nBill length and depth (millimeters)\nFlipper length (millimeters)\nBody mass (grams)\nSpecies, island, and sex information\n\nThis dataset is perfect for learning because it:\n\nContains different data types (numeric, categorical)\nHas some missing values (realistic!)\nIs scientifically meaningful and well-documented\nIs small enough to understand completely",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#key-r-packages-well-use",
+    "href": "01-tutorial-setup/page2.html#key-r-packages-well-use",
+    "title": "Example Data & Tools",
+    "section": "Key R Packages We’ll Use",
+    "text": "Key R Packages We’ll Use\nThroughout this tutorial, you’ll work with three main packages:\n\n{datawizard}: Automates creation of data dictionaries\n{pointblank}: Performs systematic data validation\n{skimr}: Generates comprehensive data summaries",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#installing-required-packages",
+    "href": "01-tutorial-setup/page2.html#installing-required-packages",
+    "title": "Example Data & Tools",
+    "section": "Installing Required Packages",
+    "text": "Installing Required Packages\nInstall the packages you’ll need:\n\n# Install core packages\ninstall.packages(c(\n  \"datawizard\",      # Data dictionaries\n  \"pointblank\",      # Data validation\n  \"skimr\",           # Summary statistics\n  \"dplyr\",           # Data manipulation\n  \"readr\"            # Reading CSV files\n))\n\n# Update renv lockfile\nrenv::snapshot()",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#download-the-example-datasets",
+    "href": "01-tutorial-setup/page2.html#download-the-example-datasets",
+    "title": "Example Data & Tools",
+    "section": "Download the Example Datasets",
+    "text": "Download the Example Datasets\nFor this tutorial, you’ll work with two versions of the Palmer Penguins data:\n\nClean data: High-quality dataset for learning documentation\nMessy data: Version with realistic data quality issues for practicing validation\n\nThe messy dataset contains 30 intentional data quality problems (~9% error rate) including:\n\nTypos in species and island names\nInconsistent formatting (e.g., “M” vs “male”, extra spaces)\nImpossible values (negative measurements, placeholder values like 999)\nOut-of-range values (body mass of 15,000g when max should be ~6,300g)\nData entry errors (wrong years, missing digits)\n\n\nDownload Both Files\nClick the buttons below to download both datasets:\n\n Download Clean Data \n Download Messy Data \n\nImportant: Save both files in a folder called data/ inside your project directory. If the data/ folder doesn’t exist yet, create it first.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#load-and-verify-the-data",
+    "href": "01-tutorial-setup/page2.html#load-and-verify-the-data",
+    "title": "Example Data & Tools",
+    "section": "Load and Verify the Data",
+    "text": "Load and Verify the Data\nNow load the clean data and verify it worked:\n\nlibrary(readr)\nlibrary(dplyr)\n\n# Load the clean penguins data\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\n\n# Take a first look\nglimpse(penguins_clean)\n\nYou should see 344 observations of 8 variables.\n\n\n\n\n\n\nTipCheckpoint: Verify Your Data\n\n\n\nBefore continuing, verify the data loaded correctly:\n\n# Should show 344 rows and 8 columns\ndim(penguins_clean)\n\n# Should display: species, island, bill_length_mm, bill_depth_mm,\n#                 flipper_length_mm, body_mass_g, sex, year\nnames(penguins_clean)\n\n# Check first few rows\nhead(penguins_clean)\n\nIf you see errors:\n\nMake sure both CSV files are in the data/ folder\nCheck that your working directory is your project folder (use getwd() to verify)\nTry restarting R\n\n\n\n\n\n\n\n\n\nNoteHow We Created the Messy Data\n\n\n\n\n\nWe introduced 30 realistic data quality issues across 344 observations (~9% error rate, typical for real-world field data):\n\nSpecies: 4 issues (typos like “Adelei”, case errors, extra text like “Gentoo penguin”)\nIsland: 2 issues (typos like “Torgerson”, case errors like “biscoe”)\nBill length: 3 issues (negative -5.2, impossible 250.5, placeholder 999)\nBill depth: 2 issues (negative -2.1, placeholder 99.9)\nFlipper length: 1 issue (zero value)\nBody mass: 3 issues (extreme outliers: 15000g, 500g, 10000g)\nSex: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)\nYear: 4 issues (2020, 2006, 207, 20009)\n\nThese mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in _scripts/create_messy_data.R.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#next-steps",
+    "href": "01-tutorial-setup/page2.html#next-steps",
+    "title": "Example Data & Tools",
+    "section": "Next Steps",
+    "text": "Next Steps\nYou now have your environment set up with the necessary packages and both datasets. In the next section, you’ll learn how to create data dictionaries that document what each variable means and how it should be interpreted.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html",
+    "href": "02-data-dictionaries/page2.html",
+    "title": "Automated Creation with R",
+    "section": "",
+    "text": "In the previous section, you created a data dictionary manually, carefully considering each variable’s meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#from-manual-to-automated",
+    "href": "02-data-dictionaries/page2.html#from-manual-to-automated",
+    "title": "Automated Creation with R",
+    "section": "From Manual to Automated",
+    "text": "From Manual to Automated\nYou can create data dictionaries in two ways:\n\nManually (previous section): Full control, good for small datasets\nAutomated with R (this section): Efficient for larger datasets, easy to update\nHybrid approach: Start with automated generation, then refine with your domain knowledge\n\nMost research projects benefit from automation, especially when data evolves during collection or analysis.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#the-datawizard-package",
+    "href": "02-data-dictionaries/page2.html#the-datawizard-package",
+    "title": "Automated Creation with R",
+    "section": "The {datawizard} Package",
+    "text": "The {datawizard} Package\nThe {datawizard} package provides a simple, reliable way to create data dictionaries automatically. The main function you’ll use is data_codebook(), which generates structured tables that include:\n\nVariable names and types\nMissing value counts\nValue ranges for numeric variables\nFrequency counts for categorical variables\nSummary statistics",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#creating-your-first-automated-dictionary",
+    "href": "02-data-dictionaries/page2.html#creating-your-first-automated-dictionary",
+    "title": "Automated Creation with R",
+    "section": "Creating Your First Automated Dictionary",
+    "text": "Creating Your First Automated Dictionary\nLet’s create a codebook for the Palmer Penguins data.\n\nStep 1: Load and Prepare Data\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(datawizard)\n\n# Load the clean penguins data from CSV\npenguins &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\n\n\n\nStep 2: Generate the Codebook\n\n# Create the data codebook using datawizard's data_codebook() function\ncodebook_penguins &lt;- data_codebook(penguins)\n\n# View the codebook\nprint(codebook_penguins)\n\nThis single command generates a structured table with:\n\nVariable ID and Name\nData Type (character, numeric, etc.)\nMissing Values (count and percentage)\nValues/Ranges (categories or numeric ranges)\nFrequencies (N and percentages for each category)",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#what-does-the-output-look-like",
+    "href": "02-data-dictionaries/page2.html#what-does-the-output-look-like",
+    "title": "Automated Creation with R",
+    "section": "What Does the Output Look Like?",
+    "text": "What Does the Output Look Like?\nThe data_codebook() function creates a formatted table. For each variable, you’ll see:\n\nCategorical variables: List of unique values with counts and percentages\nNumeric variables: Range (min, max) and count of non-missing values\nMissing data: Explicit count and percentage for transparency\nClean formatting: Easy to read in console, save to file, or include in reports\n\nThe output is a data frame that can be exported to CSV, Excel, or included in R Markdown/Quarto documents.\n\nStep 3: Add Variable Labels (Optional)\nYou can add descriptive labels to make the codebook more informative. These labels are stored as metadata (attributes) attached to each column, similar to how pandas allows you to add .attrs to Series or DataFrames.\nWhat this code does:\n\nstructure(column, label = \"description\") attaches a label attribute to a column without changing its data\nmutate() replaces each column with a labeled version of itself (same data, but with metadata attached)\nThe %&gt;% pipe operator passes the data from one step to the next (like method chaining in Python)\n\nImportant: The number of columns stays the same, and the data values don’t change. You’re just adding descriptive metadata that data_codebook() can extract and display.\n\n# Add variable labels using attributes\npenguins_labeled &lt;- penguins %&gt;%\n  mutate(\n    species = structure(species, label = \"Penguin species observed in Palmer Archipelago\"),\n    island = structure(island, label = \"Island where penguin was observed\"),\n    bill_length_mm = structure(bill_length_mm, label = \"Bill length from tip to base (mm)\"),\n    bill_depth_mm = structure(bill_depth_mm, label = \"Bill depth at base (mm)\"),\n    flipper_length_mm = structure(flipper_length_mm, label = \"Flipper length from body to tip (mm)\"),\n    body_mass_g = structure(body_mass_g, label = \"Body mass measured in field (grams)\"),\n    sex = structure(sex, label = \"Biological sex (male, female, or NA)\"),\n    year = structure(year, label = \"Year of observation (2007-2009)\")\n  )\n\n# Generate codebook with labels\ncodebook_labeled &lt;- data_codebook(penguins_labeled)\nprint(codebook_labeled)\n\n\n\n\n\n\n\nTipHow Labels Are Preserved\n\n\n\nThe labels you added with structure() are stored as attributes (metadata) attached to each column in memory. The data_codebook() function extracts these labels and includes them as regular data in the codebook table itself. This means:\n\nWhile working in R: Labels are stored as metadata on penguins_labeled\nIn the codebook: Labels become regular text in a “Label” column of codebook_labeled\nWhen you export the codebook (next section): The labels are saved as normal data, so they’ll be preserved in CSV files\n\nThe original penguins_labeled data would lose its label attributes if saved as CSV, but the codebook preserves them because they’re converted from metadata into regular table content.\n\n\n\n\n\n\n\n\nNoteThinking Point\n\n\n\nCompare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the “automated” approach still requires your careful thought, you’re providing the content, R is just handling the presentation.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#exporting-your-codebook",
+    "href": "02-data-dictionaries/page2.html#exporting-your-codebook",
+    "title": "Automated Creation with R",
+    "section": "Exporting Your Codebook",
+    "text": "Exporting Your Codebook\nSave the codebook for sharing:\n\n# Save as CSV file\nwrite.csv(codebook_labeled, \"data/penguins_codebook.csv\", row.names = FALSE)\n\n# Or save as a formatted text file\nwriteLines(capture.output(print(codebook_labeled)), \"data/penguins_codebook.txt\")\n\nYou can also include the codebook directly in your Quarto/R Markdown reports:\n\n# In a Quarto document, the codebook will display as a formatted table\ndata_codebook(penguins)\n\n\n\n\n\n\n\nTipBest Practice\n\n\n\nInclude codebook generation in your analysis scripts. This ensures documentation updates automatically when your data changes:\n# At the end of your data cleaning script\ncodebook &lt;- data_codebook(my_clean_data)\nwrite.csv(codebook, \"outputs/data_codebook.csv\", row.names = FALSE)",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#when-to-use-automated-dictionaries",
+    "href": "02-data-dictionaries/page2.html#when-to-use-automated-dictionaries",
+    "title": "Automated Creation with R",
+    "section": "When to Use Automated Dictionaries",
+    "text": "When to Use Automated Dictionaries\nUse automated approach when:\n\nYou have more than ~20 variables\nData structure changes during collection/analysis\nYou need quick summaries of value distributions\nMultiple team members need consistent documentation\nYou’re sharing data in repositories\n\nConsider manual approach when:\n\nYou have fewer than 10 variables with unique contexts\nYou need custom formatting for publication\nCollaborators prefer traditional document formats\nComplex measurement protocols require extensive explanation\n\nHybrid approach (recommended):\n\nGenerate automated codebook first\nReview output for completeness\nAdd manual annotations for complex variables\nShare both automated report and any custom notes",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#advantages-for-open-science",
+    "href": "02-data-dictionaries/page2.html#advantages-for-open-science",
+    "title": "Automated Creation with R",
+    "section": "Advantages for Open Science",
+    "text": "Advantages for Open Science\nAutomated codebooks support reproducible research:\n\nVersion control: Include in Git repositories alongside data\nReproducibility: Others can regenerate with same inputs\nTransparency: Shows exactly what’s documented and how\nEfficiency: Update documentation as data evolves\nStandards: Consistent format across projects\nExport flexibility: Save as CSV, text, or include in reports\n\n\n\n\n\n\n\nImportantYour Expertise Still Required\n\n\n\nAutomation doesn’t replace thinking! You still need to:\n\nAdd informative variable labels that explain what was measured\nProvide context about measurement methods and instruments\nExplain unusual coding or missing value patterns\nDocument units, valid ranges, and any data transformations\nConsider what collaborators need to know to use your data correctly\n\nR handles the repetitive formatting and summary statistics; you provide the scientific knowledge and context.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page2.html#next-steps",
+    "href": "02-data-dictionaries/page2.html#next-steps",
+    "title": "Automated Creation with R",
+    "section": "Next Steps",
+    "text": "Next Steps\nYou now know how to create data dictionaries both manually and automatically. In the next section, you’ll use these documentation skills as the foundation for data validation, checking whether your actual data matches what your dictionary says it should be.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Automated Creation with R"
+    ]
+  },
+  {
     "objectID": "03-data-validation/page2.html",
     "href": "03-data-validation/page2.html",
-    "title": "Page Title Here",
+    "title": "Summary Statistics",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "text": "Summary statistics are your first line of defense in data validation. They provide a systematic way to spot quality issues, understand your data’s characteristics, and verify that reality matches your documented expectations. Think of them as a health check-up for your dataset.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Implementing Validation with {pointblank}"
+      "Summary Statistics"
     ]
   },
   {
-    "objectID": "03-data-validation/page2.html#level-two",
-    "href": "03-data-validation/page2.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "objectID": "03-data-validation/page2.html#summary-statistics-as-data-detectives",
+    "href": "03-data-validation/page2.html#summary-statistics-as-data-detectives",
+    "title": "Summary Statistics",
+    "section": "Summary Statistics as Data Detectives",
+    "text": "Summary Statistics as Data Detectives\n\nBeyond Basic Means and Medians\nWhile means and medians are useful, data validation requires a broader perspective. You need statistics that reveal:\n\nRange issues: Are values where they should be?\nMissing patterns: How much data is absent?\nDistribution problems: Are there unexpected spikes or gaps?\nConsistency issues: Do related variables align logically?\n\n\n\nBuilding on Your Documentation\nRemember the data dictionary you created? Summary statistics help verify whether your actual data matches what you documented:\n\nAre the ranges you specified actually present in the data?\nDo the data types match what you expected?\nAre missing values patterns consistent with what you documented?",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Implementing Validation with {pointblank}"
+      "Summary Statistics"
     ]
   },
   {
-    "objectID": "03-data-validation/page2.html#another-level-two",
-    "href": "03-data-validation/page2.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
+    "objectID": "03-data-validation/page2.html#detection-exercise",
+    "href": "03-data-validation/page2.html#detection-exercise",
+    "title": "Summary Statistics",
+    "section": "Detection Exercise",
+    "text": "Detection Exercise\nConsider the Palmer Penguins data. If you calculated summary statistics and found:\n\nBill length minimum: -5.2mm\nBody mass maximum: 95,000g\nSpecies count: 5 different values\n\nWhat would each finding suggest about data quality?\n\n\n\n\n\n\nImportantClick for some suggested interpretations\n\n\n\n\n\n\nNegative bill length indicates data entry errors or unit confusion.\nAn extremely high body mass suggests impossible values or typos.\nMore species than expected points to typos or inconsistent naming.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Implementing Validation with {pointblank}"
+      "Summary Statistics"
     ]
   },
   {
-    "objectID": "03-data-validation/page2.html#level-two-1",
-    "href": "03-data-validation/page2.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
+    "objectID": "03-data-validation/page2.html#getting-started-with-base-r",
+    "href": "03-data-validation/page2.html#getting-started-with-base-r",
+    "title": "Summary Statistics",
+    "section": "Getting Started with Base R",
+    "text": "Getting Started with Base R\nR comes with built-in functions for calculating summary statistics. Let’s start by loading some data and exploring it with these base R tools. This will help you understand both what summary statistics reveal and why specialized packages can make the process easier.\n\nLoading the Data\n\nlibrary(readr)\n\n# Load clean penguins data from CSV\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\n\n# Load messy penguins data (we'll compare them later)\npenguins_messy &lt;- read_csv(\"data/penguins_messy.csv\", show_col_types = FALSE)\n\n\n\nUsing summary() to Spot Issues\nThe summary() function provides a quick overview of your entire dataset. Let’s use it to compare clean and messy data and see what issues we can spot:\n\n# Compare clean and messy data\ncat(\"=== CLEAN DATA ===\\n\")\nsummary(penguins_clean)\n\ncat(\"\\n\\n=== MESSY DATA ===\\n\")\nsummary(penguins_messy)",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Implementing Validation with {pointblank}"
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#what-summary-shows",
+    "href": "03-data-validation/page2.html#what-summary-shows",
+    "title": "Summary Statistics",
+    "section": "What summary() Shows",
+    "text": "What summary() Shows\nFor numeric variables, summary() displays:\n\nMinimum and maximum values\nQuartiles (25th, 50th/median, 75th percentiles)\nMean\nCount of missing values (NA’s)\n\nFor character/categorical variables, it shows:\n\nLength and class information\n\n\n\n\n\n\n\nTipExercise: Spot the Differences\n\n\n\nCompare the clean and messy outputs. Look for:\n\nNegative values where they shouldn’t exist (e.g., negative bill lengths)\nExtremely large or small numbers (outliers or data entry errors)\nUnexpected NA counts\nCheck if the minimum and maximum values make biological sense\n\nWhat issues can you spot in the messy data?\n\n\n\nDigging Deeper: Individual Variable Functions\nWhile summary() is great for a quick overview, sometimes you need more detailed information about specific variables. Let us inspect individual variables using base R functions:\n\n# Detailed examination of a numeric variable\ncat(\"=== Bill Length (detailed) ===\\n\")\ncat(\"Range:\", min(penguins_messy$bill_length_mm, na.rm = TRUE), \"to\",\n    max(penguins_messy$bill_length_mm, na.rm = TRUE), \"\\n\")\ncat(\"Mean:\", round(mean(penguins_messy$bill_length_mm, na.rm = TRUE), 2), \"\\n\")\ncat(\"Median:\", round(median(penguins_messy$bill_length_mm, na.rm = TRUE), 2), \"\\n\")\ncat(\"Standard deviation:\", round(sd(penguins_messy$bill_length_mm, na.rm = TRUE), 2), \"\\n\")\ncat(\"Missing values:\", sum(is.na(penguins_messy$bill_length_mm)), \"\\n\")\n\n# Detailed examination of a categorical variable\ncat(\"\\n=== Species (detailed) ===\\n\")\ntable(penguins_messy$species, useNA = \"always\")\ncat(\"\\nUnique values:\", unique(penguins_messy$species), \"\\n\")\ncat(\"Number of unique values:\", length(unique(penguins_messy$species)), \"\\n\")\n\n\n\n\n\n\n\nTipKey Functions Explained\n\n\n\n\n\nFor numeric variables:\n\nmin() / max(): Find range boundaries\nmean(): Average (affected by outliers)\nmedian(): Middle value (robust to outliers)\nsd(): Standard deviation (variability)\nsum(is.na()): Count missing values\n\nFor categorical variables:\n\ntable(): Frequency counts for each category\nunique(): List all distinct values\nlength(unique()): Count how many distinct values\n\nImportant: Always use na.rm = TRUE with numeric functions to handle missing values!",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#building-custom-validation-functions",
+    "href": "03-data-validation/page2.html#building-custom-validation-functions",
+    "title": "Summary Statistics",
+    "section": "Building Custom Validation Functions",
+    "text": "Building Custom Validation Functions\nNow that you understand the individual functions, let’s combine them into reusable validation functions that you can adapt for your own datasets.\n\nDetailed Numeric Variable Checks\nCreate a function to examine numeric variables systematically:\n\n# Function to get comprehensive numeric summary\nexamine_numeric &lt;- function(variable, var_name) {\n  cat(\"\\n=== \", var_name, \" ===\\n\")\n  cat(\"Range:\", min(variable, na.rm = TRUE), \"to\", max(variable, na.rm = TRUE), \"\\n\")\n  cat(\"Mean:\", round(mean(variable, na.rm = TRUE), 2), \"\\n\")\n  cat(\"Median:\", round(median(variable, na.rm = TRUE), 2), \"\\n\")\n  cat(\"Missing values:\", sum(is.na(variable)), \"\\n\")\n  \n  # Check for potential outliers\n  q1 &lt;- quantile(variable, 0.25, na.rm = TRUE)\n  q3 &lt;- quantile(variable, 0.75, na.rm = TRUE)\n  iqr &lt;- q3 - q1\n  lower_bound &lt;- q1 - 1.5 * iqr\n  upper_bound &lt;- q3 + 1.5 * iqr\n  \n  outliers &lt;- sum(variable &lt; lower_bound | variable &gt; upper_bound, na.rm = TRUE)\n  cat(\"Potential outliers:\", outliers, \"\\n\")\n}\n\n# Apply to messy data to find issues\nexamine_numeric(penguins_messy$bill_length_mm, \"Bill Length (mm)\")\nexamine_numeric(penguins_messy$bill_depth_mm, \"Bill Depth (mm)\")\nexamine_numeric(penguins_messy$flipper_length_mm, \"Flipper Length (mm)\")\nexamine_numeric(penguins_messy$body_mass_g, \"Body Mass (g)\")\n\n\n\nCategorical Variable Validation\nCheck categorical variables for unexpected values:\n\n# Examine categorical variables in messy data\ncat(\"=== Species ===\\n\")\ntable(penguins_messy$species, useNA = \"always\")\n\ncat(\"\\n=== Island ===\\n\")\ntable(penguins_messy$island, useNA = \"always\")\n\ncat(\"\\n=== Sex ===\\n\")\ntable(penguins_messy$sex, useNA = \"always\")\n\ncat(\"\\n=== Year ===\\n\")\ntable(penguins_messy$year, useNA = \"always\")\n\n\n\n\n\n\n\nTipValidation Questions\n\n\n\nFor each categorical variable, ask:\n\nAre all the values ones you expected?\nAre there any misspellings or variant spellings?\nDo the frequencies seem reasonable?\nAre there unexpected missing values?\n\nFor the Palmer Penguins data, you should see exactly 3 species, 3 islands, 2 sexes (plus missing values), and 3 years.\n\n\n\n\nChecking Missing Values\nMissing values are normal in real data, but you need to verify they match your expectations from the data dictionary:\n\n# Quick check: How many missing values in each variable?\ncolSums(is.na(penguins_messy))\n\n# Total missing values in the entire dataset\nsum(is.na(penguins_messy))\n\n\n\n\n\n\n\nTipValidation Questions for Missing Data\n\n\n\nWhen checking missing values, ask:\n\nAre there MORE NAs than expected? Compare to your data dictionary\nAre there NAs in variables that should be complete? (e.g., ID columns, required measurements)\nAre the NAs in expected variables? (e.g., sex might have NAs if not recorded, but species should always be known)\n\nFor the penguins data, sex can have missing values (animal couldn’t be sexed in the field), but measurements like bill_length_mm should rarely be missing if the penguin was measured.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#identifying-quality-issues",
+    "href": "03-data-validation/page2.html#identifying-quality-issues",
+    "title": "Summary Statistics",
+    "section": "Identifying Quality Issues",
+    "text": "Identifying Quality Issues\n\nRed Flags in Summary Statistics\nFor Numeric Variables:\n\nNegative values where impossible (e.g., negative body mass)\nExtremely large or small values (e.g., 50,000g penguins)\nAll values the same (suggests data entry error)\nUnexpected missing value patterns\n\nFor Categorical Variables:\n\nUnexpected categories (e.g., “Adelei” instead of “Adelie”)\nToo many or too few unique values\nCategories that should be mutually exclusive appearing together\n\n\n\n\n\n\n\nTipUsing Your Data Dictionary\n\n\n\nAlways compare your summary statistics to what you documented in your data dictionary:\n\nDo the min/max values match the ranges you specified?\nAre there more unique categories than you documented?\nAre there more missing values than expected?\nDo the data types match?\n\nIf you find discrepancies, investigate! Either the data has quality issues, or your documentation needs updating.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#building-your-summary-statistics-workflow",
+    "href": "03-data-validation/page2.html#building-your-summary-statistics-workflow",
+    "title": "Summary Statistics",
+    "section": "Building Your Summary Statistics Workflow",
+    "text": "Building Your Summary Statistics Workflow\n\nStart broad: Use summary() to get an overall picture\nGo specific: Examine each variable type systematically\n\nCheck expectations: Compare findings to your data dictionary\nInvestigate anomalies: Follow up on anything unexpected\nDocument findings: Keep track of quality issues discovered\n\n\n\n\n\n\n\nTip\n\n\n\nCreate a standard summary statistics script that you can adapt for different datasets in your research area. Save the functions you’ve learned (examine_numeric, table(), etc.) in a script you can reuse.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#limitations-of-manual-checking",
+    "href": "03-data-validation/page2.html#limitations-of-manual-checking",
+    "title": "Summary Statistics",
+    "section": "Limitations of Manual Checking",
+    "text": "Limitations of Manual Checking\nWhile base R summary statistics are powerful, manual checking has limitations:\nTime-Consuming:\n\nChecking every variable manually takes significant time\nRepetitive work for each new dataset or data update\n\nError-Prone:\n\nEasy to forget to check a variable\nInconsistent standards across different checking sessions\nNo systematic record of what was checked\n\nHard to Share:\n\nDifficult to communicate your validation process to collaborators\nNo formal documentation of quality checks performed\nCan’t easily reproduce the same checks on updated data\n\nThe Solution: Automated validation with {pointblank} (next section) addresses all these issues while building on the concepts you’ve learned here.\n\n\n\n\n\n\nNoteQuick Reference: Base R Functions for Summary Statistics\n\n\n\n\n\nHere’s a handy reference of the base R functions we used in this tutorial:\n\nFor Numeric Variables\nRange Statistics\n\nmin(x, na.rm = TRUE): Minimum value\nmax(x, na.rm = TRUE): Maximum value\nrange(x, na.rm = TRUE): Both min and max\nquantile(x, na.rm = TRUE): Quartiles and percentiles\n\nCentral Tendency\n\nmean(x, na.rm = TRUE): Average value\nmedian(x, na.rm = TRUE): Middle value\n\nVariability\n\nsd(x, na.rm = TRUE): Standard deviation\nIQR(x, na.rm = TRUE): Interquartile range\n\nMissing Data\n\nsum(is.na(x)): Count of missing values\ncomplete.cases(data): Rows with no missing values\n\n\n\nFor Categorical Variables\nFrequency Counts\n\ntable(x, useNA = \"always\"): Frequency table including NAs\nprop.table(table(x)): Proportions instead of counts\n\nUnique Values\n\nunique(x): All distinct values\nlength(unique(x)): Count of unique values\n\n\n\nFor Entire Datasets\n\nsummary(data): Quick overview of all variables\nnrow(data), ncol(data): Dataset dimensions\nsapply(data, function): Apply a function to each column\n\n\n\n\n\n\n\n\n\n\n\nNoteRemember: na.rm = TRUE\n\n\n\nMost numeric functions require na.rm = TRUE to handle missing values. Without it, any NA in your data will cause the function to return NA.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#key-takeaways",
+    "href": "03-data-validation/page2.html#key-takeaways",
+    "title": "Summary Statistics",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\nSummary statistics with base R are essential for data validation:\n\nBase R functions (summary(), table(), min(), max(), etc.) provide powerful tools for examining data quality\nCompare clean vs. messy data to understand what issues look like\nBuild on your data dictionary by verifying actual data matches documented expectations\nCreate reusable functions for consistent quality checks across projects\n\n\n\n\n\n\n\nNoteReflection\n\n\n\nYou’ve now seen how summary statistics reveal data quality issues. In the messy dataset, you should have spotted impossible values, typos, and inconsistencies. How confident would you be analyzing data without these checks?\nThe Challenge: While base R summary statistics help you identify issues, manually checking every variable in every dataset is time-consuming and error-prone. What if you need to validate data every time it’s updated? What if you have dozens of datasets with similar structures?",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page2.html#whats-next",
+    "href": "03-data-validation/page2.html#whats-next",
+    "title": "Summary Statistics",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nIn the next section, you’ll learn to use {pointblank} to automate this entire validation process: - Define validation rules once, apply them automatically - Generate professional HTML validation reports - Set thresholds for acceptable data quality - Integrate validation into your analysis workflow\nThe manual checking skills you learned here will help you understand what pointblank is checking and why certain validations matter.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Summary Statistics"
     ]
   },
   {
     "objectID": "03-data-validation/page3.html",
     "href": "03-data-validation/page3.html",
-    "title": "Page Title Here",
+    "title": "Validation with R Packages",
     "section": "",
-    "text": "The headers below cause the table of contents/dropdown on the right to be visible.",
+    "text": "You’ve learned to identify data quality issues through summary statistics. Now let’s automate this process using {pointblank}, a package that systematically checks your data against rules you define and generates comprehensive validation reports.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Exploring Other Data Validation Packages"
+      "Validation with R Packages"
     ]
   },
   {
-    "objectID": "03-data-validation/page3.html#level-two",
-    "href": "03-data-validation/page3.html#level-two",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two\n\nL3\n\n\nL3 Again\n\n\nAnd one more time",
+    "objectID": "03-data-validation/page3.html#from-manual-checks-to-automated-validation",
+    "href": "03-data-validation/page3.html#from-manual-checks-to-automated-validation",
+    "title": "Validation with R Packages",
+    "section": "From Manual Checks to Automated Validation",
+    "text": "From Manual Checks to Automated Validation\n\nBuilding on Summary Statistics\nIn the previous section, you manually examined the messy Palmer Penguins data and spotted issues. But what if:\n\nYou need to check data every time it’s updated?\nYou have dozens of datasets with similar structures?\nYou want to document your quality control process?\nYou need to share validation procedures with collaborators?\n\nThe {pointblank} package automates validation while creating professional reports.",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Exploring Other Data Validation Packages"
+      "Validation with R Packages"
     ]
   },
   {
-    "objectID": "03-data-validation/page3.html#another-level-two",
-    "href": "03-data-validation/page3.html#another-level-two",
-    "title": "Page Title Here",
-    "section": "Another Level Two",
-    "text": "Another Level Two",
+    "objectID": "03-data-validation/page3.html#the-pointblank-package",
+    "href": "03-data-validation/page3.html#the-pointblank-package",
+    "title": "Validation with R Packages",
+    "section": "The {pointblank} Package",
+    "text": "The {pointblank} Package\n{pointblank} provides two workflows:\n\nData Quality Reporting (agent-based): Creates detailed HTML validation reports\nInformation Management (informant-based): Creates data dictionaries with metadata\n\nWe’ll focus on validation (you already learned dictionary creation in Section 2).\n\nInstalling pointblank\n\n# Install if not already done\ninstall.packages(\"pointblank\")\n\nlibrary(pointblank)\nlibrary(readr)\nlibrary(dplyr)",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Exploring Other Data Validation Packages"
+      "Validation with R Packages"
     ]
   },
   {
-    "objectID": "03-data-validation/page3.html#level-two-1",
-    "href": "03-data-validation/page3.html#level-two-1",
-    "title": "Page Title Here",
-    "section": "Level Two",
-    "text": "Level Two",
+    "objectID": "03-data-validation/page3.html#creating-a-validation-agent",
+    "href": "03-data-validation/page3.html#creating-a-validation-agent",
+    "title": "Validation with R Packages",
+    "section": "Creating a Validation Agent",
+    "text": "Creating a Validation Agent\nThink of an agent as a quality inspector that checks your data against rules:\n\n# Load the messy data we created\npenguins_messy &lt;- read_csv(\"data/penguins_messy.csv\", show_col_types = FALSE)\n\n# Create an agent to validate the messy data\nagent &lt;-\n  create_agent(\n    tbl = penguins_messy,\n    tbl_name = \"penguins_messy\",\n    label = \"Palmer Penguins Validation\"\n  )",
     "crumbs": [
       "Home",
       "Data Validation",
-      "Exploring Other Data Validation Packages"
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#defining-validation-rules",
+    "href": "03-data-validation/page3.html#defining-validation-rules",
+    "title": "Validation with R Packages",
+    "section": "Defining Validation Rules",
+    "text": "Defining Validation Rules\nAdd validation rules based on your data dictionary. Each rule is a function that checks a specific quality criterion:\n\nStep 1: Basic Structure Checks\n\nagent &lt;- agent %&gt;%\n  # Check data dimensions\n  rows_distinct() %&gt;%\n  col_exists(columns = c(\"species\", \"island\", \"bill_length_mm\",\n                        \"bill_depth_mm\", \"flipper_length_mm\",\n                        \"body_mass_g\", \"sex\", \"year\"))\n\n\n\n\n\n\n\nTipBuilding Rules Progressively\n\n\n\nStart with basic checks (does the column exist?) before moving to content checks (are the values valid?). This helps you quickly identify fundamental issues.\n\n\n\n\nStep 2: Data Type Validation\n\nagent &lt;- agent %&gt;%\n  # Numeric columns should be numeric\n  col_is_numeric(columns = c(\"bill_length_mm\", \"bill_depth_mm\",\n                            \"flipper_length_mm\", \"body_mass_g\", \"year\"))\n\n\n\nStep 3: Range Validation\nCheck if values fall within expected ranges from your data dictionary:\n\n\nShow range validation code\nagent &lt;- agent %&gt;%\n  # Bill length should be between 25-70mm\n  col_vals_between(\n    columns = bill_length_mm,\n    left = 25, right = 70,\n    na_pass = TRUE,  # Allow NA values\n    label = \"Bill length in valid range (25-70mm)\"\n  ) %&gt;%\n  # Bill depth should be between 10-25mm\n  col_vals_between(\n    columns = bill_depth_mm,\n    left = 10, right = 25,\n    na_pass = TRUE,\n    label = \"Bill depth in valid range (10-25mm)\"\n  ) %&gt;%\n  # Flipper length should be between 150-250mm\n  col_vals_between(\n    columns = flipper_length_mm,\n    left = 150, right = 250,\n    na_pass = TRUE,\n    label = \"Flipper length in valid range (150-250mm)\"\n  ) %&gt;%\n  # Body mass should be between 2000-7000g\n  col_vals_between(\n    columns = body_mass_g,\n    left = 2000, right = 7000,\n    na_pass = TRUE,\n    label = \"Body mass in valid range (2000-7000g)\"\n  ) %&gt;%\n  # Year should be 2007, 2008, or 2009\n  col_vals_in_set(\n    columns = year,\n    set = c(2007, 2008, 2009),\n    label = \"Year is within study period\"\n  )\n\n\n\n\nStep 4: Categorical Value Checks\nEnsure categorical variables contain only expected values:\n\n\nShow categorical validation code\nagent &lt;- agent %&gt;%\n  # Species should be one of three types\n  col_vals_in_set(\n    columns = species,\n    set = c(\"Adelie\", \"Chinstrap\", \"Gentoo\"),\n    label = \"Species is valid (Adelie, Chinstrap, or Gentoo)\"\n  ) %&gt;%\n  # Island should be one of three islands\n  col_vals_in_set(\n    columns = island,\n    set = c(\"Torgersen\", \"Biscoe\", \"Dream\"),\n    label = \"Island is valid (Torgersen, Biscoe, or Dream)\"\n  ) %&gt;%\n  # Sex should be male or female\n  # Note: NA values will be flagged but may be acceptable for this variable\n  col_vals_in_set(\n    columns = sex,\n    set = c(\"male\", \"female\"),\n    label = \"Sex is male or female\"\n  )\n\n\n\n\nStep 5: Impossible Value Checks\nCheck for biologically impossible values:\n\nagent &lt;- agent %&gt;%\n  # No negative measurements\n  col_vals_gt(\n    columns = bill_length_mm,\n    value = 0,\n    na_pass = TRUE,\n    label = \"Bill length is positive\"\n  ) %&gt;%\n  col_vals_gt(\n    columns = body_mass_g,\n    value = 0,\n    na_pass = TRUE,\n    label = \"Body mass is positive\"\n  )",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#running-the-validation",
+    "href": "03-data-validation/page3.html#running-the-validation",
+    "title": "Validation with R Packages",
+    "section": "Running the Validation",
+    "text": "Running the Validation\nExecute all validation rules and generate a report:\n\n# Interrogate the data (run all validations)\nagent &lt;- interrogate(agent)\n\n# View the report\nagent\n\nThe agent creates an interactive HTML report showing: - Overview: How many tests passed/failed - Each validation rule: With pass/fail status and failure counts - Severity levels: Which issues are critical vs. warnings - Sample failures: Examples of rows that failed each test\n\n\n\n\n\n\nImportantInterpreting Results\n\n\n\nWhen you run validation on penguins_messy, you should see failures for: - Species: 4 issues (typos like “Adelei”, case errors like “adelie”, extra text like “Gentoo penguin”) - Island: 2 issues (typo “Torgerson”, case error “biscoe”) - Bill length: 3 issues (negative -5.2, impossibly large 250.5, placeholder 999) - Bill depth: 2 issues (negative -2.1, placeholder 99.9) - Flipper length: 1 issue (zero value) - Body mass: 3 issues (extreme outliers: 15000g, 500g, 10000g) - Sex: 22 failures total (11 NAs that are acceptable + 11 actual issues with inconsistent coding: M/F/male/Male/MALE/m/Female) - Year: 4 issues (2020, 2006, 207, 20009 - outside 2007-2009 range or digit errors)\nTotal: 30 data quality issues we intentionally added for practice! Note that the sex validation will also flag 11 NA values (which are acceptable in this dataset), bringing the total reported failures to 41.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#comparing-clean-vs.-messy-data",
+    "href": "03-data-validation/page3.html#comparing-clean-vs.-messy-data",
+    "title": "Validation with R Packages",
+    "section": "Comparing Clean vs. Messy Data",
+    "text": "Comparing Clean vs. Messy Data\nLet’s validate both versions to see the difference:\n\n# Load and validate clean data\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\n\nagent_clean &lt;-\n  create_agent(\n    tbl = penguins_clean,\n    tbl_name = \"penguins_clean\",\n    label = \"Palmer Penguins (Clean) Validation\"\n  ) %&gt;%\n  # Add all the same validation rules as above\n  col_vals_between(columns = bill_length_mm, left = 25, right = 70, na_pass = TRUE) %&gt;%\n  col_vals_between(columns = body_mass_g, left = 2000, right = 7000, na_pass = TRUE) %&gt;%\n  col_vals_in_set(columns = species, set = c(\"Adelie\", \"Chinstrap\", \"Gentoo\")) %&gt;%\n  col_vals_in_set(columns = year, set = c(2007, 2008, 2009)) %&gt;%\n  interrogate()\n\n# View clean data report\nagent_clean\n\n# Compare: clean should pass all checks, messy should fail several",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#setting-failure-thresholds",
+    "href": "03-data-validation/page3.html#setting-failure-thresholds",
+    "title": "Validation with R Packages",
+    "section": "Setting Failure Thresholds",
+    "text": "Setting Failure Thresholds\nDefine what level of failures is acceptable:\n\nagent &lt;-\n  create_agent(\n    tbl = penguins_messy,\n    tbl_name = \"penguins_messy\"\n  ) %&gt;%\n  col_vals_between(\n    columns = bill_length_mm,\n    left = 25, right = 70,\n    na_pass = TRUE,\n    actions = action_levels(warn_at = 0.01, stop_at = 0.05)\n    # Warn if &gt;1% failures, stop if &gt;5% failures\n  ) %&gt;%\n  interrogate()\n\n\n\n\n\n\n\nTipThreshold Strategy\n\n\n\nSet thresholds based on your research needs: - stop_at = 0: Zero tolerance (data analysis stops if any failures) - warn_at = 0.01: Flag if &gt;1% of rows fail (for investigation) - notify_at = 0.001: Notification if &gt;0.1% fail (minor issues)\nFor published datasets, use strict thresholds. For preliminary data collection, more lenient thresholds may be appropriate.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#creating-reusable-validation-functions",
+    "href": "03-data-validation/page3.html#creating-reusable-validation-functions",
+    "title": "Validation with R Packages",
+    "section": "Creating Reusable Validation Functions",
+    "text": "Creating Reusable Validation Functions\nBuild a validation workflow you can apply to any similar dataset:\n\n\nShow reusable validation function\nvalidate_penguin_data &lt;- function(data, data_name = \"Penguin Data\") {\n\n  agent &lt;-\n    create_agent(\n      tbl = data,\n      tbl_name = data_name,\n      label = paste(data_name, \"Validation Report\")\n    ) %&gt;%\n    # Structure checks\n    col_exists(columns = c(\"species\", \"island\", \"bill_length_mm\",\n                          \"bill_depth_mm\", \"flipper_length_mm\",\n                          \"body_mass_g\", \"sex\", \"year\")) %&gt;%\n    col_is_numeric(columns = c(\"bill_length_mm\", \"bill_depth_mm\",\n                              \"flipper_length_mm\", \"body_mass_g\", \"year\")) %&gt;%\n    # Range checks\n    col_vals_between(columns = bill_length_mm, left = 25, right = 70,\n                    na_pass = TRUE, label = \"Bill length 25-70mm\") %&gt;%\n    col_vals_between(columns = bill_depth_mm, left = 10, right = 25,\n                    na_pass = TRUE, label = \"Bill depth 10-25mm\") %&gt;%\n    col_vals_between(columns = flipper_length_mm, left = 150, right = 250,\n                    na_pass = TRUE, label = \"Flipper length 150-250mm\") %&gt;%\n    col_vals_between(columns = body_mass_g, left = 2000, right = 7000,\n                    na_pass = TRUE, label = \"Body mass 2000-7000g\") %&gt;%\n    # Categorical checks\n    col_vals_in_set(columns = species,\n                   set = c(\"Adelie\", \"Chinstrap\", \"Gentoo\"),\n                   label = \"Valid species\") %&gt;%\n    col_vals_in_set(columns = island,\n                   set = c(\"Torgersen\", \"Biscoe\", \"Dream\"),\n                   label = \"Valid island\") %&gt;%\n    col_vals_in_set(columns = sex, set = c(\"male\", \"female\"),\n                   label = \"Valid sex\") %&gt;%\n    col_vals_in_set(columns = year, set = c(2007, 2008, 2009),\n                   label = \"Valid year\") %&gt;%\n    # Impossible value checks\n    col_vals_gt(columns = bill_length_mm, value = 0, na_pass = TRUE,\n               label = \"Positive bill length\") %&gt;%\n    col_vals_gt(columns = body_mass_g, value = 0, na_pass = TRUE,\n               label = \"Positive body mass\") %&gt;%\n    # Run validation\n    interrogate()\n\n  return(agent)\n}\n\n# Use the function\nmessy_validation &lt;- validate_penguin_data(penguins_messy, \"Messy Penguins\")\nclean_validation &lt;- validate_penguin_data(penguins_clean, \"Clean Penguins\")\n\n# View reports\nmessy_validation\nclean_validation",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#exporting-validation-reports",
+    "href": "03-data-validation/page3.html#exporting-validation-reports",
+    "title": "Validation with R Packages",
+    "section": "Exporting Validation Reports",
+    "text": "Exporting Validation Reports\nShare validation results with collaborators:\n\n# Export as HTML file\nexport_report(agent, filename = \"penguin_validation_report.html\")\n\n# The HTML file can be:\n# - Shared via email\n# - Posted on project websites\n# - Included in data repositories\n# - Attached to manuscripts as supplementary material",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#integration-with-your-workflow",
+    "href": "03-data-validation/page3.html#integration-with-your-workflow",
+    "title": "Validation with R Packages",
+    "section": "Integration with Your Workflow",
+    "text": "Integration with Your Workflow\n\nValidation as Quality Gate\nMake validation a required step before analysis:\n\n# Validation function that stops if critical failures occur\nsafe_analysis_workflow &lt;- function(data) {\n\n  # Step 1: Validate\n  cat(\"Step 1: Validating data...\\n\")\n  agent &lt;- validate_penguin_data(data, \"Analysis Data\")\n\n  # Step 2: Check if validation passed\n  if (all_passed(agent)) {\n    cat(\"Validation passed! Proceeding with analysis.\\n\")\n\n    # Step 3: Your analysis code here\n    # analysis_results &lt;- run_analysis(data)\n\n  } else {\n    cat(\"Validation failed! Review issues before analyzing.\\n\")\n    cat(\"See validation report for details.\\n\")\n    return(agent)  # Return agent to review failures\n  }\n}\n\n# Use in your workflow\nsafe_analysis_workflow(penguins_messy)  # Should stop\nsafe_analysis_workflow(penguins_clean)  # Should proceed\n\n\n\n\n\n\n\nTipBest Practices\n\n\n\n\nValidate early: Check data quality before investing time in analysis\nValidate often: Re-run validation each time data is updated\nDocument thresholds: Explain why you set specific failure thresholds\nShare validation code: Include in analysis scripts or data repositories\nArchive reports: Keep validation reports with analysis outputs",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#key-takeaways",
+    "href": "03-data-validation/page3.html#key-takeaways",
+    "title": "Validation with R Packages",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\nSystematic validation with {pointblank} provides:\n\nAutomated checking: No manual inspection of every value\nComprehensive reports: Professional HTML documentation\nReproducibility: Same validation rules applied consistently\nCollaboration: Share validation procedures with colleagues\nConfidence: Know your data meets quality standards\n\n\n\n\n\n\n\nTipReflection\n\n\n\nCompare your experience with manual checking (Section 3.2) versus automated validation. Which issues were easier to catch with each approach? How might combining both methods strengthen your data quality workflow?",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page3.html#congratulations",
+    "href": "03-data-validation/page3.html#congratulations",
+    "title": "Validation with R Packages",
+    "section": "Congratulations!",
+    "text": "Congratulations!\nYou’ve completed this tutorial on data documentation and validation! You now have the skills to:\n\nCreate comprehensive data dictionaries (manual and automated)\nUse summary statistics to identify data quality issues\nImplement systematic validation workflows with R packages\nGenerate professional validation reports\n\nThese skills will help you maintain high data quality standards, collaborate more effectively, and contribute to reproducible research practices in your field.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Validation with R Packages"
     ]
   }
 ]

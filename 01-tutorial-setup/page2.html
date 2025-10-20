@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – Data Dictionary using R</title>
+<title>Example Data &amp; Tools – Data Documentation and Validation using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03-data-validation/page1.html" rel="next">
-<link href="../02-summary-statistics/page2.html" rel="prev">
+<link href="../02-data-dictionaries/page1.html" rel="next">
+<link href="../01-tutorial-setup/page1.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -77,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -87,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Dictionary using R</span>
+    <span class="navbar-title">Data Documentation and Validation using R</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -112,12 +147,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R/issues">
             Report a Bug
             </a>
           </li>
@@ -132,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-summary-statistics/page1.html">Summary Statistics</a></li><li class="breadcrumb-item"><a href="../02-summary-statistics/page3.html">Exploring Other Summary Statistics Packages</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-tutorial-setup/page1.html">Tutorial Setup</a></li><li class="breadcrumb-item"><a href="../01-tutorial-setup/page2.html">Example Data &amp; Tools</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Description</span></a>
+ <span class="menu-text">Tutorial Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,14 +208,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Description</span></a>
+  <a href="../01-tutorial-setup/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating Data Dictionaries with {pointblank}</span></a>
+  <a href="../01-tutorial-setup/page2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Example Data &amp; Tools</span></a>
   </div>
 </li>
       </ul>
@@ -188,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Summary Statistics</span></a>
+ <span class="menu-text">Data Dictionaries</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,20 +231,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Data with Summary Statistics</span></a>
+  <a href="../02-data-dictionaries/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts &amp; Manual Creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Summary Tables with {pointblank}</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exploring Other Summary Statistics Packages</span></a>
+  <a href="../02-data-dictionaries/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automated Creation with R</span></a>
   </div>
 </li>
       </ul>
@@ -226,19 +255,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Validation in R</span></a>
+ <span class="menu-text">Data Quality Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Implementing Validation with {pointblank}</span></a>
+ <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Data Validation Packages</span></a>
+ <span class="menu-text">Validation with R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -255,29 +284,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <li><a href="#our-example-dataset-palmer-penguins" id="toc-our-example-dataset-palmer-penguins" class="nav-link active" data-scroll-target="#our-example-dataset-palmer-penguins">Our Example Dataset: Palmer Penguins</a></li>
+  <li><a href="#key-r-packages-well-use" id="toc-key-r-packages-well-use" class="nav-link" data-scroll-target="#key-r-packages-well-use">Key R Packages We’ll Use</a></li>
+  <li><a href="#installing-required-packages" id="toc-installing-required-packages" class="nav-link" data-scroll-target="#installing-required-packages">Installing Required Packages</a></li>
+  <li><a href="#download-the-example-datasets" id="toc-download-the-example-datasets" class="nav-link" data-scroll-target="#download-the-example-datasets">Download the Example Datasets</a>
   <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
-  <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  <li><a href="#download-both-files" id="toc-download-both-files" class="nav-link" data-scroll-target="#download-both-files">Download Both Files</a></li>
   </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
-  <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
-  </ul></li>
+  <li><a href="#load-and-verify-the-data" id="toc-load-and-verify-the-data" class="nav-link" data-scroll-target="#load-and-verify-the-data">Load and Verify the Data</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/02-summary-statistics/page3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/01-tutorial-setup/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-summary-statistics/page1.html">Summary Statistics</a></li><li class="breadcrumb-item"><a href="../02-summary-statistics/page3.html">Exploring Other Summary Statistics Packages</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-tutorial-setup/page1.html">Tutorial Setup</a></li><li class="breadcrumb-item"><a href="../01-tutorial-setup/page2.html">Example Data &amp; Tools</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Page Title Here</h1>
+<h1 class="title">Example Data &amp; Tools</h1>
 </div>
 
 
@@ -294,32 +318,161 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<p>In this tutorial, we’ll work with real research data to learn data documentation principles. You’ll also get familiar with the key R packages that make data validation and documentation efficient.</p>
+<section id="our-example-dataset-palmer-penguins" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="our-example-dataset-palmer-penguins">Our Example Dataset: Palmer Penguins</h2>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../material/images/palmerpenguins.png" class="img-fluid figure-img" width="400"></p>
+<figcaption>Palmer Penguins</figcaption>
+</figure>
+</div>
+</div></div><p>We’ll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica.</p>
+<p>The dataset includes measurements like:</p>
+<ul>
+<li>Bill length and depth (millimeters)</li>
+<li>Flipper length (millimeters)</li>
+<li>Body mass (grams)</li>
+<li>Species, island, and sex information</li>
+</ul>
+<p>This dataset is perfect for learning because it:</p>
+<ul>
+<li>Contains different data types (numeric, categorical)</li>
+<li>Has some missing values (realistic!)</li>
+<li>Is scientifically meaningful and well-documented</li>
+<li>Is small enough to understand completely</li>
+</ul>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
+<section id="key-r-packages-well-use" class="level2">
+<h2 class="anchored" data-anchor-id="key-r-packages-well-use">Key R Packages We’ll Use</h2>
+<p>Throughout this tutorial, you’ll work with three main packages:</p>
+<ul>
+<li><strong><code>{datawizard}</code></strong>: Automates creation of data dictionaries</li>
+<li><strong><code>{pointblank}</code></strong>: Performs systematic data validation</li>
+<li><strong><code>{skimr}</code></strong>: Generates comprehensive data summaries</li>
+</ul>
 </section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+<section id="installing-required-packages" class="level2">
+<h2 class="anchored" data-anchor-id="installing-required-packages">Installing Required Packages</h2>
+<p>Install the packages you’ll need:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install core packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"datawizard"</span>,      <span class="co"># Data dictionaries</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"pointblank"</span>,      <span class="co"># Data validation</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"skimr"</span>,           <span class="co"># Summary statistics</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,           <span class="co"># Data manipulation</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>            <span class="co"># Reading CSV files</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Update renv lockfile</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="download-the-example-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="download-the-example-datasets">Download the Example Datasets</h2>
+<p>For this tutorial, you’ll work with <strong>two versions</strong> of the Palmer Penguins data:</p>
+<ol type="1">
+<li><strong>Clean data</strong>: High-quality dataset for learning documentation</li>
+<li><strong>Messy data</strong>: Version with realistic data quality issues for practicing validation</li>
+</ol>
+<p>The messy dataset contains 30 intentional data quality problems (~9% error rate) including:</p>
+<ul>
+<li>Typos in species and island names</li>
+<li>Inconsistent formatting (e.g., “M” vs “male”, extra spaces)</li>
+<li>Impossible values (negative measurements, placeholder values like 999)</li>
+<li>Out-of-range values (body mass of 15,000g when max should be ~6,300g)</li>
+<li>Data entry errors (wrong years, missing digits)</li>
+</ul>
+<section id="download-both-files" class="level3">
+<h3 class="anchored" data-anchor-id="download-both-files">Download Both Files</h3>
+<p>Click the buttons below to download both datasets:</p>
+<div style="margin: 20px 0;">
+<p><a href="../data/penguins_clean.csv" download="penguins_clean.csv" class="btn btn-primary" style="margin-right: 10px;"> Download Clean Data </a></p>
+<p><a href="../data/penguins_messy.csv" download="penguins_messy.csv" class="btn btn-warning"> Download Messy Data </a></p>
+</div>
+<p><strong>Important</strong>: Save both files in a folder called <code>data/</code> inside your project directory. If the <code>data/</code> folder doesn’t exist yet, create it first.</p>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
+<section id="load-and-verify-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-and-verify-the-data">Load and Verify the Data</h2>
+<p>Now load the clean data and verify it worked:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the clean penguins data</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>penguins_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_clean.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a first look</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins_clean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You should see 344 observations of 8 variables.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checkpoint: Verify Your Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before continuing, verify the data loaded correctly:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Should show 344 rows and 8 columns</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(penguins_clean)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Should display: species, island, bill_length_mm, bill_depth_mm,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                 flipper_length_mm, body_mass_g, sex, year</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(penguins_clean)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check first few rows</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins_clean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If you see errors:</p>
+<ul>
+<li>Make sure both CSV files are in the <code>data/</code> folder</li>
+<li>Check that your working directory is your project folder (use <code>getwd()</code> to verify)</li>
+<li>Try restarting R</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How We Created the Messy Data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We introduced 30 realistic data quality issues across 344 observations (~9% error rate, typical for real-world field data):</p>
+<ul>
+<li><strong>Species</strong>: 4 issues (typos like “Adelei”, case errors, extra text like “Gentoo penguin”)</li>
+<li><strong>Island</strong>: 2 issues (typos like “Torgerson”, case errors like “biscoe”)</li>
+<li><strong>Bill length</strong>: 3 issues (negative -5.2, impossible 250.5, placeholder 999)</li>
+<li><strong>Bill depth</strong>: 2 issues (negative -2.1, placeholder 99.9)</li>
+<li><strong>Flipper length</strong>: 1 issue (zero value)</li>
+<li><strong>Body mass</strong>: 3 issues (extreme outliers: 15000g, 500g, 10000g)</li>
+<li><strong>Sex</strong>: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)</li>
+<li><strong>Year</strong>: 4 issues (2020, 2006, 207, 20009)</li>
+</ul>
+<p>These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in <a href="../_scripts/create_messy_data.R"><code>_scripts/create_messy_data.R</code></a>.</p>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>You now have your environment set up with the necessary packages and both datasets. In the next section, you’ll learn how to create data dictionaries that document what each variable means and how it should be interpreted.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -725,13 +878,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../02-summary-statistics/page2.html" class="pagination-link" aria-label="Generating Summary Tables with {pointblank}">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Generating Summary Tables with {pointblank}</span>
+      <a href="../01-tutorial-setup/page1.html" class="pagination-link" aria-label="Project Setup">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Project Setup</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-data-validation/page1.html" class="pagination-link" aria-label="Introduction to Data Validation in R">
-        <span class="nav-page-text">Introduction to Data Validation in R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../02-data-dictionaries/page1.html" class="pagination-link" aria-label="Concepts &amp; Manual Creation">
+        <span class="nav-page-text">Concepts &amp; Manual Creation</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -743,7 +896,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/02-summary-statistics/page3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/01-tutorial-setup/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

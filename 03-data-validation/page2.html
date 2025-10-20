@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – Data Dictionary using R</title>
+<title>Summary Statistics – Data Documentation and Validation using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -87,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Dictionary using R</span>
+    <span class="navbar-title">Data Documentation and Validation using R</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -112,12 +147,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R/issues">
             Report a Bug
             </a>
           </li>
@@ -132,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page2.html">Implementing Validation with {pointblank}</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page2.html">Summary Statistics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Description</span></a>
+ <span class="menu-text">Tutorial Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,14 +208,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Description</span></a>
+  <a href="../01-tutorial-setup/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating Data Dictionaries with {pointblank}</span></a>
+  <a href="../01-tutorial-setup/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Data &amp; Tools</span></a>
   </div>
 </li>
       </ul>
@@ -188,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Summary Statistics</span></a>
+ <span class="menu-text">Data Dictionaries</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,20 +231,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Data with Summary Statistics</span></a>
+  <a href="../02-data-dictionaries/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts &amp; Manual Creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Summary Tables with {pointblank}</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Summary Statistics Packages</span></a>
+  <a href="../02-data-dictionaries/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automated Creation with R</span></a>
   </div>
 </li>
       </ul>
@@ -226,19 +255,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Validation in R</span></a>
+ <span class="menu-text">Data Quality Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Implementing Validation with {pointblank}</span></a>
+ <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Data Validation Packages</span></a>
+ <span class="menu-text">Validation with R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -255,29 +284,44 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <li><a href="#summary-statistics-as-data-detectives" id="toc-summary-statistics-as-data-detectives" class="nav-link active" data-scroll-target="#summary-statistics-as-data-detectives">Summary Statistics as Data Detectives</a>
   <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
+  <li><a href="#beyond-basic-means-and-medians" id="toc-beyond-basic-means-and-medians" class="nav-link" data-scroll-target="#beyond-basic-means-and-medians">Beyond Basic Means and Medians</a></li>
+  <li><a href="#building-on-your-documentation" id="toc-building-on-your-documentation" class="nav-link" data-scroll-target="#building-on-your-documentation">Building on Your Documentation</a></li>
+  </ul></li>
+  <li><a href="#detection-exercise" id="toc-detection-exercise" class="nav-link" data-scroll-target="#detection-exercise">Detection Exercise</a></li>
+  <li><a href="#getting-started-with-base-r" id="toc-getting-started-with-base-r" class="nav-link" data-scroll-target="#getting-started-with-base-r">Getting Started with Base R</a>
   <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  <li><a href="#loading-the-data" id="toc-loading-the-data" class="nav-link" data-scroll-target="#loading-the-data">Loading the Data</a></li>
+  <li><a href="#using-summary-to-spot-issues" id="toc-using-summary-to-spot-issues" class="nav-link" data-scroll-target="#using-summary-to-spot-issues">Using summary() to Spot Issues</a></li>
   </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
+  <li><a href="#what-summary-shows" id="toc-what-summary-shows" class="nav-link" data-scroll-target="#what-summary-shows">What <code>summary()</code> Shows</a>
   <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
+  <li><a href="#digging-deeper-individual-variable-functions" id="toc-digging-deeper-individual-variable-functions" class="nav-link" data-scroll-target="#digging-deeper-individual-variable-functions">Digging Deeper: Individual Variable Functions</a></li>
   </ul></li>
+  <li><a href="#building-custom-validation-functions" id="toc-building-custom-validation-functions" class="nav-link" data-scroll-target="#building-custom-validation-functions">Building Custom Validation Functions</a>
+  <ul class="collapse">
+  <li><a href="#detailed-numeric-variable-checks" id="toc-detailed-numeric-variable-checks" class="nav-link" data-scroll-target="#detailed-numeric-variable-checks">Detailed Numeric Variable Checks</a></li>
+  <li><a href="#categorical-variable-validation" id="toc-categorical-variable-validation" class="nav-link" data-scroll-target="#categorical-variable-validation">Categorical Variable Validation</a></li>
+  <li><a href="#checking-missing-values" id="toc-checking-missing-values" class="nav-link" data-scroll-target="#checking-missing-values">Checking Missing Values</a></li>
+  </ul></li>
+  <li><a href="#identifying-quality-issues" id="toc-identifying-quality-issues" class="nav-link" data-scroll-target="#identifying-quality-issues">Identifying Quality Issues</a>
+  <ul class="collapse">
+  <li><a href="#red-flags-in-summary-statistics" id="toc-red-flags-in-summary-statistics" class="nav-link" data-scroll-target="#red-flags-in-summary-statistics">Red Flags in Summary Statistics</a></li>
+  </ul></li>
+  <li><a href="#building-your-summary-statistics-workflow" id="toc-building-your-summary-statistics-workflow" class="nav-link" data-scroll-target="#building-your-summary-statistics-workflow">Building Your Summary Statistics Workflow</a></li>
+  <li><a href="#limitations-of-manual-checking" id="toc-limitations-of-manual-checking" class="nav-link" data-scroll-target="#limitations-of-manual-checking">Limitations of Manual Checking</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/03-data-validation/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/03-data-validation/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page2.html">Implementing Validation with {pointblank}</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page2.html">Summary Statistics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Page Title Here</h1>
+<h1 class="title">Summary Statistics</h1>
 </div>
 
 
@@ -294,32 +338,463 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<p>Summary statistics are your first line of defense in data validation. They provide a systematic way to spot quality issues, understand your data’s characteristics, and verify that reality matches your documented expectations. Think of them as a health check-up for your dataset.</p>
+<section id="summary-statistics-as-data-detectives" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics-as-data-detectives">Summary Statistics as Data Detectives</h2>
+<section id="beyond-basic-means-and-medians" class="level3">
+<h3 class="anchored" data-anchor-id="beyond-basic-means-and-medians">Beyond Basic Means and Medians</h3>
+<p>While means and medians are useful, data validation requires a broader perspective. You need statistics that reveal:</p>
+<ul>
+<li><strong>Range issues</strong>: Are values where they should be?</li>
+<li><strong>Missing patterns</strong>: How much data is absent?</li>
+<li><strong>Distribution problems</strong>: Are there unexpected spikes or gaps?</li>
+<li><strong>Consistency issues</strong>: Do related variables align logically?</li>
+</ul>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
+<section id="building-on-your-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="building-on-your-documentation">Building on Your Documentation</h3>
+<p>Remember the data dictionary you created? Summary statistics help verify whether your actual data matches what you documented:</p>
+<ul>
+<li>Are the ranges you specified actually present in the data?</li>
+<li>Do the data types match what you expected?</li>
+<li>Are missing values patterns consistent with what you documented?</li>
+</ul>
 </section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+</section>
+<section id="detection-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="detection-exercise">Detection Exercise</h2>
+<p>Consider the Palmer Penguins data. If you calculated summary statistics and found:</p>
+<ul>
+<li>Bill length minimum: -5.2mm</li>
+<li>Body mass maximum: 95,000g</li>
+<li>Species count: 5 different values</li>
+</ul>
+<p>What would each finding suggest about data quality?</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Click for some suggested interpretations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Negative bill length indicates data entry errors or unit confusion.</li>
+<li>An extremely high body mass suggests impossible values or typos.</li>
+<li>More species than expected points to typos or inconsistent naming.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-started-with-base-r" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-with-base-r">Getting Started with Base R</h2>
+<p>R comes with built-in functions for calculating summary statistics. Let’s start by loading some data and exploring it with these base R tools. This will help you understand both what summary statistics reveal and why specialized packages can make the process easier.</p>
+<section id="loading-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-the-data">Loading the Data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load clean penguins data from CSV</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>penguins_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_clean.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load messy penguins data (we'll compare them later)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>penguins_messy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_messy.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="using-summary-to-spot-issues" class="level3">
+<h3 class="anchored" data-anchor-id="using-summary-to-spot-issues">Using summary() to Spot Issues</h3>
+<p>The <code>summary()</code> function provides a quick overview of your entire dataset. Let’s use it to compare clean and messy data and see what issues we can spot:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare clean and messy data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== CLEAN DATA ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins_clean)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">=== MESSY DATA ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins_messy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
+<section id="what-summary-shows" class="level2">
+<h2 class="anchored" data-anchor-id="what-summary-shows">What <code>summary()</code> Shows</h2>
+<p>For <strong>numeric variables</strong>, <code>summary()</code> displays:</p>
+<ul>
+<li>Minimum and maximum values</li>
+<li>Quartiles (25th, 50th/median, 75th percentiles)</li>
+<li>Mean</li>
+<li>Count of missing values (NA’s)</li>
+</ul>
+<p>For <strong>character/categorical variables</strong>, it shows:</p>
+<ul>
+<li>Length and class information</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Exercise: Spot the Differences
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compare the clean and messy outputs. Look for:</p>
+<ul>
+<li>Negative values where they shouldn’t exist (e.g., negative bill lengths)</li>
+<li>Extremely large or small numbers (outliers or data entry errors)</li>
+<li>Unexpected NA counts</li>
+<li>Check if the minimum and maximum values make biological sense</li>
+</ul>
+<p><strong>What issues can you spot in the messy data?</strong></p>
+</div>
+</div>
+<section id="digging-deeper-individual-variable-functions" class="level3">
+<h3 class="anchored" data-anchor-id="digging-deeper-individual-variable-functions">Digging Deeper: Individual Variable Functions</h3>
+<p>While <code>summary()</code> is great for a quick overview, sometimes you need more detailed information about specific variables. Let us inspect individual variables using base R functions:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Detailed examination of a numeric variable</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== Bill Length (detailed) ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Range:"</span>, <span class="fu">min</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"to"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">max</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean:"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Median:"</span>, <span class="fu">round</span>(<span class="fu">median</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Standard deviation:"</span>, <span class="fu">round</span>(<span class="fu">sd</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Missing values:"</span>, <span class="fu">sum</span>(<span class="fu">is.na</span>(penguins_messy<span class="sc">$</span>bill_length_mm)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Detailed examination of a categorical variable</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Species (detailed) ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins_messy<span class="sc">$</span>species, <span class="at">useNA =</span> <span class="st">"always"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Unique values:"</span>, <span class="fu">unique</span>(penguins_messy<span class="sc">$</span>species), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of unique values:"</span>, <span class="fu">length</span>(<span class="fu">unique</span>(penguins_messy<span class="sc">$</span>species)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Key Functions Explained
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>For numeric variables:</strong></p>
+<ul>
+<li><code>min()</code> / <code>max()</code>: Find range boundaries</li>
+<li><code>mean()</code>: Average (affected by outliers)</li>
+<li><code>median()</code>: Middle value (robust to outliers)</li>
+<li><code>sd()</code>: Standard deviation (variability)</li>
+<li><code>sum(is.na())</code>: Count missing values</li>
+</ul>
+<p><strong>For categorical variables:</strong></p>
+<ul>
+<li><code>table()</code>: Frequency counts for each category</li>
+<li><code>unique()</code>: List all distinct values</li>
+<li><code>length(unique())</code>: Count how many distinct values</li>
+</ul>
+<p><strong>Important:</strong> Always use <code>na.rm = TRUE</code> with numeric functions to handle missing values!</p>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="building-custom-validation-functions" class="level2">
+<h2 class="anchored" data-anchor-id="building-custom-validation-functions">Building Custom Validation Functions</h2>
+<p>Now that you understand the individual functions, let’s combine them into reusable validation functions that you can adapt for your own datasets.</p>
+<section id="detailed-numeric-variable-checks" class="level3">
+<h3 class="anchored" data-anchor-id="detailed-numeric-variable-checks">Detailed Numeric Variable Checks</h3>
+<p>Create a function to examine numeric variables systematically:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to get comprehensive numeric summary</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>examine_numeric <span class="ot">&lt;-</span> <span class="cf">function</span>(variable, var_name) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== "</span>, var_name, <span class="st">" ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Range:"</span>, <span class="fu">min</span>(variable, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"to"</span>, <span class="fu">max</span>(variable, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Mean:"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(variable, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Median:"</span>, <span class="fu">round</span>(<span class="fu">median</span>(variable, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Missing values:"</span>, <span class="fu">sum</span>(<span class="fu">is.na</span>(variable)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check for potential outliers</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(variable, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(variable, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  iqr <span class="ot">&lt;-</span> q3 <span class="sc">-</span> q1</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  lower_bound <span class="ot">&lt;-</span> q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> iqr</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  upper_bound <span class="ot">&lt;-</span> q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> iqr</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  outliers <span class="ot">&lt;-</span> <span class="fu">sum</span>(variable <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> variable <span class="sc">&gt;</span> upper_bound, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Potential outliers:"</span>, outliers, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply to messy data to find issues</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">examine_numeric</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="st">"Bill Length (mm)"</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">examine_numeric</span>(penguins_messy<span class="sc">$</span>bill_depth_mm, <span class="st">"Bill Depth (mm)"</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">examine_numeric</span>(penguins_messy<span class="sc">$</span>flipper_length_mm, <span class="st">"Flipper Length (mm)"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">examine_numeric</span>(penguins_messy<span class="sc">$</span>body_mass_g, <span class="st">"Body Mass (g)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="categorical-variable-validation" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-variable-validation">Categorical Variable Validation</h3>
+<p>Check categorical variables for unexpected values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine categorical variables in messy data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== Species ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins_messy<span class="sc">$</span>species, <span class="at">useNA =</span> <span class="st">"always"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Island ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins_messy<span class="sc">$</span>island, <span class="at">useNA =</span> <span class="st">"always"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Sex ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins_messy<span class="sc">$</span>sex, <span class="at">useNA =</span> <span class="st">"always"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Year ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins_messy<span class="sc">$</span>year, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Validation Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each categorical variable, ask:</p>
+<ul>
+<li>Are all the values ones you expected?</li>
+<li>Are there any misspellings or variant spellings?</li>
+<li>Do the frequencies seem reasonable?</li>
+<li>Are there unexpected missing values?</li>
+</ul>
+<p>For the Palmer Penguins data, you should see exactly 3 species, 3 islands, 2 sexes (plus missing values), and 3 years.</p>
+</div>
+</div>
+</section>
+<section id="checking-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="checking-missing-values">Checking Missing Values</h3>
+<p>Missing values are normal in real data, but you need to verify they match your expectations from the data dictionary:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick check: How many missing values in each variable?</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(penguins_messy))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Total missing values in the entire dataset</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(penguins_messy))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Validation Questions for Missing Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When checking missing values, ask:</p>
+<ul>
+<li><strong>Are there MORE NAs than expected?</strong> Compare to your data dictionary</li>
+<li><strong>Are there NAs in variables that should be complete?</strong> (e.g., ID columns, required measurements)</li>
+<li><strong>Are the NAs in expected variables?</strong> (e.g., sex might have NAs if not recorded, but species should always be known)</li>
+</ul>
+<p>For the penguins data, <code>sex</code> can have missing values (animal couldn’t be sexed in the field), but measurements like <code>bill_length_mm</code> should rarely be missing if the penguin was measured.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="identifying-quality-issues" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-quality-issues">Identifying Quality Issues</h2>
+<section id="red-flags-in-summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="red-flags-in-summary-statistics">Red Flags in Summary Statistics</h3>
+<p><strong>For Numeric Variables:</strong></p>
+<ul>
+<li>Negative values where impossible (e.g., negative body mass)</li>
+<li>Extremely large or small values (e.g., 50,000g penguins)</li>
+<li>All values the same (suggests data entry error)</li>
+<li>Unexpected missing value patterns</li>
+</ul>
+<p><strong>For Categorical Variables:</strong></p>
+<ul>
+<li>Unexpected categories (e.g., “Adelei” instead of “Adelie”)</li>
+<li>Too many or too few unique values</li>
+<li>Categories that should be mutually exclusive appearing together</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Using Your Data Dictionary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always compare your summary statistics to what you documented in your data dictionary:</p>
+<ul>
+<li>Do the min/max values match the ranges you specified?</li>
+<li>Are there more unique categories than you documented?</li>
+<li>Are there more missing values than expected?</li>
+<li>Do the data types match?</li>
+</ul>
+<p>If you find discrepancies, investigate! Either the data has quality issues, or your documentation needs updating.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="building-your-summary-statistics-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="building-your-summary-statistics-workflow">Building Your Summary Statistics Workflow</h2>
+<ol type="1">
+<li><strong>Start broad</strong>: Use <code>summary()</code> to get an overall picture</li>
+<li><strong>Go specific</strong>: Examine each variable type systematically<br>
+</li>
+<li><strong>Check expectations</strong>: Compare findings to your data dictionary</li>
+<li><strong>Investigate anomalies</strong>: Follow up on anything unexpected</li>
+<li><strong>Document findings</strong>: Keep track of quality issues discovered</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a standard summary statistics script that you can adapt for different datasets in your research area. Save the functions you’ve learned (<code>examine_numeric</code>, <code>table()</code>, etc.) in a script you can reuse.</p>
+</div>
+</div>
+</section>
+<section id="limitations-of-manual-checking" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-manual-checking">Limitations of Manual Checking</h2>
+<p>While base R summary statistics are powerful, manual checking has limitations:</p>
+<p><strong>Time-Consuming:</strong></p>
+<ul>
+<li>Checking every variable manually takes significant time</li>
+<li>Repetitive work for each new dataset or data update</li>
+</ul>
+<p><strong>Error-Prone:</strong></p>
+<ul>
+<li>Easy to forget to check a variable</li>
+<li>Inconsistent standards across different checking sessions</li>
+<li>No systematic record of what was checked</li>
+</ul>
+<p><strong>Hard to Share:</strong></p>
+<ul>
+<li>Difficult to communicate your validation process to collaborators</li>
+<li>No formal documentation of quality checks performed</li>
+<li>Can’t easily reproduce the same checks on updated data</li>
+</ul>
+<p><strong>The Solution:</strong> Automated validation with <code>{pointblank}</code> (next section) addresses all these issues while building on the concepts you’ve learned here.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Quick Reference: Base R Functions for Summary Statistics
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here’s a handy reference of the base R functions we used in this tutorial:</p>
+<section id="for-numeric-variables" class="level3">
+<h3 class="anchored" data-anchor-id="for-numeric-variables">For Numeric Variables</h3>
+<p><strong>Range Statistics</strong></p>
+<ul>
+<li><code>min(x, na.rm = TRUE)</code>: Minimum value</li>
+<li><code>max(x, na.rm = TRUE)</code>: Maximum value</li>
+<li><code>range(x, na.rm = TRUE)</code>: Both min and max</li>
+<li><code>quantile(x, na.rm = TRUE)</code>: Quartiles and percentiles</li>
+</ul>
+<p><strong>Central Tendency</strong></p>
+<ul>
+<li><code>mean(x, na.rm = TRUE)</code>: Average value</li>
+<li><code>median(x, na.rm = TRUE)</code>: Middle value</li>
+</ul>
+<p><strong>Variability</strong></p>
+<ul>
+<li><code>sd(x, na.rm = TRUE)</code>: Standard deviation</li>
+<li><code>IQR(x, na.rm = TRUE)</code>: Interquartile range</li>
+</ul>
+<p><strong>Missing Data</strong></p>
+<ul>
+<li><code>sum(is.na(x))</code>: Count of missing values</li>
+<li><code>complete.cases(data)</code>: Rows with no missing values</li>
+</ul>
+</section>
+<section id="for-categorical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="for-categorical-variables">For Categorical Variables</h3>
+<p><strong>Frequency Counts</strong></p>
+<ul>
+<li><code>table(x, useNA = "always")</code>: Frequency table including NAs</li>
+<li><code>prop.table(table(x))</code>: Proportions instead of counts</li>
+</ul>
+<p><strong>Unique Values</strong></p>
+<ul>
+<li><code>unique(x)</code>: All distinct values</li>
+<li><code>length(unique(x))</code>: Count of unique values</li>
+</ul>
+</section>
+<section id="for-entire-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="for-entire-datasets">For Entire Datasets</h3>
+<ul>
+<li><code>summary(data)</code>: Quick overview of all variables</li>
+<li><code>nrow(data)</code>, <code>ncol(data)</code>: Dataset dimensions</li>
+<li><code>sapply(data, function)</code>: Apply a function to each column</li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remember: <code>na.rm = TRUE</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most numeric functions require <code>na.rm = TRUE</code> to handle missing values. Without it, any NA in your data will cause the function to return NA.</p>
+</div>
+</div>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<p>Summary statistics with base R are essential for data validation:</p>
+<ul>
+<li><strong>Base R functions</strong> (<code>summary()</code>, <code>table()</code>, <code>min()</code>, <code>max()</code>, etc.) provide powerful tools for examining data quality</li>
+<li><strong>Compare clean vs.&nbsp;messy</strong> data to understand what issues look like</li>
+<li><strong>Build on your data dictionary</strong> by verifying actual data matches documented expectations</li>
+<li><strong>Create reusable functions</strong> for consistent quality checks across projects</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You’ve now seen how summary statistics reveal data quality issues. In the messy dataset, you should have spotted impossible values, typos, and inconsistencies. How confident would you be analyzing data without these checks?</p>
+<p><strong>The Challenge</strong>: While base R summary statistics help you <em>identify</em> issues, manually checking every variable in every dataset is time-consuming and error-prone. What if you need to validate data every time it’s updated? What if you have dozens of datasets with similar structures?</p>
+</div>
+</div>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+<p>In the next section, you’ll learn to use <code>{pointblank}</code> to <strong>automate</strong> this entire validation process: - Define validation rules once, apply them automatically - Generate professional HTML validation reports - Set thresholds for acceptable data quality - Integrate validation into your analysis workflow</p>
+<p>The manual checking skills you learned here will help you understand <em>what</em> pointblank is checking and <em>why</em> certain validations matter.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -725,13 +1200,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../03-data-validation/page1.html" class="pagination-link" aria-label="Introduction to Data Validation in R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Data Validation in R</span>
+      <a href="../03-data-validation/page1.html" class="pagination-link" aria-label="Data Quality Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Quality Concepts</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-data-validation/page3.html" class="pagination-link" aria-label="Exploring Other Data Validation Packages">
-        <span class="nav-page-text">Exploring Other Data Validation Packages</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-data-validation/page3.html" class="pagination-link" aria-label="Validation with R Packages">
+        <span class="nav-page-text">Validation with R Packages</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -743,7 +1218,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/03-data-validation/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/03-data-validation/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

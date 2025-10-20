@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – Data Dictionary using R</title>
+<title>Data Quality Concepts – Data Documentation and Validation using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../03-data-validation/page2.html" rel="next">
-<link href="../02-summary-statistics/page3.html" rel="prev">
+<link href="../02-data-dictionaries/page2.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Dictionary using R</span>
+    <span class="navbar-title">Data Documentation and Validation using R</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -112,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R/issues">
             Report a Bug
             </a>
           </li>
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Introduction to Data Validation in R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Quality Concepts</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Description</span></a>
+ <span class="menu-text">Tutorial Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,14 +173,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Description</span></a>
+  <a href="../01-tutorial-setup/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating Data Dictionaries with {pointblank}</span></a>
+  <a href="../01-tutorial-setup/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Data &amp; Tools</span></a>
   </div>
 </li>
       </ul>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Summary Statistics</span></a>
+ <span class="menu-text">Data Dictionaries</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,20 +196,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Data with Summary Statistics</span></a>
+  <a href="../02-data-dictionaries/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts &amp; Manual Creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Summary Tables with {pointblank}</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Summary Statistics Packages</span></a>
+  <a href="../02-data-dictionaries/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automated Creation with R</span></a>
   </div>
 </li>
       </ul>
@@ -226,19 +220,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to Data Validation in R</span></a>
+ <span class="menu-text">Data Quality Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Implementing Validation with {pointblank}</span></a>
+ <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Data Validation Packages</span></a>
+ <span class="menu-text">Validation with R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -255,29 +249,46 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <li><a href="#why-data-validation-matters" id="toc-why-data-validation-matters" class="nav-link active" data-scroll-target="#why-data-validation-matters">Why Data Validation Matters</a>
   <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
-  <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  <li><a href="#building-on-your-documentation" id="toc-building-on-your-documentation" class="nav-link" data-scroll-target="#building-on-your-documentation">Building on Your Documentation</a></li>
+  <li><a href="#the-research-impact" id="toc-the-research-impact" class="nav-link" data-scroll-target="#the-research-impact">The Research Impact</a></li>
   </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
+  <li><a href="#types-of-data-quality-issues" id="toc-types-of-data-quality-issues" class="nav-link" data-scroll-target="#types-of-data-quality-issues">Types of Data Quality Issues</a>
   <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
+  <li><a href="#structural-problems" id="toc-structural-problems" class="nav-link" data-scroll-target="#structural-problems">Structural Problems</a></li>
+  <li><a href="#content-problems" id="toc-content-problems" class="nav-link" data-scroll-target="#content-problems">Content Problems</a></li>
+  </ul></li>
+  <li><a href="#validation-as-quality-assurance" id="toc-validation-as-quality-assurance" class="nav-link" data-scroll-target="#validation-as-quality-assurance">Validation as Quality Assurance</a>
+  <ul class="collapse">
+  <li><a href="#proactive-vs.-reactive" id="toc-proactive-vs.-reactive" class="nav-link" data-scroll-target="#proactive-vs.-reactive">Proactive vs.&nbsp;Reactive</a></li>
+  <li><a href="#levels-of-validation" id="toc-levels-of-validation" class="nav-link" data-scroll-target="#levels-of-validation">Levels of Validation</a></li>
+  </ul></li>
+  <li><a href="#practical-example-palmer-penguins-validation" id="toc-practical-example-palmer-penguins-validation" class="nav-link" data-scroll-target="#practical-example-palmer-penguins-validation">Practical Example: Palmer Penguins Validation</a>
+  <ul class="collapse">
+  <li><a href="#structural-checks" id="toc-structural-checks" class="nav-link" data-scroll-target="#structural-checks">Structural Checks</a></li>
+  <li><a href="#content-checks" id="toc-content-checks" class="nav-link" data-scroll-target="#content-checks">Content Checks</a></li>
+  <li><a href="#domain-checks" id="toc-domain-checks" class="nav-link" data-scroll-target="#domain-checks">Domain Checks</a></li>
+  </ul></li>
+  <li><a href="#validation-workflow-integration" id="toc-validation-workflow-integration" class="nav-link" data-scroll-target="#validation-workflow-integration">Validation Workflow Integration</a>
+  <ul class="collapse">
+  <li><a href="#when-to-validate" id="toc-when-to-validate" class="nav-link" data-scroll-target="#when-to-validate">When to Validate</a></li>
+  <li><a href="#documentation-connection" id="toc-documentation-connection" class="nav-link" data-scroll-target="#documentation-connection">Documentation Connection</a></li>
+  </ul></li>
+  <li><a href="#benefits-of-systematic-validation" id="toc-benefits-of-systematic-validation" class="nav-link" data-scroll-target="#benefits-of-systematic-validation">Benefits of Systematic Validation</a>
+  <ul class="collapse">
+  <li><a href="#for-your-research" id="toc-for-your-research" class="nav-link" data-scroll-target="#for-your-research">For Your Research</a></li>
+  <li><a href="#for-open-science" id="toc-for-open-science" class="nav-link" data-scroll-target="#for-open-science">For Open Science</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/03-data-validation/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/03-data-validation/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Introduction to Data Validation in R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Validation</a></li><li class="breadcrumb-item"><a href="../03-data-validation/page1.html">Data Quality Concepts</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Page Title Here</h1>
+<h1 class="title">Data Quality Concepts</h1>
 </div>
 
 
@@ -294,29 +305,220 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<p>Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you’ve documented.</p>
+<section id="why-data-validation-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-data-validation-matters">Why Data Validation Matters</h2>
+<section id="building-on-your-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="building-on-your-documentation">Building on Your Documentation</h3>
+<p>Your data dictionary describes the ideal structure and content of your data. Data validation checks whether reality matches those expectations. Think of it as quality control for your research.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Consider This
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember the Palmer Penguins data dictionary you created? You documented that bill length should be measured in millimeters with values typically between 30-60mm. But what if some values in your dataset are 3000mm or negative numbers? Your analysis would be compromised even though your documentation is perfect.</p>
+</div>
+</div>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
+<section id="the-research-impact" class="level3">
+<h3 class="anchored" data-anchor-id="the-research-impact">The Research Impact</h3>
+<p>Poor data quality can:</p>
+<ul>
+<li><strong>Invalidate analyses</strong>: Outliers or errors lead to wrong conclusions</li>
+<li><strong>Waste time</strong>: Hours spent troubleshooting mysterious results caused by data issues</li>
+<li><strong>Undermine credibility</strong>: Reviewers and collaborators lose confidence in findings</li>
+<li><strong>Prevent replication</strong>: Others can’t reproduce results with unreliable data</li>
+</ul>
+<p>Good validation practices catch these issues early, when they’re easy to fix.</p>
 </section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+</section>
+<section id="types-of-data-quality-issues" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-data-quality-issues">Types of Data Quality Issues</h2>
+<section id="structural-problems" class="level3">
+<h3 class="anchored" data-anchor-id="structural-problems">Structural Problems</h3>
+<p>These violate the basic framework you documented:</p>
+<ul>
+<li><strong>Wrong data types</strong>: Text in numeric columns, numbers stored as text</li>
+<li><strong>Missing required values</strong>: Empty cells where data should exist</li>
+<li><strong>Invalid categories</strong>: Misspelled factor levels or unexpected values</li>
+<li><strong>Out-of-range values</strong>: Numbers that fall outside reasonable bounds</li>
+</ul>
+</section>
+<section id="content-problems" class="level3">
+<h3 class="anchored" data-anchor-id="content-problems">Content Problems</h3>
+<p>These are more subtle but equally important:</p>
+<ul>
+<li><strong>Logical inconsistencies</strong>: A penguin recorded as weighing 50,000 grams</li>
+<li><strong>Pattern violations</strong>: ID numbers that don’t follow expected formats</li>
+<li><strong>Duplicate records</strong>: The same observation recorded multiple times</li>
+<li><strong>Measurement errors</strong>: Values that are technically valid but scientifically implausible</li>
+</ul>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
+<section id="validation-as-quality-assurance" class="level2">
+<h2 class="anchored" data-anchor-id="validation-as-quality-assurance">Validation as Quality Assurance</h2>
+<section id="proactive-vs.-reactive" class="level3">
+<h3 class="anchored" data-anchor-id="proactive-vs.-reactive">Proactive vs.&nbsp;Reactive</h3>
+<p><strong>Reactive approach</strong>: Discover data problems during analysis when they cause errors or strange results</p>
+<p><strong>Proactive approach</strong>: Systematically check data quality before analysis begins</p>
+<p>The proactive approach saves time and increases confidence in your results.</p>
+</section>
+<section id="levels-of-validation" class="level3">
+<h3 class="anchored" data-anchor-id="levels-of-validation">Levels of Validation</h3>
+<p><strong>Basic validation</strong>:</p>
+<ul>
+<li>Does the data match its documented structure?</li>
+<li>Correct data types</li>
+<li>Expected number of variables and observations</li>
+<li>No completely empty columns or rows</li>
+</ul>
+<p><strong>Content validation</strong>:</p>
+<ul>
+<li>Are the values reasonable and consistent?</li>
+<li>Values fall within expected ranges</li>
+<li>Categorical variables contain only valid categories</li>
+<li>Relationships between variables make sense</li>
+</ul>
+<p><strong>Domain validation</strong>:</p>
+<ul>
+<li>Does the data make sense scientifically?</li>
+<li>Measurements are biologically/physically plausible</li>
+<li>Patterns align with known relationships</li>
+<li>Outliers have logical explanations</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Building on Documentation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice how each level builds on your data dictionary work:</p>
+<ul>
+<li>Basic validation checks the structure you documented</li>
+<li>Content validation uses the ranges and categories you specified</li>
+<li>Domain validation relies on the scientific context you provided</li>
+</ul>
+<p>Your documentation becomes the foundation for systematic quality checking.</p>
+</div>
+</div>
 </section>
 </section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="practical-example-palmer-penguins-validation" class="level2">
+<h2 class="anchored" data-anchor-id="practical-example-palmer-penguins-validation">Practical Example: Palmer Penguins Validation</h2>
+<p>Let’s think through what validation might look like for our familiar dataset:</p>
+<section id="structural-checks" class="level3">
+<h3 class="anchored" data-anchor-id="structural-checks">Structural Checks</h3>
+<p>Based on your data dictionary, you’d verify:</p>
+<ul>
+<li><code>species</code> contains only “Adelie”, “Chinstrap”, “Gentoo”</li>
+<li><code>bill_length_mm</code> is numeric, not text</li>
+<li>Required measurements aren’t missing for complete observations</li>
+<li><code>year</code> contains only 2007, 2008, 2009</li>
+</ul>
+</section>
+<section id="content-checks" class="level3">
+<h3 class="anchored" data-anchor-id="content-checks">Content Checks</h3>
+<p>Using the ranges you documented:</p>
+<ul>
+<li>Bill lengths between reasonable values (e.g., 30-60mm)</li>
+<li>Body mass within realistic ranges for penguins</li>
+<li>No negative measurements</li>
+<li>Sex coded consistently</li>
+</ul>
+</section>
+<section id="domain-checks" class="level3">
+<h3 class="anchored" data-anchor-id="domain-checks">Domain Checks</h3>
+<p>Applying biological knowledge:</p>
+<ul>
+<li>Are bill dimensions reasonable for each species?</li>
+<li>Do body mass values align with known penguin biology?</li>
+<li>Are measurement combinations plausible?</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Validation Planning Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think about a dataset from your own research:</p>
+<ol type="1">
+<li>What structural problems might occur during data collection or entry?</li>
+<li>What content issues would be most problematic for your analyses?</li>
+<li>What domain-specific knowledge should guide your quality checks?</li>
+</ol>
+<p>Write down 3-4 specific validation rules you’d want to implement.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="validation-workflow-integration" class="level2">
+<h2 class="anchored" data-anchor-id="validation-workflow-integration">Validation Workflow Integration</h2>
+<section id="when-to-validate" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-validate">When to Validate</h3>
+<ul>
+<li><strong>During data collection</strong>: Catch errors as they happen</li>
+<li><strong>After data entry</strong>: Before any analysis begins</li>
+<li><strong>Before major analyses</strong>: Ensure data quality for important results</li>
+<li><strong>Before sharing</strong>: Verify data quality for others</li>
+</ul>
+</section>
+<section id="documentation-connection" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-connection">Documentation Connection</h3>
+<p>Your validation rules should directly connect to your data dictionary:</p>
+<ul>
+<li>Each documented range becomes a validation rule</li>
+<li>Each categorical variable’s valid values become a check</li>
+<li>Each data type specification becomes a structural test</li>
+</ul>
+<p>This creates a complete quality assurance system where documentation and validation work together.</p>
+</section>
+</section>
+<section id="benefits-of-systematic-validation" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-systematic-validation">Benefits of Systematic Validation</h2>
+<section id="for-your-research" class="level3">
+<h3 class="anchored" data-anchor-id="for-your-research">For Your Research</h3>
+<ul>
+<li><strong>Increased confidence</strong>: Know your data is reliable</li>
+<li><strong>Time savings</strong>: Catch errors early rather than during analysis</li>
+<li><strong>Better results</strong>: Analyses based on clean, verified data</li>
+<li><strong>Easier troubleshooting</strong>: When something looks odd, it’s probably real</li>
+</ul>
+</section>
+<section id="for-open-science" class="level3">
+<h3 class="anchored" data-anchor-id="for-open-science">For Open Science</h3>
+<ul>
+<li><strong>Transparency</strong>: Others can see your quality control process</li>
+<li><strong>Reproducibility</strong>: Quality checks can be replicated and verified</li>
+<li><strong>Trust</strong>: Colleagues have confidence in shared data</li>
+<li><strong>Standards</strong>: Contribute to better practices in your field</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Reflection Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How might implementing systematic data validation change your relationship with your research data? What would it mean for your confidence in results to know that data quality has been thoroughly verified?</p>
+</div>
+</div>
+<p><strong>Next</strong>: We’ll explore specific techniques for generating summary statistics that reveal data quality issues and support your validation efforts.</p>
 
 
 </section>
@@ -725,13 +927,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../02-summary-statistics/page3.html" class="pagination-link" aria-label="Exploring Other Summary Statistics Packages">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exploring Other Summary Statistics Packages</span>
+      <a href="../02-data-dictionaries/page2.html" class="pagination-link" aria-label="Automated Creation with R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Automated Creation with R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-data-validation/page2.html" class="pagination-link" aria-label="Implementing Validation with {pointblank}">
-        <span class="nav-page-text">Implementing Validation with {pointblank}</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-data-validation/page2.html" class="pagination-link" aria-label="Summary Statistics">
+        <span class="nav-page-text">Summary Statistics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -743,7 +945,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/03-data-validation/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/03-data-validation/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

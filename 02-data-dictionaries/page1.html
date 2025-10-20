@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – Data Dictionary using R</title>
+<title>Concepts &amp; Manual Creation – Data Documentation and Validation using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../02-summary-statistics/page2.html" rel="next">
-<link href="../01-data-description/page2.html" rel="prev">
+<link href="../02-data-dictionaries/page2.html" rel="next">
+<link href="../01-tutorial-setup/page2.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Dictionary using R</span>
+    <span class="navbar-title">Data Documentation and Validation using R</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -112,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R/issues">
             Report a Bug
             </a>
           </li>
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-summary-statistics/page1.html">Summary Statistics</a></li><li class="breadcrumb-item"><a href="../02-summary-statistics/page1.html">Exploring Data with Summary Statistics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-data-dictionaries/page1.html">Data Dictionaries</a></li><li class="breadcrumb-item"><a href="../02-data-dictionaries/page1.html">Concepts &amp; Manual Creation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Description</span></a>
+ <span class="menu-text">Tutorial Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,14 +173,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Description</span></a>
+  <a href="../01-tutorial-setup/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating Data Dictionaries with {pointblank}</span></a>
+  <a href="../01-tutorial-setup/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Data &amp; Tools</span></a>
   </div>
 </li>
       </ul>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Summary Statistics</span></a>
+ <span class="menu-text">Data Dictionaries</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,20 +196,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exploring Data with Summary Statistics</span></a>
+  <a href="../02-data-dictionaries/page1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Concepts &amp; Manual Creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Summary Tables with {pointblank}</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Summary Statistics Packages</span></a>
+  <a href="../02-data-dictionaries/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automated Creation with R</span></a>
   </div>
 </li>
       </ul>
@@ -226,19 +220,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Validation in R</span></a>
+ <span class="menu-text">Data Quality Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Implementing Validation with {pointblank}</span></a>
+ <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Data Validation Packages</span></a>
+ <span class="menu-text">Validation with R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -255,29 +249,45 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <li><a href="#what-is-a-data-dictionary" id="toc-what-is-a-data-dictionary" class="nav-link active" data-scroll-target="#what-is-a-data-dictionary">What is a Data Dictionary?</a>
   <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
+  <li><a href="#essential-components" id="toc-essential-components" class="nav-link" data-scroll-target="#essential-components">Essential Components</a></li>
+  </ul></li>
+  <li><a href="#why-data-dictionaries-matter-for-open-science" id="toc-why-data-dictionaries-matter-for-open-science" class="nav-link" data-scroll-target="#why-data-dictionaries-matter-for-open-science">Why Data Dictionaries Matter for Open Science</a>
   <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  <li><a href="#preventing-critical-errors" id="toc-preventing-critical-errors" class="nav-link" data-scroll-target="#preventing-critical-errors">Preventing Critical Errors</a></li>
+  <li><a href="#enabling-collaboration" id="toc-enabling-collaboration" class="nav-link" data-scroll-target="#enabling-collaboration">Enabling Collaboration</a></li>
+  <li><a href="#meeting-fair-principles" id="toc-meeting-fair-principles" class="nav-link" data-scroll-target="#meeting-fair-principles">Meeting FAIR Principles</a></li>
   </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
+  <li><a href="#hands-on-practice-creating-your-first-data-dictionary" id="toc-hands-on-practice-creating-your-first-data-dictionary" class="nav-link" data-scroll-target="#hands-on-practice-creating-your-first-data-dictionary">Hands-On Practice: Creating Your First Data Dictionary</a>
   <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
+  <li><a href="#step-1-examine-the-data" id="toc-step-1-examine-the-data" class="nav-link" data-scroll-target="#step-1-examine-the-data">Step 1: Examine the Data</a></li>
   </ul></li>
+  <li><a href="#analysis-exercise" id="toc-analysis-exercise" class="nav-link" data-scroll-target="#analysis-exercise">Analysis Exercise</a>
+  <ul class="collapse">
+  <li><a href="#step-2-build-your-dictionary-structure" id="toc-step-2-build-your-dictionary-structure" class="nav-link" data-scroll-target="#step-2-build-your-dictionary-structure">Step 2: Build Your Dictionary Structure</a></li>
+  </ul></li>
+  <li><a href="#documentation-exercise" id="toc-documentation-exercise" class="nav-link" data-scroll-target="#documentation-exercise">Documentation Exercise</a>
+  <ul class="collapse">
+  <li><a href="#step-3-validate-your-documentation" id="toc-step-3-validate-your-documentation" class="nav-link" data-scroll-target="#step-3-validate-your-documentation">Step 3: Validate Your Documentation</a></li>
+  </ul></li>
+  <li><a href="#tools-for-manual-creation" id="toc-tools-for-manual-creation" class="nav-link" data-scroll-target="#tools-for-manual-creation">Tools for Manual Creation</a>
+  <ul class="collapse">
+  <li><a href="#spreadsheet-software-excel-google-sheets-libreoffice" id="toc-spreadsheet-software-excel-google-sheets-libreoffice" class="nav-link" data-scroll-target="#spreadsheet-software-excel-google-sheets-libreoffice">Spreadsheet Software (Excel, Google Sheets, LibreOffice)</a></li>
+  <li><a href="#markdown-tables" id="toc-markdown-tables" class="nav-link" data-scroll-target="#markdown-tables">Markdown Tables</a></li>
+  <li><a href="#word-processors-word-google-docs" id="toc-word-processors-word-google-docs" class="nav-link" data-scroll-target="#word-processors-word-google-docs">Word Processors (Word, Google Docs)</a></li>
+  </ul></li>
+  <li><a href="#implementation-strategy" id="toc-implementation-strategy" class="nav-link" data-scroll-target="#implementation-strategy">Implementation Strategy</a></li>
+  <li><a href="#when-manual-creation-is-most-effective" id="toc-when-manual-creation-is-most-effective" class="nav-link" data-scroll-target="#when-manual-creation-is-most-effective">When Manual Creation is Most Effective</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/02-summary-statistics/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/02-data-dictionaries/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-summary-statistics/page1.html">Summary Statistics</a></li><li class="breadcrumb-item"><a href="../02-summary-statistics/page1.html">Exploring Data with Summary Statistics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-data-dictionaries/page1.html">Data Dictionaries</a></li><li class="breadcrumb-item"><a href="../02-data-dictionaries/page1.html">Concepts &amp; Manual Creation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Page Title Here</h1>
+<h1 class="title">Concepts &amp; Manual Creation</h1>
 </div>
 
 
@@ -294,32 +304,391 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<p>A dataset without proper documentation can be a significant barrier to reproducible science. In this hands-on section, you’ll learn to create data dictionaries manually and practice with research data.</p>
+<section id="what-is-a-data-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-data-dictionary">What is a Data Dictionary?</h2>
+<p>A data dictionary is a structured document that provides comprehensive information about each variable in your dataset. Think of it as the “instruction manual” for your data, it tells anyone (including future you) exactly what each column means, how it was measured, and how to interpret the values.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Consider This
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before we continue, reflect on your most recent research project. How would a colleague understand your data if you shared it with them today? What questions would they need to ask you?</p>
+</div>
+</div>
+<section id="essential-components" class="level3">
+<h3 class="anchored" data-anchor-id="essential-components">Essential Components</h3>
+<p>Every data dictionary should include:</p>
+<ul>
+<li><strong>Variable Name</strong>: The exact column name in your data file (e.g., <code>bill_length_mm</code>)</li>
+<li><strong>Variable Label</strong>: A human-readable name (e.g., “Bill Length”)<br>
+</li>
+<li><strong>Description</strong>: Clear definition of what was measured (e.g., “Length of the penguin’s bill measured in millimeters”)</li>
+<li><strong>Data Type</strong>: The type of data stored (numeric, character, factor, logical)</li>
+<li><strong>Units</strong>: For numeric variables, the unit of measurement (mm, grams, years)</li>
+<li><strong>Valid Values</strong>: Expected range or categories (e.g., “0-100” or “male, female”)</li>
+<li><strong>Missing Values</strong>: How missing data is coded (NA, -999, blank)</li>
+</ul>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
 </section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+<section id="why-data-dictionaries-matter-for-open-science" class="level2">
+<h2 class="anchored" data-anchor-id="why-data-dictionaries-matter-for-open-science">Why Data Dictionaries Matter for Open Science</h2>
+<section id="preventing-critical-errors" class="level3">
+<h3 class="anchored" data-anchor-id="preventing-critical-errors">Preventing Critical Errors</h3>
+<p>Without documentation, researchers make dangerous assumptions. Is <code>score</code> a percentage (0-100) or raw points (0-50)? Is <code>treatment</code> coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Real-World Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A research team spent months analyzing survey data where <code>satisfaction</code> was coded 1-5. They treated 5 as “very satisfied.” Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards!</p>
+</div>
+</div>
+</section>
+<section id="enabling-collaboration" class="level3">
+<h3 class="anchored" data-anchor-id="enabling-collaboration">Enabling Collaboration</h3>
+<p>When a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.</p>
+</section>
+<section id="meeting-fair-principles" class="level3">
+<h3 class="anchored" data-anchor-id="meeting-fair-principles">Meeting FAIR Principles</h3>
+<p>FAIR data must be <strong>Findable, Accessible, Interoperable, and Reusable</strong>. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.</p>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
+<section id="hands-on-practice-creating-your-first-data-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-practice-creating-your-first-data-dictionary">Hands-On Practice: Creating Your First Data Dictionary</h2>
+<p>Let’s work through an example with a sample dataset. Imagine you’ve collected data on study habits and academic performance:</p>
+<section id="step-1-examine-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-examine-the-data">Step 1: Examine the Data</h3>
+<p>Here’s what your data file looks like:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>student_id</th>
+<th>study_hrs</th>
+<th>test_score</th>
+<th>major</th>
+<th>satisfaction</th>
+<th>attend</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>001</td>
+<td>15</td>
+<td>85</td>
+<td>PSYC</td>
+<td>4</td>
+<td>Y</td>
+</tr>
+<tr class="even">
+<td>002</td>
+<td>8</td>
+<td>72</td>
+<td>BIOL</td>
+<td>3</td>
+<td>N</td>
+</tr>
+<tr class="odd">
+<td>003</td>
+<td>22</td>
+<td>94</td>
+<td>PSYC</td>
+<td>5</td>
+<td>Y</td>
+</tr>
+<tr class="even">
+<td>004</td>
+<td>NA</td>
+<td>68</td>
+<td>MATH</td>
+<td>2</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="analysis-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-exercise">Analysis Exercise</h2>
+<p>Examine the sample data above. Without any documentation, what questions arise? Consider at least 3 potential ambiguities or areas needing clarification.</p>
+<p><strong>Focus areas</strong>: Think about units, scales, missing values, and what the codes represent.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Click for common questions researchers identify
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>What time period do <code>study_hrs</code> cover? Per week? Per month?</li>
+<li>Is <code>test_score</code> out of 100? What test was this?</li>
+<li>What does the satisfaction scale mean? Is 1 low or high?</li>
+<li>What do Y/N in <code>attend</code> represent?</li>
+<li>Why is there an NA in <code>study_hrs</code> for student 004?</li>
+</ul>
+</div>
+</div>
+</div>
+<section id="step-2-build-your-dictionary-structure" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-build-your-dictionary-structure">Step 2: Build Your Dictionary Structure</h3>
+<p>Create a table with the essential columns:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 19%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Label</th>
+<th>Description</th>
+<th>Type</th>
+<th>Units</th>
+<th>Valid Values</th>
+<th>Missing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="documentation-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-exercise">Documentation Exercise</h2>
+<p>Using the study habits data above, create a complete data dictionary. For each variable, consider:</p>
+<ol type="1">
+<li><strong>What would another researcher need to know to use this variable correctly?</strong></li>
+<li><strong>What assumptions might someone make that could be wrong?</strong></li>
+<li><strong>What context is essential for proper interpretation?</strong></li>
+</ol>
+<p>Work through 2-3 variables before reviewing the example below.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Click for example documentation approach
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 19%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Label</th>
+<th>Description</th>
+<th>Type</th>
+<th>Units</th>
+<th>Valid Values</th>
+<th>Missing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>student_id</td>
+<td>Student ID</td>
+<td>Unique identifier for each participant</td>
+<td>character</td>
+<td>none</td>
+<td>001-999</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>study_hrs</td>
+<td>Weekly Study Hours</td>
+<td>Self-reported hours spent studying per week</td>
+<td>numeric</td>
+<td>hours</td>
+<td>0-168</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>test_score</td>
+<td>Midterm Score</td>
+<td>Score on standardized midterm exam</td>
+<td>numeric</td>
+<td>points</td>
+<td>0-100</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>major</td>
+<td>Academic Major</td>
+<td>Student’s declared major field</td>
+<td>categorical</td>
+<td>none</td>
+<td>PSYC, BIOL, MATH, CHEM</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>satisfaction</td>
+<td>Course Satisfaction</td>
+<td>Rating of course satisfaction (5-point scale)</td>
+<td>numeric</td>
+<td>1-5 scale</td>
+<td>1=very unsatisfied, 5=very satisfied</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>attend</td>
+<td>Lecture Attendance</td>
+<td>Regular attendance at lectures (&gt;80%)</td>
+<td>categorical</td>
+<td>none</td>
+<td>Y=yes, N=no</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="step-3-validate-your-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-validate-your-documentation">Step 3: Validate Your Documentation</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Documentation Quality Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider whether a colleague using only your data dictionary could:</p>
+<ul>
+<li>Correctly interpret a satisfaction score of “2”?</li>
+<li>Understand what “15” in study_hrs represents?</li>
+<li>Handle missing values appropriately?</li>
+<li>Make meaningful comparisons between majors?</li>
+</ul>
+<p>If uncertainties remain, refine your documentation accordingly.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="tools-for-manual-creation" class="level2">
+<h2 class="anchored" data-anchor-id="tools-for-manual-creation">Tools for Manual Creation</h2>
+<section id="spreadsheet-software-excel-google-sheets-libreoffice" class="level3">
+<h3 class="anchored" data-anchor-id="spreadsheet-software-excel-google-sheets-libreoffice">Spreadsheet Software (Excel, Google Sheets, LibreOffice)</h3>
+<p><strong>Best for</strong>: Most research teams, easy sharing and collaboration</p>
+<p><strong>Approach</strong>: Create your dictionary table directly in the spreadsheet. Save as CSV for better compatibility with analysis software.</p>
+<p><strong>Pros</strong>: Familiar interface, collaborative editing, export flexibility</p>
+<p><strong>Cons</strong>: Formatting limitations, version control challenges</p>
+</section>
+<section id="markdown-tables" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-tables">Markdown Tables</h3>
+<p><strong>Best for</strong>: Projects using version control (Git), reproducible workflows</p>
+<p><strong>Template</strong>:</p>
+<pre><code>| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
+|---------------|-------|-------------|------|-------|--------------|---------|
+| variable1     |       |             |      |       |              |         |
+| variable2     |       |             |      |       |              |         |</code></pre>
+<p><strong>Pros</strong>: Version control friendly, readable as plain text</p>
+<p><strong>Cons</strong>: Less intuitive for less technical collaborators</p>
+</section>
+<section id="word-processors-word-google-docs" class="level3">
+<h3 class="anchored" data-anchor-id="word-processors-word-google-docs">Word Processors (Word, Google Docs)</h3>
+<p><strong>Best for</strong>: Teams preferring familiar document formats</p>
+<p><strong>Approach</strong>: Create a simple table with the essential columns.</p>
+<p><strong>Pros</strong>: Rich formatting options, familiar to most researchers</p>
+<p><strong>Cons</strong>: Difficult for automated processing, no structured format</p>
+</section>
+</section>
+<section id="implementation-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-strategy">Implementation Strategy</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Practical Application
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Select a dataset</strong> from your current work (or use a publicly available dataset)</li>
+<li><strong>Document 5-10 variables</strong> using the principles covered here</li>
+<li><strong>Validate your dictionary</strong> by having a colleague interpret values using only your documentation</li>
+<li><strong>Iterate and improve</strong> based on their feedback and questions</li>
+</ol>
+<p>If possible, share your dictionary with a researcher from a different field. What additional context do they require?</p>
+</div>
+</div>
+</section>
+<section id="when-manual-creation-is-most-effective" class="level2">
+<h2 class="anchored" data-anchor-id="when-manual-creation-is-most-effective">When Manual Creation is Most Effective</h2>
+<p>Manual creation works optimally when:</p>
+<ul>
+<li>You have fewer than 20 variables</li>
+<li>Your data structure remains stable over time</li>
+<li>You need detailed, contextual descriptions</li>
+<li>You’re collaborating with non-technical team members</li>
+<li>You require precise control over documentation details</li>
+</ul>
+<p>The next section covers automated approaches using R packages, which become essential for larger datasets or when documentation needs frequent updates.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Reflection Points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As you implement these practices:</p>
+<ul>
+<li>What aspects of manual dictionary creation align best with your research workflow?</li>
+<li>Where do you anticipate the greatest challenges in maintaining documentation?</li>
+<li>How might improved data documentation have enhanced your previous research projects?</li>
+</ul>
+</div>
+</div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -725,13 +1094,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01-data-description/page2.html" class="pagination-link" aria-label="Creating Data Dictionaries with {pointblank}">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Creating Data Dictionaries with {pointblank}</span>
+      <a href="../01-tutorial-setup/page2.html" class="pagination-link" aria-label="Example Data &amp; Tools">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Example Data &amp; Tools</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../02-summary-statistics/page2.html" class="pagination-link" aria-label="Generating Summary Tables with {pointblank}">
-        <span class="nav-page-text">Generating Summary Tables with {pointblank}</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../02-data-dictionaries/page2.html" class="pagination-link" aria-label="Automated Creation with R">
+        <span class="nav-page-text">Automated Creation with R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -743,7 +1112,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/02-summary-statistics/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/02-data-dictionaries/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Page Title Here – Data Dictionary using R</title>
+<title>Automated Creation with R – Data Documentation and Validation using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-data-description/page2.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../03-data-validation/page1.html" rel="next">
+<link href="../02-data-dictionaries/page1.html" rel="prev">
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -87,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Data Dictionary using R</span>
+    <span class="navbar-title">Data Documentation and Validation using R</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -112,12 +147,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/REPO-NAME-HERE/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/lmu-osc/data-documentation-validation-R/issues">
             Report a Bug
             </a>
           </li>
@@ -132,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-data-description/page1.html">Data Description</a></li><li class="breadcrumb-item"><a href="../01-data-description/page1.html">Introduction to Data Description</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-data-dictionaries/page1.html">Data Dictionaries</a></li><li class="breadcrumb-item"><a href="../02-data-dictionaries/page2.html">Automated Creation with R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Description</span></a>
+ <span class="menu-text">Tutorial Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -173,14 +208,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to Data Description</span></a>
+  <a href="../01-tutorial-setup/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-data-description/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating Data Dictionaries with {pointblank}</span></a>
+  <a href="../01-tutorial-setup/page2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Data &amp; Tools</span></a>
   </div>
 </li>
       </ul>
@@ -188,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Summary Statistics</span></a>
+ <span class="menu-text">Data Dictionaries</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,20 +231,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Data with Summary Statistics</span></a>
+  <a href="../02-data-dictionaries/page1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts &amp; Manual Creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Summary Tables with {pointblank}</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../02-summary-statistics/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Summary Statistics Packages</span></a>
+  <a href="../02-data-dictionaries/page2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Automated Creation with R</span></a>
   </div>
 </li>
       </ul>
@@ -226,19 +255,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Data Validation in R</span></a>
+ <span class="menu-text">Data Quality Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Implementing Validation with {pointblank}</span></a>
+ <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploring Other Data Validation Packages</span></a>
+ <span class="menu-text">Validation with R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -255,29 +284,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#level-one-header" id="toc-level-one-header" class="nav-link active" data-scroll-target="#level-one-header">Level One Header</a>
+  <li><a href="#from-manual-to-automated" id="toc-from-manual-to-automated" class="nav-link active" data-scroll-target="#from-manual-to-automated">From Manual to Automated</a></li>
+  <li><a href="#the-datawizard-package" id="toc-the-datawizard-package" class="nav-link" data-scroll-target="#the-datawizard-package">The <code>{datawizard}</code> Package</a></li>
+  <li><a href="#creating-your-first-automated-dictionary" id="toc-creating-your-first-automated-dictionary" class="nav-link" data-scroll-target="#creating-your-first-automated-dictionary">Creating Your First Automated Dictionary</a>
   <ul class="collapse">
-  <li><a href="#level-two" id="toc-level-two" class="nav-link" data-scroll-target="#level-two">Level Two</a>
+  <li><a href="#step-1-load-and-prepare-data" id="toc-step-1-load-and-prepare-data" class="nav-link" data-scroll-target="#step-1-load-and-prepare-data">Step 1: Load and Prepare Data</a></li>
+  <li><a href="#step-2-generate-the-codebook" id="toc-step-2-generate-the-codebook" class="nav-link" data-scroll-target="#step-2-generate-the-codebook">Step 2: Generate the Codebook</a></li>
+  </ul></li>
+  <li><a href="#what-does-the-output-look-like" id="toc-what-does-the-output-look-like" class="nav-link" data-scroll-target="#what-does-the-output-look-like">What Does the Output Look Like?</a>
   <ul class="collapse">
-  <li><a href="#l3" id="toc-l3" class="nav-link" data-scroll-target="#l3">L3</a></li>
-  <li><a href="#l3-again" id="toc-l3-again" class="nav-link" data-scroll-target="#l3-again">L3 Again</a></li>
-  <li><a href="#and-one-more-time" id="toc-and-one-more-time" class="nav-link" data-scroll-target="#and-one-more-time">And one more time</a></li>
+  <li><a href="#step-3-add-variable-labels-optional" id="toc-step-3-add-variable-labels-optional" class="nav-link" data-scroll-target="#step-3-add-variable-labels-optional">Step 3: Add Variable Labels (Optional)</a></li>
   </ul></li>
-  <li><a href="#another-level-two" id="toc-another-level-two" class="nav-link" data-scroll-target="#another-level-two">Another Level Two</a></li>
-  </ul></li>
-  <li><a href="#level-one-again" id="toc-level-one-again" class="nav-link" data-scroll-target="#level-one-again">Level One Again</a>
-  <ul class="collapse">
-  <li><a href="#level-two-1" id="toc-level-two-1" class="nav-link" data-scroll-target="#level-two-1">Level Two</a></li>
-  </ul></li>
+  <li><a href="#exporting-your-codebook" id="toc-exporting-your-codebook" class="nav-link" data-scroll-target="#exporting-your-codebook">Exporting Your Codebook</a></li>
+  <li><a href="#when-to-use-automated-dictionaries" id="toc-when-to-use-automated-dictionaries" class="nav-link" data-scroll-target="#when-to-use-automated-dictionaries">When to Use Automated Dictionaries</a></li>
+  <li><a href="#advantages-for-open-science" id="toc-advantages-for-open-science" class="nav-link" data-scroll-target="#advantages-for-open-science">Advantages for Open Science</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/01-data-description/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/02-data-dictionaries/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-data-description/page1.html">Data Description</a></li><li class="breadcrumb-item"><a href="../01-data-description/page1.html">Introduction to Data Description</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-data-dictionaries/page1.html">Data Dictionaries</a></li><li class="breadcrumb-item"><a href="../02-data-dictionaries/page2.html">Automated Creation with R</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Page Title Here</h1>
+<h1 class="title">Automated Creation with R</h1>
 </div>
 
 
@@ -294,32 +324,228 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The headers below cause the table of contents/dropdown on the right to be visible.</p>
-<section id="level-one-header" class="level1">
-<h1>Level One Header</h1>
-<section id="level-two" class="level2">
-<h2 class="anchored" data-anchor-id="level-two">Level Two</h2>
-<section id="l3" class="level3">
-<h3 class="anchored" data-anchor-id="l3">L3</h3>
+<p>In the previous section, you created a data dictionary manually, carefully considering each variable’s meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.</p>
+<section id="from-manual-to-automated" class="level2">
+<h2 class="anchored" data-anchor-id="from-manual-to-automated">From Manual to Automated</h2>
+<p>You can create data dictionaries in two ways:</p>
+<ol type="1">
+<li><strong>Manually</strong> (previous section): Full control, good for small datasets</li>
+<li><strong>Automated with R</strong> (this section): Efficient for larger datasets, easy to update</li>
+<li><strong>Hybrid approach</strong>: Start with automated generation, then refine with your domain knowledge</li>
+</ol>
+<p>Most research projects benefit from automation, especially when data evolves during collection or analysis.</p>
 </section>
-<section id="l3-again" class="level3">
-<h3 class="anchored" data-anchor-id="l3-again">L3 Again</h3>
+<section id="the-datawizard-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-datawizard-package">The <code>{datawizard}</code> Package</h2>
+<p>The <code>{datawizard}</code> package provides a simple, reliable way to create data dictionaries automatically. The main function you’ll use is <code>data_codebook()</code>, which generates structured tables that include:</p>
+<ul>
+<li>Variable names and types</li>
+<li>Missing value counts</li>
+<li>Value ranges for numeric variables</li>
+<li>Frequency counts for categorical variables</li>
+<li>Summary statistics</li>
+</ul>
 </section>
-<section id="and-one-more-time" class="level3">
-<h3 class="anchored" data-anchor-id="and-one-more-time">And one more time</h3>
+<section id="creating-your-first-automated-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="creating-your-first-automated-dictionary">Creating Your First Automated Dictionary</h2>
+<p>Let’s create a codebook for the Palmer Penguins data.</p>
+<section id="step-1-load-and-prepare-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-load-and-prepare-data">Step 1: Load and Prepare Data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datawizard)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the clean penguins data from CSV</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_clean.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-2-generate-the-codebook" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-generate-the-codebook">Step 2: Generate the Codebook</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the data codebook using datawizard's data_codebook() function</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>codebook_penguins <span class="ot">&lt;-</span> <span class="fu">data_codebook</span>(penguins)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the codebook</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(codebook_penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This single command generates a structured table with:</p>
+<ul>
+<li><strong>Variable ID and Name</strong></li>
+<li><strong>Data Type</strong> (character, numeric, etc.)</li>
+<li><strong>Missing Values</strong> (count and percentage)</li>
+<li><strong>Values/Ranges</strong> (categories or numeric ranges)</li>
+<li><strong>Frequencies</strong> (N and percentages for each category)</li>
+</ul>
 </section>
 </section>
-<section id="another-level-two" class="level2">
-<h2 class="anchored" data-anchor-id="another-level-two">Another Level Two</h2>
+<section id="what-does-the-output-look-like" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-the-output-look-like">What Does the Output Look Like?</h2>
+<p>The <code>data_codebook()</code> function creates a formatted table. For each variable, you’ll see:</p>
+<ul>
+<li><strong>Categorical variables</strong>: List of unique values with counts and percentages</li>
+<li><strong>Numeric variables</strong>: Range (min, max) and count of non-missing values</li>
+<li><strong>Missing data</strong>: Explicit count and percentage for transparency</li>
+<li><strong>Clean formatting</strong>: Easy to read in console, save to file, or include in reports</li>
+</ul>
+<p>The output is a data frame that can be exported to CSV, Excel, or included in R Markdown/Quarto documents.</p>
+<section id="step-3-add-variable-labels-optional" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-add-variable-labels-optional">Step 3: Add Variable Labels (Optional)</h3>
+<p>You can add descriptive labels to make the codebook more informative. These labels are stored as <strong>metadata</strong> (attributes) attached to each column, similar to how pandas allows you to add <code>.attrs</code> to Series or DataFrames.</p>
+<p><strong>What this code does:</strong></p>
+<ul>
+<li><code>structure(column, label = "description")</code> attaches a label attribute to a column without changing its data</li>
+<li><code>mutate()</code> replaces each column with a labeled version of itself (same data, but with metadata attached)</li>
+<li>The <code>%&gt;%</code> pipe operator passes the data from one step to the next (like method chaining in Python)</li>
+</ul>
+<p><strong>Important:</strong> The number of columns stays the same, and the data values don’t change. You’re just adding descriptive metadata that <code>data_codebook()</code> can extract and display.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add variable labels using attributes</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>penguins_labeled <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">species =</span> <span class="fu">structure</span>(species, <span class="at">label =</span> <span class="st">"Penguin species observed in Palmer Archipelago"</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">island =</span> <span class="fu">structure</span>(island, <span class="at">label =</span> <span class="st">"Island where penguin was observed"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_mm =</span> <span class="fu">structure</span>(bill_length_mm, <span class="at">label =</span> <span class="st">"Bill length from tip to base (mm)"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_mm =</span> <span class="fu">structure</span>(bill_depth_mm, <span class="at">label =</span> <span class="st">"Bill depth at base (mm)"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">flipper_length_mm =</span> <span class="fu">structure</span>(flipper_length_mm, <span class="at">label =</span> <span class="st">"Flipper length from body to tip (mm)"</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">body_mass_g =</span> <span class="fu">structure</span>(body_mass_g, <span class="at">label =</span> <span class="st">"Body mass measured in field (grams)"</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">structure</span>(sex, <span class="at">label =</span> <span class="st">"Biological sex (male, female, or NA)"</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="fu">structure</span>(year, <span class="at">label =</span> <span class="st">"Year of observation (2007-2009)"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate codebook with labels</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>codebook_labeled <span class="ot">&lt;-</span> <span class="fu">data_codebook</span>(penguins_labeled)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(codebook_labeled)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>How Labels Are Preserved
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The labels you added with <code>structure()</code> are stored as <strong>attributes</strong> (metadata) attached to each column in memory. The <code>data_codebook()</code> function extracts these labels and includes them as regular data in the codebook table itself. This means:</p>
+<ul>
+<li><strong>While working in R</strong>: Labels are stored as metadata on <code>penguins_labeled</code></li>
+<li><strong>In the codebook</strong>: Labels become regular text in a “Label” column of <code>codebook_labeled</code></li>
+<li><strong>When you export the codebook</strong> (next section): The labels are saved as normal data, so they’ll be preserved in CSV files</li>
+</ul>
+<p>The original <code>penguins_labeled</code> data would lose its label attributes if saved as CSV, but the codebook preserves them because they’re converted from metadata into regular table content.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Thinking Point
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the “automated” approach still requires your careful thought, you’re providing the content, R is just handling the presentation.</p>
+</div>
+</div>
 </section>
 </section>
-<section id="level-one-again" class="level1">
-<h1>Level One Again</h1>
-<section id="level-two-1" class="level2">
-<h2 class="anchored" data-anchor-id="level-two-1">Level Two</h2>
+<section id="exporting-your-codebook" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-your-codebook">Exporting Your Codebook</h2>
+<p>Save the codebook for sharing:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as CSV file</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(codebook_labeled, <span class="st">"data/penguins_codebook.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or save as a formatted text file</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(<span class="fu">capture.output</span>(<span class="fu">print</span>(codebook_labeled)), <span class="st">"data/penguins_codebook.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can also include the codebook directly in your Quarto/R Markdown reports:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In a Quarto document, the codebook will display as a formatted table</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_codebook</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Best Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Include codebook generation in your analysis scripts. This ensures documentation updates automatically when your data changes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># At the end of your data cleaning script</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="fu">data_codebook</span>(my_clean_data)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(codebook, <span class="st">"outputs/data_codebook.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="when-to-use-automated-dictionaries" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-automated-dictionaries">When to Use Automated Dictionaries</h2>
+<p><strong>Use automated approach when:</strong></p>
+<ul>
+<li>You have more than ~20 variables</li>
+<li>Data structure changes during collection/analysis</li>
+<li>You need quick summaries of value distributions</li>
+<li>Multiple team members need consistent documentation</li>
+<li>You’re sharing data in repositories</li>
+</ul>
+<p><strong>Consider manual approach when:</strong></p>
+<ul>
+<li>You have fewer than 10 variables with unique contexts</li>
+<li>You need custom formatting for publication</li>
+<li>Collaborators prefer traditional document formats</li>
+<li>Complex measurement protocols require extensive explanation</li>
+</ul>
+<p><strong>Hybrid approach (recommended):</strong></p>
+<ol type="1">
+<li>Generate automated codebook first</li>
+<li>Review output for completeness</li>
+<li>Add manual annotations for complex variables</li>
+<li>Share both automated report and any custom notes</li>
+</ol>
+</section>
+<section id="advantages-for-open-science" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-for-open-science">Advantages for Open Science</h2>
+<p>Automated codebooks support reproducible research:</p>
+<ul>
+<li><strong>Version control</strong>: Include in Git repositories alongside data</li>
+<li><strong>Reproducibility</strong>: Others can regenerate with same inputs</li>
+<li><strong>Transparency</strong>: Shows exactly what’s documented and how</li>
+<li><strong>Efficiency</strong>: Update documentation as data evolves</li>
+<li><strong>Standards</strong>: Consistent format across projects</li>
+<li><strong>Export flexibility</strong>: Save as CSV, text, or include in reports</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Your Expertise Still Required
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Automation doesn’t replace thinking! You still need to:</p>
+<ul>
+<li>Add informative variable labels that explain what was measured</li>
+<li>Provide context about measurement methods and instruments</li>
+<li>Explain unusual coding or missing value patterns</li>
+<li>Document units, valid ranges, and any data transformations</li>
+<li>Consider what collaborators need to know to use your data correctly</li>
+</ul>
+<p>R handles the repetitive formatting and summary statistics; you provide the scientific knowledge and context.</p>
+</div>
+</div>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>You now know how to create data dictionaries both manually and automatically. In the next section, you’ll use these documentation skills as the foundation for data validation, checking whether your actual data matches what your dictionary says it should be.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -725,13 +951,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      <a href="../02-data-dictionaries/page1.html" class="pagination-link" aria-label="Concepts &amp; Manual Creation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Concepts &amp; Manual Creation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-data-description/page2.html" class="pagination-link" aria-label="Creating Data Dictionaries with {pointblank}">
-        <span class="nav-page-text">Creating Data Dictionaries with {pointblank}</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-data-validation/page1.html" class="pagination-link" aria-label="Data Quality Concepts">
+        <span class="nav-page-text">Data Quality Concepts</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -743,7 +969,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright, 2024 Open Science Center at LMU Munich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/edit/main/01-data-description/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/REPO-NAME-HERE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/02-data-dictionaries/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
