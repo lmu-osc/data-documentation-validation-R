@@ -12,7 +12,7 @@ By the end of this section, you will:
 - Use `summary()` to get a quick overview of data quality
 - Apply base R functions to check numeric and categorical variables
 - Compare clean vs. messy data to spot problems
-- Identify the 30 errors in the messy Palmer Penguins dataset
+- Identify errors in the messy Palmer Penguins dataset
 :::
 
 ## How Summary Statistics Reveal Problems
@@ -41,7 +41,7 @@ penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
 penguins_messy <- read_csv("data/penguins_messy.csv", show_col_types = FALSE)
 ```
 
-### Using summary() to Spot Issues
+## Using summary() to Spot Issues
 
 The `summary()` function provides a quick overview of your entire dataset. Let's use it to compare clean and messy data and see what issues we can spot:
 
@@ -82,7 +82,34 @@ Compare the clean and messy outputs. Look for:
 **What issues can you spot in the messy data?**
 :::
 
-### Digging Deeper: Individual Variable Functions
+## Check Categorical Variables
+
+Now check for typos and unexpected values in categorical variables:
+
+```{r}
+#| eval: false
+
+# Examine categorical variables in messy data
+cat("=== Species ===\n")
+table(penguins_messy$species, useNA = "always")
+
+cat("\n=== Island ===\n")
+table(penguins_messy$island, useNA = "always")
+
+cat("\n=== Sex ===\n")
+table(penguins_messy$sex, useNA = "always")
+
+cat("\n=== Year ===\n")
+table(penguins_messy$year, useNA = "always")
+```
+
+**What to look for:**
+
+- Are all values ones you expected? (3 species, 3 islands, 2 sexes, 3 years)
+- Are there typos or variant spellings?
+- Are there unexpected missing values?
+
+## Check Numeric Variables in Detail
 
 While `summary()` is great for a quick overview, sometimes you may want to focus on specific variables. Let us inspect individual variables using base R functions and printing statistics that makes sense for your data:
 
@@ -97,13 +124,71 @@ cat("Mean:", round(mean(penguins_messy$bill_length_mm, na.rm = TRUE), 2), "\n")
 cat("Median:", round(median(penguins_messy$bill_length_mm, na.rm = TRUE), 2), "\n")
 cat("Standard deviation:", round(sd(penguins_messy$bill_length_mm, na.rm = TRUE), 2), "\n")
 cat("Missing values:", sum(is.na(penguins_messy$bill_length_mm)), "\n")
-
-# Detailed examination of a categorical variable
-cat("\n=== Species (detailed) ===\n")
-table(penguins_messy$species, useNA = "always")
-cat("\nUnique values:", unique(penguins_messy$species), "\n")
-cat("Number of unique values:", length(unique(penguins_messy$species)), "\n")
 ```
+
+## Check Missing Values
+
+```{r}
+#| eval: false
+
+# How many missing values in each variable?
+colSums(is.na(penguins_messy))
+```
+
+Compare to your data dictionary: `sex` can have NAs (couldn't be determined in field), but species should never be missing.
+
+::: {.callout-tip collapse="true"}
+## Key Functions Explained
+
+**For numeric variables:**
+
+- `min()` / `max()`: Find range boundaries
+- `mean()`: Average (affected by outliers)
+- `median()`: Middle value (robust to outliers)
+- `sd()`: Standard deviation (variability)
+- `sum(is.na())`: Count missing values
+
+**For categorical variables:**
+
+- `table()`: Frequency counts for each category
+- `unique()`: List all distinct values
+- `length(unique())`: Count how many distinct values
+
+**Important:** Always use `na.rm = TRUE` with numeric functions to handle missing values!
+:::
+
+::: {.callout-tip icon="false"}
+## Checkpoint: What Did You Find?
+
+After running the code above on the messy data, you should have spotted:
+
+**Numeric problems:**
+
+- Negative bill lengths
+- Impossibly large or small values
+- Placeholder values (999)
+
+**Categorical problems:**
+
+- Typos in species names ("Adelei", "ADELIE", "Gentoo penguin")
+- Typos in island names ("Torgerson", "biscoe")
+- Inconsistent sex coding ("M", "F", "male", "Male", "MALE")
+- Invalid years (2020, 2006, 207, 20009)
+
+Did you find these issues? If so, you've successfully used summary statistics for data validation!
+:::
+
+## Summary Statistics Workflow
+
+When validating new data:
+
+1. Use `summary()` for a quick overview
+2. Check categorical variables with `table()` and `unique()`
+3. Check numeric ranges with `min()`, `max()`, `range()`
+4. Check missing values with `colSums(is.na())`
+5. Compare findings to your data dictionary and expectations
+
+## Automating Validation with Functions
 
 ::: {.callout-tip}
 ## Example: Creating a Validation Function
@@ -165,96 +250,6 @@ validate_penguins(penguins_messy)
 
 When you run this function on the clean data, all checks pass. When you run it on the messy data, it fails multiple checks and shows you exactly where problems exist.
 :::
-
-::: {.callout-tip collapse="true"}
-## Key Functions Explained
-
-**For numeric variables:**
-
-- `min()` / `max()`: Find range boundaries
-- `mean()`: Average (affected by outliers)
-- `median()`: Middle value (robust to outliers)
-- `sd()`: Standard deviation (variability)
-- `sum(is.na())`: Count missing values
-
-**For categorical variables:**
-
-- `table()`: Frequency counts for each category
-- `unique()`: List all distinct values
-- `length(unique())`: Count how many distinct values
-
-**Important:** Always use `na.rm = TRUE` with numeric functions to handle missing values!
-:::
-
-## Check Categorical Variables
-
-Now check for typos and unexpected values in categorical variables:
-
-```{r}
-#| eval: false
-
-# Examine categorical variables in messy data
-cat("=== Species ===\n")
-table(penguins_messy$species, useNA = "always")
-
-cat("\n=== Island ===\n")
-table(penguins_messy$island, useNA = "always")
-
-cat("\n=== Sex ===\n")
-table(penguins_messy$sex, useNA = "always")
-
-cat("\n=== Year ===\n")
-table(penguins_messy$year, useNA = "always")
-```
-
-**What to look for:**
-
-- Are all values ones you expected? (3 species, 3 islands, 2 sexes, 3 years)
-- Are there typos or variant spellings?
-- Are there unexpected missing values?
-
-## Check Missing Values
-
-```{r}
-#| eval: false
-
-# How many missing values in each variable?
-colSums(is.na(penguins_messy))
-```
-
-Compare to your data dictionary: `sex` can have NAs (couldn't be determined in field), but species should never be missing.
-
-::: {.callout-tip icon="false"}
-## Checkpoint: What Did You Find?
-
-After running the code above on the messy data, you should have spotted:
-
-**Numeric problems:**
-
-- Negative bill lengths
-- Impossibly large or small values
-- Placeholder values (999)
-
-**Categorical problems:**
-
-- Typos in species names ("Adelei", "ADELIE", "Gentoo penguin")
-- Typos in island names ("Torgerson", "biscoe")
-- Inconsistent sex coding ("M", "F", "male", "Male", "MALE")
-- Invalid years (2020, 2006, 207, 20009)
-
-Did you find these issues? If so, you've successfully used summary statistics for data validation!
-:::
-
-## Summary Statistics Workflow
-
-When validating new data:
-
-1. Use `summary()` for a quick overview
-2. Check categorical variables with `table()` and `unique()`
-3. Check numeric ranges with `min()`, `max()`, `range()`
-4. Check missing values with `colSums(is.na())`
-5. Compare findings to your data dictionary and expectations
-
 
 ## Integrating Validation into Your Documentation
 

@@ -25,7 +25,7 @@ Your data dictionary describes what your data *should* look like. Data validatio
 
 ## See Data Quality Problems in Action
 
-The messy Palmer Penguins dataset you downloaded contains 30 intentional errors. Let's find them:
+The messy Palmer Penguins dataset you downloaded contains intentional errors. Let's find them:
 
 ### Step 1: Browse the Data Manually
 
@@ -109,4 +109,4 @@ Validation isn't optional, it's part of doing research carefully. The messy peng
 
 ## Next Steps
 
-In the next section, you'll learn systematic techniques for spotting these problems using summary statistics and visualization in R. You'll work with the messy penguins dataset to detect all 30 errors.
+In the next section, you'll learn systematic techniques for spotting these problems using summary statistics in R. You'll work with the messy penguins dataset to detect these errors.

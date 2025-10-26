@@ -22,23 +22,23 @@ This dataset is perfect for learning because it contains different data types, h
 You'll work with **two versions** of this data:
 
 1. **Clean data** (`penguins_clean.csv`): High-quality dataset for learning documentation
-2. **Messy data** (`penguins_messy.csv`): Contains 30 intentional data quality problems for practicing validation
+2. **Messy data** (`penguins_messy.csv`): Contains intentional data quality problems for practicing validation
 
 The messy version mirrors real-world issues you'll encounter: typos in species/island names, inconsistent formatting (e.g., "M" vs "male"), impossible values (negative measurements, placeholder 999), extreme outliers (body mass of 15,000g when max should be ~6,300g), and data entry errors.
 
 ::: {.callout-note collapse="true"}
 ## How We Created the Messy Data
 
-We introduced 30 realistic data quality issues across 344 observations, including:
+We introduced realistic data quality issues across the observations, including:
 
-- **Species**: 4 issues (typos like "Adelei", case errors, extra text like "Gentoo penguin")
-- **Island**: 2 issues (typos like "Torgerson", case errors like "biscoe")
-- **Bill length**: 3 issues (negative -5.2, impossible 250.5, placeholder 999)
-- **Bill depth**: 2 issues (negative -2.1, placeholder 99.9)
-- **Flipper length**: 1 issue (zero value)
-- **Body mass**: 3 issues (extreme outliers: 15000g, 500g, 10000g)
-- **Sex**: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)
-- **Year**: 4 issues (2020, 2006, 207, 20009)
+- **Species**: Typos like "Adelei", case errors, extra text like "Gentoo penguin"
+- **Island**: Typos like "Torgerson", case errors like "biscoe"
+- **Bill length**: Negative values, impossible measurements, placeholder 999
+- **Bill depth**: Negative values, placeholder 99.9
+- **Flipper length**: Zero values
+- **Body mass**: Extreme outliers (15000g, 500g, 10000g)
+- **Sex**: Inconsistent coding (M/F/male/Male/MALE/m/Female)
+- **Year**: Invalid years (2020, 2006, 207, 20009)
 
 These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in [`_scripts/create_messy_data.R`](../_scripts/create_messy_data.R).
 :::

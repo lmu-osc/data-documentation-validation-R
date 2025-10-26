@@ -37,9 +37,10 @@ You should also have:
 Throughout this tutorial, you'll work with:
 
 - **`{datawizard}`** - Automated data dictionary creation
-- **`{pointblank}`** - Comprehensive data validation
 - **`{dplyr}`** - Data manipulation
 - **`{readr}`** - Reading CSV data files
+
+You'll primarily use base R functions for data validation, with optional advanced packages introduced at the end.
 
 ## Tutorial Structure
 
@@ -56,8 +57,7 @@ Learn to create comprehensive variable documentation:
 Implement systematic quality checks to catch errors early:
 
 - **Data Quality Concepts**: Understand types of data issues and validation approaches
-- **Summary Statistics**: Use base R functions to identify problems through descriptive statistics
-- **Validation with R Packages**: Automate quality checks with `{pointblank}`
+- **Summary Statistics**: Use base R functions to identify problems through descriptive statistics, create validation functions, and integrate checks into living documentation
 
 ## Example Dataset
 
