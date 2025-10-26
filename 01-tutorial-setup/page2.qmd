@@ -7,7 +7,7 @@ In this tutorial, we'll work with real research data to learn data documentation
 ## Our Example Dataset: Palmer Penguins
 
 ::: {.column-margin}
-![Palmer Penguins](../material/images/palmerpenguins.png){fig-align="center" width="400"}
+![Palmer Penguins](images/palmerpenguins.png){fig-align="center" width="400"}
 :::
 
 We'll use the **Palmer Penguins dataset** throughout this tutorial - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:
