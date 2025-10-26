@@ -36,7 +36,6 @@ Finally, enter the name of the directory where our report will be created in,
 for example `data-documentation-validation-exercise`.
 
 You can leave _Create a git repository_ and _Use renv with this project_ unchecked to keep things simple for this tutorial.
-TODO: Update the screenshots to remove checks for git and renv.
 
 If you are already familiar with Markdown and Quarto,
 you can also uncheck the box _Use visual markdown editor_.
