@@ -4,6 +4,17 @@ title: "Concepts & Manual Creation"
 
 A dataset without proper documentation can be a significant barrier to reproducible science. In this hands-on section, you'll learn to create data dictionaries manually and practice with research data.
 
+::: {.callout-note}
+## What You'll Learn
+
+By the end of this section, you will:
+
+- Understand what a data dictionary is and why it matters for open science
+- Know the essential components every data dictionary should include
+- Be able to create a data dictionary manually using spreadsheets, Word, or Markdown
+- Have created a partial data dictionary for the Palmer Penguins dataset
+:::
+
 ## What is a Data Dictionary?
 
 A data dictionary is a structured document that provides comprehensive information about each variable in your dataset. Think of it as the "instruction manual" for your data, it tells anyone (including future you) exactly what each column means, how it was measured, and how to interpret the values.
@@ -20,7 +31,7 @@ Every data dictionary should include:
 - **Variable Name**: The exact column name in your data file (e.g., `bill_length_mm`)
 - **Variable Label**: A human-readable name (e.g., "Bill Length")  
 - **Description**: Clear definition of what was measured (e.g., "Length of the penguin's bill measured in millimeters")
-- **Data Type**: The type of data stored (numeric, character, factor, logical)
+- **Data Type**: The type of data stored (numeric, character, categorical, date)
 - **Units**: For numeric variables, the unit of measurement (mm, grams, years)
 - **Valid Values**: Expected range or categories (e.g., "0-100" or "male, female")
 - **Missing Values**: How missing data is coded (NA, -999, blank)
@@ -41,12 +52,15 @@ When a new team member joins your project, a data dictionary gets them productiv
 ### Meeting FAIR Principles
 FAIR data must be **Findable, Accessible, Interoperable, and Reusable**. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.
 
-## Hands-On Practice: Creating Your First Data Dictionary
+::: {.callout-tip}
+## FAIR Data Management Tutorial
 
-Let's work through an example with a sample dataset. Imagine you've collected data on study habits and academic performance:
+For more on FAIR principles and research data management concepts, check out our [FAIR Data Management Tutorial](https://lmu-osc.github.io/FAIR-Data-Management/).
+:::
 
-### Step 1: Examine the Data
-Here's what your data file looks like:
+## See Why Documentation Matters: A Quick Example
+
+Here's undocumented data on study habits and academic performance:
 
 | student_id | study_hrs | test_score | major | satisfaction | attend |
 |------------|-----------|------------|-------|--------------|--------|
@@ -55,14 +69,7 @@ Here's what your data file looks like:
 | 003 | 22 | 94 | PSYC | 5 | Y |
 | 004 | NA | 68 | MATH | 2 | Y |
 
-## Analysis Exercise
-
-Examine the sample data above. Without any documentation, what questions arise? Consider at least 3 potential ambiguities or areas needing clarification.
-
-**Focus areas**: Think about units, scales, missing values, and what the codes represent.
-
-::: {.callout-important collapse="true"}
-## Click for common questions researchers identify
+To make sense of this data, and avoid misinterpretation, we have many questions:
 
 - What time period do `study_hrs` cover? Per week? Per month?
 - Is `test_score` out of 100? What test was this?
@@ -70,27 +77,8 @@ Examine the sample data above. Without any documentation, what questions arise? 
 - What do Y/N in `attend` represent?
 - Why is there an NA in `study_hrs` for student 004?
 
-:::
+**With a data dictionary, these questions disappear.** Here's what documentation looks like:
 
-### Step 2: Build Your Dictionary Structure
-
-Create a table with the essential columns:
-
-| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
-|---------------|-------|-------------|------|-------|--------------|---------|
-| | | | | | | |
-
-## Documentation Exercise
-Using the study habits data above, create a complete data dictionary. For each variable, consider:
-
-1. **What would another researcher need to know to use this variable correctly?**
-2. **What assumptions might someone make that could be wrong?**
-3. **What context is essential for proper interpretation?**
-
-Work through 2-3 variables before reviewing the example below.
-
-::: {.callout-important collapse="true"}
-## Click for example documentation approach
 
 | Variable Name | Label | Description | Type | Units | Valid Values | Missing |
 |---------------|-------|-------------|------|-------|--------------|---------|
@@ -101,35 +89,26 @@ Work through 2-3 variables before reviewing the example below.
 | satisfaction | Course Satisfaction | Rating of course satisfaction (5-point scale) | numeric | 1-5 scale | 1=very unsatisfied, 5=very satisfied | none |
 | attend | Lecture Attendance | Regular attendance at lectures (>80%) | categorical | none | Y=yes, N=no | none |
 
-:::
 
-### Step 3: Validate Your Documentation
+This documentation clarifies everything at a glance, preventing misinterpretation and errors. Now we know that `study_hrs` are weekly hours, `test_score` is out of 100, and satisfaction is on a 1-5 scale. This makes analysis straightforward and reliable.
 
-::: {.callout-tip}
-## Documentation Quality Check
-Consider whether a colleague using only your data dictionary could:
+## Choosing Your Documentation Tool
 
-- Correctly interpret a satisfaction score of "2"?
-- Understand what "15" in study_hrs represents?
-- Handle missing values appropriately?
-- Make meaningful comparisons between majors?
-
-If uncertainties remain, refine your documentation accordingly.
-:::
-
-## Tools for Manual Creation
+Before creating your data dictionary, select the tool that best fits your workflow. Here are three common approaches:
 
 ### Spreadsheet Software (Excel, Google Sheets, LibreOffice)
 **Best for**: Most research teams, easy sharing and collaboration
 
-**Approach**: Create your dictionary table directly in the spreadsheet. Save as CSV for better compatibility with analysis software.
+Create your dictionary table directly in a spreadsheet with columns for each essential component. Save as CSV for better compatibility with R and other analysis software.
 
-**Pros**: Familiar interface, collaborative editing, export flexibility
+**Pros**: Familiar interface, collaborative editing, easy to share
 
-**Cons**: Formatting limitations, version control challenges
+**Cons**: Can be tricky to track changes over time
 
-### Markdown Tables
-**Best for**: Projects using version control (Git), reproducible workflows
+### Markdown Tables (in .md or .qmd files)
+**Best for**: Projects using Quarto or reproducible workflows
+
+Use plain text tables that render beautifully in Quarto documents. These are great for keeping your documentation in the same file as your analysis code.
 
 **Template**:
 ```
@@ -139,49 +118,145 @@ If uncertainties remain, refine your documentation accordingly.
 | variable2     |       |             |      |       |              |         |
 ```
 
-**Pros**: Version control friendly, readable as plain text
+**Pros**: Works seamlessly with Quarto, readable as plain text, keeps documentation with code
 
-**Cons**: Less intuitive for less technical collaborators
+**Cons**: Less intuitive for non-technical collaborators
 
 ### Word Processors (Word, Google Docs)
 **Best for**: Teams preferring familiar document formats
 
-**Approach**: Create a simple table with the essential columns.
+Create a simple table with the essential columns, similar to spreadsheets but with more formatting options.
 
-**Pros**: Rich formatting options, familiar to most researchers
+```
+| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
+|---------------|-------|-------------|------|-------|--------------|---------|
+| species       |       |             |      |       |              |         |
+| bill_length_mm|       |             |      |       |              |         |
+| sex           |       |             |      |       |              |         |
+| year          |       |             |      |       |              |         |
+```
 
-**Cons**: Difficult for automated processing, no structured format
+**Pros**: Rich formatting, familiar to most researchers
 
-## Implementation Strategy
+**Cons**: Harder to integrate with R analysis code
 
 ::: {.callout-tip}
-## Practical Application
+## Recommendation for This Tutorial
+Since you're learning with Quarto, try creating your data dictionary as a **markdown table** in a .qmd file. This will help you practice Quarto syntax and see how documentation integrates with your analysis code.
+:::
 
-1. **Select a dataset** from your current work (or use a publicly available dataset)
-2. **Document 5-10 variables** using the principles covered here
-3. **Validate your dictionary** by having a colleague interpret values using only your documentation
-4. **Iterate and improve** based on their feedback and questions
+## Exercise: Document the Palmer Penguins Data
 
-If possible, share your dictionary with a researcher from a different field. What additional context do they require?
+Now apply what you've learned to the Palmer Penguins dataset from the previous section.
+
+### Step 1: Load and Examine the Data
+
+Examine the data by either opening the CSV with a text editor or running this code in R to see what you're working with:
+
+```{r}
+#| eval: false
+
+library(readr)
+penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
+head(penguins_clean)
+```
+
+### Step 2: Choose Your Documentation Tool
+
+Pick one:
+
+- **Spreadsheet** (Excel, Google Sheets): Open a new spreadsheet file
+- **Markdown** (recommended for this tutorial): Create a new file `data/penguins_clean_dictionary.qmd` in your project folder alongside your data
+- **Word processor**: Open a new Word/Google Docs document
+
+### Step 3: Create Your Data Dictionary
+
+Create a data dictionary for these **4 variables**: species, bill_length_mm, sex, year
+
+**For each variable, you'll document:**
+
+- **Label**: Human-readable name
+- **Description**: What does this measure or represent?
+- **Type**: categorical or numeric?
+- **Units**: What are the units (if numeric)?
+- **Valid Values**: What values are valid/expected?
+- **Missing**: How are missing data coded?
+
+::: {.callout-tip}
+## For Spreadsheet Users (Excel, Google Sheets)
+
+1. Open a new spreadsheet
+2. In row 1, create these 7 column headers:
+   - Variable Name | Label | Description | Type | Units | Valid Values | Missing
+3. In rows 2-5, add these variable names in the first column:
+   - species
+   - bill_length_mm
+   - sex
+   - year
+4. Fill in the remaining cells for each variable
+:::
+
+::: {.callout-tip}
+## For Word Processor Users (Word, Google Docs)
+
+1. Open a new document
+2. Insert a table with 7 columns and 5 rows (Table → Insert Table → 7x5)
+3. In row 1, add the column headers:
+   - Variable Name | Label | Description | Type | Units | Valid Values | Missing
+4. In rows 2-5, add these variable names in the first column:
+   - species
+   - bill_length_mm
+   - sex
+   - year
+5. Fill in the remaining cells for each variable
+:::
+
+::: {.callout-tip}
+## For Quarto/Markdown Users (.qmd file)
+
+1. Create a new file called `data/penguins_clean_dictionary.qmd` in your project folder
+2. Copy and paste this markdown table into the file:
+
+```markdown
+| Variable Name  | Label | Description | Type | Units | Valid Values | Missing |
+|----------------|-------|-------------|------|-------|--------------|---------|
+| species        |       |             |      |       |              |         |
+| bill_length_mm |       |             |      |       |              |         |
+| sex            |       |             |      |       |              |         |
+| year           |       |             |      |       |              |         |
+```
+
+3. Fill in the empty cells for each variable
+:::
+
+Complete this exercise before looking at the solution below!
+
+::: {.callout-important collapse="true"}
+## Solution: Palmer Penguins Data Dictionary
+
+| Variable Name | Label | Description | Type | Units | Valid Values | Missing |
+|---------------|-------|-------------|------|-------|--------------|---------|
+| species | Penguin Species | Species of penguin observed | categorical | none | Adelie, Chinstrap, Gentoo | none |
+| bill_length_mm | Bill Length | Length of the penguin's bill (culmen) from tip to base | numeric | millimeters | 32.1-59.6 | NA |
+| sex | Penguin Sex | Biological sex of the penguin | categorical | none | male, female | NA |
+| year | Observation Year | Year the observation was recorded | numeric | year | 2007, 2008, 2009 | none |
+
+**Additional context:**
+
+- Bill length represents the culmen length (the dorsal ridge of the bill)
+- Missing values (NA) in bill_length_mm and sex occur when measurements couldn't be obtained
+- Year is numeric but only 2007-2009 are valid values
+
 :::
 
 ## When Manual Creation is Most Effective
 
 Manual creation works optimally when:
 
-- You have fewer than 20 variables
+- You have fewer variables
 - Your data structure remains stable over time
 - You need detailed, contextual descriptions
 - You're collaborating with non-technical team members
 - You require precise control over documentation details
 
-The next section covers automated approaches using R packages, which become essential for larger datasets or when documentation needs frequent updates.
-
-::: {.callout-tip}
-## Reflection Points
-As you implement these practices:
-
-- What aspects of manual dictionary creation align best with your research workflow?
-- Where do you anticipate the greatest challenges in maintaining documentation?
-- How might improved data documentation have enhanced your previous research projects?
-:::
+**For larger datasets** (like the full Palmer Penguins with 8 variables and beyond), manual creation becomes tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.

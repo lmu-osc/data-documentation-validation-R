@@ -2,46 +2,32 @@
 title: "Summary Statistics"
 ---
 
-Summary statistics are your first line of defense in data validation. They provide a systematic way to spot quality issues, understand your data's characteristics, and verify that reality matches your documented expectations. Think of them as a health check-up for your dataset.
+Summary statistics are your first line of defense in data validation. They provide a systematic way to spot quality issues, understand your data's characteristics, and verify that reality matches your documented expectations.
 
-## Summary Statistics as Data Detectives
+::: {.callout-note}
+## What You'll Learn
 
-### Beyond Basic Means and Medians
-While means and medians are useful, data validation requires a broader perspective. You need statistics that reveal:
+By the end of this section, you will:
 
-- **Range issues**: Are values where they should be?
-- **Missing patterns**: How much data is absent?
-- **Distribution problems**: Are there unexpected spikes or gaps?
-- **Consistency issues**: Do related variables align logically?
-
-### Building on Your Documentation
-Remember the data dictionary you created? Summary statistics help verify whether your actual data matches what you documented:
-
-- Are the ranges you specified actually present in the data?
-- Do the data types match what you expected?
-- Are missing values patterns consistent with what you documented?
-
-## Detection Exercise
-Consider the Palmer Penguins data. If you calculated summary statistics and found:
-
-- Bill length minimum: -5.2mm
-- Body mass maximum: 95,000g
-- Species count: 5 different values
-
-What would each finding suggest about data quality?
-
-::: {.callout-important collapse="true"}
-## Click for some suggested interpretations
-- Negative bill length indicates data entry errors or unit confusion.
-- An extremely high body mass suggests impossible values or typos.
-- More species than expected points to typos or inconsistent naming.
+- Use `summary()` to get a quick overview of data quality
+- Apply base R functions to check numeric and categorical variables
+- Compare clean vs. messy data to spot problems
+- Identify the 30 errors in the messy Palmer Penguins dataset
 :::
 
-## Getting Started with Base R
+## How Summary Statistics Reveal Problems
 
-R comes with built-in functions for calculating summary statistics. Let's start by loading some data and exploring it with these base R tools. This will help you understand both what summary statistics reveal and why specialized packages can make the process easier.
+Summary statistics help you verify that your actual data matches what you documented in your data dictionary:
 
-### Loading the Data
+- **Range checks**: Are values within expected bounds?
+- **Missing data**: How much data is absent?
+- **Category checks**: Are there unexpected values or typos?
+
+For example, if your data dictionary says bill length should be 30-60mm, but `min()` returns -5.2mm, you've found a data quality problem.
+
+## Load and Compare the Data
+
+Let's load both the clean and messy Palmer Penguins datasets:
 
 ```{r}
 #| eval: false
@@ -70,7 +56,7 @@ cat("\n\n=== MESSY DATA ===\n")
 summary(penguins_messy)
 ```
 
-## What `summary()` Shows
+### What `summary()` Shows
 
 For **numeric variables**, `summary()` displays:
 
@@ -98,7 +84,7 @@ Compare the clean and messy outputs. Look for:
 
 ### Digging Deeper: Individual Variable Functions
 
-While `summary()` is great for a quick overview, sometimes you need more detailed information about specific variables. Let us inspect individual variables using base R functions:
+While `summary()` is great for a quick overview, sometimes you may want to focus on specific variables. Let us inspect individual variables using base R functions and printing statistics that makes sense for your data:
 
 ```{r}
 #| eval: false
@@ -118,6 +104,67 @@ table(penguins_messy$species, useNA = "always")
 cat("\nUnique values:", unique(penguins_messy$species), "\n")
 cat("Number of unique values:", length(unique(penguins_messy$species)), "\n")
 ```
+
+::: {.callout-tip}
+## Example: Creating a Validation Function
+
+You can wrap these checks into a function that automatically validates data based on your documented rules:
+
+```{r}
+#| eval: false
+
+# Function to validate penguins data based on data dictionary rules
+validate_penguins <- function(data) {
+  cat("=== VALIDATION REPORT ===\n\n")
+
+  # Structural check: Valid species (from data dictionary)
+  valid_species <- c("Adelie", "Chinstrap", "Gentoo")
+  if (all(data$species %in% c(valid_species, NA))) {
+    cat("Species: All values valid\n")
+  } else {
+    cat("Species: Invalid values found\n")
+  }
+
+  # Content check: Bill length range (from data dictionary: 30-60mm)
+  if (all(data$bill_length_mm >= 30 & data$bill_length_mm <= 60, na.rm = TRUE)) {
+    cat("Bill length: All values in valid range (30-60mm)\n")
+  } else {
+    cat("Bill length: Out-of-range values found\n")
+  }
+
+  # Domain check: Body mass biologically plausible (2500-6500g)
+  if (all(data$body_mass_g >= 2500 & data$body_mass_g <= 6500, na.rm = TRUE)) {
+    cat("Body mass: All values biologically plausible\n")
+  } else {
+    cat("Body mass: Implausible values found\n")
+  }
+}
+
+# Test with clean data
+cat("CLEAN DATA:\n")
+validate_penguins(penguins_clean)
+
+# Test with messy data
+cat("\n\nMESSY DATA:\n")
+validate_penguins(penguins_messy)
+```
+
+**How this function works:**
+
+- `validate_penguins()` takes a data frame as input and checks it against rules from your data dictionary
+- `all()` checks if every value meets a condition (returns TRUE only if all values pass)
+- `%in%` checks if values are in the allowed list (e.g., species must be Adelie, Chinstrap, or Gentoo)
+- `na.rm = TRUE` ignores missing values when checking numeric ranges
+- The function prints different messages depending on whether data passes or fails each check
+
+**Three types of validation demonstrated:**
+
+- **Structural**: Are species names valid categories? (Adelie, Chinstrap, Gentoo)
+- **Content**: Are bill lengths within the documented range? (30-60mm)
+- **Domain**: Are body masses biologically plausible? (2500-6500g)
+
+When you run this function on the clean data, all checks pass. When you run it on the messy data, it fails multiple checks and shows you exactly where problems exist.
+:::
 
 ::: {.callout-tip collapse="true"}
 ## Key Functions Explained
@@ -139,46 +186,9 @@ cat("Number of unique values:", length(unique(penguins_messy$species)), "\n")
 **Important:** Always use `na.rm = TRUE` with numeric functions to handle missing values!
 :::
 
-## Building Custom Validation Functions
+## Check Categorical Variables
 
-Now that you understand the individual functions, let's combine them into reusable validation functions that you can adapt for your own datasets.
-
-### Detailed Numeric Variable Checks
-
-Create a function to examine numeric variables systematically:
-
-```{r}
-#| eval: false
-
-# Function to get comprehensive numeric summary
-examine_numeric <- function(variable, var_name) {
-  cat("\n=== ", var_name, " ===\n")
-  cat("Range:", min(variable, na.rm = TRUE), "to", max(variable, na.rm = TRUE), "\n")
-  cat("Mean:", round(mean(variable, na.rm = TRUE), 2), "\n")
-  cat("Median:", round(median(variable, na.rm = TRUE), 2), "\n")
-  cat("Missing values:", sum(is.na(variable)), "\n")
-  
-  # Check for potential outliers
-  q1 <- quantile(variable, 0.25, na.rm = TRUE)
-  q3 <- quantile(variable, 0.75, na.rm = TRUE)
-  iqr <- q3 - q1
-  lower_bound <- q1 - 1.5 * iqr
-  upper_bound <- q3 + 1.5 * iqr
-  
-  outliers <- sum(variable < lower_bound | variable > upper_bound, na.rm = TRUE)
-  cat("Potential outliers:", outliers, "\n")
-}
-
-# Apply to messy data to find issues
-examine_numeric(penguins_messy$bill_length_mm, "Bill Length (mm)")
-examine_numeric(penguins_messy$bill_depth_mm, "Bill Depth (mm)")
-examine_numeric(penguins_messy$flipper_length_mm, "Flipper Length (mm)")
-examine_numeric(penguins_messy$body_mass_g, "Body Mass (g)")
-```
-
-### Categorical Variable Validation
-
-Check categorical variables for unexpected values:
+Now check for typos and unexpected values in categorical variables:
 
 ```{r}
 #| eval: false
@@ -197,188 +207,149 @@ cat("\n=== Year ===\n")
 table(penguins_messy$year, useNA = "always")
 ```
 
-::: {.callout-tip}
-## Validation Questions
-For each categorical variable, ask:
+**What to look for:**
 
-- Are all the values ones you expected?
-- Are there any misspellings or variant spellings?
-- Do the frequencies seem reasonable?
+- Are all values ones you expected? (3 species, 3 islands, 2 sexes, 3 years)
+- Are there typos or variant spellings?
 - Are there unexpected missing values?
 
-For the Palmer Penguins data, you should see exactly 3 species, 3 islands, 2 sexes (plus missing values), and 3 years.
-:::
-
-### Checking Missing Values
-
-Missing values are normal in real data, but you need to verify they match your expectations from the data dictionary:
+## Check Missing Values
 
 ```{r}
 #| eval: false
 
-# Quick check: How many missing values in each variable?
+# How many missing values in each variable?
 colSums(is.na(penguins_messy))
-
-# Total missing values in the entire dataset
-sum(is.na(penguins_messy))
 ```
 
-::: {.callout-tip}
-## Validation Questions for Missing Data
+Compare to your data dictionary: `sex` can have NAs (couldn't be determined in field), but species should never be missing.
 
-When checking missing values, ask:
+::: {.callout-tip icon="false"}
+## Checkpoint: What Did You Find?
 
-- **Are there MORE NAs than expected?** Compare to your data dictionary
-- **Are there NAs in variables that should be complete?** (e.g., ID columns, required measurements)
-- **Are the NAs in expected variables?** (e.g., sex might have NAs if not recorded, but species should always be known)
+After running the code above on the messy data, you should have spotted:
 
-For the penguins data, `sex` can have missing values (animal couldn't be sexed in the field), but measurements like `bill_length_mm` should rarely be missing if the penguin was measured.
+**Numeric problems:**
+
+- Negative bill lengths
+- Impossibly large or small values
+- Placeholder values (999)
+
+**Categorical problems:**
+
+- Typos in species names ("Adelei", "ADELIE", "Gentoo penguin")
+- Typos in island names ("Torgerson", "biscoe")
+- Inconsistent sex coding ("M", "F", "male", "Male", "MALE")
+- Invalid years (2020, 2006, 207, 20009)
+
+Did you find these issues? If so, you've successfully used summary statistics for data validation!
 :::
 
-## Identifying Quality Issues
+## Summary Statistics Workflow
 
-### Red Flags in Summary Statistics
+When validating new data:
 
-**For Numeric Variables:**
+1. Use `summary()` for a quick overview
+2. Check categorical variables with `table()` and `unique()`
+3. Check numeric ranges with `min()`, `max()`, `range()`
+4. Check missing values with `colSums(is.na())`
+5. Compare findings to your data dictionary and expectations
 
-- Negative values where impossible (e.g., negative body mass)
-- Extremely large or small values (e.g., 50,000g penguins)
-- All values the same (suggests data entry error)
-- Unexpected missing value patterns
 
-**For Categorical Variables:**
+## Integrating Validation into Your Documentation
 
-- Unexpected categories (e.g., "Adelei" instead of "Adelie")
-- Too many or too few unique values
-- Categories that should be mutually exclusive appearing together
+Remember the `penguins_documentation.qmd` file you created in the data dictionaries section? Let's add validation checks to it!
 
 ::: {.callout-tip}
-## Using Your Data Dictionary
+## Exercise: Add Validation to Your Living Document
 
-Always compare your summary statistics to what you documented in your data dictionary:
+Update your `penguins_documentation.qmd` file to include validation checks.
 
-- Do the min/max values match the ranges you specified?
-- Are there more unique categories than you documented?
-- Are there more missing values than expected?
-- Do the data types match?
+**Add this section after the automated codebook:**
 
-If you find discrepancies, investigate! Either the data has quality issues, or your documentation needs updating.
+````markdown
+## Data Validation
+
+Below are summary statistics to check data quality:
+
+```{{r}}
+#| echo: false
+#| message: false
+
+# Quick validation checks
+cat("=== Data Quality Summary ===\n\n")
+
+# Check for data quality issues in numeric variables
+cat("Numeric Variables - Range Checks:\n")
+cat("Bill length range:", range(penguins$bill_length_mm, na.rm = TRUE), "mm\n")
+cat("Bill depth range:", range(penguins$bill_depth_mm, na.rm = TRUE), "mm\n")
+cat("Body mass range:", range(penguins$body_mass_g, na.rm = TRUE), "g\n\n")
+
+# Check categorical variables for unexpected values
+cat("Categorical Variables - Unique Value Counts:\n")
+cat("Species (expect 3):", length(unique(penguins$species)), "\n")
+cat("Islands (expect 3):", length(unique(penguins$island)), "\n")
+cat("Years (expect 3):", length(unique(penguins$year)), "\n\n")
+
+# Check missing values
+cat("Missing Values by Variable:\n")
+print(colSums(is.na(penguins)))
+```
+````
+
+**Then render the document** to see your complete data dictionary with built-in validation!
+
+**Why this is powerful:**
+
+- Data dictionary + validation in one place gives complete documentation
+- Updates automatically when data changes
+- Easy to share with collaborators
+- Documents both what data *should* be and what it *actually* is
 :::
-
-## Building Your Summary Statistics Workflow
-
-1. **Start broad**: Use `summary()` to get an overall picture
-2. **Go specific**: Examine each variable type systematically  
-3. **Check expectations**: Compare findings to your data dictionary
-4. **Investigate anomalies**: Follow up on anything unexpected
-5. **Document findings**: Keep track of quality issues discovered
-
-::: {.callout-tip}
-Create a standard summary statistics script that you can adapt for different datasets in your research area. Save the functions you've learned (`examine_numeric`, `table()`, etc.) in a script you can reuse.
-:::
-
-## Limitations of Manual Checking
-
-While base R summary statistics are powerful, manual checking has limitations:
-
-**Time-Consuming:**
-
-- Checking every variable manually takes significant time
-- Repetitive work for each new dataset or data update
-
-**Error-Prone:**
-
-- Easy to forget to check a variable
-- Inconsistent standards across different checking sessions
-- No systematic record of what was checked
-
-**Hard to Share:**
-
-- Difficult to communicate your validation process to collaborators
-- No formal documentation of quality checks performed
-- Can't easily reproduce the same checks on updated data
-
-**The Solution:** Automated validation with `{pointblank}` (next section) addresses all these issues while building on the concepts you've learned here.
 
 ::: {.callout-note collapse="true"}
-## Quick Reference: Base R Functions for Summary Statistics
+## Advanced Tools for Data Validation
 
-Here's a handy reference of the base R functions we used in this tutorial:
+As you become more comfortable with data validation, you may want to explore specialized R packages that automate quality checks and generate professional reports:
 
-### For Numeric Variables
+**[{pointblank}](https://rstudio.github.io/pointblank/)** - Comprehensive data validation toolkit
 
-**Range Statistics**
+- Define validation rules (e.g., "bill length must be 30-60mm")
+- Generate HTML validation reports with pass/fail results
+- Set quality thresholds and get alerts when data fails checks
+- Best for: Projects with many datasets or frequent data updates
 
-- `min(x, na.rm = TRUE)`: Minimum value
-- `max(x, na.rm = TRUE)`: Maximum value
-- `range(x, na.rm = TRUE)`: Both min and max
-- `quantile(x, na.rm = TRUE)`: Quartiles and percentiles
+**[{validate}](https://github.com/data-cleaning/validate)** - Rule-based data validation
 
-**Central Tendency**
+- Create validation rules in plain language syntax
+- Check data against your rules and get detailed reports
+- Track which rows fail which rules
+- Best for: Complex validation logic across multiple variables
 
-- `mean(x, na.rm = TRUE)`: Average value
-- `median(x, na.rm = TRUE)`: Middle value
+**[{assertr}](https://github.com/ropensci/assertr)** - Defensive programming for data pipelines
 
-**Variability**
+- Add validation checks directly into your data processing code
+- Stop execution if data fails quality checks
+- Best for: Automated workflows and data pipelines
 
-- `sd(x, na.rm = TRUE)`: Standard deviation
-- `IQR(x, na.rm = TRUE)`: Interquartile range
+**[{skimr}](https://docs.ropensci.org/skimr/)** - Enhanced summary statistics
 
-**Missing Data**
+- More informative summaries than base R `summary()`
+- Includes histograms and additional statistics
+- Best for: Quick exploratory data validation
 
-- `sum(is.na(x))`: Count of missing values
-- `complete.cases(data)`: Rows with no missing values
-
-### For Categorical Variables
-
-**Frequency Counts**
-
-- `table(x, useNA = "always")`: Frequency table including NAs
-- `prop.table(table(x))`: Proportions instead of counts
-
-**Unique Values**
-
-- `unique(x)`: All distinct values
-- `length(unique(x))`: Count of unique values
-
-### For Entire Datasets
-
-- `summary(data)`: Quick overview of all variables
-- `nrow(data)`, `ncol(data)`: Dataset dimensions
-- `sapply(data, function)`: Apply a function to each column
+These tools build on the concepts you've learned in this tutorial. Start with the base R functions you now know, and explore these packages when your validation needs grow more complex.
 :::
 
+## Conclusion
 
-::: {.callout-note}
-## Remember: `na.rm = TRUE`
+Congratulations! You've completed this tutorial on data documentation and validation in R. You now know how to:
 
-Most numeric functions require `na.rm = TRUE` to handle missing values. Without it, any NA in your data will cause the function to return NA.
-:::
+- Create data dictionaries manually and automatically with `{datawizard}`
+- Identify data quality issues using summary statistics
+- Integrate documentation and validation into reproducible Quarto documents
+- Build a complete data quality workflow for your research
 
-## Key Takeaways
+These skills form the foundation for reproducible, transparent, and trustworthy research. By documenting and validating your data systematically, you're contributing to better science and making your work more accessible to others.
 
-Summary statistics with base R are essential for data validation:
-
-- **Base R functions** (`summary()`, `table()`, `min()`, `max()`, etc.) provide powerful tools for examining data quality
-- **Compare clean vs. messy** data to understand what issues look like
-- **Build on your data dictionary** by verifying actual data matches documented expectations
-- **Create reusable functions** for consistent quality checks across projects
-
-
-::: {.callout-note icon="💭"}
-## Reflection
-
-You've now seen how summary statistics reveal data quality issues. In the messy dataset, you should have spotted impossible values, typos, and inconsistencies. How confident would you be analyzing data without these checks?
-
-**The Challenge**: While base R summary statistics help you *identify* issues, manually checking every variable in every dataset is time-consuming and error-prone. What if you need to validate data every time it's updated? What if you have dozens of datasets with similar structures?
-:::
-
-## What's Next?
-
-In the next section, you'll learn to use `{pointblank}` to **automate** this entire validation process:
-- Define validation rules once, apply them automatically
-- Generate professional HTML validation reports
-- Set thresholds for acceptable data quality
-- Integrate validation into your analysis workflow
-
-The manual checking skills you learned here will help you understand *what* pointblank is checking and *why* certain validations matter.
+**Your next steps**: Apply these techniques to your own research data. Start small with one dataset, create its documentation, validate it, and build from there. Good data practices become easier with practice!

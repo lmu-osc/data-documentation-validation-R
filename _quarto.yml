@@ -63,8 +63,6 @@ website:
             text: "Data Quality Concepts"
           - href: 03-data-validation/page2.qmd
             text: "Summary Statistics"
-          - href: 03-data-validation/page3.qmd
-            text: "Validation with R Packages"
 
 # End Website
 

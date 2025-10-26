@@ -23,8 +23,8 @@ We'll use real research data (Palmer Penguins) and modern R packages to build a 
 
 This tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:
 
-- [Introduction to version control with Git and GitHub within RStudio](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
-- [Introduction to renv](https://lmu-osc.github.io/introduction-to-renv/)
+- [Introduction to R](https://lmu-osc.github.io/introduction-to-R/)
+- [Introduction to Quarto](https://lmu-osc.github.io/introduction-to-Quarto/)
 
 You should also have:
 
@@ -44,7 +44,7 @@ Throughout this tutorial, you'll work with:
 ## Tutorial Structure
 
 ### 1. Tutorial Setup
-Set up your R project environment with Quarto, Git, and renv. Install required packages and get familiar with the Palmer Penguins dataset.
+Set up your R project environment with Quarto. Install required packages and get familiar with the Palmer Penguins dataset.
 
 ### 2. Data Dictionaries
 Learn to create comprehensive variable documentation:

@@ -4,9 +4,21 @@ title: "Automated Creation with R"
 
 In the previous section, you created a data dictionary manually, carefully considering each variable's meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.
 
+::: {.callout-note}
+## What You'll Learn
+
+By the end of this section, you will:
+
+- Understand when to use automated vs. manual data dictionary creation
+- Use the `{datawizard}` package to generate codebooks automatically
+- Add descriptive labels to your data using R
+- Export codebooks as shareable CSV files
+- Know how to integrate automated documentation into your research workflow
+:::
+
 ## From Manual to Automated
 
-You can create data dictionaries in two ways:
+You can create data dictionaries in three ways:
 
 1. **Manually** (previous section): Full control, good for small datasets
 2. **Automated with R** (this section): Efficient for larger datasets, easy to update
@@ -30,6 +42,8 @@ Let's create a codebook for the Palmer Penguins data.
 
 ### Step 1: Load and Prepare Data
 
+We'll start by loading the clean penguins dataset. Make sure you've installed the `{datawizard}` package as described in the tutorial setup.
+
 ```{r}
 #| eval: false
 
@@ -42,6 +56,8 @@ penguins <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
 ```
 
 ### Step 2: Generate the Codebook
+
+The simplest way to create a codebook is to call `data_codebook()` on your data frame:
 
 ```{r}
 #| eval: false
@@ -61,28 +77,25 @@ This single command generates a structured table with:
 - **Values/Ranges** (categories or numeric ranges)
 - **Frequencies** (N and percentages for each category)
 
-## What Does the Output Look Like?
-
-The `data_codebook()` function creates a formatted table. For each variable, you'll see:
-
-- **Categorical variables**: List of unique values with counts and percentages
-- **Numeric variables**: Range (min, max) and count of non-missing values
-- **Missing data**: Explicit count and percentage for transparency
-- **Clean formatting**: Easy to read in console, save to file, or include in reports
-
 The output is a data frame that can be exported to CSV, Excel, or included in R Markdown/Quarto documents.
 
-### Step 3: Add Variable Labels (Optional)
+### Step 3: Add Variable Labels
 
-You can add descriptive labels to make the codebook more informative. These labels are stored as **metadata** (attributes) attached to each column, similar to how pandas allows you to add `.attrs` to Series or DataFrames.
+You can add descriptive labels to make the codebook more informative. These labels are stored as **attributes** (extra information attached to each column).
 
 **What this code does:**
 
-- `structure(column, label = "description")` attaches a label attribute to a column without changing its data
-- `mutate()` replaces each column with a labeled version of itself (same data, but with metadata attached)
-- The `%>%` pipe operator passes the data from one step to the next (like method chaining in Python)
+- `structure(column, label = "description")` attaches a label to a column without changing its data
+- `mutate()` replaces each column with a labeled version of itself (same data, just with a description attached)
+- The `%>%` pipe operator passes the data from one step to the next
 
-**Important:** The number of columns stays the same, and the data values don't change. You're just adding descriptive metadata that `data_codebook()` can extract and display.
+**Important:** The number of columns stays the same, and the data values don't change. You're just adding descriptive information that `data_codebook()` can extract and display.
+
+::: {.callout-note collapse="true"}
+## For Python Users
+
+This is similar to how pandas allows you to add `.attrs` to Series or DataFrames. The `%>%` pipe operator works like method chaining in Python.
+:::
 
 ```{r}
 #| eval: false
@@ -106,105 +119,140 @@ print(codebook_labeled)
 ```
 
 ::: {.callout-tip}
-## How Labels Are Preserved
+## How Labels Work
 
-The labels you added with `structure()` are stored as **attributes** (metadata) attached to each column in memory. The `data_codebook()` function extracts these labels and includes them as regular data in the codebook table itself. This means:
+When you add labels with `structure()`, they're attached to columns in R's memory. When you create a codebook with `data_codebook()`, these labels get extracted and displayed in the output table.
 
-- **While working in R**: Labels are stored as metadata on `penguins_labeled`
-- **In the codebook**: Labels become regular text in a "Label" column of `codebook_labeled`
-- **When you export the codebook** (next section): The labels are saved as normal data, so they'll be preserved in CSV files
-
-The original `penguins_labeled` data would lose its label attributes if saved as CSV, but the codebook preserves them because they're converted from metadata into regular table content.
+**Important note:** If you save `penguins_labeled` as a CSV, the labels will be lost (CSV can only store data, not attributes). But the codebook itself preserves the labels as regular text in a "Label" column, so when you export the codebook, everything is saved properly.
 :::
 
 ::: {.callout-note}
 ## Thinking Point
 
-Compare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the "automated" approach still requires your careful thought, you're providing the content, R is just handling the presentation.
+Compare these labels to your manual dictionary from the previous section. Are they equally informative? What context might be missing? This is why the "automated" approach still requires your careful thought, you're providing the content, R is just handling the presentation.
 :::
 
-## Exporting Your Codebook
+::: {.callout-tip icon="false"}
+## Checkpoint: Verify Your Codebook
 
-Save the codebook for sharing:
+After running the code above, you should have:
+
+1. A `codebook_labeled` object in R containing the formatted codebook
+2. The codebook displayed in your console with all 8 variables
+3. Labels visible in the output for each variable
+
+If you don't see the labels in the output, check that you ran the `penguins_labeled` code before generating the codebook.
+:::
+
+## Saving Your Codebook
+
+Now save the codebook to a CSV file so you can share it with collaborators:
 
 ```{r}
 #| eval: false
 
 # Save as CSV file
 write.csv(codebook_labeled, "data/penguins_codebook.csv", row.names = FALSE)
-
-# Or save as a formatted text file
-writeLines(capture.output(print(codebook_labeled)), "data/penguins_codebook.txt")
 ```
 
-You can also include the codebook directly in your Quarto/R Markdown reports:
+Check that `penguins_codebook.csv` was created in your `data/` folder. Open it in a spreadsheet program to see how the codebook looks as a shareable file.
 
-```{r}
-#| eval: false
+## Integrating Codebooks into Quarto Documents
 
-# In a Quarto document, the codebook will display as a formatted table
-data_codebook(penguins)
-```
+One powerful approach is to include your codebook directly in a Quarto document. This creates living documentation that updates automatically when your data changes.
 
 ::: {.callout-tip}
-## Best Practice
+## Exercise: Create a Living Data Dictionary
 
-Include codebook generation in your analysis scripts. This ensures documentation updates automatically when your data changes:
+Create a Quarto document that combines your manual dictionary with the automated codebook.
 
-```r
-# At the end of your data cleaning script
-codebook <- data_codebook(my_clean_data)
-write.csv(codebook, "outputs/data_codebook.csv", row.names = FALSE)
+**Steps:**
+
+1. Create a new file called `penguins_documentation.qmd` in your project folder
+
+2. Copy this template into the file:
+
+````markdown
+---
+title: "Palmer Penguins Data Dictionary"
+format: html
+---
+
+## About This Dataset
+
+This data dictionary documents the Palmer Penguins dataset used for [describe your project purpose].
+
+## Manual Data Dictionary
+
+Here's the manual dictionary I created for key variables:
+
+[Paste your manual dictionary table from the previous section here]
+
+## Automated Codebook
+
+Below is the automatically generated codebook with all variables:
+
+```{{r}}
+#| echo: false
+#| message: false
+
+library(readr)
+library(dplyr)
+library(datawizard)
+
+# Load data
+penguins <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
+
+# Add labels
+penguins_labeled <- penguins %>%
+  mutate(
+    species = structure(species, label = "Penguin species observed in Palmer Archipelago"),
+    island = structure(island, label = "Island where penguin was observed"),
+    bill_length_mm = structure(bill_length_mm, label = "Bill length from tip to base (mm)"),
+    bill_depth_mm = structure(bill_depth_mm, label = "Bill depth at base (mm)"),
+    flipper_length_mm = structure(flipper_length_mm, label = "Flipper length from body to tip (mm)"),
+    body_mass_g = structure(body_mass_g, label = "Body mass measured in field (grams)"),
+    sex = structure(sex, label = "Biological sex (male, female, or NA)"),
+    year = structure(year, label = "Year of observation (2007-2009)")
+  )
+
+# Generate and display codebook
+data_codebook(penguins_labeled)
 ```
+````
+
+3. Render the document (click "Render" button or run `quarto render penguins_documentation.qmd`)
+
+4. View the HTML output, you now have a complete, shareable data dictionary!
+
+**Why this is powerful:**
+- If your data changes, just re-render the document
+- The codebook automatically reflects the current data
+- You can share the HTML file with collaborators
+- Manual context + automated statistics in one place
 :::
 
-## When to Use Automated Dictionaries
+## Choosing Your Approach
 
-**Use automated approach when:**
+**Use automated codebooks when:**
 
-- You have more than ~20 variables
-- Data structure changes during collection/analysis
-- You need quick summaries of value distributions
-- Multiple team members need consistent documentation
+- You have many variables
+- Data changes during collection/analysis
+- You need consistent documentation across a team
 - You're sharing data in repositories
 
-**Consider manual approach when:**
+**Use manual dictionaries when:**
 
-- You have fewer than 10 variables with unique contexts
+- You have few variables with unique context
 - You need custom formatting for publication
-- Collaborators prefer traditional document formats
-- Complex measurement protocols require extensive explanation
+- Complex measurements require detailed explanations
 
-**Hybrid approach (recommended):**
-
-1. Generate automated codebook first
-2. Review output for completeness
-3. Add manual annotations for complex variables
-4. Share both automated report and any custom notes
-
-## Advantages for Open Science
-
-Automated codebooks support reproducible research:
-
-- **Version control**: Include in Git repositories alongside data
-- **Reproducibility**: Others can regenerate with same inputs
-- **Transparency**: Shows exactly what's documented and how
-- **Efficiency**: Update documentation as data evolves
-- **Standards**: Consistent format across projects
-- **Export flexibility**: Save as CSV, text, or include in reports
+**Hybrid approach (recommended):** Generate automated codebook first, then add manual annotations for complex variables.
 
 ::: {.callout-important}
-## Your Expertise Still Required
+## Remember
 
-Automation doesn't replace thinking! You still need to:
-
-- Add informative variable labels that explain what was measured
-- Provide context about measurement methods and instruments
-- Explain unusual coding or missing value patterns
-- Document units, valid ranges, and any data transformations
-- Consider what collaborators need to know to use your data correctly
-
-R handles the repetitive formatting and summary statistics; you provide the scientific knowledge and context.
+Automation doesn't replace your expertise! You still provide the scientific knowledge (labels, context, measurement methods). R just handles the repetitive formatting and summary statistics.
 :::
 
 ## Next Steps

@@ -10,21 +10,38 @@ In this tutorial, we'll work with real research data to learn data documentation
 ![Palmer Penguins](../material/images/palmerpenguins.png){fig-align="center" width="400"}
 :::
 
-We'll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica.
+We'll use the **Palmer Penguins dataset** throughout this tutorial - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:
 
-The dataset includes measurements like:
+- **Numeric measurements**: Bill length, bill depth, flipper length (millimeters), and body mass (grams)
+- **Categorical data**: Species, island, sex, and year
 
-- Bill length and depth (millimeters)
-- Flipper length (millimeters) 
-- Body mass (grams)
-- Species, island, and sex information
+This dataset is perfect for learning because it contains different data types, has some missing values (realistic!), is scientifically meaningful, and is small enough to understand completely.
 
-This dataset is perfect for learning because it:
+### Two Versions: Clean and Messy
 
-- Contains different data types (numeric, categorical)
-- Has some missing values (realistic!)
-- Is scientifically meaningful and well-documented
-- Is small enough to understand completely
+You'll work with **two versions** of this data:
+
+1. **Clean data** (`penguins_clean.csv`): High-quality dataset for learning documentation
+2. **Messy data** (`penguins_messy.csv`): Contains 30 intentional data quality problems for practicing validation
+
+The messy version mirrors real-world issues you'll encounter: typos in species/island names, inconsistent formatting (e.g., "M" vs "male"), impossible values (negative measurements, placeholder 999), extreme outliers (body mass of 15,000g when max should be ~6,300g), and data entry errors.
+
+::: {.callout-note collapse="true"}
+## How We Created the Messy Data
+
+We introduced 30 realistic data quality issues across 344 observations, including:
+
+- **Species**: 4 issues (typos like "Adelei", case errors, extra text like "Gentoo penguin")
+- **Island**: 2 issues (typos like "Torgerson", case errors like "biscoe")
+- **Bill length**: 3 issues (negative -5.2, impossible 250.5, placeholder 999)
+- **Bill depth**: 2 issues (negative -2.1, placeholder 99.9)
+- **Flipper length**: 1 issue (zero value)
+- **Body mass**: 3 issues (extreme outliers: 15000g, 500g, 10000g)
+- **Sex**: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)
+- **Year**: 4 issues (2020, 2006, 207, 20009)
+
+These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in [`_scripts/create_messy_data.R`](../_scripts/create_messy_data.R).
+:::
 
 ## Key R Packages We'll Use
 
@@ -49,29 +66,11 @@ install.packages(c(
   "dplyr",           # Data manipulation
   "readr"            # Reading CSV files
 ))
-
-# Update renv lockfile
-renv::snapshot()
 ```
 
-## Download the Example Datasets
+## Download the Datasets
 
-For this tutorial, you'll work with **two versions** of the Palmer Penguins data:
-
-1. **Clean data**: High-quality dataset for learning documentation
-2. **Messy data**: Version with realistic data quality issues for practicing validation
-
-The messy dataset contains 30 intentional data quality problems (~9% error rate) including:
-
-- Typos in species and island names
-- Inconsistent formatting (e.g., "M" vs "male", extra spaces)
-- Impossible values (negative measurements, placeholder values like 999)
-- Out-of-range values (body mass of 15,000g when max should be ~6,300g)
-- Data entry errors (wrong years, missing digits)
-
-### Download Both Files
-
-Click the buttons below to download both datasets:
+Download both versions of the Palmer Penguins data:
 
 <div style="margin: 20px 0;">
 <a href="../data/penguins_clean.csv" download="penguins_clean.csv" class="btn btn-primary" style="margin-right: 10px;">
@@ -92,8 +91,8 @@ Now load the clean data and verify it worked:
 ```{r}
 #| eval: false
 
-library(readr)
-library(dplyr)
+library(readr)  # fast, consistent functions to read CSV/TSV into tibbles
+library(dplyr)  # tidy, readable verbs for data manipulation (filter, select, mutate, summarize) that we'll use later
 
 # Load the clean penguins data
 penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
@@ -101,6 +100,25 @@ penguins_clean <- read_csv("data/penguins_clean.csv", show_col_types = FALSE)
 # Take a first look
 glimpse(penguins_clean)
 ```
+
+::: {.callout-note collapse="true"}
+## Why readr and dplyr Instead of Base R?
+
+While base R has `read.csv()` and `str()`, we use `readr` and `dplyr` because:
+
+- **`read_csv()`** is more beginner-friendly than `read.csv()`:
+  - Doesn't automatically convert text to factors (fewer surprises)
+  - Better default column type detection
+  - Shows a clear summary of column types
+  - Creates tibbles which display more nicely
+
+- **`glimpse()`** is clearer than `str()`:
+  - More compact, readable output
+  - Shows first few values of each column
+  - Better formatting for wide datasets
+
+These packages are part of the widely-used tidyverse ecosystem, so learning them now will help you in future R work. For this tutorial, we use minimal functions from these packages so you can focus on data validation concepts rather than R syntax.
+:::
 
 You should see 344 observations of 8 variables.
 
@@ -130,22 +148,7 @@ If you see errors:
 - Try restarting R
 :::
 
-::: {.callout-note collapse="true"}
-## How We Created the Messy Data
 
-We introduced 30 realistic data quality issues across 344 observations (~9% error rate, typical for real-world field data):
-
-- **Species**: 4 issues (typos like "Adelei", case errors, extra text like "Gentoo penguin")
-- **Island**: 2 issues (typos like "Torgerson", case errors like "biscoe")
-- **Bill length**: 3 issues (negative -5.2, impossible 250.5, placeholder 999)
-- **Bill depth**: 2 issues (negative -2.1, placeholder 99.9)
-- **Flipper length**: 1 issue (zero value)
-- **Body mass**: 3 issues (extreme outliers: 15000g, 500g, 10000g)
-- **Sex**: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)
-- **Year**: 4 issues (2020, 2006, 207, 20009)
-
-These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in [`_scripts/create_messy_data.R`](../_scripts/create_messy_data.R).
-:::
 
 ## Next Steps
 

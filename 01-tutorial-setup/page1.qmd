@@ -2,22 +2,16 @@
 title: "Project Setup"
 ---
 
-This section guides you through setting up your R environment for data documentation and validation. You'll create a reproducible project structure using **Quarto** (a tool for creating documents that combine code and text) and **renv** (a tool for managing R packages) that supports open science practices.
+This section guides you through setting up your R environment for data documentation and validation. You'll create a project using **Quarto**, a tool for creating documents that combine code and text.
 
 ::: {.callout-note collapse="true"}
-## Why All This Setup?
+## Why Use Quarto?
 
-You might wonder: "I just want to learn about data dictionaries and validation. Why do I need Quarto, Git, and renv?"
+You might wonder: "I just want to learn about data dictionaries and validation. Why do I need Quarto?"
 
-These tools help you create reproducible, shareable documentation that follows open science best practices.
+**Quarto** lets you write documents that mix explanatory text with R code, then automatically generate professional HTML/PDF reports. Your data dictionary and validation results will live in one cohesive document that you can share with collaborators.
 
-**What each tool does:**
-
-- **Quarto**: Lets you write documents that mix explanatory text with R code, then automatically generate professional HTML/PDF reports. Your data dictionary and validation results will live in one cohesive document.
-- **Git**: Tracks changes to your files over time. If something breaks, you can go back. When collaborating, everyone can see what changed.
-- **renv**: Records which package versions you used. This ensures your code still works months later (and works for collaborators).
-
-**The payoff:** After this one-time setup, you'll be able to generate beautiful, reproducible data documentation with a single click. Your future self and collaborators will thank you.
+**The payoff:** After this one-time setup, you'll be able to generate beautiful, reproducible data documentation with a single click.
 :::
 
 ## Create Quarto Project
@@ -41,79 +35,37 @@ And choose the project type _Quarto Project_.
 Finally, enter the name of the directory where our report will be created in,
 for example `data-documentation-validation-exercise`.
 
-As we will use Git to track the version history of files,
-be sure to check _Create a git repository_.
-If you don't know what Git is, have a look at the tutorial
-"[Introduction to version control with git and GitHub within RStudio][git-tutorial]".
-
-[git-tutorial]: https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/
-
-::: {.column-margin}
-![renv: A dependency management toolkit for R](images/renv.svg){width=250px}
-:::
-
-Also, we will utilize the package [`renv`][renv]
-to track the R packages our project depends on.
-Using it makes it easier for others to view and obtain them
-at the exact same version at a later point in time.
-Therefore make sure that the box _Use renv with this project_ is checked.
-Again, if this is the first time you are hearing about `renv`,
-have a look at the tutorial "[Introduction to {renv}][renv-tutorial]".
-
-[renv]: https://rstudio.github.io/renv/
-[renv-tutorial]: https://lmu-osc.github.io/introduction-to-renv/
+You can leave _Create a git repository_ and _Use renv with this project_ unchecked to keep things simple for this tutorial.
+TODO: Update the screenshots to remove checks for git and renv.
 
 If you are already familiar with Markdown and Quarto,
-you can uncheck the box _Use visual markdown editor_.
+you can also uncheck the box _Use visual markdown editor_.
 
 ![](images/setup_04.png){width=600px fig-align="center"}
 
 Click on _Create Project_.
 Your RStudio window should now look similar to this:
 
-![](images/setup_05.png){.lightbox fig-align="center" alt="The project `data-documentation-validation-exercise` opened in RStudio. The source pane to the top left has a Quarto file open called \"data-documentation-validation-exercise.qmd\". The console pane to the bottom left indicates by its output that renv is active in the current project. The environment pane to the top right indicates that the environment is currently empty. The output pane to the bottom right shows the files in the current project."}
+![](images/setup_05.png){.lightbox fig-align="center" alt="The project `data-documentation-validation-exercise` opened in RStudio. The source pane to the top left has a Quarto file open called \"data-documentation-validation-exercise.qmd\". The console pane to the bottom left shows the R console. The environment pane to the top right indicates that the environment is currently empty. The output pane to the bottom right shows the files in the current project."}
 
 If, like in the image, a Quarto file with some demo content was opened automatically,
 you can close and delete it, for example, using RStudio's file manager.
 
-Throughout this tutorial, you will need to run both R code and system commands
-(primarily `git` and `quarto`).
-Within RStudio, R code can be run by going to the tab _Console_,
-while system commands are executed in the tab _Terminal_.
-We also indicate where to run your code directly above each code snippet.
-If no indication is given,
-the code is only for demonstration purposes and does not need to be run.
-
-::: {.callout-tip collapse="true"}
-## About renv in This Tutorial
-
-The `renv` package tracks which R packages your project uses. As you install packages throughout this tutorial (in the next section), `renv` will automatically record them. You don't need to do anything special right now.
-
-**Later in your work**, before committing code to Git, you can run `renv::status()` to check if everything is synchronized. For this tutorial, we'll remind you when it's time to use renv commands.
-:::
+Throughout this tutorial, you will need to run R code in the _Console_ tab.
 
 ::: {#nte-terminal .callout-tip collapse="true"}
 ### Without RStudio
 
-Without RStudio, one can create a Quarto project
-with version control and `renv` enabled by typing the following into a terminal:
+Without RStudio, you can create a Quarto project by typing the following into a terminal:
 
 ```{.bash filename="Terminal"}
 quarto create project default data-documentation-validation-exercise
 cd data-documentation-validation-exercise/
 rm data-documentation-validation-exercise.qmd
-git init
-git checkout -b main
 ```
 
-Then, one can open an R session by simply typing `R` into the terminal.
-Next, make sure that `getwd()` indicates that
-the working directory is `data-documentation-validation-exercise`.
-Now, initialize `renv`:
-
-```{.r filename="Console"}
-renv::init()
-```
+Then, open an R session by typing `R` into the terminal.
+Make sure that `getwd()` shows your working directory is `data-documentation-validation-exercise`.
 :::
 
 ::: {.callout-tip icon="false"}
@@ -121,23 +73,16 @@ renv::init()
 
 Before moving to the next section, verify your setup is working:
 
-1. **Check Git** - Should show this is a git repository
-   ```{bash}
-   #| eval: false
-   git status
-   ```
-   Expected output: Shows branch name (usually "main") and current status
+**Check working directory** - Should end with your project name
+```{r}
+#| eval: false
+getwd()
+```
+Expected output: Path ending in your project folder name (e.g., `data-documentation-validation-exercise`)
 
-2. **Check working directory** - Should end with your project name
-   ```{r}
-   #| eval: false
-   getwd()
-   ```
-   Expected output: Path ending in your project folder name (e.g., `data-documentation-validation-exercise`)
-
-If any of these fail, review the steps above or ask for help before continuing. The `renv` setup will be verified in the next section when you install packages.
+If this doesn't show the correct path, review the steps above or ask for help before continuing.
 :::
 
 ## Next Steps
 
-Your project is now set up with Quarto, Git, and renv! In the next section, you'll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.
+Your project is now set up with Quarto! In the next section, you'll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.
