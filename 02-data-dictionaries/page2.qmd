@@ -226,6 +226,7 @@ data_codebook(penguins_labeled)
 4. View the HTML output, you now have a complete, shareable data dictionary!
 
 **Why this is powerful:**
+
 - If your data changes, just re-render the document
 - The codebook automatically reflects the current data
 - You can share the HTML file with collaborators

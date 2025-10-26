@@ -190,9 +190,6 @@ When validating new data:
 
 ## Automating Validation with Functions
 
-::: {.callout-tip}
-## Example: Creating a Validation Function
-
 You can wrap these checks into a function that automatically validates data based on your documented rules:
 
 ```{r}
@@ -249,11 +246,10 @@ validate_penguins(penguins_messy)
 - **Domain**: Are body masses biologically plausible? (2500-6500g)
 
 When you run this function on the clean data, all checks pass. When you run it on the messy data, it fails multiple checks and shows you exactly where problems exist.
-:::
 
 ## Integrating Validation into Your Documentation
 
-Remember the `penguins_documentation.qmd` file you created in the data dictionaries section? Let's add validation checks to it!
+Remember the `penguins_documentation.qmd` file you created in the data dictionaries section? Let's add validation checks to it! To keep things simple, we'll add a new section that summarizes key validation statistics.
 
 ::: {.callout-tip}
 ## Exercise: Add Validation to Your Living Document
