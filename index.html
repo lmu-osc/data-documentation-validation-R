@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-565584ab62f845d33a399ce2a363b49d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1a656c689f59dd6fe0969bd5bfb928d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -228,12 +228,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Validation with R Packages</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -306,8 +300,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <p>This tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:</p>
 <ul>
-<li><a href="https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/">Introduction to version control with Git and GitHub within RStudio</a></li>
-<li><a href="https://lmu-osc.github.io/introduction-to-renv/">Introduction to renv</a></li>
+<li><a href="https://lmu-osc.github.io/introduction-to-R/">Introduction to R</a></li>
+<li><a href="https://lmu-osc.github.io/introduction-to-Quarto/">Introduction to Quarto</a></li>
 </ul>
 <p>You should also have:</p>
 <ul>
@@ -321,16 +315,16 @@ ul.task-list li input[type="checkbox"] {
 <p>Throughout this tutorial, you’ll work with:</p>
 <ul>
 <li><strong><code>{datawizard}</code></strong> - Automated data dictionary creation</li>
-<li><strong><code>{pointblank}</code></strong> - Comprehensive data validation</li>
 <li><strong><code>{dplyr}</code></strong> - Data manipulation</li>
 <li><strong><code>{readr}</code></strong> - Reading CSV data files</li>
 </ul>
+<p>You’ll primarily use base R functions for data validation, with optional advanced packages introduced at the end.</p>
 </section>
 <section id="tutorial-structure" class="level2">
 <h2 class="anchored" data-anchor-id="tutorial-structure">Tutorial Structure</h2>
 <section id="tutorial-setup" class="level3">
 <h3 class="anchored" data-anchor-id="tutorial-setup">1. Tutorial Setup</h3>
-<p>Set up your R project environment with Quarto, Git, and renv. Install required packages and get familiar with the Palmer Penguins dataset.</p>
+<p>Set up your R project environment with Quarto. Install required packages and get familiar with the Palmer Penguins dataset.</p>
 </section>
 <section id="data-dictionaries" class="level3">
 <h3 class="anchored" data-anchor-id="data-dictionaries">2. Data Dictionaries</h3>
@@ -345,8 +339,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Implement systematic quality checks to catch errors early:</p>
 <ul>
 <li><strong>Data Quality Concepts</strong>: Understand types of data issues and validation approaches</li>
-<li><strong>Summary Statistics</strong>: Use base R functions to identify problems through descriptive statistics</li>
-<li><strong>Validation with R Packages</strong>: Automate quality checks with <code>{pointblank}</code></li>
+<li><strong>Summary Statistics</strong>: Use base R functions to identify problems through descriptive statistics, create validation functions, and integrate checks into living documentation</li>
 </ul>
 </section>
 </section>

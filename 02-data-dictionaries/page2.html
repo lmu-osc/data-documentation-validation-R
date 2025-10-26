@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-565584ab62f845d33a399ce2a363b49d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1a656c689f59dd6fe0969bd5bfb928d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,12 +264,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Validation with R Packages</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -290,14 +284,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#step-1-load-and-prepare-data" id="toc-step-1-load-and-prepare-data" class="nav-link" data-scroll-target="#step-1-load-and-prepare-data">Step 1: Load and Prepare Data</a></li>
   <li><a href="#step-2-generate-the-codebook" id="toc-step-2-generate-the-codebook" class="nav-link" data-scroll-target="#step-2-generate-the-codebook">Step 2: Generate the Codebook</a></li>
+  <li><a href="#step-3-add-variable-labels" id="toc-step-3-add-variable-labels" class="nav-link" data-scroll-target="#step-3-add-variable-labels">Step 3: Add Variable Labels</a></li>
   </ul></li>
-  <li><a href="#what-does-the-output-look-like" id="toc-what-does-the-output-look-like" class="nav-link" data-scroll-target="#what-does-the-output-look-like">What Does the Output Look Like?</a>
-  <ul class="collapse">
-  <li><a href="#step-3-add-variable-labels-optional" id="toc-step-3-add-variable-labels-optional" class="nav-link" data-scroll-target="#step-3-add-variable-labels-optional">Step 3: Add Variable Labels (Optional)</a></li>
-  </ul></li>
-  <li><a href="#exporting-your-codebook" id="toc-exporting-your-codebook" class="nav-link" data-scroll-target="#exporting-your-codebook">Exporting Your Codebook</a></li>
-  <li><a href="#when-to-use-automated-dictionaries" id="toc-when-to-use-automated-dictionaries" class="nav-link" data-scroll-target="#when-to-use-automated-dictionaries">When to Use Automated Dictionaries</a></li>
-  <li><a href="#advantages-for-open-science" id="toc-advantages-for-open-science" class="nav-link" data-scroll-target="#advantages-for-open-science">Advantages for Open Science</a></li>
+  <li><a href="#saving-your-codebook" id="toc-saving-your-codebook" class="nav-link" data-scroll-target="#saving-your-codebook">Saving Your Codebook</a></li>
+  <li><a href="#integrating-codebooks-into-quarto-documents" id="toc-integrating-codebooks-into-quarto-documents" class="nav-link" data-scroll-target="#integrating-codebooks-into-quarto-documents">Integrating Codebooks into Quarto Documents</a></li>
+  <li><a href="#choosing-your-approach" id="toc-choosing-your-approach" class="nav-link" data-scroll-target="#choosing-your-approach">Choosing Your Approach</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/02-data-dictionaries/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -325,9 +316,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>In the previous section, you created a data dictionary manually, carefully considering each variable’s meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What You’ll Learn
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this section, you will:</p>
+<ul>
+<li>Understand when to use automated vs.&nbsp;manual data dictionary creation</li>
+<li>Use the <code>{datawizard}</code> package to generate codebooks automatically</li>
+<li>Add descriptive labels to your data using R</li>
+<li>Export codebooks as shareable CSV files</li>
+<li>Know how to integrate automated documentation into your research workflow</li>
+</ul>
+</div>
+</div>
 <section id="from-manual-to-automated" class="level2">
 <h2 class="anchored" data-anchor-id="from-manual-to-automated">From Manual to Automated</h2>
-<p>You can create data dictionaries in two ways:</p>
+<p>You can create data dictionaries in three ways:</p>
 <ol type="1">
 <li><strong>Manually</strong> (previous section): Full control, good for small datasets</li>
 <li><strong>Automated with R</strong> (this section): Efficient for larger datasets, easy to update</li>
@@ -351,6 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let’s create a codebook for the Palmer Penguins data.</p>
 <section id="step-1-load-and-prepare-data" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-load-and-prepare-data">Step 1: Load and Prepare Data</h3>
+<p>We’ll start by loading the clean penguins dataset. Make sure you’ve installed the <code>{datawizard}</code> package as described in the tutorial setup.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -362,6 +374,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-2-generate-the-codebook" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-generate-the-codebook">Step 2: Generate the Codebook</h3>
+<p>The simplest way to create a codebook is to call <code>data_codebook()</code> on your data frame:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the data codebook using datawizard's data_codebook() function</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>codebook_penguins <span class="ot">&lt;-</span> <span class="fu">data_codebook</span>(penguins)</span>
@@ -377,28 +390,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Values/Ranges</strong> (categories or numeric ranges)</li>
 <li><strong>Frequencies</strong> (N and percentages for each category)</li>
 </ul>
-</section>
-</section>
-<section id="what-does-the-output-look-like" class="level2">
-<h2 class="anchored" data-anchor-id="what-does-the-output-look-like">What Does the Output Look Like?</h2>
-<p>The <code>data_codebook()</code> function creates a formatted table. For each variable, you’ll see:</p>
-<ul>
-<li><strong>Categorical variables</strong>: List of unique values with counts and percentages</li>
-<li><strong>Numeric variables</strong>: Range (min, max) and count of non-missing values</li>
-<li><strong>Missing data</strong>: Explicit count and percentage for transparency</li>
-<li><strong>Clean formatting</strong>: Easy to read in console, save to file, or include in reports</li>
-</ul>
 <p>The output is a data frame that can be exported to CSV, Excel, or included in R Markdown/Quarto documents.</p>
-<section id="step-3-add-variable-labels-optional" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-add-variable-labels-optional">Step 3: Add Variable Labels (Optional)</h3>
-<p>You can add descriptive labels to make the codebook more informative. These labels are stored as <strong>metadata</strong> (attributes) attached to each column, similar to how pandas allows you to add <code>.attrs</code> to Series or DataFrames.</p>
+</section>
+<section id="step-3-add-variable-labels" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-add-variable-labels">Step 3: Add Variable Labels</h3>
+<p>You can add descriptive labels to make the codebook more informative. These labels are stored as <strong>attributes</strong> (extra information attached to each column).</p>
 <p><strong>What this code does:</strong></p>
 <ul>
-<li><code>structure(column, label = "description")</code> attaches a label attribute to a column without changing its data</li>
-<li><code>mutate()</code> replaces each column with a labeled version of itself (same data, but with metadata attached)</li>
-<li>The <code>%&gt;%</code> pipe operator passes the data from one step to the next (like method chaining in Python)</li>
+<li><code>structure(column, label = "description")</code> attaches a label to a column without changing its data</li>
+<li><code>mutate()</code> replaces each column with a labeled version of itself (same data, just with a description attached)</li>
+<li>The <code>%&gt;%</code> pipe operator passes the data from one step to the next</li>
 </ul>
-<p><strong>Important:</strong> The number of columns stays the same, and the data values don’t change. You’re just adding descriptive metadata that <code>data_codebook()</code> can extract and display.</p>
+<p><strong>Important:</strong> The number of columns stays the same, and the data values don’t change. You’re just adding descriptive information that <code>data_codebook()</code> can extract and display.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>For Python Users
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is similar to how pandas allows you to add <code>.attrs</code> to Series or DataFrames. The <code>%&gt;%</code> pipe operator works like method chaining in Python.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add variable labels using attributes</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>penguins_labeled <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
@@ -423,17 +442,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>How Labels Are Preserved
+<span class="screen-reader-only">Tip</span>How Labels Work
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The labels you added with <code>structure()</code> are stored as <strong>attributes</strong> (metadata) attached to each column in memory. The <code>data_codebook()</code> function extracts these labels and includes them as regular data in the codebook table itself. This means:</p>
-<ul>
-<li><strong>While working in R</strong>: Labels are stored as metadata on <code>penguins_labeled</code></li>
-<li><strong>In the codebook</strong>: Labels become regular text in a “Label” column of <code>codebook_labeled</code></li>
-<li><strong>When you export the codebook</strong> (next section): The labels are saved as normal data, so they’ll be preserved in CSV files</li>
-</ul>
-<p>The original <code>penguins_labeled</code> data would lose its label attributes if saved as CSV, but the codebook preserves them because they’re converted from metadata into regular table content.</p>
+<p>When you add labels with <code>structure()</code>, they’re attached to columns in R’s memory. When you create a codebook with <code>data_codebook()</code>, these labels get extracted and displayed in the output table.</p>
+<p><strong>Important note:</strong> If you save <code>penguins_labeled</code> as a CSV, the labels will be lost (CSV can only store data, not attributes). But the codebook itself preserves the labels as regular text in a “Label” column, so when you export the codebook, everything is saved properly.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -446,98 +460,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Compare these labels to your manual dictionary. Are they equally informative? What context might be missing? This is why the “automated” approach still requires your careful thought, you’re providing the content, R is just handling the presentation.</p>
+<p>Compare these labels to your manual dictionary from the previous section. Are they equally informative? What context might be missing? This is why the “automated” approach still requires your careful thought, you’re providing the content, R is just handling the presentation.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checkpoint: Verify Your Codebook
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After running the code above, you should have:</p>
+<ol type="1">
+<li>A <code>codebook_labeled</code> object in R containing the formatted codebook</li>
+<li>The codebook displayed in your console with all 8 variables</li>
+<li>Labels visible in the output for each variable</li>
+</ol>
+<p>If you don’t see the labels in the output, check that you ran the <code>penguins_labeled</code> code before generating the codebook.</p>
 </div>
 </div>
 </section>
 </section>
-<section id="exporting-your-codebook" class="level2">
-<h2 class="anchored" data-anchor-id="exporting-your-codebook">Exporting Your Codebook</h2>
-<p>Save the codebook for sharing:</p>
+<section id="saving-your-codebook" class="level2">
+<h2 class="anchored" data-anchor-id="saving-your-codebook">Saving Your Codebook</h2>
+<p>Now save the codebook to a CSV file so you can share it with collaborators:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as CSV file</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(codebook_labeled, <span class="st">"data/penguins_codebook.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or save as a formatted text file</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(<span class="fu">capture.output</span>(<span class="fu">print</span>(codebook_labeled)), <span class="st">"data/penguins_codebook.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(codebook_labeled, <span class="st">"data/penguins_codebook.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You can also include the codebook directly in your Quarto/R Markdown reports:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In a Quarto document, the codebook will display as a formatted table</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_codebook</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>Check that <code>penguins_codebook.csv</code> was created in your <code>data/</code> folder. Open it in a spreadsheet program to see how the codebook looks as a shareable file.</p>
+</section>
+<section id="integrating-codebooks-into-quarto-documents" class="level2">
+<h2 class="anchored" data-anchor-id="integrating-codebooks-into-quarto-documents">Integrating Codebooks into Quarto Documents</h2>
+<p>One powerful approach is to include your codebook directly in a Quarto document. This creates living documentation that updates automatically when your data changes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Best Practice
+<span class="screen-reader-only">Tip</span>Exercise: Create a Living Data Dictionary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Include codebook generation in your analysis scripts. This ensures documentation updates automatically when your data changes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># At the end of your data cleaning script</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="fu">data_codebook</span>(my_clean_data)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(codebook, <span class="st">"outputs/data_codebook.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Create a Quarto document that combines your manual dictionary with the automated codebook.</p>
+<p><strong>Steps:</strong></p>
+<ol type="1">
+<li><p>Create a new file called <code>penguins_documentation.qmd</code> in your project folder</p></li>
+<li><p>Copy this template into the file:</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Palmer Penguins Data Dictionary"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## About This Dataset</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>This data dictionary documents the Palmer Penguins dataset used for <span class="co">[</span><span class="ot">describe your project purpose</span><span class="co">]</span>.</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Manual Data Dictionary</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Here's the manual dictionary I created for key variables:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Paste your manual dictionary table from the previous section here</span><span class="co">]</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Automated Codebook</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>Below is the automatically generated codebook with all variables:</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datawizard)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_clean.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>penguins_labeled <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">species =</span> <span class="fu">structure</span>(species, <span class="at">label =</span> <span class="st">"Penguin species observed in Palmer Archipelago"</span>),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">island =</span> <span class="fu">structure</span>(island, <span class="at">label =</span> <span class="st">"Island where penguin was observed"</span>),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_length_mm =</span> <span class="fu">structure</span>(bill_length_mm, <span class="at">label =</span> <span class="st">"Bill length from tip to base (mm)"</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_depth_mm =</span> <span class="fu">structure</span>(bill_depth_mm, <span class="at">label =</span> <span class="st">"Bill depth at base (mm)"</span>),</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">flipper_length_mm =</span> <span class="fu">structure</span>(flipper_length_mm, <span class="at">label =</span> <span class="st">"Flipper length from body to tip (mm)"</span>),</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">body_mass_g =</span> <span class="fu">structure</span>(body_mass_g, <span class="at">label =</span> <span class="st">"Body mass measured in field (grams)"</span>),</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">structure</span>(sex, <span class="at">label =</span> <span class="st">"Biological sex (male, female, or NA)"</span>),</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="fu">structure</span>(year, <span class="at">label =</span> <span class="st">"Year of observation (2007-2009)"</span>)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate and display codebook</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="fu">data_codebook</span>(penguins_labeled)</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li><p>Render the document (click “Render” button or run <code>quarto render penguins_documentation.qmd</code>)</p></li>
+<li><p>View the HTML output, you now have a complete, shareable data dictionary!</p></li>
+</ol>
+<p><strong>Why this is powerful:</strong> - If your data changes, just re-render the document - The codebook automatically reflects the current data - You can share the HTML file with collaborators - Manual context + automated statistics in one place</p>
 </div>
 </div>
 </section>
-<section id="when-to-use-automated-dictionaries" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-automated-dictionaries">When to Use Automated Dictionaries</h2>
-<p><strong>Use automated approach when:</strong></p>
+<section id="choosing-your-approach" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-your-approach">Choosing Your Approach</h2>
+<p><strong>Use automated codebooks when:</strong></p>
 <ul>
-<li>You have more than ~20 variables</li>
-<li>Data structure changes during collection/analysis</li>
-<li>You need quick summaries of value distributions</li>
-<li>Multiple team members need consistent documentation</li>
+<li>You have many variables</li>
+<li>Data changes during collection/analysis</li>
+<li>You need consistent documentation across a team</li>
 <li>You’re sharing data in repositories</li>
 </ul>
-<p><strong>Consider manual approach when:</strong></p>
+<p><strong>Use manual dictionaries when:</strong></p>
 <ul>
-<li>You have fewer than 10 variables with unique contexts</li>
+<li>You have few variables with unique context</li>
 <li>You need custom formatting for publication</li>
-<li>Collaborators prefer traditional document formats</li>
-<li>Complex measurement protocols require extensive explanation</li>
+<li>Complex measurements require detailed explanations</li>
 </ul>
-<p><strong>Hybrid approach (recommended):</strong></p>
-<ol type="1">
-<li>Generate automated codebook first</li>
-<li>Review output for completeness</li>
-<li>Add manual annotations for complex variables</li>
-<li>Share both automated report and any custom notes</li>
-</ol>
-</section>
-<section id="advantages-for-open-science" class="level2">
-<h2 class="anchored" data-anchor-id="advantages-for-open-science">Advantages for Open Science</h2>
-<p>Automated codebooks support reproducible research:</p>
-<ul>
-<li><strong>Version control</strong>: Include in Git repositories alongside data</li>
-<li><strong>Reproducibility</strong>: Others can regenerate with same inputs</li>
-<li><strong>Transparency</strong>: Shows exactly what’s documented and how</li>
-<li><strong>Efficiency</strong>: Update documentation as data evolves</li>
-<li><strong>Standards</strong>: Consistent format across projects</li>
-<li><strong>Export flexibility</strong>: Save as CSV, text, or include in reports</li>
-</ul>
+<p><strong>Hybrid approach (recommended):</strong> Generate automated codebook first, then add manual annotations for complex variables.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Your Expertise Still Required
+<span class="screen-reader-only">Important</span>Remember
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Automation doesn’t replace thinking! You still need to:</p>
-<ul>
-<li>Add informative variable labels that explain what was measured</li>
-<li>Provide context about measurement methods and instruments</li>
-<li>Explain unusual coding or missing value patterns</li>
-<li>Document units, valid ranges, and any data transformations</li>
-<li>Consider what collaborators need to know to use your data correctly</li>
-</ul>
-<p>R handles the repetitive formatting and summary statistics; you provide the scientific knowledge and context.</p>
+<p>Automation doesn’t replace your expertise! You still provide the scientific knowledge (labels, context, measurement methods). R just handles the repetitive formatting and summary statistics.</p>
 </div>
 </div>
 </section>

@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-565584ab62f845d33a399ce2a363b49d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1a656c689f59dd6fe0969bd5bfb928d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,12 +264,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Validation with R Packages</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -284,13 +278,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#our-example-dataset-palmer-penguins" id="toc-our-example-dataset-palmer-penguins" class="nav-link active" data-scroll-target="#our-example-dataset-palmer-penguins">Our Example Dataset: Palmer Penguins</a></li>
+  <li><a href="#our-example-dataset-palmer-penguins" id="toc-our-example-dataset-palmer-penguins" class="nav-link active" data-scroll-target="#our-example-dataset-palmer-penguins">Our Example Dataset: Palmer Penguins</a>
+  <ul class="collapse">
+  <li><a href="#two-versions-clean-and-messy" id="toc-two-versions-clean-and-messy" class="nav-link" data-scroll-target="#two-versions-clean-and-messy">Two Versions: Clean and Messy</a></li>
+  </ul></li>
   <li><a href="#key-r-packages-well-use" id="toc-key-r-packages-well-use" class="nav-link" data-scroll-target="#key-r-packages-well-use">Key R Packages We’ll Use</a></li>
   <li><a href="#installing-required-packages" id="toc-installing-required-packages" class="nav-link" data-scroll-target="#installing-required-packages">Installing Required Packages</a></li>
-  <li><a href="#download-the-example-datasets" id="toc-download-the-example-datasets" class="nav-link" data-scroll-target="#download-the-example-datasets">Download the Example Datasets</a>
-  <ul class="collapse">
-  <li><a href="#download-both-files" id="toc-download-both-files" class="nav-link" data-scroll-target="#download-both-files">Download Both Files</a></li>
-  </ul></li>
+  <li><a href="#download-the-datasets" id="toc-download-the-datasets" class="nav-link" data-scroll-target="#download-the-datasets">Download the Datasets</a></li>
   <li><a href="#load-and-verify-the-data" id="toc-load-and-verify-the-data" class="nav-link" data-scroll-target="#load-and-verify-the-data">Load and Verify the Data</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
@@ -329,21 +323,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Palmer Penguins</figcaption>
 </figure>
 </div>
-</div></div><p>We’ll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica.</p>
-<p>The dataset includes measurements like:</p>
+</div></div><p>We’ll use the <strong>Palmer Penguins dataset</strong> throughout this tutorial - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:</p>
 <ul>
-<li>Bill length and depth (millimeters)</li>
-<li>Flipper length (millimeters)</li>
-<li>Body mass (grams)</li>
-<li>Species, island, and sex information</li>
+<li><strong>Numeric measurements</strong>: Bill length, bill depth, flipper length (millimeters), and body mass (grams)</li>
+<li><strong>Categorical data</strong>: Species, island, sex, and year</li>
 </ul>
-<p>This dataset is perfect for learning because it:</p>
+<p>This dataset is perfect for learning because it contains different data types, has some missing values (realistic!), is scientifically meaningful, and is small enough to understand completely.</p>
+<section id="two-versions-clean-and-messy" class="level3">
+<h3 class="anchored" data-anchor-id="two-versions-clean-and-messy">Two Versions: Clean and Messy</h3>
+<p>You’ll work with <strong>two versions</strong> of this data:</p>
+<ol type="1">
+<li><strong>Clean data</strong> (<code>penguins_clean.csv</code>): High-quality dataset for learning documentation</li>
+<li><strong>Messy data</strong> (<code>penguins_messy.csv</code>): Contains intentional data quality problems for practicing validation</li>
+</ol>
+<p>The messy version mirrors real-world issues you’ll encounter: typos in species/island names, inconsistent formatting (e.g., “M” vs “male”), impossible values (negative measurements, placeholder 999), extreme outliers (body mass of 15,000g when max should be ~6,300g), and data entry errors.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How We Created the Messy Data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We introduced realistic data quality issues across the observations, including:</p>
 <ul>
-<li>Contains different data types (numeric, categorical)</li>
-<li>Has some missing values (realistic!)</li>
-<li>Is scientifically meaningful and well-documented</li>
-<li>Is small enough to understand completely</li>
+<li><strong>Species</strong>: Typos like “Adelei”, case errors, extra text like “Gentoo penguin”</li>
+<li><strong>Island</strong>: Typos like “Torgerson”, case errors like “biscoe”</li>
+<li><strong>Bill length</strong>: Negative values, impossible measurements, placeholder 999</li>
+<li><strong>Bill depth</strong>: Negative values, placeholder 99.9</li>
+<li><strong>Flipper length</strong>: Zero values</li>
+<li><strong>Body mass</strong>: Extreme outliers (15000g, 500g, 10000g)</li>
+<li><strong>Sex</strong>: Inconsistent coding (M/F/male/Male/MALE/m/Female)</li>
+<li><strong>Year</strong>: Invalid years (2020, 2006, 207, 20009)</li>
 </ul>
+<p>These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in <a href="../_scripts/create_messy_data.R"><code>_scripts/create_messy_data.R</code></a>.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="key-r-packages-well-use" class="level2">
 <h2 class="anchored" data-anchor-id="key-r-packages-well-use">Key R Packages We’ll Use</h2>
@@ -365,49 +386,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"skimr"</span>,           <span class="co"># Summary statistics</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,           <span class="co"># Data manipulation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>            <span class="co"># Reading CSV files</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Update renv lockfile</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="download-the-example-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="download-the-example-datasets">Download the Example Datasets</h2>
-<p>For this tutorial, you’ll work with <strong>two versions</strong> of the Palmer Penguins data:</p>
-<ol type="1">
-<li><strong>Clean data</strong>: High-quality dataset for learning documentation</li>
-<li><strong>Messy data</strong>: Version with realistic data quality issues for practicing validation</li>
-</ol>
-<p>The messy dataset contains 30 intentional data quality problems (~9% error rate) including:</p>
-<ul>
-<li>Typos in species and island names</li>
-<li>Inconsistent formatting (e.g., “M” vs “male”, extra spaces)</li>
-<li>Impossible values (negative measurements, placeholder values like 999)</li>
-<li>Out-of-range values (body mass of 15,000g when max should be ~6,300g)</li>
-<li>Data entry errors (wrong years, missing digits)</li>
-</ul>
-<section id="download-both-files" class="level3">
-<h3 class="anchored" data-anchor-id="download-both-files">Download Both Files</h3>
-<p>Click the buttons below to download both datasets:</p>
+<section id="download-the-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="download-the-datasets">Download the Datasets</h2>
+<p>Download both versions of the Palmer Penguins data:</p>
 <div style="margin: 20px 0;">
 <p><a href="../data/penguins_clean.csv" download="penguins_clean.csv" class="btn btn-primary" style="margin-right: 10px;"> Download Clean Data </a></p>
 <p><a href="../data/penguins_messy.csv" download="penguins_messy.csv" class="btn btn-warning"> Download Messy Data </a></p>
 </div>
 <p><strong>Important</strong>: Save both files in a folder called <code>data/</code> inside your project directory. If the <code>data/</code> folder doesn’t exist yet, create it first.</p>
 </section>
-</section>
 <section id="load-and-verify-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-and-verify-the-data">Load and Verify the Data</h2>
 <p>Now load the clean data and verify it worked:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)  <span class="co"># fast, consistent functions to read CSV/TSV into tibbles</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># tidy, readable verbs for data manipulation (filter, select, mutate, summarize) that we'll use later</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the clean penguins data</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>penguins_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_clean.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a first look</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins_clean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why readr and dplyr Instead of Base R?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>While base R has <code>read.csv()</code> and <code>str()</code>, we use <code>readr</code> and <code>dplyr</code> because:</p>
+<ul>
+<li><strong><code>read_csv()</code></strong> is more beginner-friendly than <code>read.csv()</code>:
+<ul>
+<li>Doesn’t automatically convert text to factors (fewer surprises)</li>
+<li>Better default column type detection</li>
+<li>Shows a clear summary of column types</li>
+<li>Creates tibbles which display more nicely</li>
+</ul></li>
+<li><strong><code>glimpse()</code></strong> is clearer than <code>str()</code>:
+<ul>
+<li>More compact, readable output</li>
+<li>Shows first few values of each column</li>
+<li>Better formatting for wide datasets</li>
+</ul></li>
+</ul>
+<p>These packages are part of the widely-used tidyverse ecosystem, so learning them now will help you in future R work. For this tutorial, we use minimal functions from these packages so you can focus on data validation concepts rather than R syntax.</p>
+</div>
+</div>
 </div>
 <p>You should see 344 observations of 8 variables.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -438,33 +472,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Check that your working directory is your project folder (use <code>getwd()</code> to verify)</li>
 <li>Try restarting R</li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>How We Created the Messy Data
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We introduced 30 realistic data quality issues across 344 observations (~9% error rate, typical for real-world field data):</p>
-<ul>
-<li><strong>Species</strong>: 4 issues (typos like “Adelei”, case errors, extra text like “Gentoo penguin”)</li>
-<li><strong>Island</strong>: 2 issues (typos like “Torgerson”, case errors like “biscoe”)</li>
-<li><strong>Bill length</strong>: 3 issues (negative -5.2, impossible 250.5, placeholder 999)</li>
-<li><strong>Bill depth</strong>: 2 issues (negative -2.1, placeholder 99.9)</li>
-<li><strong>Flipper length</strong>: 1 issue (zero value)</li>
-<li><strong>Body mass</strong>: 3 issues (extreme outliers: 15000g, 500g, 10000g)</li>
-<li><strong>Sex</strong>: 11 issues (inconsistent coding: M/F/male/Male/MALE/m/Female)</li>
-<li><strong>Year</strong>: 4 issues (2020, 2006, 207, 20009)</li>
-</ul>
-<p>These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in <a href="../_scripts/create_messy_data.R"><code>_scripts/create_messy_data.R</code></a>.</p>
-</div>
 </div>
 </div>
 </section>

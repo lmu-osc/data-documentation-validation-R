@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-565584ab62f845d33a399ce2a363b49d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1a656c689f59dd6fe0969bd5bfb928d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -267,12 +267,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Validation with R Packages</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -293,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/01-tutorial-setup/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-tutorial-setup/page1.html">Tutorial Setup</a></li><li class="breadcrumb-item"><a href="../01-tutorial-setup/page1.html">Project Setup</a></li></ol></nav>
 <div class="quarto-title">
@@ -314,32 +308,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This section guides you through setting up your R environment for data documentation and validation. You’ll create a reproducible project structure using <strong>Quarto</strong> (a tool for creating documents that combine code and text) and <strong>renv</strong> (a tool for managing R packages) that supports open science practices.</p>
+<p>This section guides you through setting up your R environment for data documentation and validation. You’ll create a project using <strong>Quarto</strong>, a tool for creating documents that combine code and text.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Why All This Setup?
+<span class="screen-reader-only">Note</span>Why Use Quarto?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You might wonder: “I just want to learn about data dictionaries and validation. Why do I need Quarto, Git, and renv?”</p>
-<p>These tools help you create reproducible, shareable documentation that follows open science best practices.</p>
-<p><strong>What each tool does:</strong></p>
-<ul>
-<li><strong>Quarto</strong>: Lets you write documents that mix explanatory text with R code, then automatically generate professional HTML/PDF reports. Your data dictionary and validation results will live in one cohesive document.</li>
-<li><strong>Git</strong>: Tracks changes to your files over time. If something breaks, you can go back. When collaborating, everyone can see what changed.</li>
-<li><strong>renv</strong>: Records which package versions you used. This ensures your code still works months later (and works for collaborators).</li>
-</ul>
-<p><strong>The payoff:</strong> After this one-time setup, you’ll be able to generate beautiful, reproducible data documentation with a single click. Your future self and collaborators will thank you.</p>
+<p>You might wonder: “I just want to learn about data dictionaries and validation. Why do I need Quarto?”</p>
+<p><strong>Quarto</strong> lets you write documents that mix explanatory text with R code, then automatically generate professional HTML/PDF reports. Your data dictionary and validation results will live in one cohesive document that you can share with collaborators.</p>
+<p><strong>The payoff:</strong> After this one-time setup, you’ll be able to generate beautiful, reproducible data documentation with a single click.</p>
 </div>
 </div>
 </div>
-<section id="create-quarto-project" class="level2 page-columns page-full">
+<section id="create-quarto-project" class="level2">
 <h2 class="anchored" data-anchor-id="create-quarto-project">Create Quarto Project</h2>
 <p>First, we will need to create a new Quarto project.</p>
 <p>If you haven’t already, open RStudio – see <a href="#nte-terminal" class="quarto-xref">Note&nbsp;1</a> for how to use the terminal instead. Then, click on <em>File</em> &gt; <em>New Project…</em> to open the <em>New Project Wizard</em>.</p>
@@ -361,17 +349,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Finally, enter the name of the directory where our report will be created in, for example <code>data-documentation-validation-exercise</code>.</p>
-<p>As we will use Git to track the version history of files, be sure to check <em>Create a git repository</em>. If you don’t know what Git is, have a look at the tutorial “<a href="https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/">Introduction to version control with git and GitHub within RStudio</a>”.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/renv.svg" class="img-fluid figure-img" width="250"></p>
-<figcaption>renv: A dependency management toolkit for R</figcaption>
-</figure>
-</div>
-</div></div><p>Also, we will utilize the package <a href="https://rstudio.github.io/renv/"><code>renv</code></a> to track the R packages our project depends on. Using it makes it easier for others to view and obtain them at the exact same version at a later point in time. Therefore make sure that the box <em>Use renv with this project</em> is checked. Again, if this is the first time you are hearing about <code>renv</code>, have a look at the tutorial “<a href="https://lmu-osc.github.io/introduction-to-renv/">Introduction to {renv}</a>”.</p>
-<p>If you are already familiar with Markdown and Quarto, you can uncheck the box <em>Use visual markdown editor</em>.</p>
+<p>You can leave <em>Create a git repository</em> and <em>Use renv with this project</em> unchecked to keep things simple for this tutorial. TODO: Update the screenshots to remove checks for git and renv.</p>
+<p>If you are already familiar with Markdown and Quarto, you can also uncheck the box <em>Use visual markdown editor</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/setup_04.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
@@ -380,30 +359,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Click on <em>Create Project</em>. Your RStudio window should now look similar to this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/setup_05.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/setup_05.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The project `data-documentation-validation-exercise` opened in RStudio. The source pane to the top left has a Quarto file open called &quot;data-documentation-validation-exercise.qmd&quot;. The console pane to the bottom left indicates by its output that renv is active in the current project. The environment pane to the top right indicates that the environment is currently empty. The output pane to the bottom right shows the files in the current project."></a></p>
+<p><a href="images/setup_05.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/setup_05.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The project `data-documentation-validation-exercise` opened in RStudio. The source pane to the top left has a Quarto file open called &quot;data-documentation-validation-exercise.qmd&quot;. The console pane to the bottom left shows the R console. The environment pane to the top right indicates that the environment is currently empty. The output pane to the bottom right shows the files in the current project."></a></p>
 </figure>
 </div>
 <p>If, like in the image, a Quarto file with some demo content was opened automatically, you can close and delete it, for example, using RStudio’s file manager.</p>
-<p>Throughout this tutorial, you will need to run both R code and system commands (primarily <code>git</code> and <code>quarto</code>). Within RStudio, R code can be run by going to the tab <em>Console</em>, while system commands are executed in the tab <em>Terminal</em>. We also indicate where to run your code directly above each code snippet. If no indication is given, the code is only for demonstration purposes and does not need to be run.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>About renv in This Tutorial
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The <code>renv</code> package tracks which R packages your project uses. As you install packages throughout this tutorial (in the next section), <code>renv</code> will automatically record them. You don’t need to do anything special right now.</p>
-<p><strong>Later in your work</strong>, before committing code to Git, you can run <code>renv::status()</code> to check if everything is synchronized. For this tutorial, we’ll remind you when it’s time to use renv commands.</p>
-</div>
-</div>
-</div>
+<p>Throughout this tutorial, you will need to run R code in the <em>Console</em> tab.</p>
 <div id="nte-terminal" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -412,26 +374,18 @@ Tip&nbsp;1: Without RStudio
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Without RStudio, one can create a Quarto project with version control and <code>renv</code> enabled by typing the following into a terminal:</p>
+<p>Without RStudio, you can create a Quarto project by typing the following into a terminal:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create project default data-documentation-validation-exercise</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data-documentation-validation-exercise/</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> data-documentation-validation-exercise.qmd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> data-documentation-validation-exercise.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Then, one can open an R session by simply typing <code>R</code> into the terminal. Next, make sure that <code>getwd()</code> indicates that the working directory is <code>data-documentation-validation-exercise</code>. Now, initialize <code>renv</code>:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Console</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="Console"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>Then, open an R session by typing <code>R</code> into the terminal. Make sure that <code>getwd()</code> shows your working directory is <code>data-documentation-validation-exercise</code>.</p>
 </div>
 </div>
 </div>
@@ -446,25 +400,18 @@ Tip&nbsp;1: Without RStudio
 </div>
 <div class="callout-body-container callout-body">
 <p>Before moving to the next section, verify your setup is working:</p>
-<ol type="1">
-<li><p><strong>Check Git</strong> - Should show this is a git repository</p>
+<p><strong>Check working directory</strong> - Should end with your project name</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Expected output: Shows branch name (usually “main”) and current status</p></li>
-<li><p><strong>Check working directory</strong> - Should end with your project name</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Expected output: Path ending in your project folder name (e.g., <code>data-documentation-validation-exercise</code>)</p></li>
-</ol>
-<p>If any of these fail, review the steps above or ask for help before continuing. The <code>renv</code> setup will be verified in the next section when you install packages.</p>
+<p>Expected output: Path ending in your project folder name (e.g., <code>data-documentation-validation-exercise</code>)</p>
+<p>If this doesn’t show the correct path, review the steps above or ask for help before continuing.</p>
 </div>
 </div>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p>Your project is now set up with Quarto, Git, and renv! In the next section, you’ll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.</p>
+<p>Your project is now set up with Quarto! In the next section, you’ll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.</p>
 
 
 </section>

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -43,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-565584ab62f845d33a399ce2a363b49d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1a656c689f59dd6fe0969bd5bfb928d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -229,12 +264,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Summary Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../03-data-validation/page3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Validation with R Packages</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -249,37 +278,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-data-validation-matters" id="toc-why-data-validation-matters" class="nav-link active" data-scroll-target="#why-data-validation-matters">Why Data Validation Matters</a>
+  <li><a href="#why-data-validation-matters" id="toc-why-data-validation-matters" class="nav-link active" data-scroll-target="#why-data-validation-matters">Why Data Validation Matters</a></li>
+  <li><a href="#see-data-quality-problems-in-action" id="toc-see-data-quality-problems-in-action" class="nav-link" data-scroll-target="#see-data-quality-problems-in-action">See Data Quality Problems in Action</a>
   <ul class="collapse">
-  <li><a href="#building-on-your-documentation" id="toc-building-on-your-documentation" class="nav-link" data-scroll-target="#building-on-your-documentation">Building on Your Documentation</a></li>
-  <li><a href="#the-research-impact" id="toc-the-research-impact" class="nav-link" data-scroll-target="#the-research-impact">The Research Impact</a></li>
+  <li><a href="#step-1-browse-the-data-manually" id="toc-step-1-browse-the-data-manually" class="nav-link" data-scroll-target="#step-1-browse-the-data-manually">Step 1: Browse the Data Manually</a></li>
+  <li><a href="#step-2-use-r-to-check-systematically" id="toc-step-2-use-r-to-check-systematically" class="nav-link" data-scroll-target="#step-2-use-r-to-check-systematically">Step 2: Use R to Check Systematically</a></li>
+  <li><a href="#step-3-compare-to-whats-expected" id="toc-step-3-compare-to-whats-expected" class="nav-link" data-scroll-target="#step-3-compare-to-whats-expected">Step 3: Compare to What’s Expected</a></li>
   </ul></li>
-  <li><a href="#types-of-data-quality-issues" id="toc-types-of-data-quality-issues" class="nav-link" data-scroll-target="#types-of-data-quality-issues">Types of Data Quality Issues</a>
-  <ul class="collapse">
-  <li><a href="#structural-problems" id="toc-structural-problems" class="nav-link" data-scroll-target="#structural-problems">Structural Problems</a></li>
-  <li><a href="#content-problems" id="toc-content-problems" class="nav-link" data-scroll-target="#content-problems">Content Problems</a></li>
-  </ul></li>
-  <li><a href="#validation-as-quality-assurance" id="toc-validation-as-quality-assurance" class="nav-link" data-scroll-target="#validation-as-quality-assurance">Validation as Quality Assurance</a>
-  <ul class="collapse">
-  <li><a href="#proactive-vs.-reactive" id="toc-proactive-vs.-reactive" class="nav-link" data-scroll-target="#proactive-vs.-reactive">Proactive vs.&nbsp;Reactive</a></li>
-  <li><a href="#levels-of-validation" id="toc-levels-of-validation" class="nav-link" data-scroll-target="#levels-of-validation">Levels of Validation</a></li>
-  </ul></li>
-  <li><a href="#practical-example-palmer-penguins-validation" id="toc-practical-example-palmer-penguins-validation" class="nav-link" data-scroll-target="#practical-example-palmer-penguins-validation">Practical Example: Palmer Penguins Validation</a>
-  <ul class="collapse">
-  <li><a href="#structural-checks" id="toc-structural-checks" class="nav-link" data-scroll-target="#structural-checks">Structural Checks</a></li>
-  <li><a href="#content-checks" id="toc-content-checks" class="nav-link" data-scroll-target="#content-checks">Content Checks</a></li>
-  <li><a href="#domain-checks" id="toc-domain-checks" class="nav-link" data-scroll-target="#domain-checks">Domain Checks</a></li>
-  </ul></li>
-  <li><a href="#validation-workflow-integration" id="toc-validation-workflow-integration" class="nav-link" data-scroll-target="#validation-workflow-integration">Validation Workflow Integration</a>
-  <ul class="collapse">
-  <li><a href="#when-to-validate" id="toc-when-to-validate" class="nav-link" data-scroll-target="#when-to-validate">When to Validate</a></li>
-  <li><a href="#documentation-connection" id="toc-documentation-connection" class="nav-link" data-scroll-target="#documentation-connection">Documentation Connection</a></li>
-  </ul></li>
-  <li><a href="#benefits-of-systematic-validation" id="toc-benefits-of-systematic-validation" class="nav-link" data-scroll-target="#benefits-of-systematic-validation">Benefits of Systematic Validation</a>
-  <ul class="collapse">
-  <li><a href="#for-your-research" id="toc-for-your-research" class="nav-link" data-scroll-target="#for-your-research">For Your Research</a></li>
-  <li><a href="#for-open-science" id="toc-for-open-science" class="nav-link" data-scroll-target="#for-open-science">For Open Science</a></li>
-  </ul></li>
+  <li><a href="#three-types-of-data-quality-issues" id="toc-three-types-of-data-quality-issues" class="nav-link" data-scroll-target="#three-types-of-data-quality-issues">Three Types of Data Quality Issues</a></li>
+  <li><a href="#connecting-validation-to-documentation" id="toc-connecting-validation-to-documentation" class="nav-link" data-scroll-target="#connecting-validation-to-documentation">Connecting Validation to Documentation</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/03-data-validation/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -306,222 +314,161 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you’ve documented.</p>
-<section id="why-data-validation-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-data-validation-matters">Why Data Validation Matters</h2>
-<section id="building-on-your-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="building-on-your-documentation">Building on Your Documentation</h3>
-<p>Your data dictionary describes the ideal structure and content of your data. Data validation checks whether reality matches those expectations. Think of it as quality control for your research.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Consider This
+<span class="screen-reader-only">Note</span>What You’ll Learn
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Remember the Palmer Penguins data dictionary you created? You documented that bill length should be measured in millimeters with values typically between 30-60mm. But what if some values in your dataset are 3000mm or negative numbers? Your analysis would be compromised even though your documentation is perfect.</p>
+<p>By the end of this section, you will:</p>
+<ul>
+<li>Understand why data validation is essential for research quality</li>
+<li>Recognize different types of data quality issues (structural, content, domain)</li>
+<li>See actual problems in the messy Palmer Penguins dataset</li>
+<li>Know when and how to integrate validation into your workflow</li>
+</ul>
 </div>
 </div>
+<section id="why-data-validation-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-data-validation-matters">Why Data Validation Matters</h2>
+<p>Your data dictionary describes what your data <em>should</em> look like. Data validation checks whether your actual data matches those expectations.</p>
+<p><strong>The problem</strong>: Your Palmer Penguins data dictionary documents the bill length and you know that it should be 30-60mm. But what if your dataset contains 3000mm or negative numbers? Your analysis would produce wrong results even though your documentation is perfect.</p>
+<p><strong>The solution</strong>: Validate data <em>before</em> analysis begins (proactive), not after you discover problems during analysis (reactive). This saves time and increases confidence in your results.</p>
 </section>
-<section id="the-research-impact" class="level3">
-<h3 class="anchored" data-anchor-id="the-research-impact">The Research Impact</h3>
-<p>Poor data quality can:</p>
+<section id="see-data-quality-problems-in-action" class="level2">
+<h2 class="anchored" data-anchor-id="see-data-quality-problems-in-action">See Data Quality Problems in Action</h2>
+<p>The messy Palmer Penguins dataset you downloaded contains intentional errors. Let’s find them:</p>
+<section id="step-1-browse-the-data-manually" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-browse-the-data-manually">Step 1: Browse the Data Manually</h3>
+<p>Open <code>data/penguins_messy.csv</code> in a text editor or spreadsheet program. Scroll through and look for anything that seems wrong. Don’t worry about finding everything, just get familiar with what’s there.</p>
+</section>
+<section id="step-2-use-r-to-check-systematically" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-use-r-to-check-systematically">Step 2: Use R to Check Systematically</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>penguins_messy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/penguins_messy.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check unique values in categorical variables (shows all different values)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(penguins_messy<span class="sc">$</span>species)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(penguins_messy<span class="sc">$</span>island)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(penguins_messy<span class="sc">$</span>sex)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(penguins_messy<span class="sc">$</span>year)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Check ranges of numeric variables (shows minimum and maximum)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># The na.rm = TRUE argument ignores missing values</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins_messy<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins_messy<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-3-compare-to-whats-expected" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-compare-to-whats-expected">Step 3: Compare to What’s Expected</h3>
+<p>Based on your data dictionary from the previous sections, the data should have:</p>
 <ul>
-<li><strong>Invalidate analyses</strong>: Outliers or errors lead to wrong conclusions</li>
-<li><strong>Waste time</strong>: Hours spent troubleshooting mysterious results caused by data issues</li>
-<li><strong>Undermine credibility</strong>: Reviewers and collaborators lose confidence in findings</li>
-<li><strong>Prevent replication</strong>: Others can’t reproduce results with unreliable data</li>
+<li><strong>Species</strong>: Adelie, Chinstrap, Gentoo (only these three, spelled correctly)</li>
+<li><strong>Years</strong>: 2007, 2008, 2009 (only these three)</li>
+<li><strong>Sex</strong>: male, female, or NA (consistent coding)</li>
+<li><strong>Bill length</strong>: roughly 30-60mm (no negative numbers, no extreme values)</li>
+<li><strong>Body mass</strong>: roughly 2,700-6,300g (biologically plausible)</li>
 </ul>
-<p>Good validation practices catch these issues early, when they’re easy to fix.</p>
-</section>
-</section>
-<section id="types-of-data-quality-issues" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-data-quality-issues">Types of Data Quality Issues</h2>
-<section id="structural-problems" class="level3">
-<h3 class="anchored" data-anchor-id="structural-problems">Structural Problems</h3>
-<p>These violate the basic framework you documented:</p>
-<ul>
-<li><strong>Wrong data types</strong>: Text in numeric columns, numbers stored as text</li>
-<li><strong>Missing required values</strong>: Empty cells where data should exist</li>
-<li><strong>Invalid categories</strong>: Misspelled factor levels or unexpected values</li>
-<li><strong>Out-of-range values</strong>: Numbers that fall outside reasonable bounds</li>
-</ul>
-</section>
-<section id="content-problems" class="level3">
-<h3 class="anchored" data-anchor-id="content-problems">Content Problems</h3>
-<p>These are more subtle but equally important:</p>
-<ul>
-<li><strong>Logical inconsistencies</strong>: A penguin recorded as weighing 50,000 grams</li>
-<li><strong>Pattern violations</strong>: ID numbers that don’t follow expected formats</li>
-<li><strong>Duplicate records</strong>: The same observation recorded multiple times</li>
-<li><strong>Measurement errors</strong>: Values that are technically valid but scientifically implausible</li>
-</ul>
-</section>
-</section>
-<section id="validation-as-quality-assurance" class="level2">
-<h2 class="anchored" data-anchor-id="validation-as-quality-assurance">Validation as Quality Assurance</h2>
-<section id="proactive-vs.-reactive" class="level3">
-<h3 class="anchored" data-anchor-id="proactive-vs.-reactive">Proactive vs.&nbsp;Reactive</h3>
-<p><strong>Reactive approach</strong>: Discover data problems during analysis when they cause errors or strange results</p>
-<p><strong>Proactive approach</strong>: Systematically check data quality before analysis begins</p>
-<p>The proactive approach saves time and increases confidence in your results.</p>
-</section>
-<section id="levels-of-validation" class="level3">
-<h3 class="anchored" data-anchor-id="levels-of-validation">Levels of Validation</h3>
-<p><strong>Basic validation</strong>:</p>
-<ul>
-<li>Does the data match its documented structure?</li>
-<li>Correct data types</li>
-<li>Expected number of variables and observations</li>
-<li>No completely empty columns or rows</li>
-</ul>
-<p><strong>Content validation</strong>:</p>
-<ul>
-<li>Are the values reasonable and consistent?</li>
-<li>Values fall within expected ranges</li>
-<li>Categorical variables contain only valid categories</li>
-<li>Relationships between variables make sense</li>
-</ul>
-<p><strong>Domain validation</strong>:</p>
-<ul>
-<li>Does the data make sense scientifically?</li>
-<li>Measurements are biologically/physically plausible</li>
-<li>Patterns align with known relationships</li>
-<li>Outliers have logical explanations</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Building on Documentation
+<span class="screen-reader-only">Important</span>Examples of Problems in the Messy Data
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Notice how each level builds on your data dictionary work:</p>
 <ul>
-<li>Basic validation checks the structure you documented</li>
-<li>Content validation uses the ranges and categories you specified</li>
-<li>Domain validation relies on the scientific context you provided</li>
+<li><strong>Species</strong>: “Adelei” (typo), “Gentoo penguin” (extra text), “ADELIE” (wrong case)</li>
+<li><strong>Island</strong>: “Torgerson” (typo), “biscoe” (wrong case)</li>
+<li><strong>Bill length</strong>: -5.2 (negative), 250.5 (impossibly large), 999 (placeholder)</li>
+<li><strong>Body mass</strong>: 15000g (too heavy), 500g (too light)</li>
+<li><strong>Sex</strong>: “M”, “F”, “Male”, “MALE”, “Female” (inconsistent coding)</li>
+<li><strong>Year</strong>: 2020, 2006, 207, 20009 (invalid years)</li>
 </ul>
-<p>Your documentation becomes the foundation for systematic quality checking.</p>
+<p>These are exactly the types of problems that happen in real research data!</p>
+</div>
 </div>
 </div>
 </section>
 </section>
-<section id="practical-example-palmer-penguins-validation" class="level2">
-<h2 class="anchored" data-anchor-id="practical-example-palmer-penguins-validation">Practical Example: Palmer Penguins Validation</h2>
-<p>Let’s think through what validation might look like for our familiar dataset:</p>
-<section id="structural-checks" class="level3">
-<h3 class="anchored" data-anchor-id="structural-checks">Structural Checks</h3>
-<p>Based on your data dictionary, you’d verify:</p>
-<ul>
-<li><code>species</code> contains only “Adelie”, “Chinstrap”, “Gentoo”</li>
-<li><code>bill_length_mm</code> is numeric, not text</li>
-<li>Required measurements aren’t missing for complete observations</li>
-<li><code>year</code> contains only 2007, 2008, 2009</li>
-</ul>
-</section>
-<section id="content-checks" class="level3">
-<h3 class="anchored" data-anchor-id="content-checks">Content Checks</h3>
-<p>Using the ranges you documented:</p>
-<ul>
-<li>Bill lengths between reasonable values (e.g., 30-60mm)</li>
-<li>Body mass within realistic ranges for penguins</li>
-<li>No negative measurements</li>
-<li>Sex coded consistently</li>
-</ul>
-</section>
-<section id="domain-checks" class="level3">
-<h3 class="anchored" data-anchor-id="domain-checks">Domain Checks</h3>
-<p>Applying biological knowledge:</p>
-<ul>
-<li>Are bill dimensions reasonable for each species?</li>
-<li>Do body mass values align with known penguin biology?</li>
-<li>Are measurement combinations plausible?</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Validation Planning Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Think about a dataset from your own research:</p>
+<section id="three-types-of-data-quality-issues" class="level2">
+<h2 class="anchored" data-anchor-id="three-types-of-data-quality-issues">Three Types of Data Quality Issues</h2>
+<p>The problems you spotted fall into three categories:</p>
 <ol type="1">
-<li>What structural problems might occur during data collection or entry?</li>
-<li>What content issues would be most problematic for your analyses?</li>
-<li>What domain-specific knowledge should guide your quality checks?</li>
+<li><strong>Structural</strong>: Wrong data types, typos in categories, inconsistent coding
+<ul>
+<li>Example: “M” vs “male” vs “Male”</li>
+</ul></li>
+<li><strong>Content</strong>: Out-of-range or impossible values
+<ul>
+<li>Example: Bill length of 250mm or -5mm</li>
+</ul></li>
+<li><strong>Domain</strong>: Scientifically implausible but technically valid
+<ul>
+<li>Example: A penguin weighing 15,000g (way outside the normal 2,700-6,300g range)</li>
+</ul></li>
 </ol>
-<p>Write down 3-4 specific validation rules you’d want to implement.</p>
-</div>
-</div>
 </section>
-</section>
-<section id="validation-workflow-integration" class="level2">
-<h2 class="anchored" data-anchor-id="validation-workflow-integration">Validation Workflow Integration</h2>
-<section id="when-to-validate" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-validate">When to Validate</h3>
-<ul>
-<li><strong>During data collection</strong>: Catch errors as they happen</li>
-<li><strong>After data entry</strong>: Before any analysis begins</li>
-<li><strong>Before major analyses</strong>: Ensure data quality for important results</li>
-<li><strong>Before sharing</strong>: Verify data quality for others</li>
-</ul>
-</section>
-<section id="documentation-connection" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-connection">Documentation Connection</h3>
-<p>Your validation rules should directly connect to your data dictionary:</p>
-<ul>
-<li>Each documented range becomes a validation rule</li>
-<li>Each categorical variable’s valid values become a check</li>
-<li>Each data type specification becomes a structural test</li>
-</ul>
-<p>This creates a complete quality assurance system where documentation and validation work together.</p>
-</section>
-</section>
-<section id="benefits-of-systematic-validation" class="level2">
-<h2 class="anchored" data-anchor-id="benefits-of-systematic-validation">Benefits of Systematic Validation</h2>
-<section id="for-your-research" class="level3">
-<h3 class="anchored" data-anchor-id="for-your-research">For Your Research</h3>
-<ul>
-<li><strong>Increased confidence</strong>: Know your data is reliable</li>
-<li><strong>Time savings</strong>: Catch errors early rather than during analysis</li>
-<li><strong>Better results</strong>: Analyses based on clean, verified data</li>
-<li><strong>Easier troubleshooting</strong>: When something looks odd, it’s probably real</li>
-</ul>
-</section>
-<section id="for-open-science" class="level3">
-<h3 class="anchored" data-anchor-id="for-open-science">For Open Science</h3>
-<ul>
-<li><strong>Transparency</strong>: Others can see your quality control process</li>
-<li><strong>Reproducibility</strong>: Quality checks can be replicated and verified</li>
-<li><strong>Trust</strong>: Colleagues have confidence in shared data</li>
-<li><strong>Standards</strong>: Contribute to better practices in your field</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="connecting-validation-to-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="connecting-validation-to-documentation">Connecting Validation to Documentation</h2>
+<p>Your data dictionary defines the rules; validation checks them:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Dictionary Says</th>
+<th>Validation Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bill length: logically 30-60mm</td>
+<td>Are all values in this range?</td>
+</tr>
+<tr class="even">
+<td>Species: Adelie, Chinstrap, Gentoo</td>
+<td>Are there any typos or other values?</td>
+</tr>
+<tr class="odd">
+<td>Body mass: numeric</td>
+<td>Is it stored as numbers (not text)?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to validate</strong>: You could validate data either right after collection (to catch entry errors) or just before analysis (to ensure data quality). Ideally, do both! TThe first is proactive and catches errors early, the second ensures quality before results. And finally, validate before sharing data with others and make sure your documentation is up to date with any changes you make during validation.</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Reflection Question
+<span class="screen-reader-only">Important</span>Key Takeaway
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How might implementing systematic data validation change your relationship with your research data? What would it mean for your confidence in results to know that data quality has been thoroughly verified?</p>
+<p>Validation isn’t optional, it’s part of doing research carefully. The messy penguins data shows how easy it is for errors to creep in. Catching them early (before analysis) is much easier than debugging mysterious results later.</p>
 </div>
 </div>
-<p><strong>Next</strong>: We’ll explore specific techniques for generating summary statistics that reveal data quality issues and support your validation efforts.</p>
-
-
 </section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>In the next section, you’ll learn systematic techniques for spotting these problems using summary statistics in R. You’ll work with the messy penguins dataset to detect these errors.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
