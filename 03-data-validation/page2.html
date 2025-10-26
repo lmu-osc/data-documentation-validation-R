@@ -520,16 +520,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="automating-validation-with-functions" class="level2">
 <h2 class="anchored" data-anchor-id="automating-validation-with-functions">Automating Validation with Functions</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Example: Creating a Validation Function
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <p>You can wrap these checks into a function that automatically validates data based on your documented rules:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to validate penguins data based on data dictionary rules</span></span>
@@ -582,12 +572,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Domain</strong>: Are body masses biologically plausible? (2500-6500g)</li>
 </ul>
 <p>When you run this function on the clean data, all checks pass. When you run it on the messy data, it fails multiple checks and shows you exactly where problems exist.</p>
-</div>
-</div>
 </section>
 <section id="integrating-validation-into-your-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="integrating-validation-into-your-documentation">Integrating Validation into Your Documentation</h2>
-<p>Remember the <code>penguins_documentation.qmd</code> file you created in the data dictionaries section? Let’s add validation checks to it!</p>
+<p>Remember the <code>penguins_documentation.qmd</code> file you created in the data dictionaries section? Let’s add validation checks to it! To keep things simple, we’ll add a new section that summarizes key validation statistics.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -638,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -647,7 +635,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>As you become more comfortable with data validation, you may want to explore specialized R packages that automate quality checks and generate professional reports:</p>
 <p><strong><a href="https://rstudio.github.io/pointblank/">{pointblank}</a></strong> - Comprehensive data validation toolkit</p>
