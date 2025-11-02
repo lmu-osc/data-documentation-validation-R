@@ -1,8 +1,9 @@
 ---
 title: "Concepts & Manual Creation"
+bibliography: ../references.bib
 ---
 
-A dataset without proper documentation can be a significant barrier to reproducible science. In this hands-on section, you'll learn to create data dictionaries manually and practice with research data.
+Without proper documentation, datasets become nearly impossible for others (or future you) to understand and use. In this hands-on section, you'll learn to create data dictionaries manually and practice with real research data.
 
 ::: {.callout-note}
 ## What You'll Learn
@@ -36,21 +37,22 @@ Every data dictionary should include:
 - **Valid Values**: Expected range or categories (e.g., "0-100" or "male, female")
 - **Missing Values**: How missing data is coded (NA, -999, blank)
 
-## Why Data Dictionaries Matter for Open Science
+## Why Data Dictionaries Matter
 
 ### Preventing Critical Errors
 Without documentation, researchers make dangerous assumptions. Is `score` a percentage (0-100) or raw points (0-50)? Is `treatment` coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.
 
 ::: {.callout-note}
 ## Real-World Example
-A research team spent months analyzing survey data where `satisfaction` was coded 1-5. They treated 5 as "very satisfied." Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards!
+A research team spent months analyzing survey data where `satisfaction` was coded 1-5. They treated 5 as "very satisfied." Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards! This type of error with reverse-coded items is well-documented in research and can significantly impact study results [@hughes_impact_2009].
+
 :::
 
 ### Enabling Collaboration
 When a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.
 
-### Meeting FAIR Principles
-FAIR data must be **Findable, Accessible, Interoperable, and Reusable**. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.
+### Supporting FAIR Principles
+FAIR data must be **Findable, Accessible, Interoperable, and Reusable** [@wilkinson_fair_2016]. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.
 
 ::: {.callout-tip}
 ## FAIR Data Management Tutorial
@@ -58,7 +60,7 @@ FAIR data must be **Findable, Accessible, Interoperable, and Reusable**. A quali
 For more on FAIR principles and research data management concepts, check out our [FAIR Data Management Tutorial](https://lmu-osc.github.io/FAIR-Data-Management/).
 :::
 
-## See Why Documentation Matters: A Quick Example
+## A Quick Example
 
 Here's undocumented data on study habits and academic performance:
 
@@ -214,7 +216,7 @@ Create a data dictionary for these **4 variables**: species, bill_length_mm, sex
 ::: {.callout-tip}
 ## For Quarto/Markdown Users (.qmd file)
 
-1. Create a new file called `data/penguins_clean_dictionary.qmd` in your project folder
+1. Create a new file quarto file named `penguins_clean_dictionary` and save it in the `data` folder of your project.
 2. Copy and paste this markdown table into the file:
 
 ```markdown
@@ -253,10 +255,12 @@ Complete this exercise before looking at the solution below!
 
 Manual creation works optimally when:
 
-- You have fewer variables
+- You have few variables
 - Your data structure remains stable over time
 - You need detailed, contextual descriptions
 - You're collaborating with non-technical team members
 - You require precise control over documentation details
 
-**For larger datasets** (like the full Palmer Penguins with 8 variables and beyond), manual creation becomes tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.
+**For larger datasets** manual creation can become tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.
+
+## References

@@ -99,7 +99,7 @@ Your data dictionary defines the rules; validation checks them:
 | Species: Adelie, Chinstrap, Gentoo | Are there any typos or other values? |
 | Body mass: numeric | Is it stored as numbers (not text)? |
 
-**When to validate**: You could validate data either right after collection (to catch entry errors) or just before analysis (to ensure data quality). Ideally, do both! TThe first is proactive and catches errors early, the second ensures quality before results. And finally, validate before sharing data with others and make sure your documentation is up to date with any changes you make during validation.
+**When to validate**: You could validate data either right after collection (to catch entry errors) or just before analysis (to ensure data quality). Ideally, do both! The first is proactive and catches errors early, the second ensures quality before results. And finally, validate before sharing data with others and make sure your documentation is up to date with any changes you make during validation.
 
 ::: {.callout-important}
 ## Key Takeaway

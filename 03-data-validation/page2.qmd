@@ -1,5 +1,6 @@
 ---
 title: "Summary Statistics"
+bibliography: ../references.bib
 ---
 
 Summary statistics are your first line of defense in data validation. They provide a systematic way to spot quality issues, understand your data's characteristics, and verify that reality matches your documented expectations.
@@ -303,27 +304,27 @@ print(colSums(is.na(penguins)))
 
 As you become more comfortable with data validation, you may want to explore specialized R packages that automate quality checks and generate professional reports:
 
-**[{pointblank}](https://rstudio.github.io/pointblank/)** - Comprehensive data validation toolkit
+**[{pointblank}](https://rstudio.github.io/pointblank/)** [@iannone_pointblank_2024] - Comprehensive data validation toolkit
 
 - Define validation rules (e.g., "bill length must be 30-60mm")
 - Generate HTML validation reports with pass/fail results
 - Set quality thresholds and get alerts when data fails checks
 - Best for: Projects with many datasets or frequent data updates
 
-**[{validate}](https://github.com/data-cleaning/validate)** - Rule-based data validation
+**[{validate}](https://github.com/data-cleaning/validate)** [@loo_validate_2021] - Rule-based data validation
 
 - Create validation rules in plain language syntax
 - Check data against your rules and get detailed reports
 - Track which rows fail which rules
 - Best for: Complex validation logic across multiple variables
 
-**[{assertr}](https://github.com/ropensci/assertr)** - Defensive programming for data pipelines
+**[{assertr}](https://github.com/ropensci/assertr)** [@fischetti_assertr_2023] - Defensive programming for data pipelines
 
 - Add validation checks directly into your data processing code
 - Stop execution if data fails quality checks
 - Best for: Automated workflows and data pipelines
 
-**[{skimr}](https://docs.ropensci.org/skimr/)** - Enhanced summary statistics
+**[{skimr}](https://docs.ropensci.org/skimr/)** [@waring_skimr_2025] - Enhanced summary statistics
 
 - More informative summaries than base R `summary()`
 - Includes histograms and additional statistics
@@ -344,3 +345,5 @@ Congratulations! You've completed this tutorial on data documentation and valida
 These skills form the foundation for reproducible, transparent, and trustworthy research. By documenting and validating your data systematically, you're contributing to better science and making your work more accessible to others.
 
 **Your next steps**: Apply these techniques to your own research data. Start small with one dataset, create its documentation, validate it, and build from there. Good data practices become easier with practice!
+
+## References

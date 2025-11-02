@@ -6,7 +6,7 @@ Research data without proper documentation becomes a barrier to reproducibility 
 
 ## Why Document Your Data?
 
-Good documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Well-documented data is simply better science.
+Good documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Data documentation is an essential pillar of good research practices which will allow for your research to have greater impact.
 
 ## What You'll Learn
 
@@ -31,16 +31,6 @@ You should also have:
 - Basic R and RStudio familiarity
 - Experience working with data frames
 - Understanding of variables, observations, and data types
-
-## Key R Packages
-
-Throughout this tutorial, you'll work with:
-
-- **`{datawizard}`** - Automated data dictionary creation
-- **`{dplyr}`** - Data manipulation
-- **`{readr}`** - Reading CSV data files
-
-You'll primarily use base R functions for data validation, with optional advanced packages introduced at the end.
 
 ## Tutorial Structure
 
