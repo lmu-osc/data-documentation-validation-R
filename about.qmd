@@ -1,34 +1,41 @@
 ---
 title: "About"
-date: YYYY-MM-DD
+date: 2025-11-02
 citation:
   type: "webpage"
-  title: "Data Dictionary using R Tutorial"
+  title: "Data Documentation and Validation using R Tutorial"
   container-title: "LMU Open Science Center"
-  url: https://lmu-osc.github.io/
+  url: https://lmu-osc.github.io/data-dictionary-R/
   doi: "DOI HERE"
 author:
-  - name: AUTHOR 1
-    roles: [conceptualization, data curation, formal analysis, funding acquisition, investigation, methodology, project administration, software, resources, supervision, validation, visualization, writing - original draft, writing - editing & review]
+  - name: Reema Gupta
+    roles: [conceptualization, methodology, software, writing - original draft, writing - editing & review]
     degrees:
-      - B.S.
       - M.Sc.
-      - PhD
-    affiliation: 
+    affiliation:
       - id: osc
         name: LMU Open Science Center
         ror: https://ror.org/05591te55
         isni: 000000041936973X
-      - id: other1
-        name: OTHER AFFILIATION 1
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0003-4509-6969
+  - name: Malika Ihle
+    roles: [conceptualization, methodology, supervision, writing - editing & review]
+    degrees:
+      - M.Sc.
+      - PhD
+    affiliation:
+      - id: osc
+        name: LMU Open Science Center
+        ror: https://ror.org/05591te55
+        isni: 000000041936973X
+    orcid: 0000-0002-3242-5981
 google-scholar: true
 ---
 
 
 # Contributors
 
-This site was authored by AUTHORS, and edits/contributions were made by EDITORS/AUTHORS.
+This site was authored by Reema Gupta and Malika Ihle.
 
 # Licenses
 
@@ -38,5 +45,5 @@ Why two licenses? The CC BY-SA 4.0 license is for the content of the website, wh
 
 # Notes
 
-This tutorial was primarily written in YYYY using SOFTWARE-NAME SOFTWARE-VERSION. Major changes to the SOFTWARE-NAME can be found at the [package's website](SOFTWARE-URL) for the most up-to-date information, and to confirm that our tutorial is not out-of-date. 
+This tutorial was primarily written in 2025 using R 4.4+ with the {datawizard} package for automated data dictionary creation. Major changes to the {datawizard} package can be found at the [package's website](https://easystats.github.io/datawizard/) for the most up-to-date information, and to confirm that our tutorial is not out-of-date. 
 
