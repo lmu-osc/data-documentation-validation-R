@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -282,13 +302,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#essential-components" id="toc-essential-components" class="nav-link" data-scroll-target="#essential-components">Essential Components</a></li>
   </ul></li>
-  <li><a href="#why-data-dictionaries-matter-for-open-science" id="toc-why-data-dictionaries-matter-for-open-science" class="nav-link" data-scroll-target="#why-data-dictionaries-matter-for-open-science">Why Data Dictionaries Matter for Open Science</a>
+  <li><a href="#why-data-dictionaries-matter" id="toc-why-data-dictionaries-matter" class="nav-link" data-scroll-target="#why-data-dictionaries-matter">Why Data Dictionaries Matter</a>
   <ul class="collapse">
   <li><a href="#preventing-critical-errors" id="toc-preventing-critical-errors" class="nav-link" data-scroll-target="#preventing-critical-errors">Preventing Critical Errors</a></li>
   <li><a href="#enabling-collaboration" id="toc-enabling-collaboration" class="nav-link" data-scroll-target="#enabling-collaboration">Enabling Collaboration</a></li>
-  <li><a href="#meeting-fair-principles" id="toc-meeting-fair-principles" class="nav-link" data-scroll-target="#meeting-fair-principles">Meeting FAIR Principles</a></li>
+  <li><a href="#supporting-fair-principles" id="toc-supporting-fair-principles" class="nav-link" data-scroll-target="#supporting-fair-principles">Supporting FAIR Principles</a></li>
   </ul></li>
-  <li><a href="#see-why-documentation-matters-a-quick-example" id="toc-see-why-documentation-matters-a-quick-example" class="nav-link" data-scroll-target="#see-why-documentation-matters-a-quick-example">See Why Documentation Matters: A Quick Example</a></li>
+  <li><a href="#a-quick-example" id="toc-a-quick-example" class="nav-link" data-scroll-target="#a-quick-example">A Quick Example</a></li>
   <li><a href="#choosing-your-documentation-tool" id="toc-choosing-your-documentation-tool" class="nav-link" data-scroll-target="#choosing-your-documentation-tool">Choosing Your Documentation Tool</a>
   <ul class="collapse">
   <li><a href="#spreadsheet-software-excel-google-sheets-libreoffice" id="toc-spreadsheet-software-excel-google-sheets-libreoffice" class="nav-link" data-scroll-target="#spreadsheet-software-excel-google-sheets-libreoffice">Spreadsheet Software (Excel, Google Sheets, LibreOffice)</a></li>
@@ -302,6 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-3-create-your-data-dictionary" id="toc-step-3-create-your-data-dictionary" class="nav-link" data-scroll-target="#step-3-create-your-data-dictionary">Step 3: Create Your Data Dictionary</a></li>
   </ul></li>
   <li><a href="#when-manual-creation-is-most-effective" id="toc-when-manual-creation-is-most-effective" class="nav-link" data-scroll-target="#when-manual-creation-is-most-effective">When Manual Creation is Most Effective</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/02-data-dictionaries/page1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -327,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A dataset without proper documentation can be a significant barrier to reproducible science. In this hands-on section, you’ll learn to create data dictionaries manually and practice with research data.</p>
+<p>Without proper documentation, datasets become nearly impossible for others (or future you) to understand and use. In this hands-on section, you’ll learn to create data dictionaries manually and practice with real research data.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -378,8 +399,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="why-data-dictionaries-matter-for-open-science" class="level2">
-<h2 class="anchored" data-anchor-id="why-data-dictionaries-matter-for-open-science">Why Data Dictionaries Matter for Open Science</h2>
+<section id="why-data-dictionaries-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-data-dictionaries-matter">Why Data Dictionaries Matter</h2>
 <section id="preventing-critical-errors" class="level3">
 <h3 class="anchored" data-anchor-id="preventing-critical-errors">Preventing Critical Errors</h3>
 <p>Without documentation, researchers make dangerous assumptions. Is <code>score</code> a percentage (0-100) or raw points (0-50)? Is <code>treatment</code> coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.</p>
@@ -393,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A research team spent months analyzing survey data where <code>satisfaction</code> was coded 1-5. They treated 5 as “very satisfied.” Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards!</p>
+<p>A research team spent months analyzing survey data where <code>satisfaction</code> was coded 1-5. They treated 5 as “very satisfied.” Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards! This type of error with reverse-coded items is well-documented in research and can significantly impact study results <span class="citation" data-cites="hughes_impact_2009">(<a href="#ref-hughes_impact_2009" role="doc-biblioref">Hughes 2009</a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -401,9 +422,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="enabling-collaboration">Enabling Collaboration</h3>
 <p>When a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.</p>
 </section>
-<section id="meeting-fair-principles" class="level3">
-<h3 class="anchored" data-anchor-id="meeting-fair-principles">Meeting FAIR Principles</h3>
-<p>FAIR data must be <strong>Findable, Accessible, Interoperable, and Reusable</strong>. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.</p>
+<section id="supporting-fair-principles" class="level3">
+<h3 class="anchored" data-anchor-id="supporting-fair-principles">Supporting FAIR Principles</h3>
+<p>FAIR data must be <strong>Findable, Accessible, Interoperable, and Reusable</strong> <span class="citation" data-cites="wilkinson_fair_2016">(<a href="#ref-wilkinson_fair_2016" role="doc-biblioref">Wilkinson et al. 2016</a>)</span>. A quality data dictionary directly supports all four principles by making your data understandable and usable by others.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -419,8 +440,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="see-why-documentation-matters-a-quick-example" class="level2">
-<h2 class="anchored" data-anchor-id="see-why-documentation-matters-a-quick-example">See Why Documentation Matters: A Quick Example</h2>
+<section id="a-quick-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-quick-example">A Quick Example</h2>
 <p>Here’s undocumented data on study habits and academic performance:</p>
 <table class="caption-top table">
 <thead>
@@ -705,7 +726,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Create a new file called <code>data/penguins_clean_dictionary.qmd</code> in your project folder</li>
+<li>Create a new file quarto file named <code>penguins_clean_dictionary</code> and save it in the <code>data</code> folder of your project.</li>
 <li>Copy and paste this markdown table into the file:</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable Name  <span class="pp">|</span> Label <span class="pp">|</span> Description <span class="pp">|</span> Type <span class="pp">|</span> Units <span class="pp">|</span> Valid Values <span class="pp">|</span> Missing <span class="pp">|</span></span>
@@ -807,18 +828,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="when-manual-creation-is-most-effective">When Manual Creation is Most Effective</h2>
 <p>Manual creation works optimally when:</p>
 <ul>
-<li>You have fewer variables</li>
+<li>You have few variables</li>
 <li>Your data structure remains stable over time</li>
 <li>You need detailed, contextual descriptions</li>
 <li>You’re collaborating with non-technical team members</li>
 <li>You require precise control over documentation details</li>
 </ul>
-<p><strong>For larger datasets</strong> (like the full Palmer Penguins with 8 variables and beyond), manual creation becomes tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.</p>
+<p><strong>For larger datasets</strong> manual creation can become tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.</p>
+</section>
+<section id="references" class="level2">
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-hughes_impact_2009" class="csl-entry" role="listitem">
+Hughes, Gail D. 2009. <span>“The Impact of Incorrect Responses to Reverse-Coded Survey Items.”</span> <em>Research in the Schools</em> 16 (2): 76–88.
+</div>
+<div id="ref-wilkinson_fair_2016" class="csl-entry" role="listitem">
+Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“The <span>FAIR</span> <span>Guiding</span> <span>Principles</span> for Scientific Data Management and Stewardship.”</span> <em>Scientific Data</em> 3 (1): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

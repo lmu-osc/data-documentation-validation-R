@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -112,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -285,13 +305,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#key-r-packages-well-use" id="toc-key-r-packages-well-use" class="nav-link" data-scroll-target="#key-r-packages-well-use">Key R Packages We’ll Use</a></li>
   <li><a href="#installing-required-packages" id="toc-installing-required-packages" class="nav-link" data-scroll-target="#installing-required-packages">Installing Required Packages</a></li>
   <li><a href="#download-the-datasets" id="toc-download-the-datasets" class="nav-link" data-scroll-target="#download-the-datasets">Download the Datasets</a></li>
+  <li><a href="#create-an-r-script" id="toc-create-an-r-script" class="nav-link" data-scroll-target="#create-an-r-script">Create an R Script</a></li>
   <li><a href="#load-and-verify-the-data" id="toc-load-and-verify-the-data" class="nav-link" data-scroll-target="#load-and-verify-the-data">Load and Verify the Data</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/edit/main/01-tutorial-setup/page2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lmu-osc/data-documentation-validation-R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-tutorial-setup/page1.html">Tutorial Setup</a></li><li class="breadcrumb-item"><a href="../01-tutorial-setup/page2.html">Example Data &amp; Tools</a></li></ol></nav>
 <div class="quarto-title">
@@ -313,17 +335,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>In this tutorial, we’ll work with real research data to learn data documentation principles. You’ll also get familiar with the key R packages that make data validation and documentation efficient.</p>
-<section id="our-example-dataset-palmer-penguins" class="level2 page-columns page-full">
+<section id="our-example-dataset-palmer-penguins" class="level2">
 <h2 class="anchored" data-anchor-id="our-example-dataset-palmer-penguins">Our Example Dataset: Palmer Penguins</h2>
-
-<div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/palmerpenguins.png" class="img-fluid figure-img" width="400"></p>
 <figcaption>Palmer Penguins</figcaption>
 </figure>
 </div>
-</div></div><p>We’ll use the <strong>Palmer Penguins dataset</strong> throughout this tutorial - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:</p>
+<p>We’ll use the <strong>Palmer Penguins dataset</strong> throughout this tutorial <span class="citation" data-cites="gorman_ecological_2014">(<a href="#ref-gorman_ecological_2014" role="doc-biblioref">Gorman, Williams, and Fraser 2014</a>)</span> - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:</p>
 <ul>
 <li><strong>Numeric measurements</strong>: Bill length, bill depth, flipper length (millimeters), and body mass (grams)</li>
 <li><strong>Categorical data</strong>: Species, island, sex, and year</li>
@@ -360,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Sex</strong>: Inconsistent coding (M/F/male/Male/MALE/m/Female)</li>
 <li><strong>Year</strong>: Invalid years (2020, 2006, 207, 20009)</li>
 </ul>
-<p>These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in <a href="../_scripts/create_messy_data.R"><code>_scripts/create_messy_data.R</code></a>.</p>
+<p>These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is available on <a href="https://github.com/lmu-osc/data-documentation-validation-R/blob/main/_scripts/create_messy_data.R">here</a>.</p>
 </div>
 </div>
 </div>
@@ -370,23 +390,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="key-r-packages-well-use">Key R Packages We’ll Use</h2>
 <p>Throughout this tutorial, you’ll work with three main packages:</p>
 <ul>
+<li><strong><code>{readr}</code></strong>: Reading CSV files into R</li>
+<li><strong><code>{dplyr}</code></strong>: Data manipulation and exploration</li>
 <li><strong><code>{datawizard}</code></strong>: Automates creation of data dictionaries</li>
-<li><strong><code>{pointblank}</code></strong>: Performs systematic data validation</li>
-<li><strong><code>{skimr}</code></strong>: Generates comprehensive data summaries</li>
 </ul>
 </section>
 <section id="installing-required-packages" class="level2">
 <h2 class="anchored" data-anchor-id="installing-required-packages">Installing Required Packages</h2>
 <p>Install the packages you’ll need:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install core packages</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install required packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"datawizard"</span>,      <span class="co"># Data dictionaries</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"pointblank"</span>,      <span class="co"># Data validation</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"skimr"</span>,           <span class="co"># Summary statistics</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,           <span class="co"># Data manipulation</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>            <span class="co"># Reading CSV files</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>,           <span class="co"># Reading CSV files</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,           <span class="co"># Data manipulation</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"datawizard"</span>       <span class="co"># Data dictionaries</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="download-the-datasets" class="level2">
@@ -396,7 +414,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="../data/penguins_clean.csv" download="penguins_clean.csv" class="btn btn-primary" style="margin-right: 10px;"> Download Clean Data </a></p>
 <p><a href="../data/penguins_messy.csv" download="penguins_messy.csv" class="btn btn-warning"> Download Messy Data </a></p>
 </div>
-<p><strong>Important</strong>: Save both files in a folder called <code>data/</code> inside your project directory. If the <code>data/</code> folder doesn’t exist yet, create it first.</p>
+<p><strong>Important</strong>: Save both files in a folder called <code>data</code> inside your project directory. If the <code>data</code> folder doesn’t exist yet, create it first.</p>
+</section>
+<section id="create-an-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="create-an-r-script">Create an R Script</h2>
+<p>Before loading data, create an R script to keep your code organized:</p>
+<p><strong>In RStudio:</strong> Click <em>File</em> &gt; <em>New File</em> &gt; <em>R Script</em>. Save it as <code>documentation-exercise.R</code> in your project folder.</p>
+<p><strong>Without RStudio:</strong> Create a file called <code>documentation-exercise.R</code> in your project directory.</p>
+<p>You’ll type your code in this script and run it line-by-line (RStudio: Ctrl+Enter / Cmd+Enter, or use the “Run” button). This keeps a record of all your work.</p>
 </section>
 <section id="load-and-verify-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-and-verify-the-data">Load and Verify the Data</h2>
@@ -468,7 +493,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If you see errors:</p>
 <ul>
-<li>Make sure both CSV files are in the <code>data/</code> folder</li>
+<li>Make sure both CSV files are in the <code>data</code> folder</li>
 <li>Check that your working directory is your project folder (use <code>getwd()</code> to verify)</li>
 <li>Try restarting R</li>
 </ul>
@@ -478,11 +503,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
 <p>You now have your environment set up with the necessary packages and both datasets. In the next section, you’ll learn how to create data dictionaries that document what each variable means and how it should be interpreted.</p>
+</section>
+<section id="references" class="level2">
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gorman_ecological_2014" class="csl-entry" role="listitem">
+Gorman, Kristen B., Tony D. Williams, and William R. Fraser. 2014. <span>“Ecological <span>Sexual</span> <span>Dimorphism</span> and <span>Environmental</span> <span>Variability</span> Within a <span>Community</span> of <span>Antarctic</span> <span>Penguins</span> (<span>Genus</span> <span>Pygoscelis</span>).”</span> <em>PLOS ONE</em> 9 (3): e90081. <a href="https://doi.org/10.1371/journal.pone.0090081">https://doi.org/10.1371/journal.pone.0090081</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
