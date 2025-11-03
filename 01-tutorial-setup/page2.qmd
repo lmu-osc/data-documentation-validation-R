@@ -1,16 +1,15 @@
 ---
 title: "Example Data & Tools"
+bibliography: ../references.bib
 ---
 
 In this tutorial, we'll work with real research data to learn data documentation principles. You'll also get familiar with the key R packages that make data validation and documentation efficient.
 
 ## Our Example Dataset: Palmer Penguins
 
-::: {.column-margin}
 ![Palmer Penguins](images/palmerpenguins.png){fig-align="center" width="400"}
-:::
 
-We'll use the **Palmer Penguins dataset** throughout this tutorial - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:
+We'll use the **Palmer Penguins dataset** throughout this tutorial [@gorman_ecological_2014] - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:
 
 - **Numeric measurements**: Bill length, bill depth, flipper length (millimeters), and body mass (grams)
 - **Categorical data**: Species, island, sex, and year
@@ -40,16 +39,16 @@ We introduced realistic data quality issues across the observations, including:
 - **Sex**: Inconsistent coding (M/F/male/Male/MALE/m/Female)
 - **Year**: Invalid years (2020, 2006, 207, 20009)
 
-These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is in [`_scripts/create_messy_data.R`](../_scripts/create_messy_data.R).
+These mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is available on [here](<https://github.com/lmu-osc/data-documentation-validation-R/blob/main/_scripts/create_messy_data.R>).
 :::
 
 ## Key R Packages We'll Use
 
 Throughout this tutorial, you'll work with three main packages:
 
+- **`{readr}`**: Reading CSV files into R
+- **`{dplyr}`**: Data manipulation and exploration
 - **`{datawizard}`**: Automates creation of data dictionaries
-- **`{pointblank}`**: Performs systematic data validation
-- **`{skimr}`**: Generates comprehensive data summaries
 
 ## Installing Required Packages
 
@@ -58,13 +57,11 @@ Install the packages you'll need:
 ```{r}
 #| eval: false
 
-# Install core packages
+# Install required packages
 install.packages(c(
-  "datawizard",      # Data dictionaries
-  "pointblank",      # Data validation
-  "skimr",           # Summary statistics
+  "readr",           # Reading CSV files
   "dplyr",           # Data manipulation
-  "readr"            # Reading CSV files
+  "datawizard"       # Data dictionaries
 ))
 ```
 
@@ -82,7 +79,17 @@ Download Messy Data
 </a>
 </div>
 
-**Important**: Save both files in a folder called `data/` inside your project directory. If the `data/` folder doesn't exist yet, create it first.
+**Important**: Save both files in a folder called `data` inside your project directory. If the `data` folder doesn't exist yet, create it first.
+
+## Create an R Script
+
+Before loading data, create an R script to keep your code organized:
+
+**In RStudio:** Click _File_ > _New File_ > _R Script_. Save it as `documentation-exercise.R` in your project folder.
+
+**Without RStudio:** Create a file called `documentation-exercise.R` in your project directory.
+
+You'll type your code in this script and run it line-by-line (RStudio: Ctrl+Enter / Cmd+Enter, or use the "Run" button). This keeps a record of all your work.
 
 ## Load and Verify the Data
 
@@ -143,7 +150,7 @@ head(penguins_clean)
 
 If you see errors:
 
-- Make sure both CSV files are in the `data/` folder
+- Make sure both CSV files are in the `data` folder
 - Check that your working directory is your project folder (use `getwd()` to verify)
 - Try restarting R
 :::
@@ -153,3 +160,5 @@ If you see errors:
 ## Next Steps
 
 You now have your environment set up with the necessary packages and both datasets. In the next section, you'll learn how to create data dictionaries that document what each variable means and how it should be interpreted.
+
+## References

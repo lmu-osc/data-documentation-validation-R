@@ -1,5 +1,6 @@
 ---
 title: "Automated Creation with R"
+bibliography: ../references.bib
 ---
 
 In the previous section, you created a data dictionary manually, carefully considering each variable's meaning, valid values, and context. This thoughtful approach is essential, but for larger datasets or when documentation needs regular updates, R can automate much of this work while preserving your expertise.
@@ -28,7 +29,7 @@ Most research projects benefit from automation, especially when data evolves dur
 
 ## The `{datawizard}` Package
 
-The `{datawizard}` package provides a simple, reliable way to create data dictionaries automatically. The main function you'll use is `data_codebook()`, which generates structured tables that include:
+The `{datawizard}` package [@datawizard] provides a simple, reliable way to create data dictionaries automatically. The main function you'll use is `data_codebook()`, which generates structured tables that include:
 
 - Variable names and types
 - Missing value counts
@@ -155,7 +156,7 @@ Now save the codebook to a CSV file so you can share it with collaborators:
 write.csv(codebook_labeled, "data/penguins_codebook.csv", row.names = FALSE)
 ```
 
-Check that `penguins_codebook.csv` was created in your `data/` folder. Open it in a spreadsheet program to see how the codebook looks as a shareable file.
+Check that `penguins_codebook.csv` was created in your `data` folder. Open it in a spreadsheet program to see how the codebook looks as a shareable file.
 
 ## Integrating Codebooks into Quarto Documents
 
@@ -168,7 +169,7 @@ Create a Quarto document that combines your manual dictionary with the automated
 
 **Steps:**
 
-1. Create a new file called `penguins_documentation.qmd` in your project folder
+1. Create a new file called `penguins_documentation.qmd` in your project folder (the same location as your `._quarto.yml` and `.Rproj` file). Note that the data is in a subfolder called `data`.
 
 2. Copy this template into the file:
 
@@ -216,8 +217,8 @@ penguins_labeled <- penguins %>%
     year = structure(year, label = "Year of observation (2007-2009)")
   )
 
-# Generate and display codebook
-data_codebook(penguins_labeled)
+# Generate and display codebook with narrower labels for better display
+data_codebook(penguins_labeled, variable_label_width = 10, value_label_width = 10)
 ```
 ````
 
@@ -259,3 +260,5 @@ Automation doesn't replace your expertise! You still provide the scientific know
 ## Next Steps
 
 You now know how to create data dictionaries both manually and automatically. In the next section, you'll use these documentation skills as the foundation for data validation, checking whether your actual data matches what your dictionary says it should be.
+
+## References

@@ -50,7 +50,7 @@ Your RStudio window should now look similar to this:
 If, like in the image, a Quarto file with some demo content was opened automatically,
 you can close and delete it, for example, using RStudio's file manager.
 
-Throughout this tutorial, you will need to run R code in the _Console_ tab.
+Throughout this tutorial, you'll run R code interactively. For now, you can type commands directly into the _Console_ tab. On the next page, you'll create an R script file to keep your code organized.
 
 ::: {#nte-terminal .callout-tip collapse="true"}
 ### Without RStudio
@@ -70,7 +70,7 @@ Make sure that `getwd()` shows your working directory is `data-documentation-val
 ::: {.callout-tip icon="false"}
 ## Checkpoint: Verify Your Project Setup
 
-Before moving to the next section, verify your setup is working:
+Before moving to the next section, verify your setup is working by typing this command into the _Console_:
 
 **Check working directory** - Should end with your project name
 ```{r}
