@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Summary Statistics – Data Documentation and Validation using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -59,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,15 +91,14 @@ div.csl-indent {
 <link href="../assets/LMU_OSC_favicon.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1988d9f9d85e811993c1471ac0558136.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1191229d2abf6901efadd99d34c9cfc5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -653,14 +654,14 @@ div.csl-indent {
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>As you become more comfortable with data validation, you may want to explore specialized R packages that automate quality checks and generate professional reports:</p>
-<p><strong><a href="https://rstudio.github.io/pointblank/">{pointblank}</a></strong> <span class="citation" data-cites="iannone_pointblank_2024">(<a href="#ref-iannone_pointblank_2024" role="doc-biblioref">Iannone, Vargas, and Choe 2024</a>)</span> - Comprehensive data validation toolkit</p>
+<p><strong><a href="https://rstudio.github.io/pointblank/">{pointblank}</a></strong> <span class="citation" data-cites="iannone_pointblank_2024">(<a href="#ref-iannone_pointblank_2024" role="doc-biblioref">Iannone et al. 2024</a>)</span> - Comprehensive data validation toolkit</p>
 <ul>
 <li>Define validation rules (e.g., “bill length must be 30-60mm”)</li>
 <li>Generate HTML validation reports with pass/fail results</li>
 <li>Set quality thresholds and get alerts when data fails checks</li>
 <li>Best for: Projects with many datasets or frequent data updates</li>
 </ul>
-<p><strong><a href="https://github.com/data-cleaning/validate">{validate}</a></strong> <span class="citation" data-cites="loo_validate_2021">(<a href="#ref-loo_validate_2021" role="doc-biblioref">van der Loo and de Jonge 2021</a>)</span> - Rule-based data validation</p>
+<p><strong><a href="https://github.com/data-cleaning/validate">{validate}</a></strong> <span class="citation" data-cites="loo_validate_2021">(<a href="#ref-loo_validate_2021" role="doc-biblioref"><span class="nocase">van der Loo and de Jonge</span> 2021</a>)</span> - Rule-based data validation</p>
 <ul>
 <li>Create validation rules in plain language syntax</li>
 <li>Check data against your rules and get detailed reports</li>
@@ -703,7 +704,7 @@ div.csl-indent {
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-fischetti_assertr_2023" class="csl-entry" role="listitem">
 Fischetti, Tony. 2023. <em>Assertr: Assertive Programming for r Analysis Pipelines</em>. <a href="https://CRAN.R-project.org/package=assertr">https://CRAN.R-project.org/package=assertr</a>.
 </div>
@@ -711,7 +712,7 @@ Fischetti, Tony. 2023. <em>Assertr: Assertive Programming for r Analysis Pipelin
 Iannone, Richard, Mauricio Vargas, and June Choe. 2024. <em>Pointblank: Data Validation and Organization of Metadata for Local and Remote Tables</em>. <a href="https://CRAN.R-project.org/package=pointblank">https://CRAN.R-project.org/package=pointblank</a>.
 </div>
 <div id="ref-loo_validate_2021" class="csl-entry" role="listitem">
-van der Loo, Mark P. J., and Edwin de Jonge. 2021. <span>“Data Validation Infrastructure for <span>R</span>.”</span> <em>Journal of Statistical Software</em> 97 (10): 1–31. <a href="https://doi.org/10.18637/jss.v097.i10">https://doi.org/10.18637/jss.v097.i10</a>.
+<span class="nocase">van der Loo, Mark P. J., and Edwin de Jonge</span>. 2021. <span>“Data Validation Infrastructure for <span>R</span>.”</span> <em>Journal of Statistical Software</em> 97 (10): 1–31. <a href="https://doi.org/10.18637/jss.v097.i10">https://doi.org/10.18637/jss.v097.i10</a>.
 </div>
 <div id="ref-waring_skimr_2025" class="csl-entry" role="listitem">
 Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2025. <em>Skimr: Compact and Flexible Summaries of Data</em>. <a href="https://CRAN.R-project.org/package=skimr">https://CRAN.R-project.org/package=skimr</a>.
