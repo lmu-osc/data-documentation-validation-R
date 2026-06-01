@@ -1,132 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Contributors\nThis site was authored by Reema Gupta and Malika Ihle.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in 2025 using R 4.4+ with the {datawizard} package for automated data dictionary creation. Major changes to the {datawizard} package can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{gupta2025,\n  author = {Gupta, Reema and Ihle, Malika},\n  title = {Data {Documentation} and {Validation} Using {R} {Tutorial}},\n  date = {2025-11-02},\n  url = {https://lmu-osc.github.io/data-dictionary-R/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nGupta, Reema, and Malika Ihle. 2025. “Data Documentation and\nValidation Using R Tutorial.” LMU Open Science Center, November\n2. https://doi.org/DOI HERE."
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html",
-    "href": "02-data-dictionaries/page1.html",
-    "title": "Concepts & Manual Creation",
-    "section": "",
-    "text": "Without proper documentation, datasets become nearly impossible for others (or future you) to understand and use. In this hands-on section, you’ll learn to create data dictionaries manually and practice with real research data.",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html#what-is-a-data-dictionary",
-    "href": "02-data-dictionaries/page1.html#what-is-a-data-dictionary",
-    "title": "Concepts & Manual Creation",
-    "section": "What is a Data Dictionary?",
-    "text": "What is a Data Dictionary?\nA data dictionary is a structured document that provides comprehensive information about each variable in your dataset. Think of it as the “instruction manual” for your data, it tells anyone (including future you) exactly what each column means, how it was measured, and how to interpret the values.\n\n\n\n\n\n\nTipConsider This\n\n\n\nBefore we continue, reflect on your most recent research project. How would a colleague understand your data if you shared it with them today? What questions would they need to ask you?\n\n\n\nEssential Components\nEvery data dictionary should include:\n\nVariable Name: The exact column name in your data file (e.g., bill_length_mm)\nVariable Label: A human-readable name (e.g., “Bill Length”)\n\nDescription: Clear definition of what was measured (e.g., “Length of the penguin’s bill measured in millimeters”)\nData Type: The type of data stored (numeric, character, categorical, date)\nUnits: For numeric variables, the unit of measurement (mm, grams, years)\nValid Values: Expected range or categories (e.g., “0-100” or “male, female”)\nMissing Values: How missing data is coded (NA, -999, blank)",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html#why-data-dictionaries-matter",
-    "href": "02-data-dictionaries/page1.html#why-data-dictionaries-matter",
-    "title": "Concepts & Manual Creation",
-    "section": "Why Data Dictionaries Matter",
-    "text": "Why Data Dictionaries Matter\n\nPreventing Critical Errors\nWithout documentation, researchers make dangerous assumptions. Is score a percentage (0-100) or raw points (0-50)? Is treatment coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.\n\n\n\n\n\n\nNoteReal-World Example\n\n\n\nA research team spent months analyzing survey data where satisfaction was coded 1-5. They treated 5 as “very satisfied.” Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards! This type of error with reverse-coded items is well-documented in research and can significantly impact study results (Hughes 2009).\n\n\n\n\nEnabling Collaboration\nWhen a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.\n\n\nSupporting FAIR Principles\nFAIR data must be Findable, Accessible, Interoperable, and Reusable (Wilkinson et al. 2016). A quality data dictionary directly supports all four principles by making your data understandable and usable by others.\n\n\n\n\n\n\nTipFAIR Data Management Tutorial\n\n\n\nFor more on FAIR principles and research data management concepts, check out our FAIR Data Management Tutorial.",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html#a-quick-example",
-    "href": "02-data-dictionaries/page1.html#a-quick-example",
-    "title": "Concepts & Manual Creation",
-    "section": "A Quick Example",
-    "text": "A Quick Example\nHere’s undocumented data on study habits and academic performance:\n\n\n\nstudent_id\nstudy_hrs\ntest_score\nmajor\nsatisfaction\nattend\n\n\n\n\n001\n15\n85\nPSYC\n4\nY\n\n\n002\n8\n72\nBIOL\n3\nN\n\n\n003\n22\n94\nPSYC\n5\nY\n\n\n004\nNA\n68\nMATH\n2\nY\n\n\n\nTo make sense of this data, and avoid misinterpretation, we have many questions:\n\nWhat time period do study_hrs cover? Per week? Per month?\nIs test_score out of 100? What test was this?\nWhat does the satisfaction scale mean? Is 1 low or high?\nWhat do Y/N in attend represent?\nWhy is there an NA in study_hrs for student 004?\n\nWith a data dictionary, these questions disappear. Here’s what documentation looks like:\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nLabel\nDescription\nType\nUnits\nValid Values\nMissing\n\n\n\n\nstudent_id\nStudent ID\nUnique identifier for each participant\ncharacter\nnone\n001-999\nnone\n\n\nstudy_hrs\nWeekly Study Hours\nSelf-reported hours spent studying per week\nnumeric\nhours\n0-168\nNA\n\n\ntest_score\nMidterm Score\nScore on standardized midterm exam\nnumeric\npoints\n0-100\nnone\n\n\nmajor\nAcademic Major\nStudent’s declared major field\ncategorical\nnone\nPSYC, BIOL, MATH, CHEM\nnone\n\n\nsatisfaction\nCourse Satisfaction\nRating of course satisfaction (5-point scale)\nnumeric\n1-5 scale\n1=very unsatisfied, 5=very satisfied\nnone\n\n\nattend\nLecture Attendance\nRegular attendance at lectures (&gt;80%)\ncategorical\nnone\nY=yes, N=no\nnone\n\n\n\nThis documentation clarifies everything at a glance, preventing misinterpretation and errors. Now we know that study_hrs are weekly hours, test_score is out of 100, and satisfaction is on a 1-5 scale. This makes analysis straightforward and reliable.",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html#choosing-your-documentation-tool",
-    "href": "02-data-dictionaries/page1.html#choosing-your-documentation-tool",
-    "title": "Concepts & Manual Creation",
-    "section": "Choosing Your Documentation Tool",
-    "text": "Choosing Your Documentation Tool\nBefore creating your data dictionary, select the tool that best fits your workflow. Here are three common approaches:\n\nSpreadsheet Software (Excel, Google Sheets, LibreOffice)\nBest for: Most research teams, easy sharing and collaboration\nCreate your dictionary table directly in a spreadsheet with columns for each essential component. Save as CSV for better compatibility with R and other analysis software.\nPros: Familiar interface, collaborative editing, easy to share\nCons: Can be tricky to track changes over time\n\n\nMarkdown Tables (in .md or .qmd files)\nBest for: Projects using Quarto or reproducible workflows\nUse plain text tables that render beautifully in Quarto documents. These are great for keeping your documentation in the same file as your analysis code.\nTemplate:\n| Variable Name | Label | Description | Type | Units | Valid Values | Missing |\n|---------------|-------|-------------|------|-------|--------------|---------|\n| variable1     |       |             |      |       |              |         |\n| variable2     |       |             |      |       |              |         |\nPros: Works seamlessly with Quarto, readable as plain text, keeps documentation with code\nCons: Less intuitive for non-technical collaborators\n\n\nWord Processors (Word, Google Docs)\nBest for: Teams preferring familiar document formats\nCreate a simple table with the essential columns, similar to spreadsheets but with more formatting options.\n| Variable Name | Label | Description | Type | Units | Valid Values | Missing |\n|---------------|-------|-------------|------|-------|--------------|---------|\n| species       |       |             |      |       |              |         |\n| bill_length_mm|       |             |      |       |              |         |\n| sex           |       |             |      |       |              |         |\n| year          |       |             |      |       |              |         |\nPros: Rich formatting, familiar to most researchers\nCons: Harder to integrate with R analysis code\n\n\n\n\n\n\nTipRecommendation for This Tutorial\n\n\n\nSince you’re learning with Quarto, try creating your data dictionary as a markdown table in a .qmd file. This will help you practice Quarto syntax and see how documentation integrates with your analysis code.",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html#exercise-document-the-palmer-penguins-data",
-    "href": "02-data-dictionaries/page1.html#exercise-document-the-palmer-penguins-data",
-    "title": "Concepts & Manual Creation",
-    "section": "Exercise: Document the Palmer Penguins Data",
-    "text": "Exercise: Document the Palmer Penguins Data\nNow apply what you’ve learned to the Palmer Penguins dataset from the previous section.\n\nStep 1: Load and Examine the Data\nExamine the data by either opening the CSV with a text editor or running this code in R to see what you’re working with:\n\nlibrary(readr)\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\nhead(penguins_clean)\n\n\n\nStep 2: Choose Your Documentation Tool\nPick one:\n\nSpreadsheet (Excel, Google Sheets): Open a new spreadsheet file\nMarkdown (recommended for this tutorial): Create a new file data/penguins_clean_dictionary.qmd in your project folder alongside your data\nWord processor: Open a new Word/Google Docs document\n\n\n\nStep 3: Create Your Data Dictionary\nCreate a data dictionary for these 4 variables: species, bill_length_mm, sex, year\nFor each variable, you’ll document:\n\nLabel: Human-readable name\nDescription: What does this measure or represent?\nType: categorical or numeric?\nUnits: What are the units (if numeric)?\nValid Values: What values are valid/expected?\nMissing: How are missing data coded?\n\n\n\n\n\n\n\nTipFor Spreadsheet Users (Excel, Google Sheets)\n\n\n\n\nOpen a new spreadsheet\nIn row 1, create these 7 column headers:\n\nVariable Name | Label | Description | Type | Units | Valid Values | Missing\n\nIn rows 2-5, add these variable names in the first column:\n\nspecies\nbill_length_mm\nsex\nyear\n\nFill in the remaining cells for each variable\n\n\n\n\n\n\n\n\n\nTipFor Word Processor Users (Word, Google Docs)\n\n\n\n\nOpen a new document\nInsert a table with 7 columns and 5 rows (Table → Insert Table → 7x5)\nIn row 1, add the column headers:\n\nVariable Name | Label | Description | Type | Units | Valid Values | Missing\n\nIn rows 2-5, add these variable names in the first column:\n\nspecies\nbill_length_mm\nsex\nyear\n\nFill in the remaining cells for each variable\n\n\n\n\n\n\n\n\n\nTipFor Quarto/Markdown Users (.qmd file)\n\n\n\n\nCreate a new file quarto file named penguins_clean_dictionary and save it in the data folder of your project.\nCopy and paste this markdown table into the file:\n\n| Variable Name  | Label | Description | Type | Units | Valid Values | Missing |\n|----------------|-------|-------------|------|-------|--------------|---------|\n| species        |       |             |      |       |              |         |\n| bill_length_mm |       |             |      |       |              |         |\n| sex            |       |             |      |       |              |         |\n| year           |       |             |      |       |              |         |\n\nFill in the empty cells for each variable\n\n\n\nComplete this exercise before looking at the solution below!\n\n\n\n\n\n\nImportantSolution: Palmer Penguins Data Dictionary\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nLabel\nDescription\nType\nUnits\nValid Values\nMissing\n\n\n\n\nspecies\nPenguin Species\nSpecies of penguin observed\ncategorical\nnone\nAdelie, Chinstrap, Gentoo\nnone\n\n\nbill_length_mm\nBill Length\nLength of the penguin’s bill (culmen) from tip to base\nnumeric\nmillimeters\n32.1-59.6\nNA\n\n\nsex\nPenguin Sex\nBiological sex of the penguin\ncategorical\nnone\nmale, female\nNA\n\n\nyear\nObservation Year\nYear the observation was recorded\nnumeric\nyear\n2007, 2008, 2009\nnone\n\n\n\nAdditional context:\n\nBill length represents the culmen length (the dorsal ridge of the bill)\nMissing values (NA) in bill_length_mm and sex occur when measurements couldn’t be obtained\nYear is numeric but only 2007-2009 are valid values",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "02-data-dictionaries/page1.html#when-manual-creation-is-most-effective",
-    "href": "02-data-dictionaries/page1.html#when-manual-creation-is-most-effective",
-    "title": "Concepts & Manual Creation",
-    "section": "When Manual Creation is Most Effective",
-    "text": "When Manual Creation is Most Effective\nManual creation works optimally when:\n\nYou have few variables\nYour data structure remains stable over time\nYou need detailed, contextual descriptions\nYou’re collaborating with non-technical team members\nYou require precise control over documentation details\n\nFor larger datasets manual creation can become tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.",
-    "crumbs": [
-      "Home",
-      "Data Dictionaries",
-      "Concepts & Manual Creation"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page1.html",
-    "href": "01-tutorial-setup/page1.html",
-    "title": "Project Setup",
-    "section": "",
-    "text": "This section guides you through setting up your R environment for data documentation and validation. You’ll create a project using Quarto, a tool for creating documents that combine code and text.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Project Setup"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page1.html#create-quarto-project",
-    "href": "01-tutorial-setup/page1.html#create-quarto-project",
-    "title": "Project Setup",
-    "section": "Create Quarto Project",
-    "text": "Create Quarto Project\nFirst, we will need to create a new Quarto project.\nIf you haven’t already, open RStudio – see Note 1 for how to use the terminal instead. Then, click on File &gt; New Project… to open the New Project Wizard.\n\n\n\n\n\nHere, select New Directory\n\n\n\n\n\nAnd choose the project type Quarto Project.\n\n\n\n\n\nFinally, enter the name of the directory where our report will be created in, for example data-documentation-validation-exercise.\nYou can leave Create a git repository and Use renv with this project unchecked to keep things simple for this tutorial.\nIf you are already familiar with Markdown and Quarto, you can also uncheck the box Use visual markdown editor.\n\n\n\n\n\nClick on Create Project. Your RStudio window should now look similar to this:\n\n\n\n\n\nIf, like in the image, a Quarto file with some demo content was opened automatically, you can close and delete it, for example, using RStudio’s file manager.\nThroughout this tutorial, you’ll run R code interactively. For now, you can type commands directly into the Console tab. On the next page, you’ll create an R script file to keep your code organized.\n\n\n\n\n\n\nTip 1: Without RStudio\n\n\n\n\n\nWithout RStudio, you can create a Quarto project by typing the following into a terminal:\n\n\nTerminal\n\nquarto create project default data-documentation-validation-exercise\ncd data-documentation-validation-exercise/\nrm data-documentation-validation-exercise.qmd\n\nThen, open an R session by typing R into the terminal. Make sure that getwd() shows your working directory is data-documentation-validation-exercise.\n\n\n\n\n\n\n\n\n\nTipCheckpoint: Verify Your Project Setup\n\n\n\nBefore moving to the next section, verify your setup is working by typing this command into the Console:\nCheck working directory - Should end with your project name\n\ngetwd()\n\nExpected output: Path ending in your project folder name (e.g., data-documentation-validation-exercise)\nIf this doesn’t show the correct path, review the steps above or ask for help before continuing.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Project Setup"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page1.html#next-steps",
-    "href": "01-tutorial-setup/page1.html#next-steps",
-    "title": "Project Setup",
-    "section": "Next Steps",
-    "text": "Next Steps\nYour project is now set up with Quarto! In the next section, you’ll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Project Setup"
-    ]
-  },
-  {
     "objectID": "03-data-validation/page2.html",
     "href": "03-data-validation/page2.html",
     "title": "Summary Statistics",
@@ -259,281 +132,11 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Documentation and Validation using R",
-    "section": "",
-    "text": "Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#why-document-your-data",
-    "href": "index.html#why-document-your-data",
-    "title": "Data Documentation and Validation using R",
-    "section": "Why Document Your Data?",
-    "text": "Why Document Your Data?\nGood documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Data documentation is an essential pillar of good research practices which will allow for your research to have greater impact.",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#what-youll-learn",
-    "href": "index.html#what-youll-learn",
-    "title": "Data Documentation and Validation using R",
-    "section": "What You’ll Learn",
-    "text": "What You’ll Learn\nBy the end of this tutorial, you will be able to:\n\nCreate data dictionaries that clearly describe your variables and datasets (both manually and automatically)\nUse summary statistics to identify data quality issues and understand your data’s characteristics\nImplement automated validation workflows to catch errors systematically\nGenerate professional reports that combine documentation, validation results, and code\n\nWe’ll use real research data (Palmer Penguins) and modern R packages to build a complete data documentation workflow.",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#prerequisites",
-    "href": "index.html#prerequisites",
-    "title": "Data Documentation and Validation using R",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nThis tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:\n\nIntroduction to R\nIntroduction to Quarto\n\nYou should also have:\n\nBasic R and RStudio familiarity\nExperience working with data frames\nUnderstanding of variables, observations, and data types",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#tutorial-structure",
-    "href": "index.html#tutorial-structure",
-    "title": "Data Documentation and Validation using R",
-    "section": "Tutorial Structure",
-    "text": "Tutorial Structure\n\n1. Tutorial Setup\nSet up your R project environment with Quarto. Install required packages and get familiar with the Palmer Penguins dataset.\n\n\n2. Data Dictionaries\nLearn to create comprehensive variable documentation:\n\nConcepts & Manual Creation: Understand what makes a good data dictionary and create one by hand\nAutomated Creation with R: Use the {datawizard} package to generate dictionaries automatically\n\n\n\n3. Data Validation\nImplement systematic quality checks to catch errors early:\n\nData Quality Concepts: Understand types of data issues and validation approaches\nSummary Statistics: Use base R functions to identify problems through descriptive statistics, create validation functions, and integrate checks into living documentation",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#example-dataset",
-    "href": "index.html#example-dataset",
-    "title": "Data Documentation and Validation using R",
-    "section": "Example Dataset",
-    "text": "Example Dataset\nWe’ll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from islands in the Palmer Archipelago, Antarctica, including measurements of bill dimensions, flipper length, body mass, and other characteristics.\nYou’ll work with both a clean version (high-quality data) and a messy version (with realistic data quality issues) to practice identifying and fixing common problems.",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#tutorial-navigation",
-    "href": "index.html#tutorial-navigation",
-    "title": "Data Documentation and Validation using R",
-    "section": "Tutorial Navigation",
-    "text": "Tutorial Navigation\nThe topics are accompanied by distinct boxes that are color-coded for their content:\n\n\n\n\n\n\nCautionOrange boxes contain information crucial for that topic\n\n\n\nThese highlight key concepts, important warnings, or critical information you need to understand.\n\n\n\n\n\n\n\n\nNoteBlue boxes contain excursions to related topics\n\n\n\nThese provide additional context, connections to other concepts, or deeper explanations for the curious learner.\n\n\n\n\n\n\n\n\nTipGreen boxes contain practical tips and guidance\n\n\n\nThese offer helpful advice, best practices, and shortcuts to make your work easier.\n\n\n\n\n\n\n\n\nImportantRed boxes contain solutions and are collapsed\n\n\n\nOnly open these if you want to see the solution! Try exercises on your own first.",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "Data Documentation and Validation using R",
-    "section": "Getting Started",
-    "text": "Getting Started\nReady to begin? Start with Tutorial Setup to configure your R environment.",
-    "crumbs": [
-      "Home",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
-    "section": "",
-    "text": "Creative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n\nConsiderations for licensors: Our public licenses are intended for use by those authorized to give the public permission to use material in ways otherwise restricted by copyright and certain other rights. Our licenses are irrevocable. Licensors should read and understand the terms and conditions of the license they choose before applying it. Licensors should also secure all rights necessary before applying our licenses so that the public can reuse the material as expected. Licensors should clearly mark any material not subject to the license. This includes other CC-licensed material, or material used under an exception or limitation to copyright. More considerations for licensors.\nConsiderations for the public: By using one of our public licenses, a licensor grants the public permission to use the licensed material under specified terms and conditions. If the licensor’s permission is not necessary for any reason–for example, because of any applicable exception or limitation to copyright–then that use is not regulated by the license. Our licenses grant only permissions under copyright and certain other rights that a licensor has authority to grant. Use of the licensed material may still be restricted for other reasons, including because others have copyright or other rights in the material. A licensor may make special requests, such as asking that all changes be marked or described. Although not required by our licenses, you are encouraged to respect those requests where reasonable. More considerations for the public.\n\n\n\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
-    "href": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
-    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
-    "section": "",
-    "text": "By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "03-data-validation/page1.html",
-    "href": "03-data-validation/page1.html",
-    "title": "Data Quality Concepts",
-    "section": "",
-    "text": "Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you’ve documented.",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Data Quality Concepts"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page1.html#why-data-validation-matters",
-    "href": "03-data-validation/page1.html#why-data-validation-matters",
-    "title": "Data Quality Concepts",
-    "section": "Why Data Validation Matters",
-    "text": "Why Data Validation Matters\nYour data dictionary describes what your data should look like. Data validation checks whether your actual data matches those expectations.\nThe problem: Your Palmer Penguins data dictionary documents the bill length and you know that it should be 30-60mm. But what if your dataset contains 3000mm or negative numbers? Your analysis would produce wrong results even though your documentation is perfect.\nThe solution: Validate data before analysis begins (proactive), not after you discover problems during analysis (reactive). This saves time and increases confidence in your results.",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Data Quality Concepts"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page1.html#see-data-quality-problems-in-action",
-    "href": "03-data-validation/page1.html#see-data-quality-problems-in-action",
-    "title": "Data Quality Concepts",
-    "section": "See Data Quality Problems in Action",
-    "text": "See Data Quality Problems in Action\nThe messy Palmer Penguins dataset you downloaded contains intentional errors. Let’s find them:\n\nStep 1: Browse the Data Manually\nOpen data/penguins_messy.csv in a text editor or spreadsheet program. Scroll through and look for anything that seems wrong. Don’t worry about finding everything, just get familiar with what’s there.\n\n\nStep 2: Use R to Check Systematically\n\nlibrary(readr)\nlibrary(dplyr)\n\npenguins_messy &lt;- read_csv(\"data/penguins_messy.csv\", show_col_types = FALSE)\n\n# Check unique values in categorical variables (shows all different values)\nunique(penguins_messy$species)\nunique(penguins_messy$island)\nunique(penguins_messy$sex)\nunique(penguins_messy$year)\n\n# Check ranges of numeric variables (shows minimum and maximum)\n# The na.rm = TRUE argument ignores missing values\nrange(penguins_messy$bill_length_mm, na.rm = TRUE)\nrange(penguins_messy$body_mass_g, na.rm = TRUE)\n\n\n\nStep 3: Compare to What’s Expected\nBased on your data dictionary from the previous sections, the data should have:\n\nSpecies: Adelie, Chinstrap, Gentoo (only these three, spelled correctly)\nYears: 2007, 2008, 2009 (only these three)\nSex: male, female, or NA (consistent coding)\nBill length: roughly 30-60mm (no negative numbers, no extreme values)\nBody mass: roughly 2,700-6,300g (biologically plausible)\n\n\n\n\n\n\n\nImportantExamples of Problems in the Messy Data\n\n\n\n\n\n\nSpecies: “Adelei” (typo), “Gentoo penguin” (extra text), “ADELIE” (wrong case)\nIsland: “Torgerson” (typo), “biscoe” (wrong case)\nBill length: -5.2 (negative), 250.5 (impossibly large), 999 (placeholder)\nBody mass: 15000g (too heavy), 500g (too light)\nSex: “M”, “F”, “Male”, “MALE”, “Female” (inconsistent coding)\nYear: 2020, 2006, 207, 20009 (invalid years)\n\nThese are exactly the types of problems that happen in real research data!",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Data Quality Concepts"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page1.html#three-types-of-data-quality-issues",
-    "href": "03-data-validation/page1.html#three-types-of-data-quality-issues",
-    "title": "Data Quality Concepts",
-    "section": "Three Types of Data Quality Issues",
-    "text": "Three Types of Data Quality Issues\nThe problems you spotted fall into three categories:\n\nStructural: Wrong data types, typos in categories, inconsistent coding\n\nExample: “M” vs “male” vs “Male”\n\nContent: Out-of-range or impossible values\n\nExample: Bill length of 250mm or -5mm\n\nDomain: Scientifically implausible but technically valid\n\nExample: A penguin weighing 15,000g (way outside the normal 2,700-6,300g range)",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Data Quality Concepts"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page1.html#connecting-validation-to-documentation",
-    "href": "03-data-validation/page1.html#connecting-validation-to-documentation",
-    "title": "Data Quality Concepts",
-    "section": "Connecting Validation to Documentation",
-    "text": "Connecting Validation to Documentation\nYour data dictionary defines the rules; validation checks them:\n\n\n\n\n\n\n\nData Dictionary Says\nValidation Checks\n\n\n\n\nBill length: logically 30-60mm\nAre all values in this range?\n\n\nSpecies: Adelie, Chinstrap, Gentoo\nAre there any typos or other values?\n\n\nBody mass: numeric\nIs it stored as numbers (not text)?\n\n\n\nWhen to validate: You could validate data either right after collection (to catch entry errors) or just before analysis (to ensure data quality). Ideally, do both! The first is proactive and catches errors early, the second ensures quality before results. And finally, validate before sharing data with others and make sure your documentation is up to date with any changes you make during validation.\n\n\n\n\n\n\nImportantKey Takeaway\n\n\n\nValidation isn’t optional, it’s part of doing research carefully. The messy penguins data shows how easy it is for errors to creep in. Catching them early (before analysis) is much easier than debugging mysterious results later.",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Data Quality Concepts"
-    ]
-  },
-  {
-    "objectID": "03-data-validation/page1.html#next-steps",
-    "href": "03-data-validation/page1.html#next-steps",
-    "title": "Data Quality Concepts",
-    "section": "Next Steps",
-    "text": "Next Steps\nIn the next section, you’ll learn systematic techniques for spotting these problems using summary statistics in R. You’ll work with the messy penguins dataset to detect these errors.",
-    "crumbs": [
-      "Home",
-      "Data Validation",
-      "Data Quality Concepts"
-    ]
-  },
-  {
     "objectID": "LICENSE-CODE.html",
     "href": "LICENSE-CODE.html",
     "title": "Creative Commons Zero v1.0 Universal",
     "section": "",
     "text": "Creative Commons Zero v1.0 Universal\nCREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN “AS-IS” BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED HEREUNDER.\n\nStatement of Purpose\nThe laws of most jurisdictions throughout the world automatically confer exclusive Copyright and Related Rights (defined below) upon the creator and subsequent owner(s) (each and all, an “owner”) of an original work of authorship and/or a database (each, a “Work”).\nCertain owners wish to permanently relinquish those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific works (“Commons”) that the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes. These owners may contribute to the Commons to promote the ideal of a free culture and the further production of creative, cultural and scientific works, or to gain reputation or greater distribution for their Work in part through the use and efforts of others.\nFor these and/or other purposes and motivations, and without any expectation of additional consideration or compensation, the person associating CC0 with a Work (the “Affirmer”), to the extent that he or she is an owner of Copyright and Related Rights in the Work, voluntarily elects to apply CC0 to the Work and publicly distribute the Work under its terms, with knowledge of his or her Copyright and Related Rights in the Work and the meaning and intended legal effect of CC0 on those rights.\n\nCopyright and Related Rights. A Work made available under CC0 may be protected by copyright and related or neighboring rights (“Copyright and Related Rights”). Copyright and Related Rights include, but are not limited to, the following:\n\nthe right to reproduce, adapt, distribute, perform, display, communicate, and translate a Work;\nmoral rights retained by the original author(s) and/or performer(s);\npublicity and privacy rights pertaining to a person’s image or likeness depicted in a Work;\nrights protecting against unfair competition in regards to a Work, subject to the limitations in paragraph 4(a), below;\nrights protecting the extraction, dissemination, use and reuse of data in a Work;\ndatabase rights (such as those arising under Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, and under any national implementation thereof, including any amended or successor version of such directive); and\nother similar, equivalent or corresponding rights throughout the world based on applicable law or treaty, and any national implementations thereof.\n\nWaiver. To the greatest extent permitted by, but not in contravention of, applicable law, Affirmer hereby overtly, fully, permanently, irrevocably and unconditionally waives, abandons, and surrenders all of Affirmer’s Copyright and Related Rights and associated claims and causes of action, whether now known or unknown (including existing as well as future claims and causes of action), in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “Waiver”). Affirmer makes the Waiver for the benefit of each member of the public at large and to the detriment of Affirmer’s heirs and successors, fully intending that such Waiver shall not be subject to revocation, rescission, cancellation, termination, or any other legal or equitable action to disrupt the quiet enjoyment of the Work by the public as contemplated by Affirmer’s express Statement of Purpose.\nPublic License Fallback. Should any part of the Waiver for any reason be judged legally invalid or ineffective under applicable law, then the Waiver shall be preserved to the maximum extent permitted taking into account Affirmer’s express Statement of Purpose. In addition, to the extent the Waiver is so judged Affirmer hereby grants to each affected person a royalty-free, non transferable, non sublicensable, non exclusive, irrevocable and unconditional license to exercise Affirmer’s Copyright and Related Rights in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the “License”). The License shall be deemed effective as of the date CC0 was applied by Affirmer to the Work. Should any part of the License for any reason be judged legally invalid or ineffective under applicable law, such partial invalidity or ineffectiveness shall not invalidate the remainder of the License, and in such case Affirmer hereby affirms that he or she will not (i) exercise any of his or her remaining Copyright and Related Rights in the Work or (ii) assert any associated claims and causes of action with respect to the Work, in either case contrary to Affirmer’s express Statement of Purpose.\nLimitations and Disclaimers.\n\nNo trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\nAffirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.\nAffirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person’s Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.\nAffirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.\n\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html",
-    "href": "01-tutorial-setup/page2.html",
-    "title": "Example Data & Tools",
-    "section": "",
-    "text": "In this tutorial, we’ll work with real research data to learn data documentation principles. You’ll also get familiar with the key R packages that make data validation and documentation efficient.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#our-example-dataset-palmer-penguins",
-    "href": "01-tutorial-setup/page2.html#our-example-dataset-palmer-penguins",
-    "title": "Example Data & Tools",
-    "section": "Our Example Dataset: Palmer Penguins",
-    "text": "Our Example Dataset: Palmer Penguins\n\n\n\nPalmer Penguins\n\n\nWe’ll use the Palmer Penguins dataset throughout this tutorial (Gorman et al. 2014) - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:\n\nNumeric measurements: Bill length, bill depth, flipper length (millimeters), and body mass (grams)\nCategorical data: Species, island, sex, and year\n\nThis dataset is perfect for learning because it contains different data types, has some missing values (realistic!), is scientifically meaningful, and is small enough to understand completely.\n\nTwo Versions: Clean and Messy\nYou’ll work with two versions of this data:\n\nClean data (penguins_clean.csv): High-quality dataset for learning documentation\nMessy data (penguins_messy.csv): Contains intentional data quality problems for practicing validation\n\nThe messy version mirrors real-world issues you’ll encounter: typos in species/island names, inconsistent formatting (e.g., “M” vs “male”), impossible values (negative measurements, placeholder 999), extreme outliers (body mass of 15,000g when max should be ~6,300g), and data entry errors.\n\n\n\n\n\n\nNoteHow We Created the Messy Data\n\n\n\n\n\nWe introduced realistic data quality issues across the observations, including:\n\nSpecies: Typos like “Adelei”, case errors, extra text like “Gentoo penguin”\nIsland: Typos like “Torgerson”, case errors like “biscoe”\nBill length: Negative values, impossible measurements, placeholder 999\nBill depth: Negative values, placeholder 99.9\nFlipper length: Zero values\nBody mass: Extreme outliers (15000g, 500g, 10000g)\nSex: Inconsistent coding (M/F/male/Male/MALE/m/Female)\nYear: Invalid years (2020, 2006, 207, 20009)\n\nThese mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is available on here.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#key-r-packages-well-use",
-    "href": "01-tutorial-setup/page2.html#key-r-packages-well-use",
-    "title": "Example Data & Tools",
-    "section": "Key R Packages We’ll Use",
-    "text": "Key R Packages We’ll Use\nThroughout this tutorial, you’ll work with three main packages:\n\n{readr}: Reading CSV files into R\n{dplyr}: Data manipulation and exploration\n{datawizard}: Automates creation of data dictionaries",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#installing-required-packages",
-    "href": "01-tutorial-setup/page2.html#installing-required-packages",
-    "title": "Example Data & Tools",
-    "section": "Installing Required Packages",
-    "text": "Installing Required Packages\nInstall the packages you’ll need:\n\n# Install required packages\ninstall.packages(c(\n  \"readr\",           # Reading CSV files\n  \"dplyr\",           # Data manipulation\n  \"datawizard\"       # Data dictionaries\n))",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#download-the-datasets",
-    "href": "01-tutorial-setup/page2.html#download-the-datasets",
-    "title": "Example Data & Tools",
-    "section": "Download the Datasets",
-    "text": "Download the Datasets\nDownload both versions of the Palmer Penguins data:\n\n Download Clean Data \n Download Messy Data \n\nImportant: Save both files in a folder called data inside your project directory. If the data folder doesn’t exist yet, create it first.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#create-an-r-script",
-    "href": "01-tutorial-setup/page2.html#create-an-r-script",
-    "title": "Example Data & Tools",
-    "section": "Create an R Script",
-    "text": "Create an R Script\nBefore loading data, create an R script to keep your code organized:\nIn RStudio: Click File &gt; New File &gt; R Script. Save it as documentation-exercise.R in your project folder.\nWithout RStudio: Create a file called documentation-exercise.R in your project directory.\nYou’ll type your code in this script and run it line-by-line (RStudio: Ctrl+Enter / Cmd+Enter, or use the “Run” button). This keeps a record of all your work.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#load-and-verify-the-data",
-    "href": "01-tutorial-setup/page2.html#load-and-verify-the-data",
-    "title": "Example Data & Tools",
-    "section": "Load and Verify the Data",
-    "text": "Load and Verify the Data\nNow load the clean data and verify it worked:\n\nlibrary(readr)  # fast, consistent functions to read CSV/TSV into tibbles\nlibrary(dplyr)  # tidy, readable verbs for data manipulation (filter, select, mutate, summarize) that we'll use later\n\n# Load the clean penguins data\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\n\n# Take a first look\nglimpse(penguins_clean)\n\n\n\n\n\n\n\nNoteWhy readr and dplyr Instead of Base R?\n\n\n\n\n\nWhile base R has read.csv() and str(), we use readr and dplyr because:\n\nread_csv() is more beginner-friendly than read.csv():\n\nDoesn’t automatically convert text to factors (fewer surprises)\nBetter default column type detection\nShows a clear summary of column types\nCreates tibbles which display more nicely\n\nglimpse() is clearer than str():\n\nMore compact, readable output\nShows first few values of each column\nBetter formatting for wide datasets\n\n\nThese packages are part of the widely-used tidyverse ecosystem, so learning them now will help you in future R work. For this tutorial, we use minimal functions from these packages so you can focus on data validation concepts rather than R syntax.\n\n\n\nYou should see 344 observations of 8 variables.\n\n\n\n\n\n\nTipCheckpoint: Verify Your Data\n\n\n\nBefore continuing, verify the data loaded correctly:\n\n# Should show 344 rows and 8 columns\ndim(penguins_clean)\n\n# Should display: species, island, bill_length_mm, bill_depth_mm,\n#                 flipper_length_mm, body_mass_g, sex, year\nnames(penguins_clean)\n\n# Check first few rows\nhead(penguins_clean)\n\nIf you see errors:\n\nMake sure both CSV files are in the data folder\nCheck that your working directory is your project folder (use getwd() to verify)\nTry restarting R",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
-  },
-  {
-    "objectID": "01-tutorial-setup/page2.html#next-steps",
-    "href": "01-tutorial-setup/page2.html#next-steps",
-    "title": "Example Data & Tools",
-    "section": "Next Steps",
-    "text": "Next Steps\nYou now have your environment set up with the necessary packages and both datasets. In the next section, you’ll learn how to create data dictionaries that document what each variable means and how it should be interpreted.",
-    "crumbs": [
-      "Home",
-      "Tutorial Setup",
-      "Example Data & Tools"
-    ]
   },
   {
     "objectID": "02-data-dictionaries/page2.html",
@@ -641,6 +244,403 @@
       "Home",
       "Data Dictionaries",
       "Automated Creation with R"
+    ]
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "section": "",
+    "text": "Creative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n\nConsiderations for licensors: Our public licenses are intended for use by those authorized to give the public permission to use material in ways otherwise restricted by copyright and certain other rights. Our licenses are irrevocable. Licensors should read and understand the terms and conditions of the license they choose before applying it. Licensors should also secure all rights necessary before applying our licenses so that the public can reuse the material as expected. Licensors should clearly mark any material not subject to the license. This includes other CC-licensed material, or material used under an exception or limitation to copyright. More considerations for licensors.\nConsiderations for the public: By using one of our public licenses, a licensor grants the public permission to use the licensed material under specified terms and conditions. If the licensor’s permission is not necessary for any reason–for example, because of any applicable exception or limitation to copyright–then that use is not regulated by the license. Our licenses grant only permissions under copyright and certain other rights that a licensor has authority to grant. Use of the licensed material may still be restricted for other reasons, including because others have copyright or other rights in the material. A licensor may make special requests, such as asking that all changes be marked or described. Although not required by our licenses, you are encouraged to respect those requests where reasonable. More considerations for the public.\n\n\n\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "href": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "title": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "section": "",
+    "text": "By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\n\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\n\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\n\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\n\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\n\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\n\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\n\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\n\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html",
+    "href": "01-tutorial-setup/page2.html",
+    "title": "Example Data & Tools",
+    "section": "",
+    "text": "In this tutorial, we’ll work with real research data to learn data documentation principles. You’ll also get familiar with the key R packages that make data validation and documentation efficient.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#our-example-dataset-palmer-penguins",
+    "href": "01-tutorial-setup/page2.html#our-example-dataset-palmer-penguins",
+    "title": "Example Data & Tools",
+    "section": "Our Example Dataset: Palmer Penguins",
+    "text": "Our Example Dataset: Palmer Penguins\n\n\n\nPalmer Penguins\n\n\nWe’ll use the Palmer Penguins dataset throughout this tutorial (Gorman et al. 2014) - observations of three penguin species collected from three islands in the Palmer Archipelago, Antarctica. The dataset includes 344 observations of 8 variables:\n\nNumeric measurements: Bill length, bill depth, flipper length (millimeters), and body mass (grams)\nCategorical data: Species, island, sex, and year\n\nThis dataset is perfect for learning because it contains different data types, has some missing values (realistic!), is scientifically meaningful, and is small enough to understand completely.\n\nTwo Versions: Clean and Messy\nYou’ll work with two versions of this data:\n\nClean data (penguins_clean.csv): High-quality dataset for learning documentation\nMessy data (penguins_messy.csv): Contains intentional data quality problems for practicing validation\n\nThe messy version mirrors real-world issues you’ll encounter: typos in species/island names, inconsistent formatting (e.g., “M” vs “male”), impossible values (negative measurements, placeholder 999), extreme outliers (body mass of 15,000g when max should be ~6,300g), and data entry errors.\n\n\n\n\n\n\nNoteHow We Created the Messy Data\n\n\n\n\n\nWe introduced realistic data quality issues across the observations, including:\n\nSpecies: Typos like “Adelei”, case errors, extra text like “Gentoo penguin”\nIsland: Typos like “Torgerson”, case errors like “biscoe”\nBill length: Negative values, impossible measurements, placeholder 999\nBill depth: Negative values, placeholder 99.9\nFlipper length: Zero values\nBody mass: Extreme outliers (15000g, 500g, 10000g)\nSex: Inconsistent coding (M/F/male/Male/MALE/m/Female)\nYear: Invalid years (2020, 2006, 207, 20009)\n\nThese mirror common problems in real research data: data entry mistakes, sensor errors, placeholder values not removed, and transcription errors. The generation script is available on here.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#key-r-packages-well-use",
+    "href": "01-tutorial-setup/page2.html#key-r-packages-well-use",
+    "title": "Example Data & Tools",
+    "section": "Key R Packages We’ll Use",
+    "text": "Key R Packages We’ll Use\nThroughout this tutorial, you’ll work with three main packages:\n\n{readr}: Reading CSV files into R\n{dplyr}: Data manipulation and exploration\n{datawizard}: Automates creation of data dictionaries",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#installing-required-packages",
+    "href": "01-tutorial-setup/page2.html#installing-required-packages",
+    "title": "Example Data & Tools",
+    "section": "Installing Required Packages",
+    "text": "Installing Required Packages\nInstall the packages you’ll need:\n\n# Install required packages\ninstall.packages(c(\n  \"readr\",           # Reading CSV files\n  \"dplyr\",           # Data manipulation\n  \"datawizard\"       # Data dictionaries\n))",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#download-the-datasets",
+    "href": "01-tutorial-setup/page2.html#download-the-datasets",
+    "title": "Example Data & Tools",
+    "section": "Download the Datasets",
+    "text": "Download the Datasets\nDownload both versions of the Palmer Penguins data:\n\n Download Clean Data \n Download Messy Data \n\nImportant: Save both files in a folder called data inside your project directory. If the data folder doesn’t exist yet, create it first.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#create-an-r-script",
+    "href": "01-tutorial-setup/page2.html#create-an-r-script",
+    "title": "Example Data & Tools",
+    "section": "Create an R Script",
+    "text": "Create an R Script\nBefore loading data, create an R script to keep your code organized:\nIn RStudio: Click File &gt; New File &gt; R Script. Save it as documentation-exercise.R in your project folder.\nWithout RStudio: Create a file called documentation-exercise.R in your project directory.\nYou’ll type your code in this script and run it line-by-line (RStudio: Ctrl+Enter / Cmd+Enter, or use the “Run” button). This keeps a record of all your work.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#load-and-verify-the-data",
+    "href": "01-tutorial-setup/page2.html#load-and-verify-the-data",
+    "title": "Example Data & Tools",
+    "section": "Load and Verify the Data",
+    "text": "Load and Verify the Data\nNow load the clean data and verify it worked:\n\nlibrary(readr)  # fast, consistent functions to read CSV/TSV into tibbles\nlibrary(dplyr)  # tidy, readable verbs for data manipulation (filter, select, mutate, summarize) that we'll use later\n\n# Load the clean penguins data\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\n\n# Take a first look\nglimpse(penguins_clean)\n\n\n\n\n\n\n\nNoteWhy readr and dplyr Instead of Base R?\n\n\n\n\n\nWhile base R has read.csv() and str(), we use readr and dplyr because:\n\nread_csv() is more beginner-friendly than read.csv():\n\nDoesn’t automatically convert text to factors (fewer surprises)\nBetter default column type detection\nShows a clear summary of column types\nCreates tibbles which display more nicely\n\nglimpse() is clearer than str():\n\nMore compact, readable output\nShows first few values of each column\nBetter formatting for wide datasets\n\n\nThese packages are part of the widely-used tidyverse ecosystem, so learning them now will help you in future R work. For this tutorial, we use minimal functions from these packages so you can focus on data validation concepts rather than R syntax.\n\n\n\nYou should see 344 observations of 8 variables.\n\n\n\n\n\n\nTipCheckpoint: Verify Your Data\n\n\n\nBefore continuing, verify the data loaded correctly:\n\n# Should show 344 rows and 8 columns\ndim(penguins_clean)\n\n# Should display: species, island, bill_length_mm, bill_depth_mm,\n#                 flipper_length_mm, body_mass_g, sex, year\nnames(penguins_clean)\n\n# Check first few rows\nhead(penguins_clean)\n\nIf you see errors:\n\nMake sure both CSV files are in the data folder\nCheck that your working directory is your project folder (use getwd() to verify)\nTry restarting R",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page2.html#next-steps",
+    "href": "01-tutorial-setup/page2.html#next-steps",
+    "title": "Example Data & Tools",
+    "section": "Next Steps",
+    "text": "Next Steps\nYou now have your environment set up with the necessary packages and both datasets. In the next section, you’ll learn how to create data dictionaries that document what each variable means and how it should be interpreted.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Example Data & Tools"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page1.html",
+    "href": "01-tutorial-setup/page1.html",
+    "title": "Project Setup",
+    "section": "",
+    "text": "This section guides you through setting up your R environment for data documentation and validation. You’ll create a project using Quarto, a tool for creating documents that combine code and text.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Project Setup"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page1.html#create-quarto-project",
+    "href": "01-tutorial-setup/page1.html#create-quarto-project",
+    "title": "Project Setup",
+    "section": "Create Quarto Project",
+    "text": "Create Quarto Project\nFirst, we will need to create a new Quarto project.\nIf you haven’t already, open RStudio – see Note 1 for how to use the terminal instead. Then, click on File &gt; New Project… to open the New Project Wizard.\n\n\n\n\n\nHere, select New Directory\n\n\n\n\n\nAnd choose the project type Quarto Project.\n\n\n\n\n\nFinally, enter the name of the directory where our report will be created in, for example data-documentation-validation-exercise.\nYou can leave Create a git repository and Use renv with this project unchecked to keep things simple for this tutorial.\nIf you are already familiar with Markdown and Quarto, you can also uncheck the box Use visual markdown editor.\n\n\n\n\n\nClick on Create Project. Your RStudio window should now look similar to this:\n\n\n\n\n\nIf, like in the image, a Quarto file with some demo content was opened automatically, you can close and delete it, for example, using RStudio’s file manager.\nThroughout this tutorial, you’ll run R code interactively. For now, you can type commands directly into the Console tab. On the next page, you’ll create an R script file to keep your code organized.\n\n\n\n\n\n\nTip 1: Without RStudio\n\n\n\n\n\nWithout RStudio, you can create a Quarto project by typing the following into a terminal:\n\n\nTerminal\n\nquarto create project default data-documentation-validation-exercise\ncd data-documentation-validation-exercise/\nrm data-documentation-validation-exercise.qmd\n\nThen, open an R session by typing R into the terminal. Make sure that getwd() shows your working directory is data-documentation-validation-exercise.\n\n\n\n\n\n\n\n\n\nTipCheckpoint: Verify Your Project Setup\n\n\n\nBefore moving to the next section, verify your setup is working by typing this command into the Console:\nCheck working directory - Should end with your project name\n\ngetwd()\n\nExpected output: Path ending in your project folder name (e.g., data-documentation-validation-exercise)\nIf this doesn’t show the correct path, review the steps above or ask for help before continuing.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Project Setup"
+    ]
+  },
+  {
+    "objectID": "01-tutorial-setup/page1.html#next-steps",
+    "href": "01-tutorial-setup/page1.html#next-steps",
+    "title": "Project Setup",
+    "section": "Next Steps",
+    "text": "Next Steps\nYour project is now set up with Quarto! In the next section, you’ll install the R packages needed for data documentation and get familiar with the Palmer Penguins dataset.",
+    "crumbs": [
+      "Home",
+      "Tutorial Setup",
+      "Project Setup"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Contributors\nThis site was authored by Reema Gupta and Malika Ihle.\n\n\nLicenses\nThe overall project is available under the CC BY-SA 4.0 license found at LICENSE; all code without any narrative text is also (at your option) available under the CC0 1.0 Universal license found at LICENSE-CODE.\nWhy two licenses? The CC BY-SA 4.0 license is for the content of the website, while the CC0 1.0 Universal license is for the code and configuration files. This is a common practice for websites that include code snippets and other content that may be reused in other projects, particularly because the CC BY-SA 4.0 license is not intended to be used with software.\n\n\nNotes\nThis tutorial was primarily written in 2025 using R 4.4+ with the {datawizard} package for automated data dictionary creation. Major changes to the {datawizard} package can be found at the package’s website for the most up-to-date information, and to confirm that our tutorial is not out-of-date.\n\n\n\n\n Back to topCitationBibTeX citation:@online{gupta2025,\n  author = {Gupta, Reema and Ihle, Malika},\n  title = {Data {Documentation} and {Validation} Using {R} {Tutorial}},\n  date = {2025-11-02},\n  url = {https://lmu-osc.github.io/data-dictionary-R/},\n  doi = {DOI HERE},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nGupta, Reema, and Malika Ihle. 2025. “Data Documentation and\nValidation Using R Tutorial.” LMU Open Science Center, November\n2. https://doi.org/DOI HERE."
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html",
+    "href": "02-data-dictionaries/page1.html",
+    "title": "Concepts & Manual Creation",
+    "section": "",
+    "text": "Without proper documentation, datasets become nearly impossible for others (or future you) to understand and use. In this hands-on section, you’ll learn to create data dictionaries manually and practice with real research data.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#what-is-a-data-dictionary",
+    "href": "02-data-dictionaries/page1.html#what-is-a-data-dictionary",
+    "title": "Concepts & Manual Creation",
+    "section": "What is a Data Dictionary?",
+    "text": "What is a Data Dictionary?\nA data dictionary is a structured document that provides comprehensive information about each variable in your dataset. Think of it as the “instruction manual” for your data, it tells anyone (including future you) exactly what each column means, how it was measured, and how to interpret the values.\n\n\n\n\n\n\nTipConsider This\n\n\n\nBefore we continue, reflect on your most recent research project. How would a colleague understand your data if you shared it with them today? What questions would they need to ask you?\n\n\n\nEssential Components\nEvery data dictionary should include:\n\nVariable Name: The exact column name in your data file (e.g., bill_length_mm)\nVariable Label: A human-readable name (e.g., “Bill Length”)\n\nDescription: Clear definition of what was measured (e.g., “Length of the penguin’s bill measured in millimeters”)\nData Type: The type of data stored (numeric, character, categorical, date)\nUnits: For numeric variables, the unit of measurement (mm, grams, years)\nValid Values: Expected range or categories (e.g., “0-100” or “male, female”)\nMissing Values: How missing data is coded (NA, -999, blank)",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#why-data-dictionaries-matter",
+    "href": "02-data-dictionaries/page1.html#why-data-dictionaries-matter",
+    "title": "Concepts & Manual Creation",
+    "section": "Why Data Dictionaries Matter",
+    "text": "Why Data Dictionaries Matter\n\nPreventing Critical Errors\nWithout documentation, researchers make dangerous assumptions. Is score a percentage (0-100) or raw points (0-50)? Is treatment coded as 1/0 or A/B? These ambiguities lead to analysis errors that can invalidate entire studies.\n\n\n\n\n\n\nNoteReal-World Example\n\n\n\nA research team spent months analyzing survey data where satisfaction was coded 1-5. They treated 5 as “very satisfied.” Only later did they discover that 1 was actually the highest satisfaction score. Their conclusions were completely backwards! This type of error with reverse-coded items is well-documented in research and can significantly impact study results (Hughes 2009).\n\n\n\n\nEnabling Collaboration\nWhen a new team member joins your project, a data dictionary gets them productive immediately. They can understand and use your data without hours of explanation or guesswork.\n\n\nSupporting FAIR Principles\nFAIR data must be Findable, Accessible, Interoperable, and Reusable (Wilkinson et al. 2016). A quality data dictionary directly supports all four principles by making your data understandable and usable by others.\n\n\n\n\n\n\nTipFAIR Data Management Tutorial\n\n\n\nFor more on FAIR principles and research data management concepts, check out our FAIR Data Management Tutorial.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#a-quick-example",
+    "href": "02-data-dictionaries/page1.html#a-quick-example",
+    "title": "Concepts & Manual Creation",
+    "section": "A Quick Example",
+    "text": "A Quick Example\nHere’s undocumented data on study habits and academic performance:\n\n\n\nstudent_id\nstudy_hrs\ntest_score\nmajor\nsatisfaction\nattend\n\n\n\n\n001\n15\n85\nPSYC\n4\nY\n\n\n002\n8\n72\nBIOL\n3\nN\n\n\n003\n22\n94\nPSYC\n5\nY\n\n\n004\nNA\n68\nMATH\n2\nY\n\n\n\nTo make sense of this data, and avoid misinterpretation, we have many questions:\n\nWhat time period do study_hrs cover? Per week? Per month?\nIs test_score out of 100? What test was this?\nWhat does the satisfaction scale mean? Is 1 low or high?\nWhat do Y/N in attend represent?\nWhy is there an NA in study_hrs for student 004?\n\nWith a data dictionary, these questions disappear. Here’s what documentation looks like:\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nLabel\nDescription\nType\nUnits\nValid Values\nMissing\n\n\n\n\nstudent_id\nStudent ID\nUnique identifier for each participant\ncharacter\nnone\n001-999\nnone\n\n\nstudy_hrs\nWeekly Study Hours\nSelf-reported hours spent studying per week\nnumeric\nhours\n0-168\nNA\n\n\ntest_score\nMidterm Score\nScore on standardized midterm exam\nnumeric\npoints\n0-100\nnone\n\n\nmajor\nAcademic Major\nStudent’s declared major field\ncategorical\nnone\nPSYC, BIOL, MATH, CHEM\nnone\n\n\nsatisfaction\nCourse Satisfaction\nRating of course satisfaction (5-point scale)\nnumeric\n1-5 scale\n1=very unsatisfied, 5=very satisfied\nnone\n\n\nattend\nLecture Attendance\nRegular attendance at lectures (&gt;80%)\ncategorical\nnone\nY=yes, N=no\nnone\n\n\n\nThis documentation clarifies everything at a glance, preventing misinterpretation and errors. Now we know that study_hrs are weekly hours, test_score is out of 100, and satisfaction is on a 1-5 scale. This makes analysis straightforward and reliable.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#choosing-your-documentation-tool",
+    "href": "02-data-dictionaries/page1.html#choosing-your-documentation-tool",
+    "title": "Concepts & Manual Creation",
+    "section": "Choosing Your Documentation Tool",
+    "text": "Choosing Your Documentation Tool\nBefore creating your data dictionary, select the tool that best fits your workflow. Here are three common approaches:\n\nSpreadsheet Software (Excel, Google Sheets, LibreOffice)\nBest for: Most research teams, easy sharing and collaboration\nCreate your dictionary table directly in a spreadsheet with columns for each essential component. Save as CSV for better compatibility with R and other analysis software.\nPros: Familiar interface, collaborative editing, easy to share\nCons: Can be tricky to track changes over time\n\n\nMarkdown Tables (in .md or .qmd files)\nBest for: Projects using Quarto or reproducible workflows\nUse plain text tables that render beautifully in Quarto documents. These are great for keeping your documentation in the same file as your analysis code.\nTemplate:\n| Variable Name | Label | Description | Type | Units | Valid Values | Missing |\n|---------------|-------|-------------|------|-------|--------------|---------|\n| variable1     |       |             |      |       |              |         |\n| variable2     |       |             |      |       |              |         |\nPros: Works seamlessly with Quarto, readable as plain text, keeps documentation with code\nCons: Less intuitive for non-technical collaborators\n\n\nWord Processors (Word, Google Docs)\nBest for: Teams preferring familiar document formats\nCreate a simple table with the essential columns, similar to spreadsheets but with more formatting options.\n| Variable Name | Label | Description | Type | Units | Valid Values | Missing |\n|---------------|-------|-------------|------|-------|--------------|---------|\n| species       |       |             |      |       |              |         |\n| bill_length_mm|       |             |      |       |              |         |\n| sex           |       |             |      |       |              |         |\n| year          |       |             |      |       |              |         |\nPros: Rich formatting, familiar to most researchers\nCons: Harder to integrate with R analysis code\n\n\n\n\n\n\nTipRecommendation for This Tutorial\n\n\n\nSince you’re learning with Quarto, try creating your data dictionary as a markdown table in a .qmd file. This will help you practice Quarto syntax and see how documentation integrates with your analysis code.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#exercise-document-the-palmer-penguins-data",
+    "href": "02-data-dictionaries/page1.html#exercise-document-the-palmer-penguins-data",
+    "title": "Concepts & Manual Creation",
+    "section": "Exercise: Document the Palmer Penguins Data",
+    "text": "Exercise: Document the Palmer Penguins Data\nNow apply what you’ve learned to the Palmer Penguins dataset from the previous section.\n\nStep 1: Load and Examine the Data\nExamine the data by either opening the CSV with a text editor or running this code in R to see what you’re working with:\n\nlibrary(readr)\npenguins_clean &lt;- read_csv(\"data/penguins_clean.csv\", show_col_types = FALSE)\nhead(penguins_clean)\n\n\n\nStep 2: Choose Your Documentation Tool\nPick one:\n\nSpreadsheet (Excel, Google Sheets): Open a new spreadsheet file\nMarkdown (recommended for this tutorial): Create a new file data/penguins_clean_dictionary.qmd in your project folder alongside your data\nWord processor: Open a new Word/Google Docs document\n\n\n\nStep 3: Create Your Data Dictionary\nCreate a data dictionary for these 4 variables: species, bill_length_mm, sex, year\nFor each variable, you’ll document:\n\nLabel: Human-readable name\nDescription: What does this measure or represent?\nType: categorical or numeric?\nUnits: What are the units (if numeric)?\nValid Values: What values are valid/expected?\nMissing: How are missing data coded?\n\n\n\n\n\n\n\nTipFor Spreadsheet Users (Excel, Google Sheets)\n\n\n\n\nOpen a new spreadsheet\nIn row 1, create these 7 column headers:\n\nVariable Name | Label | Description | Type | Units | Valid Values | Missing\n\nIn rows 2-5, add these variable names in the first column:\n\nspecies\nbill_length_mm\nsex\nyear\n\nFill in the remaining cells for each variable\n\n\n\n\n\n\n\n\n\nTipFor Word Processor Users (Word, Google Docs)\n\n\n\n\nOpen a new document\nInsert a table with 7 columns and 5 rows (Table → Insert Table → 7x5)\nIn row 1, add the column headers:\n\nVariable Name | Label | Description | Type | Units | Valid Values | Missing\n\nIn rows 2-5, add these variable names in the first column:\n\nspecies\nbill_length_mm\nsex\nyear\n\nFill in the remaining cells for each variable\n\n\n\n\n\n\n\n\n\nTipFor Quarto/Markdown Users (.qmd file)\n\n\n\n\nCreate a new file quarto file named penguins_clean_dictionary and save it in the data folder of your project.\nCopy and paste this markdown table into the file:\n\n| Variable Name  | Label | Description | Type | Units | Valid Values | Missing |\n|----------------|-------|-------------|------|-------|--------------|---------|\n| species        |       |             |      |       |              |         |\n| bill_length_mm |       |             |      |       |              |         |\n| sex            |       |             |      |       |              |         |\n| year           |       |             |      |       |              |         |\n\nFill in the empty cells for each variable\n\n\n\nComplete this exercise before looking at the solution below!\n\n\n\n\n\n\nImportantSolution: Palmer Penguins Data Dictionary\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nLabel\nDescription\nType\nUnits\nValid Values\nMissing\n\n\n\n\nspecies\nPenguin Species\nSpecies of penguin observed\ncategorical\nnone\nAdelie, Chinstrap, Gentoo\nnone\n\n\nbill_length_mm\nBill Length\nLength of the penguin’s bill (culmen) from tip to base\nnumeric\nmillimeters\n32.1-59.6\nNA\n\n\nsex\nPenguin Sex\nBiological sex of the penguin\ncategorical\nnone\nmale, female\nNA\n\n\nyear\nObservation Year\nYear the observation was recorded\nnumeric\nyear\n2007, 2008, 2009\nnone\n\n\n\nAdditional context:\n\nBill length represents the culmen length (the dorsal ridge of the bill)\nMissing values (NA) in bill_length_mm and sex occur when measurements couldn’t be obtained\nYear is numeric but only 2007-2009 are valid values",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "02-data-dictionaries/page1.html#when-manual-creation-is-most-effective",
+    "href": "02-data-dictionaries/page1.html#when-manual-creation-is-most-effective",
+    "title": "Concepts & Manual Creation",
+    "section": "When Manual Creation is Most Effective",
+    "text": "When Manual Creation is Most Effective\nManual creation works optimally when:\n\nYou have few variables\nYour data structure remains stable over time\nYou need detailed, contextual descriptions\nYou’re collaborating with non-technical team members\nYou require precise control over documentation details\n\nFor larger datasets manual creation can become tedious. The next section covers automated approaches using R packages, which can generate data dictionaries instantly and update them automatically when your data changes.",
+    "crumbs": [
+      "Home",
+      "Data Dictionaries",
+      "Concepts & Manual Creation"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Documentation and Validation using R",
+    "section": "",
+    "text": "Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-document-your-data",
+    "href": "index.html#why-document-your-data",
+    "title": "Data Documentation and Validation using R",
+    "section": "Why Document Your Data?",
+    "text": "Why Document Your Data?\nGood documentation enables reproducibility, facilitates collaboration, and meets increasing requirements from funding agencies and journals for open research practices. Data documentation is an essential pillar of good research practices which will allow for your research to have greater impact.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "Data Documentation and Validation using R",
+    "section": "What You’ll Learn",
+    "text": "What You’ll Learn\nBy the end of this tutorial, you will be able to:\n\nCreate data dictionaries that clearly describe your variables and datasets (both manually and automatically)\nUse summary statistics to identify data quality issues and understand your data’s characteristics\nImplement automated validation workflows to catch errors systematically\nGenerate professional reports that combine documentation, validation results, and code\n\nWe’ll use real research data (Palmer Penguins) and modern R packages to build a complete data documentation workflow.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Data Documentation and Validation using R",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThis tutorial assumes you have completed (or are familiar with) the following LMU OSC tutorials:\n\nIntroduction to R\nIntroduction to Quarto\n\nYou should also have:\n\nBasic R and RStudio familiarity\nExperience working with data frames\nUnderstanding of variables, observations, and data types",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#tutorial-structure",
+    "href": "index.html#tutorial-structure",
+    "title": "Data Documentation and Validation using R",
+    "section": "Tutorial Structure",
+    "text": "Tutorial Structure\n\n1. Tutorial Setup\nSet up your R project environment with Quarto. Install required packages and get familiar with the Palmer Penguins dataset.\n\n\n2. Data Dictionaries\nLearn to create comprehensive variable documentation:\n\nConcepts & Manual Creation: Understand what makes a good data dictionary and create one by hand\nAutomated Creation with R: Use the {datawizard} package to generate dictionaries automatically\n\n\n\n3. Data Validation\nImplement systematic quality checks to catch errors early:\n\nData Quality Concepts: Understand types of data issues and validation approaches\nSummary Statistics: Use base R functions to identify problems through descriptive statistics, create validation functions, and integrate checks into living documentation",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#example-dataset",
+    "href": "index.html#example-dataset",
+    "title": "Data Documentation and Validation using R",
+    "section": "Example Dataset",
+    "text": "Example Dataset\nWe’ll use the Palmer Penguins dataset throughout this tutorial. This dataset contains observations of three penguin species collected from islands in the Palmer Archipelago, Antarctica, including measurements of bill dimensions, flipper length, body mass, and other characteristics.\nYou’ll work with both a clean version (high-quality data) and a messy version (with realistic data quality issues) to practice identifying and fixing common problems.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#tutorial-navigation",
+    "href": "index.html#tutorial-navigation",
+    "title": "Data Documentation and Validation using R",
+    "section": "Tutorial Navigation",
+    "text": "Tutorial Navigation\nThe topics are accompanied by distinct boxes that are color-coded for their content:\n\n\n\n\n\n\nCautionOrange boxes contain information crucial for that topic\n\n\n\nThese highlight key concepts, important warnings, or critical information you need to understand.\n\n\n\n\n\n\n\n\nNoteBlue boxes contain excursions to related topics\n\n\n\nThese provide additional context, connections to other concepts, or deeper explanations for the curious learner.\n\n\n\n\n\n\n\n\nTipGreen boxes contain practical tips and guidance\n\n\n\nThese offer helpful advice, best practices, and shortcuts to make your work easier.\n\n\n\n\n\n\n\n\nImportantRed boxes contain solutions and are collapsed\n\n\n\nOnly open these if you want to see the solution! Try exercises on your own first.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Data Documentation and Validation using R",
+    "section": "Getting Started",
+    "text": "Getting Started\nReady to begin? Start with Tutorial Setup to configure your R environment.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html",
+    "href": "03-data-validation/page1.html",
+    "title": "Data Quality Concepts",
+    "section": "",
+    "text": "Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you’ve documented.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#why-data-validation-matters",
+    "href": "03-data-validation/page1.html#why-data-validation-matters",
+    "title": "Data Quality Concepts",
+    "section": "Why Data Validation Matters",
+    "text": "Why Data Validation Matters\nYour data dictionary describes what your data should look like. Data validation checks whether your actual data matches those expectations.\nThe problem: Your Palmer Penguins data dictionary documents the bill length and you know that it should be 30-60mm. But what if your dataset contains 3000mm or negative numbers? Your analysis would produce wrong results even though your documentation is perfect.\nThe solution: Validate data before analysis begins (proactive), not after you discover problems during analysis (reactive). This saves time and increases confidence in your results.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#see-data-quality-problems-in-action",
+    "href": "03-data-validation/page1.html#see-data-quality-problems-in-action",
+    "title": "Data Quality Concepts",
+    "section": "See Data Quality Problems in Action",
+    "text": "See Data Quality Problems in Action\nThe messy Palmer Penguins dataset you downloaded contains intentional errors. Let’s find them:\n\nStep 1: Browse the Data Manually\nOpen data/penguins_messy.csv in a text editor or spreadsheet program. Scroll through and look for anything that seems wrong. Don’t worry about finding everything, just get familiar with what’s there.\n\n\nStep 2: Use R to Check Systematically\n\nlibrary(readr)\nlibrary(dplyr)\n\npenguins_messy &lt;- read_csv(\"data/penguins_messy.csv\", show_col_types = FALSE)\n\n# Check unique values in categorical variables (shows all different values)\nunique(penguins_messy$species)\nunique(penguins_messy$island)\nunique(penguins_messy$sex)\nunique(penguins_messy$year)\n\n# Check ranges of numeric variables (shows minimum and maximum)\n# The na.rm = TRUE argument ignores missing values\nrange(penguins_messy$bill_length_mm, na.rm = TRUE)\nrange(penguins_messy$body_mass_g, na.rm = TRUE)\n\n\n\nStep 3: Compare to What’s Expected\nBased on your data dictionary from the previous sections, the data should have:\n\nSpecies: Adelie, Chinstrap, Gentoo (only these three, spelled correctly)\nYears: 2007, 2008, 2009 (only these three)\nSex: male, female, or NA (consistent coding)\nBill length: roughly 30-60mm (no negative numbers, no extreme values)\nBody mass: roughly 2,700-6,300g (biologically plausible)\n\n\n\n\n\n\n\nImportantExamples of Problems in the Messy Data\n\n\n\n\n\n\nSpecies: “Adelei” (typo), “Gentoo penguin” (extra text), “ADELIE” (wrong case)\nIsland: “Torgerson” (typo), “biscoe” (wrong case)\nBill length: -5.2 (negative), 250.5 (impossibly large), 999 (placeholder)\nBody mass: 15000g (too heavy), 500g (too light)\nSex: “M”, “F”, “Male”, “MALE”, “Female” (inconsistent coding)\nYear: 2020, 2006, 207, 20009 (invalid years)\n\nThese are exactly the types of problems that happen in real research data!",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#three-types-of-data-quality-issues",
+    "href": "03-data-validation/page1.html#three-types-of-data-quality-issues",
+    "title": "Data Quality Concepts",
+    "section": "Three Types of Data Quality Issues",
+    "text": "Three Types of Data Quality Issues\nThe problems you spotted fall into three categories:\n\nStructural: Wrong data types, typos in categories, inconsistent coding\n\nExample: “M” vs “male” vs “Male”\n\nContent: Out-of-range or impossible values\n\nExample: Bill length of 250mm or -5mm\n\nDomain: Scientifically implausible but technically valid\n\nExample: A penguin weighing 15,000g (way outside the normal 2,700-6,300g range)",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#connecting-validation-to-documentation",
+    "href": "03-data-validation/page1.html#connecting-validation-to-documentation",
+    "title": "Data Quality Concepts",
+    "section": "Connecting Validation to Documentation",
+    "text": "Connecting Validation to Documentation\nYour data dictionary defines the rules; validation checks them:\n\n\n\n\n\n\n\nData Dictionary Says\nValidation Checks\n\n\n\n\nBill length: logically 30-60mm\nAre all values in this range?\n\n\nSpecies: Adelie, Chinstrap, Gentoo\nAre there any typos or other values?\n\n\nBody mass: numeric\nIs it stored as numbers (not text)?\n\n\n\nWhen to validate: You could validate data either right after collection (to catch entry errors) or just before analysis (to ensure data quality). Ideally, do both! The first is proactive and catches errors early, the second ensures quality before results. And finally, validate before sharing data with others and make sure your documentation is up to date with any changes you make during validation.\n\n\n\n\n\n\nImportantKey Takeaway\n\n\n\nValidation isn’t optional, it’s part of doing research carefully. The messy penguins data shows how easy it is for errors to creep in. Catching them early (before analysis) is much easier than debugging mysterious results later.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
+    ]
+  },
+  {
+    "objectID": "03-data-validation/page1.html#next-steps",
+    "href": "03-data-validation/page1.html#next-steps",
+    "title": "Data Quality Concepts",
+    "section": "Next Steps",
+    "text": "Next Steps\nIn the next section, you’ll learn systematic techniques for spotting these problems using summary statistics in R. You’ll work with the messy penguins dataset to detect these errors.",
+    "crumbs": [
+      "Home",
+      "Data Validation",
+      "Data Quality Concepts"
     ]
   }
 ]
