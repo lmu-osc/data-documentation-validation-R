@@ -2,42 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lmu-osc.github.io/data-documentation-validation-R/about.html</loc>
-    <lastmod>2026-09-28T01:21:38.067Z</lastmod>
+    <lastmod>2026-10-02T06:58:44.543Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-documentation-validation-R/02-data-dictionaries/page2.html</loc>
-    <lastmod>2026-09-28T01:21:38.066Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/tutorial-setup/page-one.html</loc>
+    <lastmod>2026-10-02T06:58:44.556Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-documentation-validation-R/03-data-validation/page2.html</loc>
-    <lastmod>2026-09-28T01:21:38.067Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/data-validation/page-two.html</loc>
+    <lastmod>2026-10-02T06:58:44.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/data-validation/index.html</loc>
+    <lastmod>2026-10-02T06:58:44.545Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-documentation-validation-R/LICENSE.html</loc>
-    <lastmod>2026-09-28T01:21:38.067Z</lastmod>
+    <lastmod>2026-10-02T06:58:44.542Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-documentation-validation-R/01-tutorial-setup/page1.html</loc>
-    <lastmod>2026-09-28T01:21:38.066Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lmu-osc.github.io/data-documentation-validation-R/01-tutorial-setup/page2.html</loc>
-    <lastmod>2026-09-28T01:21:38.066Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/footer/privacy.html</loc>
+    <lastmod>2026-10-02T06:58:44.546Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-documentation-validation-R/index.html</loc>
-    <lastmod>2026-09-28T01:21:38.069Z</lastmod>
+    <lastmod>2026-10-02T06:58:44.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/data-dictionaries/page-one.html</loc>
+    <lastmod>2026-10-02T06:58:44.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/data-dictionaries/index.html</loc>
+    <lastmod>2026-10-02T06:58:44.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/data-dictionaries/page-two.html</loc>
+    <lastmod>2026-10-02T06:58:44.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/footer/imprint.html</loc>
+    <lastmod>2026-10-02T06:58:44.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/footer/accessibilty.html</loc>
+    <lastmod>2026-10-02T06:58:44.546Z</lastmod>
   </url>
   <url>
     <loc>https://lmu-osc.github.io/data-documentation-validation-R/LICENSE-CODE.html</loc>
-    <lastmod>2026-09-28T01:21:38.067Z</lastmod>
+    <lastmod>2026-10-02T06:58:44.542Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-documentation-validation-R/03-data-validation/page1.html</loc>
-    <lastmod>2026-09-28T01:21:38.066Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/data-validation/page-one.html</loc>
+    <lastmod>2026-10-02T06:58:44.545Z</lastmod>
   </url>
   <url>
-    <loc>https://lmu-osc.github.io/data-documentation-validation-R/02-data-dictionaries/page1.html</loc>
-    <lastmod>2026-09-28T01:21:38.066Z</lastmod>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/tutorial-setup/index.html</loc>
+    <lastmod>2026-10-02T06:58:44.556Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lmu-osc.github.io/data-documentation-validation-R/tutorial-setup/page-two.html</loc>
+    <lastmod>2026-10-02T06:58:44.556Z</lastmod>
   </url>
 </urlset>
