@@ -1,0 +1,5 @@
+---
+title: "Data Validation"
+---
+
+Understand the types of data quality issues and use summary statistics to detect them systematically.

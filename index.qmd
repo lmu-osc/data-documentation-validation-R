@@ -1,6 +1,16 @@
 ---
 title: "Data Documentation and Validation using R"
+subtitle: "Document, summarize, and validate research data with R"
+description: "A self-paced tutorial teaching data dictionaries, summary statistics, and automated validation workflows in R using the Palmer Penguins dataset."
 ---
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+library(downlit)
+library(xml2)
+```
 
 Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.
 
@@ -81,4 +91,29 @@ Only open these if you want to see the solution! Try exercises on your own first
 
 ## Getting Started
 
-Ready to begin? Start with [Tutorial Setup](01-tutorial-setup/page1.qmd) to configure your R environment.
+Ready to begin? Start with [Tutorial Setup](tutorial-setup/page-one.qmd) to configure your R environment.
+
+:::: {.columns}
+
+::: {.column width="47.5%"}
+
+::: {.callout-tip title="Support the LMU Open Science Center!"}
+
+**Like this tutorial? Be sure to give [the repository]({{< meta repo-url >}}) a star and [follow us on GitHub](https://github.com/lmu-osc)!**
+:::
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="47.5%"}
+
+
+::: {.callout-tip title="Questions about this tutorial?"}
+**If you have questions for the author of this tutorial, please take a look at the [About](about.qmd) page.**
+:::
+
+:::
+
+::::

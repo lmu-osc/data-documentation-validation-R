@@ -2,7 +2,7 @@
 
 Research data without proper documentation becomes a barrier to reproducibility and collaboration. This tutorial teaches you to document, summarize, and validate your research data using R, focusing on practical skills that make your work more transparent and reusable.
 
-**Tutorial website:** https://lmu-osc.github.io/data-dictionary-R/
+**Tutorial website:** https://lmu-osc.github.io/data-documentation-validation-R/
 
 ## What You'll Learn
 

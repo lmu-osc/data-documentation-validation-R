@@ -1,0 +1,5 @@
+---
+title: "Data Dictionaries"
+---
+
+Learn what makes a good data dictionary, then create one by hand and generate one automatically with R.

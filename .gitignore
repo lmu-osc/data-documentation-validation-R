@@ -58,6 +58,9 @@ rsconnect/
 .httr-oauth
 .quarto
 _site/
+**_files/
 
-# Tutorials should pull custom.scss from our central branding repo
-lmu-osc-custom.scss
+**/*.quarto_ipynb
+
+# ignore posi assistant settings
+.posit/assistant

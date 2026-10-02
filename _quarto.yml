@@ -1,30 +1,20 @@
 # Begin Project
 project:
-  type: website
-  pre-render: curl -O -L --insecure https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-custom.scss
-  post-render: rm lmu-osc-custom.scss
+  type: tutorial-template
+  # FYI: the tutorial-template project type is defined in the lmu-osc/tutorial-template extension
 # End Project
 
-
 # Begin Website
+repo-url: https://github.com/lmu-osc/data-documentation-validation-R
 website:
   title: "Data Documentation and Validation using R"
-  page-footer: 
-    center: "Copyright, 2024 Open Science Center at LMU Munich"
+  page-footer:
     border: false
-  search:
-    location: sidebar
+    center: © 2025 Reema Gupta, Malika Ihle. Published by LMU Open Science Center. Licensed under CC BY-SA 4.0.
   repo-url: https://github.com/lmu-osc/data-documentation-validation-R
-  repo-actions: [edit, issue]
-  back-to-top-navigation: true
-  page-navigation: true
-  favicon: assets/LMU_OSC_favicon.jpg
-  margin-header: |
-    ![](/assets/LMU_OSC_logo.svg){width="175"}
-  
-  
+
   navbar:
-    right: 
+    right:
       - about.qmd
     left:
       - href: index.qmd
@@ -33,57 +23,58 @@ website:
       - icon: github
         menu:
           - text: Source Code
-            url:  https://github.com/lmu-osc/data-documentation-validation-R
+            href: https://github.com/lmu-osc/data-documentation-validation-R
           - text: Report a Bug
-            url:  https://github.com/lmu-osc/data-documentation-validation-R/issues
+            href: https://github.com/lmu-osc/data-documentation-validation-R/issues
       - icon: house-heart
-        url: https://www.osc.uni-muenchen.de/index.html
-   
-        
+        url: https://www.osc.lmu.de/
+
   sidebar:
     style: "docked"
     contents:
       - text: "Overview"
         href: index.qmd
       - section: "Tutorial Setup"
+        href: tutorial-setup/index.qmd
         contents:
-          - href: 01-tutorial-setup/page1.qmd
+          - href: tutorial-setup/page-one.qmd
             text: "Project Setup"
-          - href: 01-tutorial-setup/page2.qmd
+          - href: tutorial-setup/page-two.qmd
             text: "Example Data & Tools"
       - section: "Data Dictionaries"
+        href: data-dictionaries/index.qmd
         contents:
-          - href: 02-data-dictionaries/page1.qmd
+          - href: data-dictionaries/page-one.qmd
             text: "Concepts & Manual Creation"
-          - href: 02-data-dictionaries/page2.qmd
+          - href: data-dictionaries/page-two.qmd
             text: "Automated Creation with R"
       - section: "Data Validation"
+        href: data-validation/index.qmd
         contents:
-          - href: 03-data-validation/page1.qmd
+          - href: data-validation/page-one.qmd
             text: "Data Quality Concepts"
-          - href: 03-data-validation/page2.qmd
+          - href: data-validation/page-two.qmd
             text: "Summary Statistics"
-
 # End Website
 
+# Begin Includes
+include-in-header:
+  - file: matomo-analytics.html
+# End Includes
 
 # Begin Format
+# use only if needed. the default format for `tutorial-template` projects is tutorial-template-html+tutorial
+# we recommend just extending the definition below if you need to make format changes
 format:
-  html:
-    theme: 
-      - cosmo
-      - lmu-osc-custom.scss
-    css: 
-      - https://raw.githubusercontent.com/lmu-osc/branding-resources/refs/heads/main/lmu-osc-styles.css
-    toc: true
-    fontsize: 13pt
-    code-overflow: wrap
-    grid:
-      sidebar-width: 300px
-    include-in-header:
-      - file: matomo-analytics.html
+  tutorial-template-html+tutorial:
+    css:
+      - footer/footer-style.css
+    include-after-body:
+      - file: footer/footer.html
 # End Format
 
 # Begin Editor
 editor: source
 # End Editor
+
+bibliography: references.bib

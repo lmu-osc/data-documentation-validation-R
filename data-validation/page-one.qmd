@@ -1,0 +1,113 @@
+---
+title: "Data Quality Concepts"
+
+---
+
+Now that you can create comprehensive data dictionaries, you have a clear map of what your data should look like. But how do you know if your actual data matches that map? This is where data validation comes in, systematically checking whether your data meets the expectations you've documented.
+
+::: {.callout-note}
+## What You'll Learn
+
+By the end of this section, you will:
+
+- Understand why data validation is essential for research quality
+- Recognize different types of data quality issues (structural, content, domain)
+- See actual problems in the messy Palmer Penguins dataset
+- Know when and how to integrate validation into your workflow
+:::
+
+## Why Data Validation Matters
+
+Your data dictionary describes what your data *should* look like. Data validation checks whether your actual data matches those expectations.
+
+**The problem**: Your Palmer Penguins data dictionary documents the bill length and you know that it should be 30-60mm. But what if your dataset contains 3000mm or negative numbers? Your analysis would produce wrong results even though your documentation is perfect.
+
+**The solution**: Validate data *before* analysis begins (proactive), not after you discover problems during analysis (reactive). This saves time and increases confidence in your results.
+
+## See Data Quality Problems in Action
+
+The messy Palmer Penguins dataset you downloaded contains intentional errors. Let's find them:
+
+### Step 1: Browse the Data Manually
+
+Open `data/penguins_messy.csv` in a text editor or spreadsheet program. Scroll through and look for anything that seems wrong. Don't worry about finding everything, just get familiar with what's there.
+
+### Step 2: Use R to Check Systematically
+
+```{r}
+#| eval: false
+
+library(readr)
+library(dplyr)
+
+penguins_messy <- read_csv("data/penguins_messy.csv", show_col_types = FALSE)
+
+# Check unique values in categorical variables (shows all different values)
+unique(penguins_messy$species)
+unique(penguins_messy$island)
+unique(penguins_messy$sex)
+unique(penguins_messy$year)
+
+# Check ranges of numeric variables (shows minimum and maximum)
+# The na.rm = TRUE argument ignores missing values
+range(penguins_messy$bill_length_mm, na.rm = TRUE)
+range(penguins_messy$body_mass_g, na.rm = TRUE)
+```
+
+### Step 3: Compare to What's Expected
+
+Based on your data dictionary from the previous sections, the data should have:
+
+- **Species**: Adelie, Chinstrap, Gentoo (only these three, spelled correctly)
+- **Years**: 2007, 2008, 2009 (only these three)
+- **Sex**: male, female, or NA (consistent coding)
+- **Bill length**: roughly 30-60mm (no negative numbers, no extreme values)
+- **Body mass**: roughly 2,700-6,300g (biologically plausible)
+
+::: {.callout-important collapse="true"}
+## Examples of Problems in the Messy Data
+
+- **Species**: "Adelei" (typo), "Gentoo penguin" (extra text), "ADELIE" (wrong case)
+- **Island**: "Torgerson" (typo), "biscoe" (wrong case)
+- **Bill length**: -5.2 (negative), 250.5 (impossibly large), 999 (placeholder)
+- **Body mass**: 15000g (too heavy), 500g (too light)
+- **Sex**: "M", "F", "Male", "MALE", "Female" (inconsistent coding)
+- **Year**: 2020, 2006, 207, 20009 (invalid years)
+
+These are exactly the types of problems that happen in real research data!
+:::
+
+## Three Types of Data Quality Issues
+
+The problems you spotted fall into three categories:
+
+1. **Structural**: Wrong data types, typos in categories, inconsistent coding
+   - Example: "M" vs "male" vs "Male"
+
+2. **Content**: Out-of-range or impossible values
+   - Example: Bill length of 250mm or -5mm
+
+3. **Domain**: Scientifically implausible but technically valid
+   - Example: A penguin weighing 15,000g (way outside the normal 2,700-6,300g range)
+
+## Connecting Validation to Documentation
+
+Your data dictionary defines the rules; validation checks them:
+
+| Data Dictionary Says | Validation Checks |
+|---------------------|-------------------|
+| Bill length: logically 30-60mm | Are all values in this range? |
+| Species: Adelie, Chinstrap, Gentoo | Are there any typos or other values? |
+| Body mass: numeric | Is it stored as numbers (not text)? |
+
+**When to validate**: You could validate data either right after collection (to catch entry errors) or just before analysis (to ensure data quality). Ideally, do both! The first is proactive and catches errors early, the second ensures quality before results. And finally, validate before sharing data with others and make sure your documentation is up to date with any changes you make during validation.
+
+::: {.callout-important}
+## Key Takeaway
+
+Validation isn't optional, it's part of doing research carefully. The messy penguins data shows how easy it is for errors to creep in. Catching them early (before analysis) is much easier than debugging mysterious results later.
+:::
+
+## Next Steps
+
+In the next section, you'll learn systematic techniques for spotting these problems using summary statistics in R. You'll work with the messy penguins dataset to detect these errors.
